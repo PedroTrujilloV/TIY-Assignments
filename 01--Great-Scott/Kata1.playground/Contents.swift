@@ -41,28 +41,39 @@ var Number1 = 0
 var Number2 = 0
 
 
-//: 2. *This is the first for loop that calculate the first number from 100 to 999  'numbers of 3 digits'*
-for var n1 = 10; n1 < 100; n1++
+//: 2. *This is the first  loop that calculate the first number from 100 to 999  'numbers of 3 digits'*
+for var n1 = 100; n1 < 1000; n1++
 {
-//: 3. *Second for loop to the second number from 100 to 999 to multipli by the first number: *
-    var n2 = 10
-    while n2 < 100
+//: 3. *Second  loop to the second number from 100 to 999 to multipli by the first number: *
+    var n2 = 100
+    while n2 < 1000
     {
 //: 4. *Multiply both numbers n1 x n2*
         palindrome = n1*n2
-//: 5. *Store too it in a temporal var*
+//: 5. *Store too it in a temporal var and Inicialization the temporals vars*
+        palTemp = palindrome
+        var nDigitsToSplit = 10 // 1 x max number of digits to split the temporal palindrome ex: 1234/1000
+        var sizeInt = 2 // number of digits of the int number
+//: 6. *Calculate the number of digits of the posible number*
+        while palTemp >= 10
+        {
+            palTemp  = Int(palTemp/nDigitsToSplit)
+            nDigitsToSplit*=10
+            sizeInt++
+        }
         palTemp = palindrome
         
-        var nDigitsToSplit = 1
-        var sizePal = palTemp
-        while sizePal >= 10
+        
+//: 7. *check if is the number of digits is odd to calculate the limit of last number of digits*
+        var limit = 1
+        if sizeInt % 2 == 0
         {
-            nDigitsToSplit*=10
-            sizePal  = Int(sizePal/nDigitsToSplit)
+            limit = 0
         }
-            while palTemp>=10
+//: 8. *look if this number is palindrome or not*
+            while palTemp > limit
             {
-                var front :Int  = Int(palTemp/nDigitsToSplit)
+                var front = palTemp/nDigitsToSplit
                 var rear = palTemp%10
                 
                 if front != rear
@@ -75,13 +86,14 @@ for var n1 = 10; n1 < 100; n1++
                     palTemp = palTemp/10
                 }
                 nDigitsToSplit/=10
-            }
-        if palTemp < 10
+           }
+//: 9 *Compare if the number is in limit of digits*
+        if palTemp == limit
         {
-//: 11 *Compare if the last palindrome is smaller than the new palindrome*
+//: 10 *Compare if the last palindrome is smaller than the new palindrome*
             if palindrome >= largestPal
             {
-//: 12 *If yes then replace the last palindrome by the new palindrome*
+//: 11 *If yes then replace the last palindrome by the new palindrome*
                 largestPal = palindrome
                 Number1 = n1
                 Number2 = n2
