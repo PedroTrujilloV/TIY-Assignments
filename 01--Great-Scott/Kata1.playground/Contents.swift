@@ -29,41 +29,50 @@ sumJointList
 
 //: ## Question 2
 //: ### Largest Palindrome Product
-//: A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99. Find the largest palindrome made from the product of two 3-digit numbers.
+//: A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99. Find the largest palindrome made from the product of two 3-digit numbers:
 
-var nDigits = 3
+//: 1. *Define the vars and temp vars to store the values all of them empty*
+
+//var nDigits = 3
 var palindrome = 0
 var palTemp = 0
 var arrayTemp = [Int]()
 var largestPal = 0
 
-
+//: 2. *This is the first for loop that calculate the first number from 100 to 999  'numbers of 3 digits'*
 for var n1 = 100; n1 < 1000; n1++
 {
+//: 3. *Second for loop to the second number from 100 to 999 to multipli by the first number: *
     for var n2 = 100; n2 < 1000; n2++
     {
+//: 4. *Multiply both numbers n1 x n2*
         palindrome = n1*n2
+//: 5. *Store too it in a temporal var*
           palTemp = palindrome
-        
+//: 6
         for var div=0 ;div<3; div++
         {
+//: 7 *While there is a number to split by 10*
               while palTemp > 0
               {
+//: 8 *Append the last number in the temporal array*
                   arrayTemp.append(palTemp%10)
+//: 9 *Split the number by 10 so we just have a number of less digits*
                   palTemp = palTemp/10
               }
+//: 10 *Compare the Number in the array with its reverse version if is same*
                 if arrayTemp.reverse() == arrayTemp
                 {
+//: 11 *Compare if the last palindrome is smaller than the new palindrome*
                     if largestPal < palindrome
                     {
+//: 12 *If yes then replace the last palindrome by the new palindrome*
                         largestPal = palindrome
                     }
                 }
-            //
-
         }
-        
     }
 }
+//: 13 *It shows the largest palindrome*
 largestPal
 
