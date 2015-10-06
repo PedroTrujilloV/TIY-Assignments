@@ -37,13 +37,16 @@ sumJointList
 var palindrome = 0
 var palTemp = 0
 var largestPal = 0
+var Number1 = 0
+var Number2 = 0
 
 
 //: 2. *This is the first for loop that calculate the first number from 100 to 999  'numbers of 3 digits'*
-for var n1 = 100; n1 < 1000; n1++
+for var n1 = 10; n1 < 100; n1++
 {
 //: 3. *Second for loop to the second number from 100 to 999 to multipli by the first number: *
-    for var n2 = 100; n2 < 1000; n2++
+    var n2 = 10
+    while n2 < 100
     {
 //: 4. *Multiply both numbers n1 x n2*
         palindrome = n1*n2
@@ -54,12 +57,11 @@ for var n1 = 100; n1 < 1000; n1++
         var sizePal = palTemp
         while sizePal >= 10
         {
-            nDigitsToSplit = nDigitsToSplit*10
+            nDigitsToSplit*=10
             sizePal  = Int(sizePal/nDigitsToSplit)
         }
             while palTemp>=10
             {
-                
                 var front :Int  = Int(palTemp/nDigitsToSplit)
                 var rear = palTemp%10
                 
@@ -72,20 +74,24 @@ for var n1 = 100; n1 < 1000; n1++
                     palTemp = palTemp - (front*nDigitsToSplit)
                     palTemp = palTemp/10
                 }
-                
                 nDigitsToSplit/=10
             }
         if palTemp < 10
         {
 //: 11 *Compare if the last palindrome is smaller than the new palindrome*
-            if largestPal < palindrome
+            if palindrome >= largestPal
             {
 //: 12 *If yes then replace the last palindrome by the new palindrome*
                 largestPal = palindrome
+                Number1 = n1
+                Number2 = n2
             }
         }
+        n2++
     }
 }
 //: 13 *It shows the largest palindrome*
 largestPal
+Number1
+Number2
 
