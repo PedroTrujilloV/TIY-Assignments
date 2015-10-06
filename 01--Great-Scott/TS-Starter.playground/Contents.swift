@@ -119,12 +119,12 @@ else
     print("Values are not equal.")
 }
 
-var moreCapitains = shipCaptains
-moreCapitains.append("Kathryn Janeway")
+var moreCaptains = shipCaptains
+moreCaptains.append("Kathryn Janeway")
 
-moreCapitains[3]
+moreCaptains[3]
 
-moreCapitains.removeFirst()
+moreCaptains.removeFirst()
 
 //: #### Array filtering
 
@@ -184,6 +184,10 @@ switch vegetable
 
 //: ## Comments
 
+
+//
+/**/
+
 // A single line comment is one with two slashes as the first characters
 /*
 A multi-line comment
@@ -195,21 +199,27 @@ is one that is bounded by
 
 import UIKit
 
-//class TestDataSource : NSObject, UITableViewDataSource
-//{
-//    let sortedCaptains = moreCaptains.sort()
-//
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-//    {
-//        return sortedCaptains.count
-//    }
-//
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-//    {
-//        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
-//
-//        let captainsName = sortedCaptains[indexPath.row]
-//        cell.textLabel?.text = "\(captainsName)"
-//        return cell
-//    }
-//}
+class TestDataSource : NSObject, UITableViewDataSource
+{
+    let sortedCaptains = moreCaptains.sort()
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return sortedCaptains.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+
+        let captainsName = sortedCaptains[indexPath.row]
+        cell.textLabel?.text = "\(captainsName)"
+        return cell
+    }
+}
+
+let testDataSource = TestDataSource()
+let tableView = UITableView(frame: CGRect (x: 0, y:0, width:320, height:320), style: .Plain)
+tableView.dataSource = testDataSource
+tableView.reloadData()
+

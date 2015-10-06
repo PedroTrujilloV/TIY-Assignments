@@ -36,8 +36,8 @@ sumJointList
 //var nDigits = 3
 var palindrome = 0
 var palTemp = 0
-var arrayTemp = [Int]()
 var largestPal = 0
+
 
 //: 2. *This is the first for loop that calculate the first number from 100 to 999  'numbers of 3 digits'*
 for var n1 = 100; n1 < 1000; n1++
@@ -48,28 +48,41 @@ for var n1 = 100; n1 < 1000; n1++
 //: 4. *Multiply both numbers n1 x n2*
         palindrome = n1*n2
 //: 5. *Store too it in a temporal var*
-          palTemp = palindrome
-//: 6
-        for var div=0 ;div<3; div++
+        palTemp = palindrome
+        
+        var nDigitsToSplit = 1
+        var sizePal = palTemp
+        while sizePal >= 10
         {
-//: 7 *While there is a number to split by 10*
-              while palTemp > 0
-              {
-//: 8 *Append the last number in the temporal array*
-                  arrayTemp.append(palTemp%10)
-//: 9 *Split the number by 10 so we just have a number of less digits*
-                  palTemp = palTemp/10
-              }
-//: 10 *Compare the Number in the array with its reverse version if is same*
-                if arrayTemp.reverse() == arrayTemp
+            nDigitsToSplit = nDigitsToSplit*10
+            sizePal  = Int(sizePal/nDigitsToSplit)
+        }
+            while palTemp>=10
+            {
+                
+                var front :Int  = Int(palTemp/nDigitsToSplit)
+                var rear = palTemp%10
+                
+                if front != rear
                 {
-//: 11 *Compare if the last palindrome is smaller than the new palindrome*
-                    if largestPal < palindrome
-                    {
-//: 12 *If yes then replace the last palindrome by the new palindrome*
-                        largestPal = palindrome
-                    }
+                    break
                 }
+                else
+                {
+                    palTemp = palTemp - (front*nDigitsToSplit)
+                    palTemp = palTemp/10
+                }
+                
+                nDigitsToSplit/=10
+            }
+        if palTemp < 10
+        {
+//: 11 *Compare if the last palindrome is smaller than the new palindrome*
+            if largestPal < palindrome
+            {
+//: 12 *If yes then replace the last palindrome by the new palindrome*
+                largestPal = palindrome
+            }
         }
     }
 }
