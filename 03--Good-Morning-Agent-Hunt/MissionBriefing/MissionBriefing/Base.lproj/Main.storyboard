@@ -46,6 +46,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TIYLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wri-5z-5cy">
+                                <rect key="frame" x="180" y="368" width="240" height="212"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -60,6 +63,8 @@
                             <constraint firstItem="jtP-jd-RpW" firstAttribute="top" secondItem="Srw-1D-n2h" secondAttribute="bottom" constant="15" id="aeB-na-YJ1"/>
                             <constraint firstItem="jtP-jd-RpW" firstAttribute="width" secondItem="Srw-1D-n2h" secondAttribute="width" id="hyR-bB-M7j"/>
                             <constraint firstItem="HG1-Gw-Dqf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iBQ-52-Pum"/>
+                            <constraint firstItem="wri-5z-5cy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ll9-Re-ZJ8"/>
+                            <constraint firstItem="wri-5z-5cy" firstAttribute="top" secondItem="7QM-Q4-MFO" secondAttribute="bottom" constant="12" id="nYB-Vj-fbJ"/>
                             <constraint firstItem="Y4Z-xP-bOK" firstAttribute="top" secondItem="HG1-Gw-Dqf" secondAttribute="bottom" constant="13" id="phb-RG-gtr"/>
                             <constraint firstItem="Srw-1D-n2h" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="qab-GL-aID"/>
                             <constraint firstItem="Srw-1D-n2h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="teC-wm-ef8"/>
@@ -70,4 +75,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="TIYLogo" width="240" height="212"/>
+    </resources>
 </document>
