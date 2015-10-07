@@ -11,6 +11,9 @@ import UIKit
 class MissionBriefingViewController: UIViewController
 {
     // Place IBOutlet properties below
+    @IBOutlet var textFieldn1:UITextField!
+    @IBOutlet var textFieldn2:UITextField!
+    
     
     
     override func viewDidLoad()
@@ -22,6 +25,9 @@ class MissionBriefingViewController: UIViewController
         // 3. The three UI elements need to be emptied on launch
         //    Hint: there is a string literal that represents empty
         //
+        
+        textFieldn1.text = ""
+        textFieldn2.text = ""
         
     }
     
