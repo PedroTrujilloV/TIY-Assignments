@@ -404,11 +404,11 @@ class Head: BodyPart
     var rightEye:Eye
     
     
-    init(color:String, visualCapacity:Double, positionLeft:Bool)
+    init(eyeColor:String, visualCapacity:Double)
     {
         self.brain = Brain()
-        self.leftEye = Eye(color: "Green", visualCapacity: 22.0, positionLeft: true)
-        self.rightEye = Eye(color: "Green", visualCapacity: 22.2, positionLeft: false)
+        self.leftEye = Eye(color: eyeColor, visualCapacity: visualCapacity, positionLeft: true)
+        self.rightEye = Eye(color: eyeColor, visualCapacity: visualCapacity, positionLeft: false)
         
        
         super.init( Name: "Head", id: 12)
@@ -433,3 +433,31 @@ class Head: BodyPart
         self.leftEye.visualCapacity = visualCapacity
     }
 }
+
+
+//: - **12. Class Torso**
+class Torso: BodyPart
+{
+    var head:Head
+    var heart:Heart
+    var stomach:Stomach
+    
+    init(color:String, visualCapacity:Double, positionLeft:Bool)
+    {
+        
+        self.head = Head(eyeColor:"Blue", visualCapacity:22.0)
+        self.heart = Heart(heartbeat: 30)
+        self.stomach = Stomach(empty: true, capacity: 40.0, digesting: false)
+        
+        super.init( Name: "Head", id: 12)
+        
+    }
+    
+    func getBodyPartID()->(head:Int, heart:Int, stomach:Int, brain: Int)
+    {
+        return (head:self.head.getId(), heart:self.heart.getId(), stomach:self.stomach.getId(), brain: self.head.brain.getId())
+    }
+    
+}
+
+
