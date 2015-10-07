@@ -33,10 +33,6 @@ class TipCalculator
     init(total: Double, taxPct: Double)
     {
         
-        123*999
-        
-        123*100
-        12345/1000
         
         self.total = total
         self.taxPct = taxPct
