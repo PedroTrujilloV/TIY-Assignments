@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,15 +18,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-1D-n2h">
-                                <rect key="frame" x="0.0" y="60" width="600" height="30"/>
+                                <rect key="frame" x="60" y="60" width="480" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jtP-jd-RpW">
+                                <rect key="frame" x="60" y="105" width="480" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG1-Gw-Dqf">
+                                <rect key="frame" x="228" y="149" width="144" height="30"/>
+                                <state key="normal" title="Authenticate"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4Z-xP-bOK">
+                                <rect key="frame" x="279" y="192" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-Q4-MFO">
+                                <rect key="frame" x="60" y="228" width="480" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="aH9-Hc-Rbg"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Y4Z-xP-bOK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3ks-Ag-bFh"/>
+                            <constraint firstItem="7QM-Q4-MFO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Ka-Jo-Lbd"/>
+                            <constraint firstItem="HG1-Gw-Dqf" firstAttribute="top" secondItem="jtP-jd-RpW" secondAttribute="bottom" constant="14" id="Cqh-LP-jSR"/>
+                            <constraint firstItem="jtP-jd-RpW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FVX-Yi-8rg"/>
+                            <constraint firstItem="HG1-Gw-Dqf" firstAttribute="width" secondItem="jtP-jd-RpW" secondAttribute="width" multiplier="0.3" id="RS8-Re-fpf"/>
+                            <constraint firstItem="7QM-Q4-MFO" firstAttribute="width" secondItem="jtP-jd-RpW" secondAttribute="width" id="Rdo-S7-LUa"/>
+                            <constraint firstItem="7QM-Q4-MFO" firstAttribute="top" secondItem="Y4Z-xP-bOK" secondAttribute="bottom" constant="15" id="UR0-Zn-1oA"/>
                             <constraint firstItem="Srw-1D-n2h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="URf-ga-UlP"/>
-                            <constraint firstItem="Srw-1D-n2h" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="qab-GL-aID"/>
+                            <constraint firstItem="jtP-jd-RpW" firstAttribute="top" secondItem="Srw-1D-n2h" secondAttribute="bottom" constant="15" id="aeB-na-YJ1"/>
+                            <constraint firstItem="jtP-jd-RpW" firstAttribute="width" secondItem="Srw-1D-n2h" secondAttribute="width" id="hyR-bB-M7j"/>
+                            <constraint firstItem="HG1-Gw-Dqf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iBQ-52-Pum"/>
+                            <constraint firstItem="Y4Z-xP-bOK" firstAttribute="top" secondItem="HG1-Gw-Dqf" secondAttribute="bottom" constant="13" id="phb-RG-gtr"/>
+                            <constraint firstItem="Srw-1D-n2h" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="qab-GL-aID"/>
                             <constraint firstItem="Srw-1D-n2h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="teC-wm-ef8"/>
                         </constraints>
                     </view>
