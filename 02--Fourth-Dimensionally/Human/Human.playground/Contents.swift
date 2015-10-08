@@ -435,29 +435,87 @@ class Head: BodyPart
 }
 
 
-//: - **12. Class Torso**
+//: - **13. Class Intestine**
+class Intestine: BodyPart
+{
+    
+    var full:Bool
+    var capacity:Double
+    var digesting:Bool
+    
+    init(full:Bool, capacity:Double, digesting:Bool)
+    {
+        self.full = full
+        self.capacity = capacity
+        self.digesting = digesting
+        super.init( Name: "Intestine", id: 13)
+    }
+    
+    func isFull()->Bool
+    {
+        return full
+    }
+    
+    func setDigesting()
+    {
+        self.digesting = !self.digesting
+    }
+    
+    func setCapacity(capacity:Double)
+    {
+        self.capacity = capacity
+    }
+}
+
+
+
+//: - **14. Class DegistiveSystem**
+class DigestiveSystem: BodyPart
+{
+   
+    var stomach:Stomach
+    var largeIntestine:Intestine
+    var smallIntestine:Intestine
+    
+    init(Capacity:Double, digesting: Bool)
+    {
+
+        self.stomach = Stomach(empty: true, capacity: Capacity, digesting: digesting)
+        largeIntestine = Intestine(full:true, capacity:Capacity*2, digesting:true)
+        smallIntestine = Intestine(full:false, capacity:3.0, digesting:true)
+        
+        super.init( Name: "DegistiveSystem", id: 14)
+        
+    }
+}
+
+
+
+//: - **15. Class Torso**
 class Torso: BodyPart
 {
     var head:Head
     var heart:Heart
-    var stomach:Stomach
+    var digestiveSystem:DigestiveSystem
     
-    init(color:String, visualCapacity:Double, positionLeft:Bool)
+    init(color:String, visualCapacity:Double, positionLeft:Bool, Capacity:Double)
     {
         
         self.head = Head(eyeColor:"Blue", visualCapacity:22.0)
         self.heart = Heart(heartbeat: 30)
-        self.stomach = Stomach(empty: true, capacity: 40.0, digesting: false)
+        self.digestiveSystem = DigestiveSystem(Capacity: Capacity, digesting: true)
         
-        super.init( Name: "Head", id: 12)
+        super.init( Name: "Torso", id: 15)
         
     }
     
     func getBodyPartID()->(head:Int, heart:Int, stomach:Int, brain: Int)
     {
-        return (head:self.head.getId(), heart:self.heart.getId(), stomach:self.stomach.getId(), brain: self.head.brain.getId())
+        return (head:self.head.getId(), heart:self.heart.getId(), stomach:self.digestiveSystem.stomach.getId(), brain: self.head.brain.getId())
     }
     
 }
+
+
 
 
