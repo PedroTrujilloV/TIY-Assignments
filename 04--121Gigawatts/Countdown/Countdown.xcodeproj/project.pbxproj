@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		68EA4D821BC6AFE700001B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EA4D811BC6AFE700001B6F /* AppDelegate.swift */; };
-		68EA4D841BC6AFE700001B6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EA4D831BC6AFE700001B6F /* ViewController.swift */; };
+		68EA4D841BC6AFE700001B6F /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EA4D831BC6AFE700001B6F /* CountdownViewController.swift */; };
 		68EA4D871BC6AFE700001B6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EA4D851BC6AFE700001B6F /* Main.storyboard */; };
 		68EA4D891BC6AFE700001B6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68EA4D881BC6AFE700001B6F /* Assets.xcassets */; };
 		68EA4D8C1BC6AFE700001B6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EA4D8A1BC6AFE700001B6F /* LaunchScreen.storyboard */; };
+		68EA4D941BC6CC2500001B6F /* TimerPickerViewControleler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EA4D931BC6CC2500001B6F /* TimerPickerViewControleler.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68EA4D7E1BC6AFE700001B6F /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68EA4D811BC6AFE700001B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68EA4D831BC6AFE700001B6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68EA4D831BC6AFE700001B6F /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		68EA4D861BC6AFE700001B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68EA4D881BC6AFE700001B6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68EA4D8B1BC6AFE700001B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68EA4D8D1BC6AFE700001B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68EA4D931BC6CC2500001B6F /* TimerPickerViewControleler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPickerViewControleler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				68EA4D811BC6AFE700001B6F /* AppDelegate.swift */,
-				68EA4D831BC6AFE700001B6F /* ViewController.swift */,
+				68EA4D931BC6CC2500001B6F /* TimerPickerViewControleler.swift */,
+				68EA4D831BC6AFE700001B6F /* CountdownViewController.swift */,
 				68EA4D851BC6AFE700001B6F /* Main.storyboard */,
 				68EA4D881BC6AFE700001B6F /* Assets.xcassets */,
 				68EA4D8A1BC6AFE700001B6F /* LaunchScreen.storyboard */,
@@ -134,7 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68EA4D841BC6AFE700001B6F /* ViewController.swift in Sources */,
+				68EA4D841BC6AFE700001B6F /* CountdownViewController.swift in Sources */,
+				68EA4D941BC6CC2500001B6F /* TimerPickerViewControleler.swift in Sources */,
 				68EA4D821BC6AFE700001B6F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
