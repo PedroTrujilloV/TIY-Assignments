@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CountdownViewController.swift
 //  Countdown
 //
 //  Created by Pedro Trujillo on 10/8/15.
