@@ -63,9 +63,11 @@ class NameViewController: UIViewController, UITextFieldDelegate
         if let name = nameTextField.text
         {
             rc = true
-            nameTextField.resignFirstResponder() // this guy desapear the keyboard and the focus in the text field :)
-            let nameComponents = name.characters.split(" ").map{String($0)}
-            messageLabel.text = "Hello, \(nameComponents[0])"
+            nameTextField.resignFirstResponder()
+            // this guy desapear the            keyboard and the focus in the text field :)
+            let nameComponents = String(name).characters.split(" ")
+            //let nameComponents = name.characters.split(" ").map{String($0)}
+            messageLabel.text = "Hello!!, \(String(nameComponents[0]))"
         }
         
         return rc

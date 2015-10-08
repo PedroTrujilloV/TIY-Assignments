@@ -8,11 +8,13 @@
 
 import UIKit
 
-class MissionBriefingViewController: UIViewController
+class MissionBriefingViewController: UIViewController, UITextFieldDelegate
 {
     // Place IBOutlet properties below
-    @IBOutlet var textFieldn1:UITextField!
-    @IBOutlet var textFieldn2:UITextField!
+    @IBOutlet var nameTextFieldn1:UITextField!
+    @IBOutlet var pswTextFieldn2:UITextField!
+    @IBOutlet var messageLable:UILabel!
+    @IBOutlet var mbTextView:UITextView!
     
     
     
@@ -26,8 +28,10 @@ class MissionBriefingViewController: UIViewController
         //    Hint: there is a string literal that represents empty
         //
         
-        textFieldn1.text = ""
-        textFieldn2.text = ""
+        nameTextFieldn1.text = ""
+        pswTextFieldn2.text = ""
+        messageLable.text = ""
+        mbTextView.text = "Please sing in to get the gif!, Por favor ingrese para recibir el regalo!"
         
     }
     
@@ -42,15 +46,19 @@ class MissionBriefingViewController: UIViewController
     @IBAction func authenticateAgent(sender: UIButton)
     {
         // This will cause the keyboard to dismiss when the authenticate button is tapped
-        if <#name text field property identifier goes here#>.isFirstResponder
+        
+        let greetingNameText = nameTextFieldn1.text
+        if (greetingNameText != nil)////<#name text field property identifier goes here#>.isFirstResponder
         {
-            <#name text field property identifier goes here#>.resignFirstResponder
+            nameTextFieldn1.resignFirstResponder()
+            //<#name text field property identifier goes here#>.resignFirstResponder
         }
         
         //
         // 4. Check whether there is text in BOTH the name and password textfields
         //
-        if <#?#>
+        
+        if nameTextFieldn1.text == "" || pswTextFieldn2.text == ""
         {
             //
             // 5. The greeting label needs to be populated with the the string "Good evening, Agent #", where # is the last name of
@@ -58,11 +66,10 @@ class MissionBriefingViewController: UIViewController
             //    name. Open the Apple Documentation and go to the page for NSString. There is a section in the left called "Dividing
             //    Strings". You should be able to find a method that allows you to break up a string using a delimiter. In our case,
             //    the delimiter would be a space character.
-            //
             
+            let greetingArray = String(greetingNameText).characters.split(" ")
             
-            
-            
+            messageLable.text = ("Good evening, Agent \(String(greetingArray[1]))")
             
             
             //
@@ -72,12 +79,11 @@ class MissionBriefingViewController: UIViewController
             //    Set the textview text property to the paragraph in "MissionBriefing.txt"
             //
             
-            
-            
-            
+             mbTextView.text = "This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(String(greetingArray[1])), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
             
             //
             // 7. The view's background color needs to switch to green to indicate a successful login by the agent.
+            
             //
             //    The color's RGB value is Red: 0.585, Green: 0.78, Blue: 0.188 with an alpha of 1. There is a class method on the
             //    UIColor class that returns a color object with custom defined RGBA values. Open the documentation and look for a
@@ -86,6 +92,7 @@ class MissionBriefingViewController: UIViewController
             //    Once you have the color object, you should be able to set the view's background color to this object.
             //
             
+            view.backgroundColor = UIColor(red: 0.585, green: 0.78, blue: 0.188, alpha: 1)
             
             
             
@@ -103,6 +110,7 @@ class MissionBriefingViewController: UIViewController
             //
             //    Once you have the color object, you should be able to set the view's background color to this object.
             //
+            view.backgroundColor = UIColor(red: 0.78, green: 0.188, blue: 0.188, alpha: 1)
             
             
             
