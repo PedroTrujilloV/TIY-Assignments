@@ -46,7 +46,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=":)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-Q4-MFO">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text=":)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-Q4-MFO">
                                 <rect key="frame" x="60" y="228" width="480" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="aH9-Hc-Rbg"/>

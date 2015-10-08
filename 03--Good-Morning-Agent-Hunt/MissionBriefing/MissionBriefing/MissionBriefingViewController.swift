@@ -48,13 +48,13 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
         // This will cause the keyboard to dismiss when the authenticate button is tapped
         
         let greetingNameText = nameTextFieldn1.text
-        if (greetingNameText != nil)////<#name text field property identifier goes here#>.isFirstResponder
+        if nameTextFieldn1.isFirstResponder()////<#name text field property identifier goes here#>.isFirstResponder
         {
             nameTextFieldn1.resignFirstResponder()
             //<#name text field property identifier goes here#>.resignFirstResponder
         }
-        let greetingNameText2 = pswTextFieldn2.text
-        if (greetingNameText2 != nil)////<#name text field property identifier goes here#>.isFirstResponder
+        
+        if pswTextFieldn2.isFirstResponder()////<#name text field property identifier goes here#>.isFirstResponder
         {
             pswTextFieldn2.resignFirstResponder()
             //<#name text field property identifier goes here#>.resignFirstResponder
@@ -63,7 +63,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
         // 4. Check whether there is text in BOTH the name and password textfields
         //
         
-        if nameTextFieldn1.text != "" || pswTextFieldn2.text != ""
+        if nameTextFieldn1.text != "" && pswTextFieldn2.text != ""
         {
             //
             // 5. The greeting label needs to be populated with the the string "Good evening, Agent #", where # is the last name of
@@ -84,7 +84,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
             //    Set the textview text property to the paragraph in "MissionBriefing.txt"
             //
             
-             mbTextView.text = "This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(String(greetingArray[1])), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
+             mbTextView.text = "This mission will be and arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(String(greetingArray[1])), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
             
             //
             // 7. The view's background color needs to switch to green to indicate a successful login by the agent.
