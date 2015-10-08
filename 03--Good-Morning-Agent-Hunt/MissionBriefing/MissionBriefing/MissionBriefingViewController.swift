@@ -113,6 +113,9 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
             //
             view.backgroundColor = UIColor(red: 0.78, green: 0.188, blue: 0.188, alpha: 1)
             
+            mbTextView.text = "Please sing in to get the gif!, Por favor ingrese para recibir el regalo!"
+            
+            
             
         }
     }
