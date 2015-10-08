@@ -53,7 +53,12 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
             nameTextFieldn1.resignFirstResponder()
             //<#name text field property identifier goes here#>.resignFirstResponder
         }
-        
+        let greetingNameText2 = pswTextFieldn2.text
+        if (greetingNameText2 != nil)////<#name text field property identifier goes here#>.isFirstResponder
+        {
+            pswTextFieldn2.resignFirstResponder()
+            //<#name text field property identifier goes here#>.resignFirstResponder
+        }
         //
         // 4. Check whether there is text in BOTH the name and password textfields
         //
@@ -94,10 +99,6 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
             
             view.backgroundColor = UIColor(red: 0.585, green: 0.78, blue: 0.188, alpha: 1)
             
-            
-            
-            
-            
         }
         else
         {
@@ -111,10 +112,6 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
             //    Once you have the color object, you should be able to set the view's background color to this object.
             //
             view.backgroundColor = UIColor(red: 0.78, green: 0.188, blue: 0.188, alpha: 1)
-            
-            
-            
-            
             
             
         }
