@@ -58,7 +58,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
         // 4. Check whether there is text in BOTH the name and password textfields
         //
         
-        if nameTextFieldn1.text == "" || pswTextFieldn2.text == ""
+        if nameTextFieldn1.text != "" || pswTextFieldn2.text != ""
         {
             //
             // 5. The greeting label needs to be populated with the the string "Good evening, Agent #", where # is the last name of
