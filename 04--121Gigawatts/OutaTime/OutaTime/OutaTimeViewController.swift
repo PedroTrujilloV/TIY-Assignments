@@ -83,8 +83,8 @@ class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
     func setPresentTime()
     {
         self.currentDate = NSDate()
-        self.dateFormatter.dateStyle = .ShortStyle
-        self.dateFormatter.dateFormat = "MM dd, yyyy" // Set the way the date should be displayed
+        self.dateFormatter.dateStyle = .MediumStyle
+        self.dateFormatter.dateFormat = "MMM dd, yyyy" // Set the way the date should be displayed
         //print(dateFormatter.stringFromDate(currentDate))
         setPresentTimeLable(self.dateFormatter.stringFromDate(currentDate))
     }
