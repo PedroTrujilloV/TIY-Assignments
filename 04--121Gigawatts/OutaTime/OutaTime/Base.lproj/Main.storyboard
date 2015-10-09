@@ -79,6 +79,9 @@
                                 <rect key="frame" x="155" y="514" width="291" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="TRAVEL BACK"/>
+                                <connections>
+                                    <action selector="travelBackAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nQ7-we-fHT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="JUL 20 2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ial-tn-lgR">
                                 <rect key="frame" x="165" y="179" width="270" height="55"/>

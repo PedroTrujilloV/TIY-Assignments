@@ -22,6 +22,7 @@ class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
     @IBOutlet var presentTimeLabel:UILabel!
     @IBOutlet var lastTimeDeparted:UILabel!
     @IBOutlet var speedLabel:UILabel!
+ //   @IBOutlet var travelBackButton:UIButton!
     
     //MARK: - Constants
     let dateFormatter : NSDateFormatter = NSDateFormatter()
@@ -40,7 +41,7 @@ class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
         lasTimeDep = "--- -- ----"
         setDestinationLabel("--- -- ----")
         setPresentTime()
-        setCurrentSpeed(0)
+        currenSpeed = 0
         lasTimeDep = dateFormatter.stringFromDate(currentDate)
         //setLastTimeDepart(dateFormatter.stringFromDate(currentDate))
        
@@ -75,6 +76,8 @@ class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
         lasTimeDep = datePickerDateString
     }
     
+    
+    
     //MARK: - Set functions
     
     func setPresentTime()
@@ -96,10 +99,21 @@ class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
         presentTimeLabel.text = dateStr
     }
     
-    func setCurrentSpeed(speed:Int)
+    func setCurrentSpeed_UI()
     {
-        self.currenSpeed = speed
-        speedLabel.text = "\(String(currenSpeed)) MPH"
+        if currenSpeed <= 88
+        {
+            self.currenSpeed = self.currenSpeed + 1
+            speedLabel.text = "\(String(currenSpeed)) MPH"
+        }
+        else
+        {
+            stopTimer()
+            lastTimeDeparted.text = presentTimeLabel.text
+            presentTimeLabel.text = destinationTimeLabel.text
+            
+            currenSpeed = 0
+        }
     }
     
     func setLastTimeDepart()
@@ -108,6 +122,31 @@ class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
     }
     
     //MARK: - Get functions
+    
+    //MARK: - Actions
+    
+
+    @IBAction func travelBackAction(sender: UIButton)
+    {
+       
+            startTimer()
+    }
+    
+    
+    //MARK: - Private
+    
+    private func startTimer()
+    {
+        timerBack = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "setCurrentSpeed_UI", userInfo: nil, repeats: true)
+    }
+    
+    private func stopTimer()
+    {
+        timerBack?.invalidate()
+        timerBack = nil
+    }
+    
+    
 
 
 }
