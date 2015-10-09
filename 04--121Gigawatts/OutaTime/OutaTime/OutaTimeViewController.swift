@@ -9,10 +9,16 @@
 import UIKit
 
 
-class OutaTimeViewController: UIViewController
+@objc protocol TimeCircuitsDelegate
+{
+    func dateWasPicked(datePickerDateString:String)
+}
+
+
+class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
 {
     //MARK: - IBOutles
-    @IBOutlet var destinationTimeLabelr:UILabel!
+    @IBOutlet var destinationTimeLabel:UILabel!
     @IBOutlet var presentTimeLabel:UILabel!
     @IBOutlet var lastTimeDeparted:UILabel!
     @IBOutlet var speedLabel:UILabel!
@@ -23,25 +29,53 @@ class OutaTimeViewController: UIViewController
     //MARK: - Variables
     var currentDate : NSDate!
     var currenSpeed : Int!
+    var lasTimeDep: String!
+    var timerBack: NSTimer?
 
     override func viewDidLoad()
     {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        lasTimeDep = "--- -- ----"
+        setDestinationLabel("--- -- ----")
         setPresentTime()
         setCurrentSpeed(0)
-        setLastTimeDepart(dateFormatter.stringFromDate(currentDate))
+        lasTimeDep = dateFormatter.stringFromDate(currentDate)
+        //setLastTimeDepart(dateFormatter.stringFromDate(currentDate))
        
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: Set functions
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ShowTimeCircuitsSegue"
+        {
+            let datePickerVC = segue.destinationViewController as! TimeCircuitsViewController
+            datePickerVC.delegate = self
+        }
+    }
+    
+    
+    //MARK: - Delegate
+    
+    func dateWasPicked(datePickerDateString:String)
+    {
+        print("Outa..")
+        print(datePickerDateString)
+        setDestinationLabel(datePickerDateString)
+        setLastTimeDepart()
+        lasTimeDep = datePickerDateString
+    }
+    
+    //MARK: - Set functions
     
     func setPresentTime()
     {
@@ -49,7 +83,17 @@ class OutaTimeViewController: UIViewController
         self.dateFormatter.dateStyle = .ShortStyle
         self.dateFormatter.dateFormat = "MM dd, yyyy" // Set the way the date should be displayed
         //print(dateFormatter.stringFromDate(currentDate))
-        presentTimeLabel.text = dateFormatter.stringFromDate(currentDate)
+        setPresentTimeLable(self.dateFormatter.stringFromDate(currentDate))
+    }
+    
+    func setDestinationLabel(dateStr:String)
+    {
+        destinationTimeLabel.text = dateStr
+    }
+    
+    func setPresentTimeLable(dateStr:String)
+    {
+        presentTimeLabel.text = dateStr
     }
     
     func setCurrentSpeed(speed:Int)
@@ -58,12 +102,12 @@ class OutaTimeViewController: UIViewController
         speedLabel.text = "\(String(currenSpeed)) MPH"
     }
     
-    func setLastTimeDepart(lasTimeDep:String)
+    func setLastTimeDepart()
     {
         lastTimeDeparted.text = lasTimeDep
     }
     
-    //MARK: Get functions
+    //MARK: - Get functions
 
 
 }

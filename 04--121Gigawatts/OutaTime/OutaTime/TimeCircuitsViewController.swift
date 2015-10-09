@@ -19,6 +19,7 @@ class TimeCircuitsViewController: UIViewController
     
     //MARK: - Variables
     var datePickerString:String!
+    var delegate: TimeCircuitsDelegate?
     
     let dateFormater: NSDateFormatter = NSDateFormatter()
     //let timeFormater: NSDateFormatter = NSDateFormatter()
@@ -34,6 +35,14 @@ class TimeCircuitsViewController: UIViewController
         setDateFormatter()
 
         
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        delegate?.dateWasPicked(datePickerString)
+        print("TimeCircuits")
+        print(datePickerString)
     }
     
     override func didReceiveMemoryWarning() {
