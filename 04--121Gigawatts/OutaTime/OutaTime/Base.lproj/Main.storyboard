@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="digital-7.ttf">
+            <string>Digital-7</string>
+            <string>Digital-7</string>
+            <string>Digital-7</string>
+            <string>Digital-7</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--OutaTime-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="OutaTime" id="BYZ-38-t0r" customClass="OutaTimeViewController" customModule="OutaTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESTINATION TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAC-39-LDF">
+                                <rect key="frame" x="186" y="36" width="229" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JAN 01 2000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AE-Jk-9FU">
+                                <rect key="frame" x="165" y="76" width="270" height="55"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="60"/>
+                                <color key="textColor" red="0.96078437566757202" green="0.0" blue="0.086274512112140656" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESENT TIME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR9-lj-Ljo">
+                                <rect key="frame" x="212" y="139" width="177" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST TIME DEPARTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eij-sl-I47">
+                                <rect key="frame" x="169" y="249" width="263" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--- -- ----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x3-Wp-Bqg">
+                                <rect key="frame" x="176" y="289" width="249" height="55"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="60"/>
+                                <color key="textColor" red="0.95686280727386475" green="0.63529413938522339" blue="0.22745099663734436" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPEED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dx-kx-r83">
+                                <rect key="frame" x="260" y="360" width="80" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 mph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL3-UF-aJX">
+                                <rect key="frame" x="235" y="400" width="130" height="55"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="60"/>
+                                <color key="textColor" red="0.96078437569999997" green="0.0" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzY-51-eca">
+                                <rect key="frame" x="154" y="461" width="292" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="SET DESTINATION TIME"/>
+                                <connections>
+                                    <segue destination="Lcg-IV-3ly" kind="show" id="QOt-f1-UAO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlu-6L-dVj">
+                                <rect key="frame" x="155" y="514" width="291" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="TRAVEL BACK"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUL 20 2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ial-tn-lgR">
+                                <rect key="frame" x="165" y="179" width="270" height="55"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="60"/>
+                                <color key="textColor" red="0.95686280729999995" green="0.92941182850000004" blue="0.29803922770000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Eij-sl-I47" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1It-JO-3zH"/>
+                            <constraint firstItem="kAC-39-LDF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="2B2-Aw-5Va"/>
+                            <constraint firstItem="0AE-Jk-9FU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Do-wT-9j4"/>
+                            <constraint firstItem="8x3-Wp-Bqg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5i4-WF-hLr"/>
+                            <constraint firstItem="Dlu-6L-dVj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5lq-9c-awP"/>
+                            <constraint firstItem="Ial-tn-lgR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9kd-kY-eIo"/>
+                            <constraint firstItem="8x3-Wp-Bqg" firstAttribute="top" secondItem="Eij-sl-I47" secondAttribute="bottom" constant="8" id="D8c-Zw-xAV"/>
+                            <constraint firstItem="eR9-lj-Ljo" firstAttribute="top" secondItem="0AE-Jk-9FU" secondAttribute="bottom" constant="8" id="Kxu-gD-nNO"/>
+                            <constraint firstItem="Eij-sl-I47" firstAttribute="top" secondItem="Ial-tn-lgR" secondAttribute="bottom" constant="15" id="NHj-BG-K6X"/>
+                            <constraint firstItem="eR9-lj-Ljo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O0w-9J-Th6"/>
+                            <constraint firstItem="kAC-39-LDF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TH7-b0-h6y"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dlu-6L-dVj" secondAttribute="bottom" constant="41" id="WV0-5K-3cG"/>
+                            <constraint firstItem="XL3-UF-aJX" firstAttribute="top" secondItem="8dx-kx-r83" secondAttribute="bottom" constant="8" id="chW-of-tGr"/>
+                            <constraint firstItem="Dlu-6L-dVj" firstAttribute="top" secondItem="UzY-51-eca" secondAttribute="bottom" constant="8" id="dDm-VO-uKu"/>
+                            <constraint firstItem="0AE-Jk-9FU" firstAttribute="top" secondItem="kAC-39-LDF" secondAttribute="bottom" constant="8" id="fc5-N3-dJr"/>
+                            <constraint firstItem="UzY-51-eca" firstAttribute="trailing" secondItem="Dlu-6L-dVj" secondAttribute="trailing" id="i3m-7k-3Ns"/>
+                            <constraint firstItem="Ial-tn-lgR" firstAttribute="top" secondItem="eR9-lj-Ljo" secondAttribute="bottom" constant="8" id="mcA-4K-XTV"/>
+                            <constraint firstItem="8dx-kx-r83" firstAttribute="top" secondItem="8x3-Wp-Bqg" secondAttribute="bottom" constant="16" id="v1J-LY-BYF"/>
+                            <constraint firstItem="8dx-kx-r83" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w8T-CT-4gh"/>
+                            <constraint firstItem="XL3-UF-aJX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y18-vH-bqz"/>
+                            <constraint firstItem="UzY-51-eca" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zAt-J4-tCM"/>
+                            <constraint firstItem="UzY-51-eca" firstAttribute="top" secondItem="XL3-UF-aJX" secondAttribute="bottom" constant="6" id="zbp-S7-dCf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="zbp-S7-dCf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="destinationTimeLabelr" destination="0AE-Jk-9FU" id="BwO-a8-vIi"/>
+                        <outlet property="lastTimeDeparted" destination="8x3-Wp-Bqg" id="ynA-eE-uQ1"/>
+                        <outlet property="presentTimeLabel" destination="Ial-tn-lgR" id="d2z-CC-K0G"/>
+                        <outlet property="speedLabel" destination="XL3-UF-aJX" id="cmI-HI-sTh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="354"/>
+        </scene>
+        <!--Time Circuits View Controller-->
+        <scene sceneID="47P-ns-trN">
+            <objects>
+                <viewController id="Lcg-IV-3ly" customClass="TimeCircuitsViewController" customModule="OutaTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eWA-h0-lNG"/>
+                        <viewControllerLayoutGuide type="bottom" id="r4E-0A-Sl1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sUa-Cl-PUW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="QuD-fl-v1I">
+                                <rect key="frame" x="60" y="192" width="480" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.023529414087533951" green="0.56862747669219971" blue="0.9647059440612793" alpha="1" colorSpace="deviceRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="466027840.949224">
+                                    <!--2015-10-08 20:10:40 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerChange:" destination="Lcg-IV-3ly" eventType="valueChanged" id="cBU-RF-8WS"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QuD-fl-v1I" firstAttribute="centerX" secondItem="sUa-Cl-PUW" secondAttribute="centerX" id="f5P-Bv-M0m"/>
+                            <constraint firstItem="QuD-fl-v1I" firstAttribute="width" secondItem="sUa-Cl-PUW" secondAttribute="width" multiplier="0.8" id="hGA-6j-jpH"/>
+                            <constraint firstItem="QuD-fl-v1I" firstAttribute="centerY" secondItem="sUa-Cl-PUW" secondAttribute="centerY" id="pS5-UP-EQM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aNH-mq-A92" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999" y="354"/>
+        </scene>
+    </scenes>
+</document>
