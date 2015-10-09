@@ -11,7 +11,13 @@ import UIKit
 
 class TimeCircuitsViewController: UIViewController
 {
+    //MARK: - IBOutlets
     @IBOutlet var datePicker:UIDatePicker!
+    
+    //MARK: - Constants
+    let dateFormatter : NSDateFormatter = NSDateFormatter()
+    
+    //MARK: - Variables
     var datePickerString:String!
     
     let dateFormater: NSDateFormatter = NSDateFormatter()
@@ -35,12 +41,14 @@ class TimeCircuitsViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Set Date 
+    //MARK: - Set funcions 
     
     func setDateFormatter()
     {
-        dateFormater.dateStyle = NSDateFormatterStyle.ShortStyle
-        //datePickerString = dateFormater.stringFromDate(datePicker.date)
+        
+        self.dateFormatter.dateStyle = .ShortStyle
+        self.dateFormatter.dateFormat = "MM dd, yyyy"
+        datePickerString = dateFormatter.stringFromDate(datePicker.date)
     }
     
     //MARK: - Actions

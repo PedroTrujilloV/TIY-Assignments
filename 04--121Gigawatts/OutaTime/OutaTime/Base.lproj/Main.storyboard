@@ -160,6 +160,9 @@
                             <constraint firstItem="QuD-fl-v1I" firstAttribute="centerY" secondItem="sUa-Cl-PUW" secondAttribute="centerY" id="pS5-UP-EQM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="QuD-fl-v1I" id="J4w-kd-beB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aNH-mq-A92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

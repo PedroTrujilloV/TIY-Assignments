@@ -16,7 +16,11 @@ import UIKit
 class CountdownViewController: UIViewController, TimerPickerDelegate
 {
 
+    @IBOutlet weak var starStopButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
+    var timer:NSTimer?
+    var paused = false
+    var originalCount = 60
     
     override func viewDidLoad()
     {
@@ -43,8 +47,68 @@ class CountdownViewController: UIViewController, TimerPickerDelegate
     
     func timerWasChosen(timerCount: Int)
     {
-        countLabel.text = "\(timerCount)"
+        originalCount = timerCount
+        countLabel.text = "\(originalCount)"
     }
+    
+    //MARK: - Action Handlers
+    
+    @IBAction func startStopTapped(sender: UIButton)
+    {
+      
+        
+        startTimer()
+        
+    }
+    
+    @IBAction func resetTapped(sender: UIButton)
+    {
+        stopTimer()
+        countLabel.text = "\(originalCount)"
+        view.backgroundColor = UIColor.whiteColor()
+    }
+    
+    //MARK: Private
+    
+    private func startTimer()
+    {
+        
+        
+         if timer == nil
+         {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateUI", userInfo: nil, repeats: true)
+            starStopButton.setTitle("Pause", forState: UIControlState.Normal)
+        }
+        else
+         {
+            stopTimer()
+            starStopButton.setTitle("Start", forState: UIControlState.Normal)
+        }
+        
+    }
+    
+    private func stopTimer()
+    {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func updateUI()
+    {
+        
+        let newCount = Int(countLabel.text!)! - 1
+        countLabel.text  = String(newCount)
+        
+        if newCount == 0
+        {
+            view.backgroundColor = UIColor.redColor()
+            stopTimer()
+        }
+    
+        
+    }
+    
+    
 
 }
 
