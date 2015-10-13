@@ -71,6 +71,7 @@ class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
     {
         print("Outa..")
         print(datePickerDateString)
+        
         setDestinationLabel(datePickerDateString)
         setLastTimeDepart()
         lasTimeDep = datePickerDateString

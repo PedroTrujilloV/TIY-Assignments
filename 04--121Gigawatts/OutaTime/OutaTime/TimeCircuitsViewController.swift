@@ -41,6 +41,8 @@ class TimeCircuitsViewController: UIViewController
     {
         super.viewWillDisappear(animated)
         delegate?.dateWasPicked(datePickerString)
+        
+        
         print("TimeCircuits")
         print(datePickerString)
     }

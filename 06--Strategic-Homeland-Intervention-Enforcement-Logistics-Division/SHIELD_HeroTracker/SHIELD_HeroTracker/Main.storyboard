@@ -53,7 +53,7 @@
         <!--Hero Detail View Controller-->
         <scene sceneID="cF0-ne-MMa">
             <objects>
-                <viewController id="3t2-a8-U8w" customClass="HeroDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HeroDetailViewController" id="3t2-a8-U8w" customClass="HeroDetailViewController" customModule="SHIELD_HeroTracker" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KzE-mu-sQC"/>
                         <viewControllerLayoutGuide type="bottom" id="k6u-PE-SB2"/>

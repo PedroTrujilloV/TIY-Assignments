@@ -10,11 +10,50 @@ import Foundation
 
 import UIKit
 
-class HeroDetailViewController: UIViewController
+
+
+
+
+class HeroDetailViewController: UIViewController//, HeroDetailDelegate
 {
     @IBOutlet var nameAgentSHIELD_Label:UILabel!
     @IBOutlet var homeworldAgentSHIELD_Label:UILabel!
     @IBOutlet var powersAgentSHIELD_Label:UILabel!
     
+    var hero:Hero!
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        nameAgentSHIELD_Label.text = hero.name
+        homeworldAgentSHIELD_Label.text = hero.homeworld
+        powersAgentSHIELD_Label.text = hero.powers
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    /*
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    }
+    */
+
+    
+//    func showHeroSHIELD(controler: UITableViewController, anHero:Hero)
+//    {
+//        
+//    }
     
 }

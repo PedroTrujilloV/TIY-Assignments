@@ -8,12 +8,19 @@
 
 import UIKit
 
+//protocol HeroDetailDelegate
+//{
+//    func showHeroSHIELD(controler: UITableViewController, anHero:Hero)
+//}
+
 class SHIELD_HeroTrackerTableViewController: UITableViewController
 {
     var customHeroModels = Array<Hero>()
     var heroes = Array<Hero>()
     let filePathName = "heroes"
     let typeOf = "json"
+    
+   // var delegate: HeroDetailDelegate!
 
     override func viewDidLoad()
     {
@@ -30,7 +37,8 @@ class SHIELD_HeroTrackerTableViewController: UITableViewController
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -61,6 +69,20 @@ class SHIELD_HeroTrackerTableViewController: UITableViewController
         
         return cell
     }
+ 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)///select the row !!
+    {
+//        let row = indexPath.row //2
+//        //let section = indexPath.section//3
+//        let anHeroSHIELD = heroes[indexPath.row]
+//        delegate?.showHeroSHIELD(self, anHero: anHeroSHIELD)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let selectedHero = heroes[indexPath.row]
+        let detailVC = storyboard?.instantiateViewControllerWithIdentifier("HeroDetailViewController") as! HeroDetailViewController
+        detailVC.hero = selectedHero 
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
     
 
     //MARK: - Private:
@@ -80,7 +102,7 @@ class SHIELD_HeroTrackerTableViewController: UITableViewController
                 tempArr.append(newHero)
             }
             
-            //tempArr.sortInPlace({$0.name > $1.name})
+            //tempArr.sortInPlace({$0.name < $1.name})
             
             //heroes = tempArr
             
@@ -100,11 +122,9 @@ class SHIELD_HeroTrackerTableViewController: UITableViewController
     {
         return H1.name < H2.name
     }
-
-
-
-
     
+    
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -141,14 +161,22 @@ class SHIELD_HeroTrackerTableViewController: UITableViewController
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier ==  "ShowHeroDetailSegue"
+        {
+            let heroDetails = segue.destinationViewController as! HeroDetailViewController
+            //heroDetails.delegate = self
+            
+        }
     }
-    */
+   /* */
 
 }
