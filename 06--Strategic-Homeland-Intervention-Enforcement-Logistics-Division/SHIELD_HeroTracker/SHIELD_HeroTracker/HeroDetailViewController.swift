@@ -14,11 +14,12 @@ import UIKit
 
 
 
-class HeroDetailViewController: UIViewController//, HeroDetailDelegate
+class HeroDetailViewController: UIViewController
 {
     @IBOutlet var nameAgentSHIELD_Label:UILabel!
     @IBOutlet var homeworldAgentSHIELD_Label:UILabel!
     @IBOutlet var powersAgentSHIELD_Label:UILabel!
+    @IBOutlet var imageAgentSHIELD:UIImageView!
     
     var hero:Hero!
     
@@ -29,7 +30,7 @@ class HeroDetailViewController: UIViewController//, HeroDetailDelegate
         nameAgentSHIELD_Label.text = hero.name
         homeworldAgentSHIELD_Label.text = hero.homeworld
         powersAgentSHIELD_Label.text = hero.powers
-        
+        //imageAgentSHIELD.image
         // Do any additional setup after loading the view.
     }
     
@@ -51,9 +52,6 @@ class HeroDetailViewController: UIViewController//, HeroDetailDelegate
     */
 
     
-//    func showHeroSHIELD(controler: UITableViewController, anHero:Hero)
-//    {
-//        
-//    }
+
     
 }

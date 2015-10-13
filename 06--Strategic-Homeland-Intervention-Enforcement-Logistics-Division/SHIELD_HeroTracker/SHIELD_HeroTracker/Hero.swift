@@ -13,6 +13,7 @@ class Hero
     var name:String
     var homeworld:String
     var powers: String
+    var imagePath:String
     //var powers:Array<NSString>()
     
     
@@ -21,6 +22,7 @@ class Hero
         self.name = heroDictionary["name"] as! String
         self.homeworld = heroDictionary["homeworld"] as! String
         self.powers = heroDictionary["powers"] as! String
+        self.imagePath = ""//heroDictionary["imagePath"] as! String
         
         //self.powers = (heroDictionary["powers"] as! NSString).split(",")
         
