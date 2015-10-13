@@ -2,22 +2,23 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OB3-nw-u3d">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Hero Tracker Table View Controller-->
         <scene sceneID="CmK-oY-X4B">
             <objects>
-                <tableViewController id="JLR-hF-P4U" sceneMemberID="viewController">
+                <tableViewController id="JLR-hF-P4U" customClass="SHIELD_HeroTrackerTableViewController" customModule="SHIELD_HeroTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6rV-2x-MP3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="GeF-gi-bMR" detailTextLabel="4LW-C6-sVR" style="IBUITableViewCellStyleValue1" id="xFs-ge-6RU">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AgentSHIELDcell" textLabel="GeF-gi-bMR" detailTextLabel="4LW-C6-sVR" style="IBUITableViewCellStyleValue1" id="xFs-ge-6RU">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xFs-ge-6RU" id="G51-nB-ffg">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GeF-gi-bMR">
@@ -28,7 +29,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4LW-C6-sVR">
-                                            <rect key="frame" x="543" y="12" width="42" height="20"/>
+                                            <rect key="frame" x="523" y="12" width="42" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="1329" y="339"/>
         </scene>
-        <!--View Controller-->
+        <!--Hero Detail View Controller-->
         <scene sceneID="cF0-ne-MMa">
             <objects>
-                <viewController id="3t2-a8-U8w" sceneMemberID="viewController">
+                <viewController id="3t2-a8-U8w" customClass="HeroDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KzE-mu-sQC"/>
                         <viewControllerLayoutGuide type="bottom" id="k6u-PE-SB2"/>
@@ -60,12 +61,45 @@
                     <view key="view" contentMode="scaleToFill" id="hlH-QN-Zuu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Agent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gyn-iS-yhq">
+                                <rect key="frame" x="20" y="46" width="122" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero's homeworld" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVr-uC-cMk">
+                                <rect key="frame" x="20" y="93" width="147" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Habilities" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jA5-yF-d4L">
+                                <rect key="frame" x="20" y="123" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Gyn-iS-yhq" secondAttribute="leading" id="PWy-mg-UzX"/>
+                            <constraint firstItem="hVr-uC-cMk" firstAttribute="top" secondItem="Gyn-iS-yhq" secondAttribute="bottom" constant="20" id="Pfx-p3-b7E"/>
+                            <constraint firstItem="jA5-yF-d4L" firstAttribute="top" secondItem="hVr-uC-cMk" secondAttribute="bottom" constant="8" id="coe-eB-dVD"/>
+                            <constraint firstItem="Gyn-iS-yhq" firstAttribute="top" secondItem="KzE-mu-sQC" secondAttribute="bottom" constant="26" id="gub-ao-weQ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="hVr-uC-cMk" secondAttribute="leading" id="kIg-GT-UBm"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="jA5-yF-d4L" secondAttribute="leading" id="yjZ-pK-SCk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="homeworldAgentSHIELD_Label" destination="hVr-uC-cMk" id="2qL-sv-ztr"/>
+                        <outlet property="nameAgentSHIELD_Label" destination="Gyn-iS-yhq" id="d8Q-rG-jW6"/>
+                        <outlet property="powersAgentSHIELD_Label" destination="jA5-yF-d4L" id="HR8-5p-1jY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJX-jw-daR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2017" y="333"/>
+            <point key="canvasLocation" x="2012" y="339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6hQ-SO-7IL">

@@ -11,6 +11,10 @@
 		686FBDCA1BCC2C2E004080FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686FBDC81BCC2C2E004080FA /* Main.storyboard */; };
 		686FBDCC1BCC2C2E004080FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 686FBDCB1BCC2C2E004080FA /* Assets.xcassets */; };
 		686FBDCF1BCC2C2E004080FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686FBDCD1BCC2C2E004080FA /* LaunchScreen.storyboard */; };
+		686FBDD71BCC2FFE004080FA /* SHIELD_HeroTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FBDD61BCC2FFD004080FA /* SHIELD_HeroTrackerTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		686FBDDB1BCC3370004080FA /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FBDDA1BCC3370004080FA /* HeroDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		686FBDDD1BCC3C95004080FA /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FBDDC1BCC3C95004080FA /* Hero.swift */; settings = {ASSET_TAGS = (); }; };
+		686FBDDF1BCC3CE9004080FA /* heroes.json in Resources */ = {isa = PBXBuildFile; fileRef = 686FBDDE1BCC3CE9004080FA /* heroes.json */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		686FBDCB1BCC2C2E004080FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		686FBDCE1BCC2C2E004080FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		686FBDD01BCC2C2E004080FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		686FBDD61BCC2FFD004080FA /* SHIELD_HeroTrackerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHIELD_HeroTrackerTableViewController.swift; sourceTree = "<group>"; };
+		686FBDDA1BCC3370004080FA /* HeroDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
+		686FBDDC1BCC3C95004080FA /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		686FBDDE1BCC3CE9004080FA /* heroes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heroes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,10 @@
 				686FBDCB1BCC2C2E004080FA /* Assets.xcassets */,
 				686FBDCD1BCC2C2E004080FA /* LaunchScreen.storyboard */,
 				686FBDD01BCC2C2E004080FA /* Info.plist */,
+				686FBDDE1BCC3CE9004080FA /* heroes.json */,
+				686FBDD61BCC2FFD004080FA /* SHIELD_HeroTrackerTableViewController.swift */,
+				686FBDDA1BCC3370004080FA /* HeroDetailViewController.swift */,
+				686FBDDC1BCC3C95004080FA /* Hero.swift */,
 			);
 			path = SHIELD_HeroTracker;
 			sourceTree = "<group>";
@@ -119,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				686FBDCF1BCC2C2E004080FA /* LaunchScreen.storyboard in Resources */,
+				686FBDDF1BCC3CE9004080FA /* heroes.json in Resources */,
 				686FBDCC1BCC2C2E004080FA /* Assets.xcassets in Resources */,
 				686FBDCA1BCC2C2E004080FA /* Main.storyboard in Resources */,
 			);
@@ -131,7 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686FBDDB1BCC3370004080FA /* HeroDetailViewController.swift in Sources */,
 				686FBDC51BCC2C2E004080FA /* AppDelegate.swift in Sources */,
+				686FBDD71BCC2FFE004080FA /* SHIELD_HeroTrackerTableViewController.swift in Sources */,
+				686FBDDD1BCC3C95004080FA /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
