@@ -45,7 +45,8 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        return logIn(textField.text!)
+        let greetingNameText = nameTextFieldn1.text
+        return logIn(greetingNameText!)
     }
     
     // MARK: - Action Handlers
@@ -79,7 +80,8 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
         if nameTextFieldn1.text != "" && pswTextFieldn2.text != ""
         {
             
-            let greetingArray = String(greetingNameText).characters.split(" ")
+            let greetingArray = greetingNameText.characters.split(" ") 
+            
             
             messageLable.text = ("Good evening, Agent \(String(greetingArray[1]))")
             
