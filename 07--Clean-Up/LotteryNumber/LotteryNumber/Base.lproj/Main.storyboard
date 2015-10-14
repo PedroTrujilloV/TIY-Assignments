@@ -44,6 +44,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="law-Tc-cSI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="DOo-Vi-TS5">
+                            <connections>
+                                <action selector="refreshNumbersTable:" destination="7zy-xx-6C7" id="O8R-CF-mAK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="AcO-cT-ByS">
                             <connections>
                                 <action selector="AddRandomNumber:" destination="7zy-xx-6C7" id="Mgh-A2-xT2"/>

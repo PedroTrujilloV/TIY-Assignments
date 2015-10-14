@@ -61,6 +61,10 @@ class LotteryNumberTableViewController: UITableViewController
     
 
 
+    @IBAction func refreshNumbersTable(sender: UIBarButtonItem)
+    {
+        cleanTable()
+    }
     
     @IBAction func AddRandomNumber(sender: UIBarButtonItem)
     {
@@ -77,6 +81,18 @@ class LotteryNumberTableViewController: UITableViewController
         let randomNumber = arc4random_uniform(53)//http://stackoverflow.com/questions/24119714/swift-random-number
         
         return Int(randomNumber)
+    }
+    
+    func cleanTable()
+    {
+        //let size = arrayNumber.count
+        //arrayNumber = []
+        while arrayNumber.count > 0
+        {
+            let newIndexPath = NSIndexPath(forRow: arrayNumber.count-1, inSection: 0)
+            arrayNumber.removeFirst()
+            tableView.deleteRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+        }
     }
     
     /*
