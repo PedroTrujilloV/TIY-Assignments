@@ -14,6 +14,15 @@
 		686FBDDD1BCC3C95004080FA /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FBDDC1BCC3C95004080FA /* Hero.swift */; settings = {ASSET_TAGS = (); }; };
 		686FBDDF1BCC3CE9004080FA /* heroes.json in Resources */ = {isa = PBXBuildFile; fileRef = 686FBDDE1BCC3CE9004080FA /* heroes.json */; settings = {ASSET_TAGS = (); }; };
 		68809A981BCD588300824DF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68809A971BCD588300824DF1 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		68809AC51BCE1B1000824DF1 /* america.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68809ABB1BCE1B1000824DF1 /* america.jpg */; settings = {ASSET_TAGS = (); }; };
+		68809AC61BCE1B1000824DF1 /* destroyer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68809ABC1BCE1B1000824DF1 /* destroyer.jpg */; settings = {ASSET_TAGS = (); }; };
+		68809AC71BCE1B1000824DF1 /* gamora.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68809ABD1BCE1B1000824DF1 /* gamora.jpg */; settings = {ASSET_TAGS = (); }; };
+		68809AC81BCE1B1000824DF1 /* groot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68809ABE1BCE1B1000824DF1 /* groot.jpg */; settings = {ASSET_TAGS = (); }; };
+		68809ACA1BCE1B1000824DF1 /* hulk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68809AC01BCE1B1000824DF1 /* hulk.jpg */; settings = {ASSET_TAGS = (); }; };
+		68809ACB1BCE1B1000824DF1 /* ironman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68809AC11BCE1B1000824DF1 /* ironman.jpg */; settings = {ASSET_TAGS = (); }; };
+		68809ACC1BCE1B1000824DF1 /* racoon.png in Resources */ = {isa = PBXBuildFile; fileRef = 68809AC21BCE1B1000824DF1 /* racoon.png */; settings = {ASSET_TAGS = (); }; };
+		68809ACD1BCE1B1000824DF1 /* starlord.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68809AC31BCE1B1000824DF1 /* starlord.jpg */; settings = {ASSET_TAGS = (); }; };
+		68809ACE1BCE1B1000824DF1 /* thor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68809AC41BCE1B1000824DF1 /* thor.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,15 @@
 		686FBDDC1BCC3C95004080FA /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		686FBDDE1BCC3CE9004080FA /* heroes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heroes.json; sourceTree = "<group>"; };
 		68809A971BCD588300824DF1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		68809ABB1BCE1B1000824DF1 /* america.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = america.jpg; sourceTree = "<group>"; };
+		68809ABC1BCE1B1000824DF1 /* destroyer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = destroyer.jpg; sourceTree = "<group>"; };
+		68809ABD1BCE1B1000824DF1 /* gamora.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gamora.jpg; sourceTree = "<group>"; };
+		68809ABE1BCE1B1000824DF1 /* groot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = groot.jpg; sourceTree = "<group>"; };
+		68809AC01BCE1B1000824DF1 /* hulk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hulk.jpg; sourceTree = "<group>"; };
+		68809AC11BCE1B1000824DF1 /* ironman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ironman.jpg; sourceTree = "<group>"; };
+		68809AC21BCE1B1000824DF1 /* racoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = racoon.png; sourceTree = "<group>"; };
+		68809AC31BCE1B1000824DF1 /* starlord.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starlord.jpg; sourceTree = "<group>"; };
+		68809AC41BCE1B1000824DF1 /* thor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thor.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +78,15 @@
 			children = (
 				686FBDC41BCC2C2E004080FA /* AppDelegate.swift */,
 				686FBDCB1BCC2C2E004080FA /* Assets.xcassets */,
+				68809ABB1BCE1B1000824DF1 /* america.jpg */,
+				68809ABC1BCE1B1000824DF1 /* destroyer.jpg */,
+				68809ABD1BCE1B1000824DF1 /* gamora.jpg */,
+				68809ABE1BCE1B1000824DF1 /* groot.jpg */,
+				68809AC01BCE1B1000824DF1 /* hulk.jpg */,
+				68809AC11BCE1B1000824DF1 /* ironman.jpg */,
+				68809AC21BCE1B1000824DF1 /* racoon.png */,
+				68809AC31BCE1B1000824DF1 /* starlord.jpg */,
+				68809AC41BCE1B1000824DF1 /* thor.jpg */,
 				686FBDD01BCC2C2E004080FA /* Info.plist */,
 				686FBDDE1BCC3CE9004080FA /* heroes.json */,
 				68809A971BCD588300824DF1 /* Main.storyboard */,
@@ -127,9 +154,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68809AC81BCE1B1000824DF1 /* groot.jpg in Resources */,
+				68809AC51BCE1B1000824DF1 /* america.jpg in Resources */,
+				68809ACB1BCE1B1000824DF1 /* ironman.jpg in Resources */,
+				68809AC61BCE1B1000824DF1 /* destroyer.jpg in Resources */,
+				68809AC71BCE1B1000824DF1 /* gamora.jpg in Resources */,
+				68809ACA1BCE1B1000824DF1 /* hulk.jpg in Resources */,
+				68809ACE1BCE1B1000824DF1 /* thor.jpg in Resources */,
 				686FBDDF1BCC3CE9004080FA /* heroes.json in Resources */,
 				686FBDCC1BCC2C2E004080FA /* Assets.xcassets in Resources */,
 				68809A981BCD588300824DF1 /* Main.storyboard in Resources */,
+				68809ACC1BCE1B1000824DF1 /* racoon.png in Resources */,
+				68809ACD1BCE1B1000824DF1 /* starlord.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

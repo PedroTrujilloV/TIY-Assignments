@@ -74,14 +74,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Habilities" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jA5-yF-d4L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Habilities" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jA5-yF-d4L">
                                 <rect key="frame" x="20" y="123" width="440" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CYx-ZL-kWF">
-                                <rect key="frame" x="480" y="28" width="100" height="166"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CYx-ZL-kWF">
+                                <rect key="frame" x="480" y="45" width="100" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="Fwe-b0-G9D"/>
                                     <constraint firstAttribute="height" constant="166" id="TbT-n2-4JE"/>
@@ -98,7 +98,7 @@
                             <constraint firstItem="jA5-yF-d4L" firstAttribute="top" secondItem="hVr-uC-cMk" secondAttribute="bottom" constant="8" id="coe-eB-dVD"/>
                             <constraint firstItem="Gyn-iS-yhq" firstAttribute="top" secondItem="KzE-mu-sQC" secondAttribute="bottom" constant="26" id="gub-ao-weQ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="hVr-uC-cMk" secondAttribute="leading" id="kIg-GT-UBm"/>
-                            <constraint firstItem="CYx-ZL-kWF" firstAttribute="top" secondItem="KzE-mu-sQC" secondAttribute="bottom" constant="8" id="uac-6X-k69"/>
+                            <constraint firstItem="CYx-ZL-kWF" firstAttribute="top" secondItem="KzE-mu-sQC" secondAttribute="bottom" constant="25" id="uac-6X-k69"/>
                             <constraint firstAttribute="leadingMargin" secondItem="jA5-yF-d4L" secondAttribute="leading" id="yjZ-pK-SCk"/>
                         </constraints>
                     </view>

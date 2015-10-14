@@ -22,7 +22,7 @@ class Hero
         self.name = heroDictionary["name"] as! String
         self.homeworld = heroDictionary["homeworld"] as! String
         self.powers = heroDictionary["powers"] as! String
-        self.imagePath = ""//heroDictionary["imagePath"] as! String
+        self.imagePath = heroDictionary["image"] as! String
         
         //self.powers = (heroDictionary["powers"] as! NSString).split(",")
         

@@ -30,7 +30,7 @@ class HeroDetailViewController: UIViewController
         nameAgentSHIELD_Label.text = hero.name
         homeworldAgentSHIELD_Label.text = hero.homeworld
         powersAgentSHIELD_Label.text = hero.powers
-        //imageAgentSHIELD.image
+        imageAgentSHIELD.image = UIImage(named: hero.imagePath )
         // Do any additional setup after loading the view.
     }
     
