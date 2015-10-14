@@ -13,7 +13,7 @@ class LotteryNumberTableViewController: UITableViewController
 {
    //@IBOutlet var addNumber:UIButton!
     
-    var arrayNumber = Array<Int>()
+    var arrayNumber = Array<Array<Int>>()
 
     override func viewDidLoad()
     {
@@ -68,12 +68,14 @@ class LotteryNumberTableViewController: UITableViewController
     
     @IBAction func AddRandomNumber(sender: UIBarButtonItem)
     {
-        if arrayNumber.count < 6
+        var tempArray = Array<Int>()
+        while tempArray.count < 6
         {
-            let newIndexPath = NSIndexPath(forRow: arrayNumber.count, inSection: 0)
-            arrayNumber.append(generateRandomNumber())
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Top)
+            tempArray.append(generateRandomNumber())
         }
+        let newIndexPath = NSIndexPath(forRow: arrayNumber.count, inSection: 0)
+        arrayNumber.append(tempArray)
+        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Top)
     }
     
     func generateRandomNumber() ->Int
