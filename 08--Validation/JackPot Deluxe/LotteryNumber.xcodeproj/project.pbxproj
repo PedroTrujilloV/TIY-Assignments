@@ -11,6 +11,8 @@
 		68809AAD1BCDA51400824DF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68809AAB1BCDA51400824DF1 /* Main.storyboard */; };
 		68809AAF1BCDA51400824DF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68809AAE1BCDA51400824DF1 /* Assets.xcassets */; };
 		68809ABA1BCDA73900824DF1 /* LotteryNumberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68809AB91BCDA73900824DF1 /* LotteryNumberTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		68809AF41BCECDBB00824DF1 /* GenerateWinnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68809AF31BCECDBB00824DF1 /* GenerateWinnersViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		68809AF61BCECE5D00824DF1 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68809AF51BCECE5D00824DF1 /* Ticket.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		68809AAE1BCDA51400824DF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68809AB31BCDA51400824DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68809AB91BCDA73900824DF1 /* LotteryNumberTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotteryNumberTableViewController.swift; sourceTree = "<group>"; };
+		68809AF31BCECDBB00824DF1 /* GenerateWinnersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateWinnersViewController.swift; sourceTree = "<group>"; };
+		68809AF51BCECE5D00824DF1 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				68809AB91BCDA73900824DF1 /* LotteryNumberTableViewController.swift */,
 				68809AAE1BCDA51400824DF1 /* Assets.xcassets */,
 				68809AB31BCDA51400824DF1 /* Info.plist */,
+				68809AF31BCECDBB00824DF1 /* GenerateWinnersViewController.swift */,
+				68809AF51BCECE5D00824DF1 /* Ticket.swift */,
 			);
 			path = LotteryNumber;
 			sourceTree = "<group>";
@@ -131,6 +137,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				68809ABA1BCDA73900824DF1 /* LotteryNumberTableViewController.swift in Sources */,
+				68809AF61BCECE5D00824DF1 /* Ticket.swift in Sources */,
+				68809AF41BCECDBB00824DF1 /* GenerateWinnersViewController.swift in Sources */,
 				68809AA81BCDA51400824DF1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +279,7 @@
 				68809AB81BCDA51400824DF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

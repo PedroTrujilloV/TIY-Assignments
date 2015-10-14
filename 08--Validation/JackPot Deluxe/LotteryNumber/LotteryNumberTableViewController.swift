@@ -13,7 +13,7 @@ class LotteryNumberTableViewController: UITableViewController
 {
    //@IBOutlet var addNumber:UIButton!
     
-    var arrayNumber = Array<Array<Int>>()
+    var arrayNumber = Array<Ticket>()//Array<Array<Int>>()
 
     override func viewDidLoad()
     {
@@ -54,7 +54,7 @@ class LotteryNumberTableViewController: UITableViewController
         // Configure the cell...
 
         let NumberCell = arrayNumber[indexPath.row]
-        cell.textLabel?.text = String(NumberCell)
+        cell.textLabel?.text = NumberCell.getStringTicketNumbers()
        // cell.detailTextLabel?.text = String(indexPath.row+1)//indexPath.row as! String
         cell.detailTextLabel?.text = "$ \(0)"
         return cell
@@ -74,10 +74,12 @@ class LotteryNumberTableViewController: UITableViewController
         {
             tempArray.append(generateRandomNumber())
         }
+        
         let newIndexPath = NSIndexPath(forRow: arrayNumber.count, inSection: 0)
-        arrayNumber.append(tempArray)
+        arrayNumber.append(Ticket(arrayNumbers:tempArray, winningStatus:  false, dollarAmount: 0))
         tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Top)
     }
+    
     
     func generateRandomNumber() ->Int
     {

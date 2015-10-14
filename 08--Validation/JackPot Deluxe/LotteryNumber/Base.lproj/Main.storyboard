@@ -80,8 +80,8 @@
                                 <rect key="frame" x="0.0" y="192" width="600" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-15-S8A">
-                                <rect key="frame" x="240" y="140" width="121" height="30"/>
-                                <state key="normal" title="Generate Winner!"/>
+                                <rect key="frame" x="236" y="140" width="128" height="30"/>
+                                <state key="normal" title="Generate Winners!"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
