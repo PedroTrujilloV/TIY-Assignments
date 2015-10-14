@@ -87,8 +87,6 @@ class LotteryNumberTableViewController: UITableViewController
     
     func cleanTable()
     {
-        //let size = arrayNumber.count
-        //arrayNumber = []
         while arrayNumber.count > 0
         {
             let newIndexPath = NSIndexPath(forRow: arrayNumber.count-1, inSection: 0)
