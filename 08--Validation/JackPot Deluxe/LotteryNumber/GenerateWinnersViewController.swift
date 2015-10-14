@@ -8,8 +8,12 @@
 
 import UIKit
 
-class GenerateWinnersViewController: UIViewController
+class GenerateWinnersViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 {
+    
+    
+    @IBOutlet var picker: UIPickerView!
+//    var delegate: TimerPickerDelegate?
 
     override func viewDidLoad()
     {
@@ -37,6 +41,34 @@ class GenerateWinnersViewController: UIViewController
         }
         return hits
     }
+    
+    
+    
+  
+    override func viewWillDisappear(animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        //delegate?.timerWasChosen(60-picker.selectedRowInComponent(0))
+    }
+    
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
+    {
+        return 6
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return 53
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return "\(53-row)"
+    }
+
+    
+    
     
 
     /*

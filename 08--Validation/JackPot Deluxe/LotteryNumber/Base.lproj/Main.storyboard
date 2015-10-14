@@ -51,7 +51,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem width="32" systemItem="play" id="Vfs-5G-ZiZ"/>
+                            <barButtonItem width="32" systemItem="play" id="Vfs-5G-ZiZ">
+                                <connections>
+                                    <segue destination="Emf-WB-7ZP" kind="show" id="EZI-Jm-iqU"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem style="plain" systemItem="add" id="AcO-cT-ByS">
                                 <connections>
                                     <action selector="AddRandomNumber:" destination="7zy-xx-6C7" id="Mgh-A2-xT2"/>
@@ -64,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="1080" y="367"/>
         </scene>
-        <!--View Controller-->
+        <!--Generate Winners View Controller-->
         <scene sceneID="1ze-d1-NpM">
             <objects>
-                <viewController id="Emf-WB-7ZP" sceneMemberID="viewController">
+                <viewController id="Emf-WB-7ZP" customClass="GenerateWinnersViewController" customModule="LotteryNumber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ZI-Ad-8tr"/>
                         <viewControllerLayoutGuide type="bottom" id="5G7-rg-mH0"/>
@@ -78,6 +82,9 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXv-mR-8kq">
                                 <rect key="frame" x="0.0" y="192" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Emf-WB-7ZP" id="VdV-GU-HcI"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-15-S8A">
                                 <rect key="frame" x="236" y="140" width="128" height="30"/>
@@ -93,6 +100,9 @@
                             <constraint firstItem="dXv-mR-8kq" firstAttribute="centerY" secondItem="Wwr-qV-lpB" secondAttribute="centerY" id="sfc-bN-edo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="dXv-mR-8kq" id="OO9-hH-zSs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqT-fp-vV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
