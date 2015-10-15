@@ -65,6 +65,10 @@ class LotteryNumberTableViewController: UITableViewController, WinerTicketDelega
        // cell.detailTextLabel?.text = String(indexPath.row+1)//indexPath.row as! String
         cell.detailTextLabel?.text = " $ \(NumberCell.dollarAmount)"
         
+        cell.backgroundColor = UIColor.whiteColor()
+        cell.textLabel?.textColor = UIColor.blackColor()
+        cell.detailTextLabel?.textColor = UIColor.grayColor()
+        
         if((NumberCell.winningStatus) == true)
         {
             cell.backgroundColor = UIColor.blueColor()
