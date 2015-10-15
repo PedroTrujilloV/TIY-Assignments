@@ -64,7 +64,7 @@ class GenerateWinnersViewController: UIViewController, UIPickerViewDataSource, U
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
        
-        return "\(row)"
+        return "\(row+1)"
     }
 
     
@@ -95,7 +95,7 @@ class GenerateWinnersViewController: UIViewController, UIPickerViewDataSource, U
         
         for var x = 0; x < 6; x++
         {
-            arrayWinner.append(picker.selectedRowInComponent(x))
+            arrayWinner.append(picker.selectedRowInComponent(x)+1)
         }
         
         for ticketInArray in arrayTickets

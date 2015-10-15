@@ -135,7 +135,7 @@ class LotteryNumberTableViewController: UITableViewController, WinerTicketDelega
     //MARK: - Helper Functions
     func generateRandomNumber() ->Int
     {
-        let randomNumber = arc4random_uniform(54)//http://stackoverflow.com/questions/24119714/swift-random-number
+        let randomNumber = arc4random_uniform(53)+1//http://stackoverflow.com/questions/24119714/swift-random-number
         
         
         
