@@ -22,7 +22,7 @@ class LotteryNumberTableViewController: UITableViewController, WinerTicketDelega
 
     override func viewDidLoad()
     {
-        title = "Lotery Numbers"
+        title = "Jackpot!"
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations

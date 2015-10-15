@@ -15,7 +15,7 @@ class GenerateWinnersViewController: UIViewController, UIPickerViewDataSource, U
     @IBOutlet var picker: UIPickerView!
     var delegate:WinerTicketDelegate?
     var arrayWinner = Array<Int>()
-    var array:[Int:Int]!
+    //var array:[Int:Int]!
     var arrayTickets = Array<Ticket>()
 
 
@@ -24,7 +24,7 @@ class GenerateWinnersViewController: UIViewController, UIPickerViewDataSource, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        array = [:]
+       // array = [:]
     }
 
     override func didReceiveMemoryWarning()
