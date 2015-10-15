@@ -94,7 +94,15 @@ class LotteryNumberTableViewController: UITableViewController, WinerTicketDelega
         var tempArray = Array<Int>()
         while tempArray.count < 6
         {
-            tempArray.append(generateRandomNumber())
+            var pick = 0
+            repeat
+            {
+                pick = generateRandomNumber()
+                
+            }while tempArray.contains(pick)
+            
+            
+            tempArray.append(pick)
         }
         
         let newIndexPath = NSIndexPath(forRow: arrayNumber.count, inSection: 0)
@@ -123,7 +131,9 @@ class LotteryNumberTableViewController: UITableViewController, WinerTicketDelega
     //MARK: - Helper Functions
     func generateRandomNumber() ->Int
     {
-        let randomNumber = arc4random_uniform(53)//http://stackoverflow.com/questions/24119714/swift-random-number
+        let randomNumber = arc4random_uniform(54)//http://stackoverflow.com/questions/24119714/swift-random-number
+        
+        
         
         return Int(randomNumber)
     }
