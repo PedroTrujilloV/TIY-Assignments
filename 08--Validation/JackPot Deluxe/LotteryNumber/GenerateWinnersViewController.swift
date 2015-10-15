@@ -13,45 +13,44 @@ class GenerateWinnersViewController: UIViewController, UIPickerViewDataSource, U
     
     
     @IBOutlet var picker: UIPickerView!
-//    var delegate: TimerPickerDelegate?
+    var delegate:WinerTicketDelegate?
+    var arrayWinner = Array<Int>()
+    var array:[Int:Int]!
+    var arrayTickets = Array<Ticket>()
+
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        array = [:]
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+
     }
-    
-    func compareTicket(ticketA: Ticket, ticketB:Ticket) ->Int
-    {
-        var count = 0
-        var hits = 0
-        for num in ticketA.ArrayNumbers
-        {
-            if ticketB.ArrayNumbers[0] == num
-            {
-                hits++
-            }
-        }
-        return hits
-    }
-    
-    
     
   
     override func viewWillDisappear(animated: Bool)
     {
         super.viewWillDisappear(animated)
-        //delegate?.timerWasChosen(60-picker.selectedRowInComponent(0))
+    
+        
+        for var x = 0; x < 6; x++
+        {
+            arrayWinner.append(picker.selectedRowInComponent(x))
+        }
+        
+        delegate?.winnerTicketWasChosen(arrayTickets)
     }
     
     
+    
+    //MARK: Initialize functions for detection
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
         return 6
@@ -64,12 +63,68 @@ class GenerateWinnersViewController: UIViewController, UIPickerViewDataSource, U
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        return "\(53-row)"
+       
+        return "\(row)"
     }
 
     
+    //MARK: - Compare Function
+    func compareTicket(ticketA: Ticket, ticketB:Ticket) ->Int
+    {
+
+        var hits = 0
+        for num in ticketA.ArrayNumbers
+        {
+            if ticketB.ArrayNumbers.contains(num)
+            {
+                hits++
+            }
+        }
+        return hits
+    }
     
     
+    //MARK: - Action Buton to generate and Compare
+    @IBAction func GenerateWinnersNumberCompare(sender: UIButton)
+    {
+//        for var x = 0; x < 6; x++
+//        {
+//            array[x] = picker.selectedRowInComponent(x)
+//        }
+        
+        
+        for var x = 0; x < 6; x++
+        {
+            arrayWinner.append(picker.selectedRowInComponent(x))
+        }
+        
+        for ticketInArray in arrayTickets
+        {
+            var ticket = Ticket(arrayNumbers: arrayWinner, winningStatus: true, dollarAmount: 100)
+            switch compareTicket(ticketInArray, ticketB:ticket)
+            {
+            case 3:
+                ticketInArray.dollarAmount = 1
+                ticketInArray.winningStatus = true
+                print("case 3")
+            case 4:
+                ticketInArray.dollarAmount = 5
+                ticketInArray.winningStatus = true
+                print("case 4")
+            case 5:
+                ticketInArray.dollarAmount = 20
+                ticketInArray.winningStatus = true
+                print("case 5")
+            case 6:
+                ticketInArray.dollarAmount = 100
+                ticketInArray.winningStatus = true
+                print("case 6")
+            default:
+                ticketInArray.dollarAmount = 0
+                ticketInArray.winningStatus = false
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

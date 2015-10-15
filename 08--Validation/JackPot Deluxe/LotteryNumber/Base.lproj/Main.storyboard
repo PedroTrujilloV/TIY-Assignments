@@ -45,15 +45,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="law-Tc-cSI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="DOo-Vi-TS5">
-                            <connections>
-                                <action selector="refreshNumbersTable:" destination="7zy-xx-6C7" id="O8R-CF-mAK"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="DOo-Vi-TS5">
+                                <connections>
+                                    <action selector="refreshNumbersTable:" destination="7zy-xx-6C7" id="O8R-CF-mAK"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="RG6-a2-NpT">
+                                <connections>
+                                    <action selector="RemoveCell:" destination="7zy-xx-6C7" id="8Ak-Nb-8yd"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem width="32" systemItem="play" id="Vfs-5G-ZiZ">
                                 <connections>
-                                    <segue destination="Emf-WB-7ZP" kind="show" id="EZI-Jm-iqU"/>
+                                    <segue destination="Emf-WB-7ZP" kind="show" identifier="ShowSegueGenerateWinner" id="EZI-Jm-iqU"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem style="plain" systemItem="add" id="AcO-cT-ByS">
@@ -83,12 +90,16 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXv-mR-8kq">
                                 <rect key="frame" x="0.0" y="192" width="600" height="216"/>
                                 <connections>
+                                    <outlet property="dataSource" destination="Emf-WB-7ZP" id="Kl1-qQ-FD0"/>
                                     <outlet property="delegate" destination="Emf-WB-7ZP" id="VdV-GU-HcI"/>
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-15-S8A">
                                 <rect key="frame" x="236" y="140" width="128" height="30"/>
                                 <state key="normal" title="Generate Winners!"/>
+                                <connections>
+                                    <action selector="GenerateWinnersNumberCompare:" destination="Emf-WB-7ZP" eventType="touchUpInside" id="Y5A-qh-Kjf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

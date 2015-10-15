@@ -12,9 +12,9 @@ class Ticket
 {
     var ArrayNumbers = Array<Int>()
     var winningStatus: Bool!
-    var dollarAmount:Double!
+    var dollarAmount:Int!
     
-    init(arrayNumbers:Array<Int>, winningStatus:Bool, dollarAmount:Double)
+    init(arrayNumbers:Array<Int>, winningStatus:Bool, dollarAmount:Int )
     {
         self.ArrayNumbers = arrayNumbers
         self.winningStatus = winningStatus
@@ -31,6 +31,7 @@ class Ticket
         }
         return stringNumber
     }
+    
     
 }
 
