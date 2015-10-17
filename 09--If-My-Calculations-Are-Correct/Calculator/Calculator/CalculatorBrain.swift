@@ -23,7 +23,7 @@ class CalculatorBrain
         appendOperation("+",op: (+))
         appendOperation("-",op: ({$0 - $1}))
         appendOperation("x",op: (*))
-        appendOperation("/",op: ({$1 / $0}))
+        appendOperation("/",op: ({$0 / $1}))
         appendOperation("%",op: ({self.bufferOpDic["x"]!($1,0.01)}) )
         appendOperation("+/-", op: ({self.bufferOpDic["x"]!($1,-1)}) )
         appendOperation("", op: ({self.bufferOpDic["x"]!(1,$1)}) )
