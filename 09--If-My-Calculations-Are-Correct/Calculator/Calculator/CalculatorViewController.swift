@@ -17,7 +17,6 @@ class CalculatorViewController: UIViewController
     var bufferString: String = "0"
     var operationBufferString: String = ""
     var previusButtonPushed:UIButton!
-    var dotTyped:Bool = false
     
     
     override func viewDidLoad()
