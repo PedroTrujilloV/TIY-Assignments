@@ -100,7 +100,14 @@ class CalculatorViewController: UIViewController
         bufferString = result
         
         //clean
-        operationBufferString=""
+        //operationBufferString=""
+        
+        //new change to optimize
+        let temporalStore = bufferString
+        clean()
+        bufferString = temporalStore
+        
+        printInDisplay(bufferString)
     }
     
     
