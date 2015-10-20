@@ -1,42 +1,43 @@
 //
 //  CounterTableViewController.swift
-//  Count-On-Me
+//  CountOnMe
 //
-//  Created by Pedro Trujillo on 10/20/15.
-//  Copyright © 2015 Pedro Trujillo. All rights reserved.
+//  Created by Ben Gohlke on 10/19/15.
+//  Copyright © 2015 The Iron Yard. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-
 class CounterTableViewController: UITableViewController, UITextFieldDelegate
 {
-    
+    // Retrieve the managed object context from the AppDelegate
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var counters  = Array<Counter>()
+    var counters = Array<Counter>()
     
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
         title = "Counters"
+        
+        navigationItem.leftBarButtonItem = self.editButtonItem()
+        
         let fetchRequest = NSFetchRequest(entityName: "Counter")
-        do
-        {
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        do {
             let fetchResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Counter]
             counters = fetchResults!
         }
-        catch
-        {
+        catch {
             let nserror = error as NSError
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -45,47 +46,40 @@ class CounterTableViewController: UITableViewController, UITextFieldDelegate
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return counters.count
     }
-
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("CounterCell", forIndexPath: indexPath) as! CounterCell
 
         // Configure the cell...
-        
         let aCounter = counters[indexPath.row]
         
         if aCounter.title == nil
         {
-            cell.titleTextField.becomeFirstResponder()
+            cell.counterTitleTextField.becomeFirstResponder()
         }
         else
         {
-            cell.titleTextField.text = aCounter.title
+            cell.counterTitleTextField.text = aCounter.title
         }
         cell.countLabel.text = "\(aCounter.count)"
-        cell.countStepper.value = Double(aCounter.count)
 
         return cell
     }
 
-    
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
         return true
     }
-    
 
-    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
@@ -95,39 +89,12 @@ class CounterTableViewController: UITableViewController, UITextFieldDelegate
             counters.removeAtIndex(indexPath.row)
             managedObjectContext.deleteObject(aCounter)
             saveContext()
-            
-            // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    // MARK: - UITextField Delegate
     
-    //MARK: - UITextField Delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         var rc = false
@@ -142,12 +109,13 @@ class CounterTableViewController: UITableViewController, UITextFieldDelegate
             aCounter.title = textField.text
             textField.resignFirstResponder()
             saveContext()
-            
         }
+        
         return rc
     }
     
-    //MARK: - Action Handlers
+    // MARK: - Action Handlers
+    
     @IBAction func stepperValueChanged(sender: UIStepper)
     {
         let contentView = sender.superview
@@ -162,26 +130,23 @@ class CounterTableViewController: UITableViewController, UITextFieldDelegate
     
     @IBAction func addCounter(sender: UIBarButtonItem)
     {
-       let aCounter = NSEntityDescription.insertNewObjectForEntityForName("Counter", inManagedObjectContext: managedObjectContext) as! Counter
+        let newCounter = NSEntityDescription.insertNewObjectForEntityForName("Counter", inManagedObjectContext: managedObjectContext) as! Counter
         
-        counters.append(aCounter)
+        counters.append(newCounter)
         tableView.reloadData()
     }
     
-    //MARK: Private
+    // MARK: - Private
     
     func saveContext()
     {
-        do
-        {
+        do {
             try managedObjectContext.save()
         }
-        catch
-        {
+        catch {
             let nserror = error as NSError
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
     }
-
 }

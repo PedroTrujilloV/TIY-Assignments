@@ -25,9 +25,15 @@
                                             <rect key="frame" x="8" y="11" width="430" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="vM6-Ko-zLS" id="pfq-DB-Pfc"/>
+                                            </connections>
                                         </textField>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-Vm-xuQ">
                                             <rect key="frame" x="498" y="7" width="94" height="29"/>
+                                            <connections>
+                                                <action selector="stepperValueChanged:" destination="vM6-Ko-zLS" eventType="valueChanged" id="XTX-Pe-rqt"/>
+                                            </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hej-Ao-z8e">
                                             <rect key="frame" x="446" y="11" width="44" height="21"/>
