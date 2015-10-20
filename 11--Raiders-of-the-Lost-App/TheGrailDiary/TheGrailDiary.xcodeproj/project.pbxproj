@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6880BE9C1BD55EDF00A97AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BE9B1BD55EDF00A97AC1 /* AppDelegate.swift */; };
+		6880BEA11BD55EDF00A97AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6880BE9F1BD55EDF00A97AC1 /* Main.storyboard */; };
+		6880BEA31BD55EDF00A97AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEA21BD55EDF00A97AC1 /* Assets.xcassets */; };
+		6880BEA61BD55EDF00A97AC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEA41BD55EDF00A97AC1 /* LaunchScreen.storyboard */; };
+		6880BEAE1BD569C100A97AC1 /* sites.json in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEAD1BD569C100A97AC1 /* sites.json */; settings = {ASSET_TAGS = (); }; };
+		6880BEB01BD56CE300A97AC1 /* FamousHistoricalSitesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BEAF1BD56CE300A97AC1 /* FamousHistoricalSitesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6880BEB21BD56D6400A97AC1 /* SiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BEB11BD56D6400A97AC1 /* SiteTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		6880BEB41BD5884C00A97AC1 /* Machu-Picchu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEB31BD5884C00A97AC1 /* Machu-Picchu.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEB61BD588F500A97AC1 /* Great-Wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEB51BD588F500A97AC1 /* Great-Wall.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEB81BD589A900A97AC1 /* Pyramids-Giza.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEB71BD589A900A97AC1 /* Pyramids-Giza.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEBA1BD58AE200A97AC1 /* Pyramids-Mexico.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEB91BD58AE200A97AC1 /* Pyramids-Mexico.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEBC1BD58C3F00A97AC1 /* Stonehenge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEBB1BD58C3F00A97AC1 /* Stonehenge.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEBE1BD58E6400A97AC1 /* Taj-Mahal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEBD1BD58E6400A97AC1 /* Taj-Mahal.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEC01BD58F7A00A97AC1 /* Liberty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEBF1BD58F7A00A97AC1 /* Liberty.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEC21BD590F500A97AC1 /* Colosseum1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEC11BD590F500A97AC1 /* Colosseum1.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEC41BD5921A00A97AC1 /* Kiyomizu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEC31BD5921A00A97AC1 /* Kiyomizu.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEC61BD592D800A97AC1 /* Angkor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEC51BD592D800A97AC1 /* Angkor.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BEC81BD5EBCC00A97AC1 /* SiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BEC71BD5EBCC00A97AC1 /* SiteModel.swift */; settings = {ASSET_TAGS = (); }; };
+		6880BECA1BD5F92900A97AC1 /* SiteDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BEC91BD5F92900A97AC1 /* SiteDescriptionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6880BE981BD55EDF00A97AC1 /* TheGrailDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheGrailDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6880BE9B1BD55EDF00A97AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6880BEA01BD55EDF00A97AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6880BEA21BD55EDF00A97AC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6880BEA51BD55EDF00A97AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6880BEA71BD55EDF00A97AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6880BEAD1BD569C100A97AC1 /* sites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sites.json; sourceTree = "<group>"; };
+		6880BEAF1BD56CE300A97AC1 /* FamousHistoricalSitesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamousHistoricalSitesTableViewController.swift; sourceTree = "<group>"; };
+		6880BEB11BD56D6400A97AC1 /* SiteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteTableViewCell.swift; sourceTree = "<group>"; };
+		6880BEB31BD5884C00A97AC1 /* Machu-Picchu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Machu-Picchu.jpg"; sourceTree = "<group>"; };
+		6880BEB51BD588F500A97AC1 /* Great-Wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Great-Wall.jpg"; sourceTree = "<group>"; };
+		6880BEB71BD589A900A97AC1 /* Pyramids-Giza.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Pyramids-Giza.jpg"; sourceTree = "<group>"; };
+		6880BEB91BD58AE200A97AC1 /* Pyramids-Mexico.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Pyramids-Mexico.jpg"; sourceTree = "<group>"; };
+		6880BEBB1BD58C3F00A97AC1 /* Stonehenge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Stonehenge.jpg; sourceTree = "<group>"; };
+		6880BEBD1BD58E6400A97AC1 /* Taj-Mahal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Taj-Mahal.jpg"; sourceTree = "<group>"; };
+		6880BEBF1BD58F7A00A97AC1 /* Liberty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Liberty.jpg; sourceTree = "<group>"; };
+		6880BEC11BD590F500A97AC1 /* Colosseum1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Colosseum1.jpg; sourceTree = "<group>"; };
+		6880BEC31BD5921A00A97AC1 /* Kiyomizu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kiyomizu.jpg; sourceTree = "<group>"; };
+		6880BEC51BD592D800A97AC1 /* Angkor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Angkor.jpg; sourceTree = "<group>"; };
+		6880BEC71BD5EBCC00A97AC1 /* SiteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteModel.swift; sourceTree = "<group>"; };
+		6880BEC91BD5F92900A97AC1 /* SiteDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteDescriptionViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6880BE951BD55EDF00A97AC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6880BE8F1BD55EDF00A97AC1 = {
+			isa = PBXGroup;
+			children = (
+				6880BE9A1BD55EDF00A97AC1 /* TheGrailDiary */,
+				6880BE991BD55EDF00A97AC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6880BE991BD55EDF00A97AC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6880BE981BD55EDF00A97AC1 /* TheGrailDiary.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6880BE9A1BD55EDF00A97AC1 /* TheGrailDiary */ = {
+			isa = PBXGroup;
+			children = (
+				6880BE9B1BD55EDF00A97AC1 /* AppDelegate.swift */,
+				6880BE9F1BD55EDF00A97AC1 /* Main.storyboard */,
+				6880BEC91BD5F92900A97AC1 /* SiteDescriptionViewController.swift */,
+				6880BEAF1BD56CE300A97AC1 /* FamousHistoricalSitesTableViewController.swift */,
+				6880BEB11BD56D6400A97AC1 /* SiteTableViewCell.swift */,
+				6880BEC71BD5EBCC00A97AC1 /* SiteModel.swift */,
+				6880BEAD1BD569C100A97AC1 /* sites.json */,
+				6880BEA21BD55EDF00A97AC1 /* Assets.xcassets */,
+				6880BEA41BD55EDF00A97AC1 /* LaunchScreen.storyboard */,
+				6880BEA71BD55EDF00A97AC1 /* Info.plist */,
+				6880BEB31BD5884C00A97AC1 /* Machu-Picchu.jpg */,
+				6880BEB51BD588F500A97AC1 /* Great-Wall.jpg */,
+				6880BEB71BD589A900A97AC1 /* Pyramids-Giza.jpg */,
+				6880BEB91BD58AE200A97AC1 /* Pyramids-Mexico.jpg */,
+				6880BEBB1BD58C3F00A97AC1 /* Stonehenge.jpg */,
+				6880BEBD1BD58E6400A97AC1 /* Taj-Mahal.jpg */,
+				6880BEBF1BD58F7A00A97AC1 /* Liberty.jpg */,
+				6880BEC11BD590F500A97AC1 /* Colosseum1.jpg */,
+				6880BEC31BD5921A00A97AC1 /* Kiyomizu.jpg */,
+				6880BEC51BD592D800A97AC1 /* Angkor.jpg */,
+			);
+			path = TheGrailDiary;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6880BE971BD55EDF00A97AC1 /* TheGrailDiary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6880BEAA1BD55EDF00A97AC1 /* Build configuration list for PBXNativeTarget "TheGrailDiary" */;
+			buildPhases = (
+				6880BE941BD55EDF00A97AC1 /* Sources */,
+				6880BE951BD55EDF00A97AC1 /* Frameworks */,
+				6880BE961BD55EDF00A97AC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheGrailDiary;
+			productName = TheGrailDiary;
+			productReference = 6880BE981BD55EDF00A97AC1 /* TheGrailDiary.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6880BE901BD55EDF00A97AC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Pedro Trujillo";
+				TargetAttributes = {
+					6880BE971BD55EDF00A97AC1 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 6880BE931BD55EDF00A97AC1 /* Build configuration list for PBXProject "TheGrailDiary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6880BE8F1BD55EDF00A97AC1;
+			productRefGroup = 6880BE991BD55EDF00A97AC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6880BE971BD55EDF00A97AC1 /* TheGrailDiary */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6880BE961BD55EDF00A97AC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6880BEB41BD5884C00A97AC1 /* Machu-Picchu.jpg in Resources */,
+				6880BEB81BD589A900A97AC1 /* Pyramids-Giza.jpg in Resources */,
+				6880BEC41BD5921A00A97AC1 /* Kiyomizu.jpg in Resources */,
+				6880BEBC1BD58C3F00A97AC1 /* Stonehenge.jpg in Resources */,
+				6880BEA61BD55EDF00A97AC1 /* LaunchScreen.storyboard in Resources */,
+				6880BEC01BD58F7A00A97AC1 /* Liberty.jpg in Resources */,
+				6880BEAE1BD569C100A97AC1 /* sites.json in Resources */,
+				6880BEBA1BD58AE200A97AC1 /* Pyramids-Mexico.jpg in Resources */,
+				6880BEB61BD588F500A97AC1 /* Great-Wall.jpg in Resources */,
+				6880BEC21BD590F500A97AC1 /* Colosseum1.jpg in Resources */,
+				6880BEA31BD55EDF00A97AC1 /* Assets.xcassets in Resources */,
+				6880BEC61BD592D800A97AC1 /* Angkor.jpg in Resources */,
+				6880BEA11BD55EDF00A97AC1 /* Main.storyboard in Resources */,
+				6880BEBE1BD58E6400A97AC1 /* Taj-Mahal.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6880BE941BD55EDF00A97AC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6880BEC81BD5EBCC00A97AC1 /* SiteModel.swift in Sources */,
+				6880BEB21BD56D6400A97AC1 /* SiteTableViewCell.swift in Sources */,
+				6880BECA1BD5F92900A97AC1 /* SiteDescriptionViewController.swift in Sources */,
+				6880BE9C1BD55EDF00A97AC1 /* AppDelegate.swift in Sources */,
+				6880BEB01BD56CE300A97AC1 /* FamousHistoricalSitesTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6880BE9F1BD55EDF00A97AC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6880BEA01BD55EDF00A97AC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6880BEA41BD55EDF00A97AC1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6880BEA51BD55EDF00A97AC1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6880BEA81BD55EDF00A97AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6880BEA91BD55EDF00A97AC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6880BEAB1BD55EDF00A97AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TheGrailDiary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.TheGrailDiary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6880BEAC1BD55EDF00A97AC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TheGrailDiary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.TheGrailDiary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6880BE931BD55EDF00A97AC1 /* Build configuration list for PBXProject "TheGrailDiary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6880BEA81BD55EDF00A97AC1 /* Debug */,
+				6880BEA91BD55EDF00A97AC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6880BEAA1BD55EDF00A97AC1 /* Build configuration list for PBXNativeTarget "TheGrailDiary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6880BEAB1BD55EDF00A97AC1 /* Debug */,
+				6880BEAC1BD55EDF00A97AC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6880BE901BD55EDF00A97AC1 /* Project object */;
+}

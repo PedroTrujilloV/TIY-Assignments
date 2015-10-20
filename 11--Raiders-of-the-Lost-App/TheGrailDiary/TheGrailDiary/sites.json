@@ -1,0 +1,53 @@
+ [
+  {
+    "name": "Machu Picchu",
+    "country": "Peru",
+    "descriptions": "In the 15th century, the Incan Emperor Pachacútec built a city in the clouds on the mountain known as Machu Picchu (“old mountain”). This extraordinary settlement lies halfway up the Andes Plateau, deep in the Amazon jungle and above the Urubamba River. It was probably abandoned by the Incas because of a smallpox outbreak and, after the Spanish defeated the Incan Empire, the city remained ‘lost’ for over three centuries. It was rediscovered by Hiram Bingham in 1911. http://world.new7wonders.com/", "photo":"Machu-Picchu.jpg"
+  },
+  {
+    "name": "Great Wall of China",
+    "country": "China",
+    "descriptions": "The Great Wall of China was built to link existing fortifications into a united defense system and better keep invading Mongol tribes out of China. It is the largest man-made monument ever to have been built and it is disputed that it is the only one visible from space. Many thousands of people must have given their lives to build this colossal construction. http://world.new7wonders.com/", "photo":"Great-Wall.jpg"
+  },
+  {
+    "name": "Pyramids of Giza",
+    "country": "Egypt",
+    "descriptions": "The Pyramids of Giza, the oldest and only Ancient Wonder still standing, are testimony to perfection in art and design, never subsequently achieved. They were built by planners and engineers purely to serve their earthy rulers – who were also their gods. Philosophy did not exist at this time, and creation was not subject to any questioning. The pyramids are the purest of constructions, built for eternity. After careful consideration, the New7Wonders Foundation designated the Pyramids of Giza – the only remaining of the 7 Ancient Wonders of the World – as an Honorary New7Wonders Candidate. Therefore, people could not vote for the Pyramids of Giza as part of the New7Wonders campaign. This decision has also taken into account the views of the Supreme Council of Antiquities of Egypt and the Egyptian Ministry of Culture. The Pyramids are a shared world culture and heritage site and deserve their special status as the only Honorary Candidate of the New7Wonders of the World campaign. The New 7 Wonders of the World were chosen by the people across the globe from the remaining 20 New7Wonders candidates. http://world.new7wonders.com/", "photo":"Pyramids-Giza.jpg"
+  },
+  {
+    "name": "Pyramid at Chichén Itzá",
+    "country": "Mexico",
+    "descriptions": "Chichén Itzá, the most famous Mayan temple city, served as the political and economic center of the Mayan civilization. Its various structures – the pyramid of Kukulkan, the Temple of Chac Mool, the Hall of the Thousand Pillars, and the Playing Field of the Prisoners – can still be seen today and are demonstrative of an extraordinary commitment to architectural space and composition. The pyramid itself was the last, and arguably the greatest, of all Mayan temples. http://world.new7wonders.com/","photo":"Pyramids-Mexico.jpg"
+  },
+  {
+    "name": "Stonehenge",
+    "country": "United Kingdom",
+    "descriptions": "Construction of Stonehenge took place between ca. 3000 and 1600 B.C. With each stone weighing around 50 tons, it is regarded as a truly amazing feat of engineering. Although it is not clear who built the monument, nor for what purpose, it has been speculated that it was either a temple dedicated to the worship of ancient earth deities, an astronomical observatory or a sacred burial site. http://world.new7wonders.com/", "photo":"Stonehenge.jpg"
+  },
+  {
+    "name": "Taj Mahal",
+    "country": "India",
+    "descriptions": "This immense mausoleum was built on the orders of Shah Jahan, the fifth Muslim Mogul emperor, to honor the memory of his beloved late wife. Built out of white marble and standing in formally laid-out walled gardens, the Taj Mahal is regarded as the most perfect jewel of Muslim art in India. The emperor was consequently jailed and, it is said, could then only see the Taj Mahal out of his small cell window. http://world.new7wonders.com/", "photo":"Taj-Mahal.jpg"
+  },
+  {
+    "name": "Statue of Liberty",
+    "country": "U.S.A.",
+    "descriptions": "The Statue of Liberty was a gift of the French government to the United States to honor the ideals of freedom and independence. It was a very early gesture of national generosity. This huge statue became a symbol of hope and freedom for many hundreds of millions of people who immigrated to the United States during the 20th century to find a new life of peace and prosperity. It is also the one New7Wonders candidate that most closely resembles one of the Ancient 7 Wonders – The Colossus of Rhodes. http://world.new7wonders.com/", "photo":"Liberty.jpg"
+  },
+  {
+    "name": "Roman Colosseum",
+    "country": "Italy",
+    "descriptions": "This great amphitheater in the centre of Rome was built to give favors to successful legionnaires and to celebrate the glory of the Roman Empire. Its design concept still stands to this very day, and virtually every modern sports stadium some 2,000 years later still bears the irresistible imprint of the Colosseum’s original design. Today, through films and history books, we are even more aware of the cruel fights and games that took place in this arena, all for the joy of the spectators. http://world.new7wonders.com/", "photo":"Colosseum1.jpg"
+  },
+  {
+    "name": "Kiyomizu Temple",
+    "country": "Japan",
+    "descriptions": "Laid out in 794 A.D., the palaces and temples of Kyoto were the residences of Japan’s emperors and shoguns for more than 1,000 years. The Japanese Emperor is enthroned at the Kyoto Gosho (Imperial Palace). Among other significant works are the Higashi Honganji and Nishi Honganji temple complexes, the Kinkakuji Temple with its ‘Golden Pavilion’ and the Kiyomizu Temple, the temple of “clear waters.” The Kyoto sites have been destroyed and rebuilt many times throughout history and are today among Asia’s greatest cultural heritage sites. http://world.new7wonders.com/",
+    "photo":"Kiyomizu.jpg"
+  },
+  {
+  "name": "Angkor",
+  "country": "Cambodia",
+  "descriptions": "Angkor is the most important monument of the south-east Asian Khmer Empire and the world’s largest sacred temple. Built during the reign of King Suryavaman, at the beginning of the 12th century, Angkor is noted for its intricate ornamentation and striking beauty. With its water moats, concentric walls and magnificent temple mountain in the center, Angkor Wat symbolizes the Hindu cosmos, with its oceans at the periphery and the Meru mountain at the center of its universe. http://world.new7wonders.com/", "photo":"Angkor.jpg"
+  }
+]
