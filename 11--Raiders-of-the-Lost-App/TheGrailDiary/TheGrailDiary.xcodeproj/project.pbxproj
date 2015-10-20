@@ -26,6 +26,11 @@
 		6880BEC61BD592D800A97AC1 /* Angkor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BEC51BD592D800A97AC1 /* Angkor.jpg */; settings = {ASSET_TAGS = (); }; };
 		6880BEC81BD5EBCC00A97AC1 /* SiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BEC71BD5EBCC00A97AC1 /* SiteModel.swift */; settings = {ASSET_TAGS = (); }; };
 		6880BECA1BD5F92900A97AC1 /* SiteDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BEC91BD5F92900A97AC1 /* SiteDescriptionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6880BECC1BD607CA00A97AC1 /* Neuschwanstein.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BECB1BD607CA00A97AC1 /* Neuschwanstein.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BECE1BD6087F00A97AC1 /* Eiffel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BECD1BD6087F00A97AC1 /* Eiffel.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BED01BD6093C00A97AC1 /* Easter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BECF1BD6093C00A97AC1 /* Easter.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BED21BD609E800A97AC1 /* Acropolis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BED11BD609E800A97AC1 /* Acropolis.jpg */; settings = {ASSET_TAGS = (); }; };
+		6880BED41BD60AA700A97AC1 /* Petra1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6880BED31BD60AA700A97AC1 /* Petra1.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		6880BEC51BD592D800A97AC1 /* Angkor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Angkor.jpg; sourceTree = "<group>"; };
 		6880BEC71BD5EBCC00A97AC1 /* SiteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteModel.swift; sourceTree = "<group>"; };
 		6880BEC91BD5F92900A97AC1 /* SiteDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteDescriptionViewController.swift; sourceTree = "<group>"; };
+		6880BECB1BD607CA00A97AC1 /* Neuschwanstein.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Neuschwanstein.jpg; sourceTree = "<group>"; };
+		6880BECD1BD6087F00A97AC1 /* Eiffel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Eiffel.jpg; sourceTree = "<group>"; };
+		6880BECF1BD6093C00A97AC1 /* Easter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Easter.jpg; sourceTree = "<group>"; };
+		6880BED11BD609E800A97AC1 /* Acropolis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Acropolis.jpg; sourceTree = "<group>"; };
+		6880BED31BD60AA700A97AC1 /* Petra1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Petra1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,11 @@
 				6880BEC11BD590F500A97AC1 /* Colosseum1.jpg */,
 				6880BEC31BD5921A00A97AC1 /* Kiyomizu.jpg */,
 				6880BEC51BD592D800A97AC1 /* Angkor.jpg */,
+				6880BECB1BD607CA00A97AC1 /* Neuschwanstein.jpg */,
+				6880BECD1BD6087F00A97AC1 /* Eiffel.jpg */,
+				6880BECF1BD6093C00A97AC1 /* Easter.jpg */,
+				6880BED11BD609E800A97AC1 /* Acropolis.jpg */,
+				6880BED31BD60AA700A97AC1 /* Petra1.jpg */,
 			);
 			path = TheGrailDiary;
 			sourceTree = "<group>";
@@ -163,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6880BECC1BD607CA00A97AC1 /* Neuschwanstein.jpg in Resources */,
 				6880BEB41BD5884C00A97AC1 /* Machu-Picchu.jpg in Resources */,
 				6880BEB81BD589A900A97AC1 /* Pyramids-Giza.jpg in Resources */,
 				6880BEC41BD5921A00A97AC1 /* Kiyomizu.jpg in Resources */,
@@ -172,8 +188,12 @@
 				6880BEAE1BD569C100A97AC1 /* sites.json in Resources */,
 				6880BEBA1BD58AE200A97AC1 /* Pyramids-Mexico.jpg in Resources */,
 				6880BEB61BD588F500A97AC1 /* Great-Wall.jpg in Resources */,
+				6880BED01BD6093C00A97AC1 /* Easter.jpg in Resources */,
 				6880BEC21BD590F500A97AC1 /* Colosseum1.jpg in Resources */,
+				6880BED41BD60AA700A97AC1 /* Petra1.jpg in Resources */,
+				6880BECE1BD6087F00A97AC1 /* Eiffel.jpg in Resources */,
 				6880BEA31BD55EDF00A97AC1 /* Assets.xcassets in Resources */,
+				6880BED21BD609E800A97AC1 /* Acropolis.jpg in Resources */,
 				6880BEC61BD592D800A97AC1 /* Angkor.jpg in Resources */,
 				6880BEA11BD55EDF00A97AC1 /* Main.storyboard in Resources */,
 				6880BEBE1BD58E6400A97AC1 /* Taj-Mahal.jpg in Resources */,

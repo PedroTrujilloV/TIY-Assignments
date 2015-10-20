@@ -49,5 +49,30 @@
   "name": "Angkor",
   "country": "Cambodia",
   "descriptions": "Angkor is the most important monument of the south-east Asian Khmer Empire and the world’s largest sacred temple. Built during the reign of King Suryavaman, at the beginning of the 12th century, Angkor is noted for its intricate ornamentation and striking beauty. With its water moats, concentric walls and magnificent temple mountain in the center, Angkor Wat symbolizes the Hindu cosmos, with its oceans at the periphery and the Meru mountain at the center of its universe. http://world.new7wonders.com/", "photo":"Angkor.jpg"
+  },
+  {
+  "name": "Neuschwanstein Castle",
+  "country": "Germany",
+  "descriptions": "Neuschwanstein Castle was built in a time when castles and fortresses were no longer strategically necessary. Instead, it was born of pure fantasy – a beautiful, romantic composition of towers and walls in the perfect setting of mountains and lakes. The combination of various architectural styles and intrinsic craftwork has inspired generations of adults and children alike. http://world.new7wonders.com/", "photo":"Neuschwanstein.jpg"
+  },
+  {
+  "name": "Eiffel Tower",
+  "country": "France",
+  "descriptions": "The creation of Gustave Eiffel, this magnificent steel tower has come to serve as a symbol of Paris, as well as of France itself. The structure is not only a landmark that is recognized all over the world, but is perhaps the most popular architectural achievement in the Western world. It was the tallest man-made structure in the world until the Empire State Building was constructed. The tower is visited by six million people every year. http://world.new7wonders.com/", "photo":"Eiffel.jpg"
+  },
+  {
+  "name": "Statues of ",
+  "country": "Easter Island, Chile",
+  "descriptions": "Discovered on Easter Sunday, 1722 by Dutch explorer Jakob Roggeveen, this collection of 25 meter-high stone sculptures still puzzles historians and archaeologists as to its origins. It is believed that a society of Polynesian origin settled here in the 4th century and established a unique tradition of monumental sculpture. Between the 10th and 16th centuries, they erected the enormous stone figures, known as the Moai, which have long fascinated the entire world and endowed this island with a mythical atmosphere. http://world.new7wonders.com/", "photo":"Easter.jpg"
+  },
+  {
+  "name": "Acropolis of Athens",
+  "country": "Greece",
+  "descriptions": "Built atop what is known as the “Sacred Rock” of Athens, the Acropolis was to radiate power and protection for its citizens. The temples of the Acropolis have become the some of most famous architectural landmarks of ancient and modern history. Today, the Parthenon in particular is an international symbol of Greek civilization. A graphic illustration of the temple also appears in the UNESCO logo, representing culture and education. http://world.new7wonders.com/", "photo":"Acropolis.jpg"
+  },
+  {
+  "name": "Petra",
+  "country": "Jordan",
+  "descriptions": "On the edge of the Arabian Desert, Petra was the glittering capital of the Nabataean empire of King Aretas IV (9 B.C. to 40 A.D.). Masters of water technology, the Nabataeans provided their city with great tunnel constructions and water chambers. A theater, modelled on Greek-Roman prototypes, had space for an audience of 4,000. Today, the Palace Tombs of Petra, with the 42-meter-high Hellenistic temple facade on the El-Deir Monastery, are impressive examples of Middle Eastern culture. http://world.new7wonders.com/", "photo":"Petra1.jpg"
   }
 ]
