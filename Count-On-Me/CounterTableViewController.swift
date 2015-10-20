@@ -119,7 +119,7 @@ class CounterTableViewController: UITableViewController
     
     @IBAction func addCounter(sender: UIBarButtonItem)
     {
-       let aCounter = NSEntityDescription.insertNewObjectForEntityForName("Counter", inManagedObjectContext: <#T##NSManagedObjectContext#>)
+       let aCounter = NSEntityDescription.insertNewObjectForEntityForName("Counter", inManagedObjectContext: managedObjectContext)
     }
     
 
