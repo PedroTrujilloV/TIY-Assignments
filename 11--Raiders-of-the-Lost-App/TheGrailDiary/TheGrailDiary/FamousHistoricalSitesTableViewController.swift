@@ -53,20 +53,23 @@ class FamousHistoricalSitesTableViewController: UITableViewController
         
         // Configure the cell...
         
-        
-//        let aSite = siteData[indexPath.row] as! NSDictionary
-//        cell.name!.text = aSite["name"] as! String
-//        cell.country!.text = aSite["country"] as! String
-//        cell.photo.image = UIImage(named: aSite["photo"] as! String)
-        
         let aSite = sitesArray[indexPath.row]
         cell.setLabelsValues(aSite)
         
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+       tableView.deselectRowAtIndexPath(indexPath, animated: true)
+       let selectedSite = sitesArray[indexPath.row]
+        let detailSiteVC = storyboard?.instantiateViewControllerWithIdentifier("SiteDescriptionViewController") as! SiteDescriptionViewController
+        detailSiteVC.site = selectedSite
+        navigationController?.pushViewController(detailSiteVC, animated: true)
+        
+    }
     
-    
+
   
 
     /*
