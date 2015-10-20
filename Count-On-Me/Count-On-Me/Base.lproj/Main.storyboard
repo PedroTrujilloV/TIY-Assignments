@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H4f-bZ-xY6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Counter Table View Controller-->
+        <scene sceneID="Suv-Qj-2K5">
+            <objects>
+                <tableViewController id="vM6-Ko-zLS" customClass="CounterTableViewController" customModule="Count_On_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mAx-qj-qmT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CounterCell" id="hY9-P0-bnb" customClass="CounterCell" customModule="Count_On_Me" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hY9-P0-bnb" id="it3-05-tFr">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Counter Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iao-0B-2SR">
+                                            <rect key="frame" x="8" y="11" width="430" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-Vm-xuQ">
+                                            <rect key="frame" x="498" y="7" width="94" height="29"/>
+                                        </stepper>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hej-Ao-z8e">
+                                            <rect key="frame" x="446" y="11" width="44" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZjY-Vm-xuQ" firstAttribute="centerY" secondItem="it3-05-tFr" secondAttribute="centerY" id="8lT-Q1-aCL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ZjY-Vm-xuQ" secondAttribute="trailing" id="DiY-vD-meQ"/>
+                                        <constraint firstItem="Hej-Ao-z8e" firstAttribute="leading" secondItem="Iao-0B-2SR" secondAttribute="trailing" constant="8" id="P0f-AD-8R2"/>
+                                        <constraint firstItem="ZjY-Vm-xuQ" firstAttribute="leading" secondItem="Hej-Ao-z8e" secondAttribute="trailing" constant="8" id="SXL-M9-tk8"/>
+                                        <constraint firstItem="Hej-Ao-z8e" firstAttribute="centerY" secondItem="it3-05-tFr" secondAttribute="centerY" id="Z29-XD-vao"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Iao-0B-2SR" secondAttribute="leading" id="i91-Sv-rVA"/>
+                                        <constraint firstItem="Iao-0B-2SR" firstAttribute="centerY" secondItem="it3-05-tFr" secondAttribute="centerY" id="mtC-pM-Nw2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="countLabel" destination="Hej-Ao-z8e" id="80L-Ih-vfg"/>
+                                    <outlet property="countStepper" destination="ZjY-Vm-xuQ" id="Y2o-xf-jPY"/>
+                                    <outlet property="titleTextField" destination="Iao-0B-2SR" id="czc-Ws-XXi"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vM6-Ko-zLS" id="cnm-JQ-9as"/>
+                            <outlet property="delegate" destination="vM6-Ko-zLS" id="v9H-aX-Ew5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gF8-e6-0SI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="k5v-Bk-kDO">
+                            <connections>
+                                <action selector="addCounter:" destination="vM6-Ko-zLS" id="ULJ-Fy-IXh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4X-Vt-Zvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="309"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xjy-zu-6MX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H4f-bZ-xY6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gz5-t5-aeO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vM6-Ko-zLS" kind="relationship" relationship="rootViewController" id="dGd-jk-awh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j4e-EF-pyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="355" y="309"/>
+        </scene>
+    </scenes>
+</document>
