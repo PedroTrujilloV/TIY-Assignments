@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  InDueTime
 //
-//  Created by Pedro Trujillo on 10/20/15.
+//  Created by Pedro Trujillo on 10/21/15.
 //  Copyright © 2015 Pedro Trujillo. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,7 +14,8 @@ import CoreData
 
 extension Task {
 
-    @NSManaged var titleTask: String?
     @NSManaged var statusTask: Bool
+    @NSManaged var titleTask: String?
+    @NSManaged var dueDateTask: String?
 
 }

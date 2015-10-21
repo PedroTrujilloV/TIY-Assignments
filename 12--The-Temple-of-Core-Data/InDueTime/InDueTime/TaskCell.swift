@@ -17,8 +17,9 @@ class TaskCell: UITableViewCell
     
     @IBOutlet weak var statusTaskSwitch: UISwitch!
     
-    @IBOutlet weak var dueDateTaskLabel: UILabel!
+    //@IBOutlet weak var dueDateTaskLabel: UILabel!
     
+    @IBOutlet weak var setDueDateButton: UIButton!
     //@IBOutlet weak var dueDateTaskButton: UIButton!
     
     override func awakeFromNib()

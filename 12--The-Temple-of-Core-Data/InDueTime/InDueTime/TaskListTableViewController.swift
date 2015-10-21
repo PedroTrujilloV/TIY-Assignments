@@ -9,12 +9,23 @@
 import UIKit
 import CoreData
 
-class TaskListTableViewController: UITableViewController, UITextFieldDelegate
+
+@objc protocol TimeCircuitsDelegate
+{
+    func dateWasPicked(datePickerDateString:String)
+}
+
+
+
+class TaskListTableViewController: UITableViewController, UITextFieldDelegate, TimeCircuitsDelegate
 {
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var taskList = Array<Task>()
+    
+    var temporalDate = ""
+    var buttonSelectedIndexPath:NSIndexPath!
 
     override func viewDidLoad()
     {
@@ -80,27 +91,35 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
         
        let aTask = taskList[indexPath.row]
         
-        if aTask.titleTask == nil
+        if aTask.titleTask == nil || aTask.titleTask == ""
         {
-            cell.titleTaskLabel.becomeFirstResponder()
+            cell.statusTaskSwitch.enabled = false
+            cell.setDueDateButton.enabled = false
             cell.statusTaskSwitch.on =  false
-            
-//            cell.titleTaskLabel.text = " New Task"
-//            cell.statusTaskSwitch.on = true // false
-//            cell.dueDateTaskLabel.text = "-----" //"due time: 12/05/2015 >"
-//            cell.indexTaskLabel.text = "\(indexPath.row)"
+            cell.titleTaskLabel.becomeFirstResponder()
         }
         else
         {
-             cell.titleTaskLabel.text = aTask.titleTask
+            cell.statusTaskSwitch.enabled = true
+            cell.setDueDateButton.enabled = true
+            cell.titleTaskLabel.text = aTask.titleTask
             cell.statusTaskSwitch.on =  aTask.statusTask
-         
                 ///tableView.editing = true editing style!!!!
+        }
+        
+        if aTask.dueDateTask == nil || aTask.dueDateTask == "MM/dd/YY"
+        {
+            aTask.dueDateTask = "MM/dd/YY"
+            cell.setDueDateButton.setTitle("set due time: " + aTask.dueDateTask! + " >", forState: UIControlState.Normal)
+        }
+        else
+        {
+            cell.setDueDateButton.setTitle("due time: " + aTask.dueDateTask! + " >", forState: UIControlState.Normal)
             
         }
         
+
         
-        //cell.dueDateTaskLabel.text = "-----" //"due time: 12/05/2015 >"
         cell.indexTaskLabel.text = "\(indexPath.row + 1)"
         
         
@@ -122,9 +141,8 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
-        
-        
-        
+//        if taskList[indexPath.row].statusTask == false
+//        {
         
         if editingStyle == .Delete
         {
@@ -186,6 +204,7 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
             saveContext()
             
         }
+        tableView.reloadData()
         return rc
     }
     
@@ -218,6 +237,18 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
         tableView.reloadData()
     }
     
+    @IBAction func setDueDate(sender: UIButton)
+    {
+        let parentContentView = sender.superview
+        let cell = parentContentView?.superview as! TaskCell
+        
+        let indexPath = tableView.indexPathForCell(cell)
+        
+        buttonSelectedIndexPath = indexPath // store the indexPath in a temporal variable to know after in which button set the due date
+        
+    }
+    
+    //MARK: Save context
     func saveContext()
     {
         do
@@ -232,5 +263,30 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
         }
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ShowTimeCircuitsSegue"
+        {
+            let datePickerVC = segue.destinationViewController as! TimeCircuitsViewController
+            datePickerVC.delegate = self
+        }
+    }
+    
+    
+
+    //MARK: - Delegate from table picker view
+    
+    func dateWasPicked(datePickerDateString:String)
+    {
+        print("Outa..")
+        print(datePickerDateString)
+        
+       
+        taskList[buttonSelectedIndexPath.row].dueDateTask = datePickerDateString
+        saveContext()
+        tableView.reloadData()
+      
+    }
 
 }

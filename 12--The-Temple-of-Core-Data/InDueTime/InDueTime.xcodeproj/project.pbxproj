@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		682719ED1BD73CC900E50F31 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682719EB1BD73CC900E50F31 /* Task+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		682719EE1BD73CC900E50F31 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682719EC1BD73CC900E50F31 /* Task.swift */; settings = {ASSET_TAGS = (); }; };
+		682719F01BD75B5900E50F31 /* TimeCircuitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		68271A221BD7F07000E50F31 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A201BD7F07000E50F31 /* Task+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		68271A231BD7F07000E50F31 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A211BD7F07000E50F31 /* Task.swift */; settings = {ASSET_TAGS = (); }; };
 		6880BF0B1BD6B72700A97AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF0A1BD6B72700A97AC1 /* AppDelegate.swift */; };
 		6880BF101BD6B72700A97AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6880BF0E1BD6B72700A97AC1 /* Main.storyboard */; };
 		6880BF131BD6B72700A97AC1 /* InDueTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF111BD6B72700A97AC1 /* InDueTime.xcdatamodeld */; };
@@ -19,8 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		682719EB1BD73CC900E50F31 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataProperties.swift"; path = "../Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		682719EC1BD73CC900E50F31 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = ../Task.swift; sourceTree = "<group>"; };
+		682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCircuitsViewController.swift; sourceTree = "<group>"; };
+		68271A201BD7F07000E50F31 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataProperties.swift"; path = "../Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		68271A211BD7F07000E50F31 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = ../Task.swift; sourceTree = "<group>"; };
 		6880BF071BD6B72700A97AC1 /* InDueTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InDueTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6880BF0A1BD6B72700A97AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6880BF0F1BD6B72700A97AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,8 +64,8 @@
 		6880BF091BD6B72700A97AC1 /* InDueTime */ = {
 			isa = PBXGroup;
 			children = (
-				682719EB1BD73CC900E50F31 /* Task+CoreDataProperties.swift */,
-				682719EC1BD73CC900E50F31 /* Task.swift */,
+				68271A201BD7F07000E50F31 /* Task+CoreDataProperties.swift */,
+				68271A211BD7F07000E50F31 /* Task.swift */,
 				6880BF0A1BD6B72700A97AC1 /* AppDelegate.swift */,
 				6880BF2B1BD6CAED00A97AC1 /* TaskListTableViewController.swift */,
 				6880BF0E1BD6B72700A97AC1 /* Main.storyboard */,
@@ -72,6 +74,7 @@
 				6880BF161BD6B72700A97AC1 /* LaunchScreen.storyboard */,
 				6880BF191BD6B72700A97AC1 /* Info.plist */,
 				6880BF111BD6B72700A97AC1 /* InDueTime.xcdatamodeld */,
+				682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */,
 			);
 			path = InDueTime;
 			sourceTree = "<group>";
@@ -147,10 +150,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6880BF131BD6B72700A97AC1 /* InDueTime.xcdatamodeld in Sources */,
+				682719F01BD75B5900E50F31 /* TimeCircuitsViewController.swift in Sources */,
 				6880BF0B1BD6B72700A97AC1 /* AppDelegate.swift in Sources */,
 				6880BF2E1BD6CBF700A97AC1 /* TaskCell.swift in Sources */,
-				682719ED1BD73CC900E50F31 /* Task+CoreDataProperties.swift in Sources */,
-				682719EE1BD73CC900E50F31 /* Task.swift in Sources */,
+				68271A221BD7F07000E50F31 /* Task+CoreDataProperties.swift in Sources */,
+				68271A231BD7F07000E50F31 /* Task.swift in Sources */,
 				6880BF2C1BD6CAED00A97AC1 /* TaskListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
