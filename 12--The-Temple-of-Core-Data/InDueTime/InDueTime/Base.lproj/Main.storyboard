@@ -29,6 +29,9 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K7A-xz-5YR">
                                             <rect key="frame" x="8" y="50" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="changeStatus:" destination="ZZP-cn-xsk" eventType="valueChanged" id="VlO-cb-fqS"/>
+                                            </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="due time: 12/05/2015 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIv-Mu-krL">
                                             <rect key="frame" x="398" y="60" width="167" height="21"/>

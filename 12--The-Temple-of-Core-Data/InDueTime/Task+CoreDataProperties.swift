@@ -14,10 +14,7 @@ import CoreData
 
 extension Task {
 
-    @NSManaged var numberTask: Int16
     @NSManaged var titleTask: String?
     @NSManaged var statusTask: Bool
-    @NSManaged var dueDate: NSTimeInterval
-    @NSManaged var descriptions: String?
 
 }
