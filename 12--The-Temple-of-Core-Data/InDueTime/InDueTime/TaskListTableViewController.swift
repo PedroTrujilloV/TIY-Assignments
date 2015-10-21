@@ -30,6 +30,17 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
         {
             let fetchRequestResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Task]
             taskList = fetchRequestResults!
+            //tempList = taskList
+            var x = 0
+            while  x < taskList.count
+            {
+                if taskList[x].statusTask == false
+                {
+                    taskList.removeAtIndex(x)
+                  x = 0
+                }
+                x++
+            }
         }
         
         catch
@@ -83,11 +94,16 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
         {
              cell.titleTaskLabel.text = aTask.titleTask
             cell.statusTaskSwitch.on =  aTask.statusTask
+         
+                ///tableView.editing = true editing style!!!!
+            
         }
         
         
         //cell.dueDateTaskLabel.text = "-----" //"due time: 12/05/2015 >"
         cell.indexTaskLabel.text = "\(indexPath.row + 1)"
+        
+        
 
         return cell
     }
@@ -106,6 +122,10 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
+        
+        
+        
+        
         if editingStyle == .Delete
         {
             let aTask = taskList[indexPath.row]
@@ -114,6 +134,7 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
             saveContext()
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
         }
     }
     
@@ -171,12 +192,22 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate
     //MARK: Actions Handlers
     @IBAction func changeStatus(sender: UISwitch)
     {
-        let parentContentView = sender.superview
-        let cell = parentContentView?.superview as! TaskCell
-        let indexPath = tableView.indexPathForCell(cell)
-        let aTask = taskList[indexPath!.row]
-        aTask.statusTask = !aTask.statusTask
-        saveContext()
+        
+            let parentContentView = sender.superview
+            let cell = parentContentView?.superview as! TaskCell
+
+            let indexPath = tableView.indexPathForCell(cell)
+            let aTask = taskList[indexPath!.row]
+            aTask.statusTask = !aTask.statusTask
+        
+
+//            ///tableView.editing = true editing style!!!!
+//            cell.editing = true
+//            cell.editingStyle
+//            //tableView.delete(cell)
+
+            saveContext()
+
     }
     
     @IBAction func addTask(sender: UIBarButtonItem)
