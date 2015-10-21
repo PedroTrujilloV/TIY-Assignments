@@ -86,6 +86,10 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath) as! TaskCell
+        
+        cell.titleTaskLabel.text = ""
+        //cell.statusTaskSwitch.on =  false
+        //cell.setDueDateButton.setTitle("set due time: " + "MM/dd/YY" + " >", forState: UIControlState.Normal)
 
         // Configure the cell...
         
@@ -153,7 +157,12 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
+            
+            
+            
         }
+        
+        tableView.reloadData()
     }
     
 
