@@ -57,7 +57,7 @@ class OperatorsListTableViewController: UITableViewController
         return cell
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     //override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
     {
         let selectedOperation = operatorList.removeAtIndex(indexPath.row)
