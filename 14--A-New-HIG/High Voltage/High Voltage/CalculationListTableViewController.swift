@@ -66,16 +66,19 @@ class CalculationListTableViewController: UITableViewController, UITextFieldDele
 
         // Configure the cell...
         
+//        if calculationBrain.bufferCalculations.count == 0
+//        {
+//            //cell.calculationLabel.text == nil
+//            cell.calculationTextField.enabled = true
+//            cell.calculationTextField.text = nil
+//        }
         
         print(" ")
         print(calculationBrain.bufferCalculations.count)
         print(operations.count)
         print(indexPath.row)
         
-        
-//        if operations.count > calculationBrain.bufferCalculations.count
-//        
-//        {
+
         // Extremly nescesary to hide the keyboard after insert values
             if cell.calculationTextField.text == nil || cell.calculationTextField.text == ""
             {
@@ -86,22 +89,16 @@ class CalculationListTableViewController: UITableViewController, UITextFieldDele
                 }
                 else
                 {
+                    addOperationButton.enabled = false
                     cell.calculationTextField.becomeFirstResponder()
                 }
             }
             else
             {
+                addOperationButton.enabled = true
                 cell.calculationTextField.text = "\(calculationBrain.bufferCalculations[indexPath.row])"
             }
-//        }
-//        else
-//        {
-//            cell.calculationTextField.text = "\(calculationBrain.bufferCalculations[indexPath.row])"
-//            cell.calculationTextField.enabled = false
-//            
-//        }
-        
-        
+
         cell.calculationLabel.text = operations[indexPath.row]
     
 
@@ -111,25 +108,27 @@ class CalculationListTableViewController: UITableViewController, UITextFieldDele
     
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -146,8 +145,38 @@ class CalculationListTableViewController: UITableViewController, UITextFieldDele
     }
     */
     
-    //MARK: - Calculation Generator
+    //MARK: Action handlers 
     
+    
+    @IBAction func RefreshList(sender: UIBarButtonItem)
+    {
+        
+        bufferOperators = ""
+        calculationBrain.cleanAll()
+        operatorList = ["Watts", "Volts", "Amps", "Ohms"]
+        cleanTable()
+        addOperationButton.enabled = true
+        
+    }
+    
+    func cleanTable()
+    {
+        while operations.count > 0
+        {
+            let newIndexPath = NSIndexPath(forRow: operations.count-1, inSection: 0)
+            
+            operations.removeFirst()
+            
+            let cell = tableView.cellForRowAtIndexPath(newIndexPath) as! CalculationTableViewCell
+            
+            cell.calculationTextField.text = nil //KILL (clean) the fucking text fields motherfuckers!
+            cell.calculationLabel.text = nil // and it friend
+            cell.calculationTextField.enabled = true
+            
+            tableView.deleteRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+        }
+        tableView.reloadData()
+    }
     
     
     
@@ -157,10 +186,8 @@ class CalculationListTableViewController: UITableViewController, UITextFieldDele
     {
         
         var rc = false
-        
-        
-
-        
+ 
+    
         if textField.text != "" || textField.text != nil
         {
             rc = true
@@ -168,8 +195,6 @@ class CalculationListTableViewController: UITableViewController, UITextFieldDele
             //let parentContentView = textField.superview
             //let cell = parentContentView?.superview as! CalculationTableViewCell
             //let indexPath = tableView.indexPathForCell(cell)
-            
-            
 
             textField.resignFirstResponder()
             calculationBrain.appendValue(textField.text!)
@@ -193,6 +218,8 @@ class CalculationListTableViewController: UITableViewController, UITextFieldDele
             destVC.operatorList = operatorList
             destVC.popoverPresentationController?.delegate = self // 2
             destVC.delegator = self // 3 nescessary to get the value from the popover
+            let contentHight = 45.0 * CGFloat(operatorList.count)
+            destVC.preferredContentSize = CGSizeMake(100.0, contentHight)
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -232,6 +259,10 @@ class CalculationListTableViewController: UITableViewController, UITextFieldDele
         
         tableView.reloadData()
         
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
 
 }

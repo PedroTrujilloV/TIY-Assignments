@@ -133,7 +133,7 @@ class CardsCollectionViewController: UICollectionViewController, UIPopoverPresen
     
     func characterWasChosen(chosenCharacter: String)
     {
-        navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        navigationController?.dismissViewControllerAnimated(true, completion: nil) // this thing hides the popover
         visibleCards.append(chosenCharacter)
         
         let rowToRemove = (remainingCharacters as NSArray).indexOfObject(chosenCharacter)

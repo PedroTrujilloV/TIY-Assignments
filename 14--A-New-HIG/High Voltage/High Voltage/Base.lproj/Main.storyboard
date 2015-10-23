@@ -63,7 +63,15 @@
                             <outlet property="delegate" destination="qOK-n4-PTx" id="0iY-WK-Y0o"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="H07-Yk-q59"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="k31-ho-sA7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="85Z-Lb-fC3">
+                            <connections>
+                                <action selector="RefreshList:" destination="qOK-n4-PTx" id="fj4-oN-sb1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="H0F-e1-KC2">
                             <connections>
                                 <segue destination="bJ0-7g-PuQ" kind="popoverPresentation" identifier="ShowOperatorsListTableViewControllerSegue" popoverAnchorBarButtonItem="H0F-e1-KC2" id="Tb0-XD-1NO">
@@ -72,6 +80,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addOperationButton" destination="H0F-e1-KC2" id="GgU-gA-Dfy"/>
                     </connections>

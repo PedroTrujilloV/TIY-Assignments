@@ -114,6 +114,7 @@ class CalculatorBrain
     func cleanAll()
     {
         bufferCalculations = []
+        bufferValuesArray = []
         //bufferCalculations.append(0)
     }
     
