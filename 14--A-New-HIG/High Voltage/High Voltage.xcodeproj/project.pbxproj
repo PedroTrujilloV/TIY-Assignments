@@ -14,6 +14,7 @@
 		68271A761BD965D400E50F31 /* OperatorsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A751BD965D400E50F31 /* OperatorsListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		68271A781BD9681700E50F31 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A771BD9681700E50F31 /* CalculatorBrain.swift */; settings = {ASSET_TAGS = (); }; };
 		68271A7B1BD969A300E50F31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68271A791BD969A300E50F31 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		687D65DA1BD980FD002CA3BE /* CalculationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D65D91BD980FD002CA3BE /* CalculationTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		68271A751BD965D400E50F31 /* OperatorsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsListTableViewController.swift; sourceTree = "<group>"; };
 		68271A771BD9681700E50F31 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		68271A7A1BD969A300E50F31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		687D65D91BD980FD002CA3BE /* CalculationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				68271A611BD95D5700E50F31 /* AppDelegate.swift */,
 				68271A731BD961ED00E50F31 /* CalculationListTableViewController.swift */,
+				687D65D91BD980FD002CA3BE /* CalculationTableViewCell.swift */,
 				68271A751BD965D400E50F31 /* OperatorsListTableViewController.swift */,
 				68271A771BD9681700E50F31 /* CalculatorBrain.swift */,
 				68271A791BD969A300E50F31 /* Main.storyboard */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				687D65DA1BD980FD002CA3BE /* CalculationTableViewCell.swift in Sources */,
 				68271A621BD95D5700E50F31 /* AppDelegate.swift in Sources */,
 				68271A761BD965D400E50F31 /* OperatorsListTableViewController.swift in Sources */,
 				68271A781BD9681700E50F31 /* CalculatorBrain.swift in Sources */,
@@ -293,6 +297,7 @@
 				68271A721BD95D5700E50F31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

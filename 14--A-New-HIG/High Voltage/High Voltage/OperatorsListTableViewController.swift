@@ -10,9 +10,9 @@ import UIKit
 
 class OperatorsListTableViewController: UITableViewController
 {
+    var delegator:OperatorListViewControllerDelegate?
     var operatorList = Array<String>()
     
-    var delegator:OperatorListViewControllerDelegate?
 
     override func viewDidLoad()
     {
@@ -23,7 +23,8 @@ class OperatorsListTableViewController: UITableViewController
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        operatorList = ["Watts", "Volts", "Amps", "Ohms"]
+      
+
     }
 
     override func didReceiveMemoryWarning()
@@ -59,11 +60,14 @@ class OperatorsListTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
     {
-        delegator?.operatorWasChosen(operatorList[indexPath.row])
+        let selectedOperation = operatorList.removeAtIndex(indexPath.row)
         
+        delegator?.operatorWasChosen(selectedOperation)//[indexPath.row])
+        //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         
         print("From OperatorsListTableViewController")
-        print(operatorList[indexPath.row])
+        print(operatorList)
+        print(selectedOperation)
     }
     
     

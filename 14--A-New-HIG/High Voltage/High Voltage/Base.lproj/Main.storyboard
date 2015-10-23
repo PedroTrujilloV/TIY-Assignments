@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="v2P-tQ-QTE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalculationTableViewCell" id="v2P-tQ-QTE" customClass="CalculationTableViewCell" customModule="High_Voltage" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v2P-tQ-QTE" id="K7O-3q-YyO">
@@ -25,7 +25,10 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert Value " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8m6-cq-ZqB">
                                             <rect key="frame" x="292" y="10" width="300" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="qOK-n4-PTx" id="WvK-Gm-xiH"/>
+                                            </connections>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Variable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8U-ey-fvb">
                                             <rect key="frame" x="13" y="10" width="270" height="27"/>
@@ -49,6 +52,10 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calculationLabel" destination="R8U-ey-fvb" id="ZSJ-gV-aJL"/>
+                                    <outlet property="calculationTextField" destination="8m6-cq-ZqB" id="acW-zL-zb2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

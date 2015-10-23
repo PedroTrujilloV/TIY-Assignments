@@ -13,13 +13,19 @@ protocol OperatorListViewControllerDelegate
     func operatorWasChosen(electronicOperator: String)
 }
 
-class CalculationListTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, OperatorListViewControllerDelegate
+class CalculationListTableViewController: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, OperatorListViewControllerDelegate
 {
     
     
     @IBOutlet weak var addOperationButton: UIBarButtonItem!
     
     var calculationBrain = CalculatorBrain()
+    
+    var bufferOperators:String = ""
+    
+    var operations = Array<String>()
+    
+    var operatorList = ["Watts", "Volts", "Amps", "Ohms"]
 
     override func viewDidLoad()
     {
@@ -45,24 +51,64 @@ class CalculationListTableViewController: UITableViewController, UIPopoverPresen
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // #warning Incomplete implementation, return the number of rows
-        return 0//calculationBrain.bufferCalculations.count
+        return operations.count//calculationBrain.bufferCalculations.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("CalculationTableViewCell", forIndexPath: indexPath) as! CalculationTableViewCell
 
         // Configure the cell...
+        
+        
+        print(" ")
+        print(calculationBrain.bufferCalculations.count)
+        print(operations.count)
+        print(indexPath.row)
+        
+        
+//        if operations.count > calculationBrain.bufferCalculations.count
+//        
+//        {
+        // Extremly nescesary to hide the keyboard after insert values
+            if cell.calculationTextField.text == nil || cell.calculationTextField.text == ""
+            {
+                if operations.count-1  < calculationBrain.bufferCalculations.count
+                {
+                    cell.calculationTextField.enabled = false
+                    cell.calculationTextField.text = "\(calculationBrain.bufferCalculations[indexPath.row])"
+                }
+                else
+                {
+                    cell.calculationTextField.becomeFirstResponder()
+                }
+            }
+            else
+            {
+                cell.calculationTextField.text = "\(calculationBrain.bufferCalculations[indexPath.row])"
+            }
+//        }
+//        else
+//        {
+//            cell.calculationTextField.text = "\(calculationBrain.bufferCalculations[indexPath.row])"
+//            cell.calculationTextField.enabled = false
+//            
+//        }
+        
+        
+        cell.calculationLabel.text = operations[indexPath.row]
+    
 
         return cell
     }
-    */
+
+    
     
 
     /*
@@ -99,6 +145,41 @@ class CalculationListTableViewController: UITableViewController, UIPopoverPresen
         return true
     }
     */
+    
+    //MARK: - Calculation Generator
+    
+    
+    
+    
+    //MARK: - UITextField Delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        
+        var rc = false
+        
+        
+
+        
+        if textField.text != "" || textField.text != nil
+        {
+            rc = true
+            
+            //let parentContentView = textField.superview
+            //let cell = parentContentView?.superview as! CalculationTableViewCell
+            //let indexPath = tableView.indexPathForCell(cell)
+            
+            
+
+            textField.resignFirstResponder()
+            calculationBrain.appendValue(textField.text!)
+            tableView.reloadData()
+        }
+        
+        return rc
+    }
+    
+   
 
     
     // MARK: - Navigation
@@ -108,9 +189,10 @@ class CalculationListTableViewController: UITableViewController, UIPopoverPresen
     {
         if segue.identifier == "ShowOperatorsListTableViewControllerSegue"
         {
-            let destVC  = segue.destinationViewController as! OperatorsListTableViewController
-            destVC.popoverPresentationController?.delegate = self
-            destVC.delegator = self
+            let destVC  = segue.destinationViewController as! OperatorsListTableViewController // 1
+            destVC.operatorList = operatorList
+            destVC.popoverPresentationController?.delegate = self // 2
+            destVC.delegator = self // 3 nescessary to get the value from the popover
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -119,10 +201,37 @@ class CalculationListTableViewController: UITableViewController, UIPopoverPresen
     
     func operatorWasChosen(electronicOperator: String)
     {
+        navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
         print("operatorWasChosen:")
         print(electronicOperator)
         
+        
+//        bufferArray.append(electronicOperator)
+//        bufferString = bufferArray.joinWithSeparator("") //convert from Array to string
+//        printInDisplay(bufferString)
+        
+        
+        operations.append(electronicOperator)
+        let rowToRemove = (operatorList as NSArray).indexOfObject(electronicOperator)
+        operatorList.removeAtIndex(rowToRemove)
+        
+        
+        var wordToArray = Array(electronicOperator.characters)
+        let charOperator = wordToArray.removeAtIndex(0)
+        
+        if operations.count < 3
+        {
+            bufferOperators += "\(charOperator)"
+        }
+        else
+        {
+            print(bufferOperators+"\(charOperator) was chosen")
+            calculationBrain.appendBufferCalculations(bufferOperators+"\(charOperator)")
+        }
+
+        
         tableView.reloadData()
+        
     }
 
 }
