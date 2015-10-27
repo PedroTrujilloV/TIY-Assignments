@@ -38,14 +38,18 @@ struct Album
                 var name = result["artistName"] as? String
                 if name == nil
                 {
-                    name == result["collectionName"] as? String
+                    name = result["trackName"] as? String
+                    if name == nil
+                    {
+                        name == result["collectionName"] as? String
+                    }
                 }
                 
                 var price = result["formattedPrice"] as? String
                 if price == nil
                 {
-                    if price = result["collectionPrice"] as? String
-                    {
+                    price = result["collectionPrice"] as? String
+                    
                         if price == nil
                         {
                             let priceFloat = result["collectionPrice"] as? Float
@@ -56,18 +60,21 @@ struct Album
                                 price = "$\(nf.stringFromNumber(priceFloat!)!)"
                             }
                         }
-                    }
-                    let thumbnailURL = result["artworkUrl60"] as? String?? ""
-                    let imageURL = result["artworkUrl100"] as? String?? ""
-                    let artistURL = result["artistViewUrl"] as? String? ""
-                    var itemURL == nil
-                    {
-                        itemURL = result["trackViewUrl"] as? String
-                    }
-                    
-                
+
                 }
+                let thumbnailURL = result["artworkUrl60"] as? String ?? ""
+                let imageURL = result["artworkUrl100"] as? String ?? ""
+                let artistURL = result["artistViewUrl"] as? String ?? ""
+                var itemURL = result["collectionViewUrl"] as? String
+                if itemURL == nil
+                {
+                        itemURL = result["trackViewUrl"] as? String
+                }
+                albums.append(Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL, largeImageURL: imageURL, itemURL: itemURL!, artistURL: artistURL))
+
             }
         }
+        
+        return albums
     }
 }

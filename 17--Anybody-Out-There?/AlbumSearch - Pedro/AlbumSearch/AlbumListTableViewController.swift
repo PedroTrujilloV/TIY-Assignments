@@ -25,7 +25,7 @@ class AlbumListTableViewController: UITableViewController, APIControllerProtocol
         // Do any additional setup after loading the view, typically from a nib.
         api = APIController(delegate: self)
         api.searchItunesFor("Beatles")
-        tableView.registerClass(UITableViewCell.self, forHeaderFooterViewReuseIdentifier: "AlbumCell")
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "AlbumCell")
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
 
@@ -59,9 +59,14 @@ class AlbumListTableViewController: UITableViewController, APIControllerProtocol
     
     func didReceiveAPIResults(results:NSArray)
     {
-        albums = Album.albumsWithJSON(results)
-        tableView.reloadData()
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        dispatch_async(dispatch_get_main_queue(), {
+        
+            self.albums = Album.albumsWithJSON(results)
+            self.tableView.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
+        })
+        
     }
 
 
