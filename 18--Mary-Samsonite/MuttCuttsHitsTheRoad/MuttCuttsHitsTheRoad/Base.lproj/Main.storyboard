@@ -30,7 +30,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OTu-NB-LHL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1XR-Tr-bob"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1XR-Tr-bob">
+                            <connections>
+                                <segue destination="988-jL-heq" kind="popoverPresentation" identifier="ShowPopoverAddCityViewControllerSegue" popoverAnchorBarButtonItem="1XR-Tr-bob" id="Yi0-zI-Bob">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="l3D-KE-Uyd" id="mK9-Wi-vsh"/>
@@ -39,6 +45,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1252" y="357"/>
+        </scene>
+        <!--Popover Add City View Controller-->
+        <scene sceneID="4WH-Ma-fuF">
+            <objects>
+                <viewController id="988-jL-heq" customClass="PopoverAddCityViewController" customModule="MuttCuttsHitsTheRoad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FjT-U2-xr6"/>
+                        <viewControllerLayoutGuide type="bottom" id="kuB-ZG-y4O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="63l-EL-nVa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert City" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SsR-8U-v0P">
+                                <rect key="frame" x="20" y="25" width="560" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <action selector="cityEditingDidEnd:" destination="988-jL-heq" eventType="editingDidEnd" id="Woz-tt-eez"/>
+                                    <outlet property="delegate" destination="988-jL-heq" id="nEk-hJ-p2h"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert State" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5WP-SJ-Rls">
+                                <rect key="frame" x="20" y="57" width="560" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <action selector="stateEditionDidEnd:" destination="988-jL-heq" eventType="editingDidEnd" id="VFS-J8-JEt"/>
+                                    <outlet property="delegate" destination="988-jL-heq" id="Nvi-4a-ReZ"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5WP-SJ-Rls" firstAttribute="top" secondItem="SsR-8U-v0P" secondAttribute="bottom" constant="15" id="5R2-jE-flI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SsR-8U-v0P" secondAttribute="trailing" id="7BE-tN-85a"/>
+                            <constraint firstItem="SsR-8U-v0P" firstAttribute="top" secondItem="FjT-U2-xr6" secondAttribute="bottom" constant="5" id="Dk4-wc-pWh"/>
+                            <constraint firstItem="5WP-SJ-Rls" firstAttribute="leading" secondItem="63l-EL-nVa" secondAttribute="leadingMargin" id="Wfc-lf-7aV"/>
+                            <constraint firstItem="SsR-8U-v0P" firstAttribute="leading" secondItem="63l-EL-nVa" secondAttribute="leadingMargin" id="hSC-sM-nlw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5WP-SJ-Rls" secondAttribute="trailing" id="koR-XF-P8U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cityTextFiled" destination="SsR-8U-v0P" id="vfE-TD-2Xf"/>
+                        <outlet property="stateTextField" destination="5WP-SJ-Rls" id="tH5-6k-RK5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jkd-Re-pw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962" y="271"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kKG-AE-o6i">

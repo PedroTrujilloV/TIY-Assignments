@@ -12,6 +12,7 @@
 		689B04ED1BE1134F001018D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689B04EB1BE1134F001018D2 /* Main.storyboard */; };
 		689B04EF1BE1134F001018D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689B04EE1BE1134F001018D2 /* Assets.xcassets */; };
 		689B04F21BE1134F001018D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689B04F01BE1134F001018D2 /* LaunchScreen.storyboard */; };
+		689B04FA1BE160E0001018D2 /* PopoverAddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04F91BE160E0001018D2 /* PopoverAddCityViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		689B04EE1BE1134F001018D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		689B04F11BE1134F001018D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		689B04F31BE1134F001018D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		689B04F91BE160E0001018D2 /* PopoverAddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAddCityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				689B04E71BE1134F001018D2 /* AppDelegate.swift */,
 				689B04E91BE1134F001018D2 /* MapViewController.swift */,
+				689B04F91BE160E0001018D2 /* PopoverAddCityViewController.swift */,
 				689B04EB1BE1134F001018D2 /* Main.storyboard */,
 				689B04EE1BE1134F001018D2 /* Assets.xcassets */,
 				689B04F01BE1134F001018D2 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				689B04EA1BE1134F001018D2 /* MapViewController.swift in Sources */,
+				689B04FA1BE160E0001018D2 /* PopoverAddCityViewController.swift in Sources */,
 				689B04E81BE1134F001018D2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,8 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol PopoverViewControllerProtocol
+{
+    func cityWasChosen(city:String)
+}
 
-class MapViewController: UIViewController,MKMapViewDelegate
+class MapViewController: UIViewController,MKMapViewDelegate,PopoverViewControllerProtocol, UIPopoverPresentationControllerDelegate
 {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -30,8 +34,8 @@ class MapViewController: UIViewController,MKMapViewDelegate
         mapView.delegate = self
         
         
-        createcityAnnotation("Orlando, Fl")
-        createcityAnnotation("Miami, Fl")
+//        createcityAnnotation("Orlando, Fl")
+//        createcityAnnotation("Miami, Fl")
         
     }
 
@@ -138,6 +142,37 @@ class MapViewController: UIViewController,MKMapViewDelegate
             
             
         }
+    }
+    
+    //MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ShowPopoverAddCityViewControllerSegue"
+        {
+            let destVC  = segue.destinationViewController as! PopoverAddCityViewController // 1
+            
+            destVC.popoverPresentationController?.delegate = self // 2
+            destVC.delegator = self // 3 nescessary to get the value from the popover
+            destVC.preferredContentSize = CGSizeMake(200.0, 100.0)
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
+    //MARK: -Protocol function
+
+    func cityWasChosen(city:String)
+    {
+        print("City Was Chosen: "+city)
+        createcityAnnotation(city)
+        navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
+        
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
 
 }
