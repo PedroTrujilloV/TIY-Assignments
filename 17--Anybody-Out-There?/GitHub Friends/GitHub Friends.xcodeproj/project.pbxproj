@@ -15,7 +15,7 @@
 		689B04B61BE01223001018D2 /* gravatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 689B04B51BE01223001018D2 /* gravatar.png */; settings = {ASSET_TAGS = (); }; };
 		689B04B81BE06870001018D2 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04B71BE06870001018D2 /* APIController.swift */; settings = {ASSET_TAGS = (); }; };
 		689B04BA1BE07288001018D2 /* GitHubFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04B91BE07288001018D2 /* GitHubFriend.swift */; settings = {ASSET_TAGS = (); }; };
-		689B04BC1BE09AF1001018D2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04BB1BE09AF1001018D2 /* SearchViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		689B04FC1BE1BB0F001018D2 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04FB1BE1BB0F001018D2 /* SearchTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		689B04B51BE01223001018D2 /* gravatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravatar.png; sourceTree = "<group>"; };
 		689B04B71BE06870001018D2 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		689B04B91BE07288001018D2 /* GitHubFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubFriend.swift; sourceTree = "<group>"; };
-		689B04BB1BE09AF1001018D2 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		689B04FB1BE1BB0F001018D2 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 				689B04B51BE01223001018D2 /* gravatar.png */,
 				689B04B71BE06870001018D2 /* APIController.swift */,
 				689B04B91BE07288001018D2 /* GitHubFriend.swift */,
-				689B04BB1BE09AF1001018D2 /* SearchViewController.swift */,
+				689B04FB1BE1BB0F001018D2 /* SearchTableViewController.swift */,
 			);
 			path = "GitHub Friends";
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689B04BC1BE09AF1001018D2 /* SearchViewController.swift in Sources */,
 				689B04B81BE06870001018D2 /* APIController.swift in Sources */,
+				689B04FC1BE1BB0F001018D2 /* SearchTableViewController.swift in Sources */,
 				689B04B41BE007C0001018D2 /* GitHubFriendCell.swift in Sources */,
 				689B04A41BDFFD4D001018D2 /* GitHubFriendListViewController.swift in Sources */,
 				689B04BA1BE07288001018D2 /* GitHubFriend.swift in Sources */,

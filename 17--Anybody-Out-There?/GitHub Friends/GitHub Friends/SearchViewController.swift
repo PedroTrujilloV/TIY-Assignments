@@ -13,7 +13,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate
     var searchBar:UITextField!
     var delegate: SearchViewProtocol!
     var friend = ""
-    var api: APIController!
+   // var api: APIController!
     
     
 
@@ -46,7 +46,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate
     func SearchFriend(sender:UITextField)
     {
         friend = sender.text!
-        api.searchGitHubFor(friend)
+        //api.searchGitHubFor(friend)
         print("textField: "+sender.text!)
         searchBar.resignFirstResponder()
         

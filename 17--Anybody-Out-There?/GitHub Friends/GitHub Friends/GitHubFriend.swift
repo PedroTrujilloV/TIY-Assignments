@@ -39,13 +39,14 @@ struct GitHubFriend
     
     static func friendsWithJSON(results: NSArray) ->[GitHubFriend]
     {
-        var gitHubFriends = [GitHubFriend]()
+        var gitHubFriensdData = [GitHubFriend]()
         
         if results.count > 0
         {
             for result in results
             {
-                var emailUser = result["email"] as? String
+                print("hola! fetch fetch!!!!!!!!")
+                /*var emailUser = result["email"] as? String
                 if emailUser == nil
                 {
                     emailUser = result["blog"] as? String
@@ -53,20 +54,38 @@ struct GitHubFriend
                     {
                         emailUser == " no public email :("
                     }
-                }
-                
+                }*/
+                let emailUser = result["email"] as? String ?? ""
                 let nameUser = result["name"] as? String ?? ""
                 let loginUser = result["login"] as? String ?? ""
                 let thumbnailURL = result["avatar_url"] as? String ?? ""
                 let imageURL = result["avatar_url"] as? String ?? ""
                 let locationUser = result["location"] as? String ?? ""
-                let companyUser = result["company"] as? String
+                let companyUser = result["company"] as? String ?? ""
                
-                gitHubFriends.append(GitHubFriend(name: nameUser, login: loginUser, thumbnailImageURL: thumbnailURL, largeImageURL: imageURL, company: companyUser!, location: locationUser, email: emailUser!))
-                print("Im here")
+                gitHubFriensdData.append(GitHubFriend(name: nameUser, login: loginUser, thumbnailImageURL: thumbnailURL, largeImageURL: imageURL, company: companyUser, location: locationUser, email: emailUser))
+               
             }
         }
         
-        return gitHubFriends
+        return gitHubFriensdData
     }
+    
+    static func aFriendWithJSON(results: NSArray) -> GitHubFriend
+    {
+        let aFriendData:NSDictionary = results[0] as! NSDictionary
+       
+                let emailUser = aFriendData["email"] as? String ?? ""
+                let nameUser = aFriendData["name"] as? String ?? ""
+                let loginUser = aFriendData["login"] as? String ?? ""
+                let thumbnailURL = aFriendData["avatar_url"] as? String ?? ""
+                let imageURL = aFriendData["avatar_url"] as? String ?? ""
+                let locationUser = aFriendData["location"] as? String ?? ""
+                let companyUser = aFriendData["company"] as? String ?? ""
+        
+        return GitHubFriend(name: nameUser, login: loginUser, thumbnailImageURL: thumbnailURL, largeImageURL: imageURL, company: companyUser, location: locationUser, email: emailUser)
+        
+    
+    }
+
 }

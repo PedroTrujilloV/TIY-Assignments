@@ -17,22 +17,43 @@ class APIController
         self.delegator = delegate
     }
     
-    func searchGitHubFor(searchTerm:String)
+    func searchGitHubFor(searchTerm:String, byCriteria:String = "")
     {
+        let arrayTerm = searchTerm.characters.split(" ")
+        
+        //print(">>>>>>>>>>>>>>>>>>arrayTerm: \(arrayTerm.count)")
         let gitHubSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
         
         if let escapedSearchTerm = gitHubSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())
         {
             
+            //let searchString = cityAndStateArray.joinWithSeparator(", ")
+          
             
-           // var name = "pedro"+"trujillo"
-            //let urlRequestByFullName = "https://api.github.com/search/users?q="+escapedSearchTerm+"+in:fullname"
-            //let url = NSURL(string: urlRequestByFullName)
-            //let urlRequestByLogin = "https://api.github.com/search/users?q="+escapedSearchTerm+"+in:login"
-            let urlRequestByUser =  "https://api.github.com/users/" + escapedSearchTerm
-            let url = NSURL(string: urlRequestByUser)
+            let url:NSURL
+            if byCriteria == "user"
+            {
+                let urlRequestByUser =  "https://api.github.com/users/" + escapedSearchTerm
+                url = NSURL(string: urlRequestByUser)!
+            }
+            else
+            {
+                if arrayTerm.count > 1 // search by Full Name
+                {
+                    let urlRequestByFullName = "https://api.github.com/search/users?q="+escapedSearchTerm+"+in:fullname"
+                    url = NSURL(string: urlRequestByFullName)!
+                }
+                else
+                {
+                    let urlRequestByLogin = "https://api.github.com/search/users?q="+escapedSearchTerm+"+in:login"
+                    url = NSURL(string: urlRequestByLogin)!
+                    
+                }
+            }
+            
+            
             let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithURL(url!, completionHandler: { data, response, error -> Void in
+            let task = session.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
                 print("completed Task")
                 if error != nil
                 {
@@ -43,15 +64,25 @@ class APIController
                 {
                     if let dictionary = self.parseJSON(data!)
                     {
-                       //if let results:NSArray =  dictionary["items"] as? NSArray // for urlRequestByFullName or urlRequestByLogin limit data but many results
-                        if let results:NSArray = [dictionary] //for urlRequestByUser complete user data
+                        if byCriteria == "user"
                         {
-                            print("------------results: \(results)")
-                            self.delegator.didReceiveAPIResults(results)
+                            if let results:NSArray = [dictionary] //for urlRequestByUser complete user data
+                            {
+                                //print("------------results: \(results)")
+                                self.delegator.didReceiveAPIResults(results)
+                            }
                         }
-                        print("dictionary: \(dictionary)" )
+                        else
+                        {
+                            if let results:NSArray =  dictionary["items"] as? NSArray // for urlRequestByFullName or urlRequestByLogin limit data but many results
+                            {
+                                //print("------------results: \(results)")
+                                self.delegator.didReceiveAPIResults(results)
+                            }
+                        }
+                        //print("dictionary: \(dictionary)" )
                     }
-                    print("urlRequestByUser: \(url)")
+                   // print("urlRequestByUser: \(url)")
                 }
             })
             task.resume()

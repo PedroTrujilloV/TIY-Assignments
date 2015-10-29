@@ -12,15 +12,16 @@ protocol APIControllerProtocol
 {
     func didReceiveAPIResults(results:NSArray)
 }
-protocol SearchViewProtocol
+protocol SearchTableViewProtocol
 {
     func friendWasFound(friend:String)
 }
 
-class GitHubFriendListViewController: UITableViewController, APIControllerProtocol,SearchViewProtocol
+class GitHubFriendListViewController: UITableViewController, APIControllerProtocol,SearchTableViewProtocol
 {
     var rigthAddButtonItem:UIBarButtonItem!
     var gitHubFriends = Array<GitHubFriend>()
+    var friendRegister = Array<String>()
     var api: APIController!
     var friendForSearch = ""
 
@@ -82,9 +83,10 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
     func addButtonActionTapped(sender: UIButton)
     {
         print("Hay que rico!")
-        let searchFriendVC = SearchViewController()
-        
-        navigationController?.pushViewController(searchFriendVC, animated: true)
+
+        let searchTableVC = SearchTableViewController()
+        searchTableVC.delegator = self // 3 nescessary to get the value from the popover
+        navigationController?.pushViewController(searchTableVC, animated: true)
     }
     
     //MARK: - API Controller Protocl
@@ -92,9 +94,11 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
     func didReceiveAPIResults(results:NSArray)
     {
         print("didReceiveAPIResults got: \(results)")
+        
         dispatch_async(dispatch_get_main_queue(), {
-            
-            self.gitHubFriends = GitHubFriend.friendsWithJSON(results)
+
+            //self.gitHubFriends = GitHubFriend.friendsWithJSON(results)
+            self.gitHubFriends.append( GitHubFriend.aFriendWithJSON(results))
             self.tableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
@@ -102,7 +106,17 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
     //MARK: - Search View Controller Protocl
     func friendWasFound(friend:String)
     {
+        if !friendRegister.contains(friend)
+        {
+            friendRegister.append(friend)
+            api.searchGitHubFor(friend, byCriteria: "user")
+            tableView.reloadData()
+            print("Friend was found!!!!!!!: "+friend)
+            
+        }
+        
     }
+   
 
 
 }
