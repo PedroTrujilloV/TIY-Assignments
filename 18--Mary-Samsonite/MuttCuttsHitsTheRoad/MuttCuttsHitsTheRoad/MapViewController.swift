@@ -155,7 +155,7 @@ class MapViewController: UIViewController,MKMapViewDelegate,PopoverViewControlle
             
             destVC.popoverPresentationController?.delegate = self // 2
             destVC.delegator = self // 3 nescessary to get the value from the popover
-            destVC.preferredContentSize = CGSizeMake(200.0, 100.0)
+            destVC.preferredContentSize = CGSizeMake(200.0, 65.0)
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -166,6 +166,7 @@ class MapViewController: UIViewController,MKMapViewDelegate,PopoverViewControlle
     func cityWasChosen(city:String)
     {
         print("City Was Chosen: "+city)
+        
         createcityAnnotation(city)
         navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
         

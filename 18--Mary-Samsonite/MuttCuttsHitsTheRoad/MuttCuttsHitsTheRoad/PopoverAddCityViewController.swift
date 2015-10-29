@@ -37,18 +37,23 @@ class PopoverAddCityViewController: UIViewController,UITextFieldDelegate
     @IBAction func cityEditingDidEnd(sender: UITextField)
     {
         
-        //sender.resignFirstResponder()
-        cityAndStateArray.append(sender.text!)
-        stateTextField.becomeFirstResponder()
+        if sender.text != ""
+        {
+            cityAndStateArray.append(sender.text!)
+            stateTextField.becomeFirstResponder()
+        }
     }
     
     @IBAction func stateEditionDidEnd(sender: UITextField)
     {
-        cityAndStateArray.append(sender.text!)
-        
-        let searchString = cityAndStateArray.joinWithSeparator(", ")
-        delegator?.cityWasChosen(searchString)
-        
+        if sender.text != ""
+        {
+            cityAndStateArray.append(sender.text!)
+            let searchString = cityAndStateArray.joinWithSeparator(", ")
+            delegator?.cityWasChosen(searchString)
+            cityAndStateArray = []
+            
+        }
         //sender.resignFirstResponder()
     }
     
