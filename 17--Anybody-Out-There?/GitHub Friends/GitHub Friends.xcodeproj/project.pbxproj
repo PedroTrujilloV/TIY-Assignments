@@ -16,6 +16,7 @@
 		689B04B81BE06870001018D2 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04B71BE06870001018D2 /* APIController.swift */; settings = {ASSET_TAGS = (); }; };
 		689B04BA1BE07288001018D2 /* GitHubFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04B91BE07288001018D2 /* GitHubFriend.swift */; settings = {ASSET_TAGS = (); }; };
 		689B04FC1BE1BB0F001018D2 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04FB1BE1BB0F001018D2 /* SearchTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		689B04FE1BE26007001018D2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B04FD1BE26007001018D2 /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		689B04B71BE06870001018D2 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		689B04B91BE07288001018D2 /* GitHubFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubFriend.swift; sourceTree = "<group>"; };
 		689B04FB1BE1BB0F001018D2 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		689B04FD1BE26007001018D2 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				689B04B71BE06870001018D2 /* APIController.swift */,
 				689B04B91BE07288001018D2 /* GitHubFriend.swift */,
 				689B04FB1BE1BB0F001018D2 /* SearchTableViewController.swift */,
+				689B04FD1BE26007001018D2 /* DetailViewController.swift */,
 			);
 			path = "GitHub Friends";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				689B04FC1BE1BB0F001018D2 /* SearchTableViewController.swift in Sources */,
 				689B04B41BE007C0001018D2 /* GitHubFriendCell.swift in Sources */,
 				689B04A41BDFFD4D001018D2 /* GitHubFriendListViewController.swift in Sources */,
+				689B04FE1BE26007001018D2 /* DetailViewController.swift in Sources */,
 				689B04BA1BE07288001018D2 /* GitHubFriend.swift in Sources */,
 				689B04A21BDFFD4D001018D2 /* AppDelegate.swift in Sources */,
 			);
