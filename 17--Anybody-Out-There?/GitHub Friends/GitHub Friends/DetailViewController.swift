@@ -11,10 +11,11 @@ import UIKit
 class DetailViewController: UIViewController
 {
     var userImageView:UIImageView!
+    var imagePath = "gravatar.png"
     var userImage:UIImage!
-    var nameLabel:UILabel!
-    var loginLael:UILabel!
-    var emailLabel:UILabel!
+    
+    
+    var gitHubFriend: GitHubFriend!
 
     override func viewDidLoad()
     {
@@ -22,17 +23,38 @@ class DetailViewController: UIViewController
 
         // Do any additional setup after loading the view.
         
+        self.view.backgroundColor = UIColor.whiteColor()
         
+        //
+        self.loadImage()//gitHubFriend.largeImageURL)
         
-        //self.addSubview(frameView)
-        
+        self.setLabels(gitHubFriend.login,x: view.center.x, y: userImageView.center.y * 0.4)
+        self.setLabels(gitHubFriend.name,x: view.center.x, y: userImageView.center.y * 1.6)
+        self.setLabels(gitHubFriend.email,x: view.center.x, y: userImageView.center.y * 1.7)
+        self.setLabels(gitHubFriend.location,x: view.center.x, y: userImageView.center.y * 1.8)
+        self.setLabels(gitHubFriend.company,x: view.center.x, y: userImageView.center.y * 1.9)
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func setLabels( labelString:String = "Penpenuche", x :CGFloat = 0, y :CGFloat = 0)
+    {
+        
+        let loginLabel:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 60))
+        //self.loginLabel.frame  = CGRect(x: 0, y: 0, width: self.view.frame.size.width * 0.9 , height:  self.view.frame.size.width * 0.1)
+        loginLabel.text = labelString
+        loginLabel.center.x = x
+        loginLabel.center.y = y
+        loginLabel.numberOfLines = 1
+        loginLabel.textAlignment = .Center
+        view.addSubview(loginLabel)
+        
+        
+    }
     
     func loadImage(var ImagePath:String = "")
     {
@@ -46,20 +68,22 @@ class DetailViewController: UIViewController
         {
             if let data = NSData(contentsOfURL: url)
             {
-                self.userImageView!.contentMode = UIViewContentMode.ScaleAspectFit
+                
                 self.userImageView!.image = UIImage(data: data)
+                
+                
+                
+                //self.userImageView = UIImageView(image: userImage!)
+                //self.userImageView.contentMode = UIViewContentMode.ScaleAspectFit
+                self.userImageView!.contentMode = UIViewContentMode.ScaleAspectFit
+                self.userImageView.frame = CGRect(x: 0, y: 0 , width: self.view.frame.size.width * 0.9 , height: self.view.frame.size.width * 0.9 )
+                self.userImageView.center.x = view.center.x
+                self.userImageView.center.y = UIScreen.mainScreen().bounds.height * 0.5
+                
+                view.addSubview(userImageView)
             }
         }
         
-        
-        self.userImage = UIImage(named: ImagePath)
-        
-        
-        self.userImageView = UIImageView(image: userImage!)
-        
-        self.userImageView.frame = CGRect(x: 0, y: (self.frame.size.height) - (self.frame.size.height * 0.95 ), width: self.frame.size.height * 0.9 , height: self.frame.size.height * 0.9 )
-        
-        self.userImageView.frame = CGRect(x: self.frame.size.width * 0.8 , y: (self.frame.size.height) - (self.frame.size.height * 0.95 ), width: self.frame.size.height * 0.9 , height: self.frame.size.height * 0.9 )
         
     }
 

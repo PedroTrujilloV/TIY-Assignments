@@ -75,7 +75,14 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
         cell.loadImage(friend.thumbnailImageURL)
         //cell.detailTextLabel?.text = "Penpenuche"
         return cell
-        
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let datailsVC:DetailViewController = DetailViewController()
+        datailsVC.gitHubFriend = gitHubFriends[indexPath.row]
+        //presentViewController(datailsVC, animated: true, completion: nil)// it shows like a modal view
+        navigationController?.pushViewController(datailsVC, animated: true)
     }
     
     //MARK: - Handle Actions
@@ -86,7 +93,8 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
 
         let searchTableVC = SearchTableViewController()
         searchTableVC.delegator = self // 3 nescessary to get the value from the popover
-        navigationController?.pushViewController(searchTableVC, animated: true)
+        //navigationController?.pushViewController(searchTableVC, animated: true)
+        presentViewController(searchTableVC, animated: true, completion: nil)// it shows like a modal view
     }
     
     //MARK: - API Controller Protocl
@@ -112,6 +120,7 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
             api.searchGitHubFor(friend, byCriteria: "user")
             tableView.reloadData()
             print("Friend was found!!!!!!!: "+friend)
+             dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
             
         }
         

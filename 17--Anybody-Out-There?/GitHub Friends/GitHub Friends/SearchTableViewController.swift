@@ -61,19 +61,32 @@ class SearchTableViewController: UITableViewController,APIControllerProtocol, UI
     }
     
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(searchBar: UISearchBar)
+    {
+        gitHubFriends.removeAll()
         shouldShowSearchResults = false
         tableView.reloadData()
+        //dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if !shouldShowSearchResults {
+            //gitHubFriends.removeAll()
             shouldShowSearchResults = true
             tableView.reloadData()
         }
         
         searchController.searchBar.resignFirstResponder()
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
+    {
+       
+        //gitHubFriends.removeAll()
+        //tableView.reloadData()
+        
+    }
+
     
 //    func searchBarResultsListButtonClicked(searchBar: UISearchBar) {
 //        shouldShowSearchResults = false
@@ -118,13 +131,15 @@ class SearchTableViewController: UITableViewController,APIControllerProtocol, UI
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("GitHubFriendCell", forIndexPath: indexPath) as! GitHubFriendCell
-        
-        let friend = gitHubFriends[indexPath.row]
-        
-        print("friend: "+friend.name)
-        cell.textLabel!.text = friend.name != "" ? friend.name: "User: "+friend.login
-        cell.loadImage(friend.thumbnailImageURL)
-        //cell.detailTextLabel?.text = "Penpenuche"
+//        if shouldShowSearchResults
+//        {
+            let friend = gitHubFriends[indexPath.row]
+            
+            print("friend: "+friend.name)
+            cell.textLabel!.text = friend.name != "" ? friend.name: "User: "+friend.login
+            cell.loadImage(friend.thumbnailImageURL)
+            //cell.detailTextLabel?.text = "Penpenuche"
+//        }
         return cell
     }
     
@@ -147,6 +162,7 @@ class SearchTableViewController: UITableViewController,APIControllerProtocol, UI
     {
         
         delegator?.friendWasFound(gitHubFriends[indexPath.row].login)
+       
         
         
         print("From didSelectRowAtIndexPath SearchTableView Protocol: "+gitHubFriends[indexPath.row].login)
