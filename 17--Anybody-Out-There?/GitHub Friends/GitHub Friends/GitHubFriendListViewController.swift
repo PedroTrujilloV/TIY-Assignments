@@ -27,7 +27,9 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
 
     override func viewDidLoad()
     {
+        
         super.viewDidLoad()
+        title = "GitHub Friends 👥"
         // Do any additional setup after loading the view, typically from a nib.
         api = APIController(delegate: self)
         //api.searchGitHubFor("jcgohlke")
