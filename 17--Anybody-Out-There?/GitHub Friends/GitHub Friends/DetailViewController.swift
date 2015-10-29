@@ -26,7 +26,7 @@ class DetailViewController: UIViewController
         self.view.backgroundColor = UIColor.whiteColor()
         
         //
-        self.loadImage()//gitHubFriend.largeImageURL)
+        self.loadImage(gitHubFriend.largeImageURL)
         
         self.setLabels(gitHubFriend.login,x: view.center.x, y: userImageView.center.y * 0.4)
         self.setLabels(gitHubFriend.name,x: view.center.x, y: userImageView.center.y * 1.6)
@@ -69,12 +69,8 @@ class DetailViewController: UIViewController
             if let data = NSData(contentsOfURL: url)
             {
                 
-                self.userImageView!.image = UIImage(data: data)
-                
-                
-                
-                //self.userImageView = UIImageView(image: userImage!)
-                //self.userImageView.contentMode = UIViewContentMode.ScaleAspectFit
+                self.userImage = UIImage(data: data)
+                self.userImageView = UIImageView(image: userImage!)
                 self.userImageView!.contentMode = UIViewContentMode.ScaleAspectFit
                 self.userImageView.frame = CGRect(x: 0, y: 0 , width: self.view.frame.size.width * 0.9 , height: self.view.frame.size.width * 0.9 )
                 self.userImageView.center.x = view.center.x
