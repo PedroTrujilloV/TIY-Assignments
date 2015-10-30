@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController,APIControllerProtocol, UISearchBarDelegate, UISearchDisplayDelegate, UISearchResultsUpdating
+class SearchTableViewController: UITableViewController, APIControllerProtocol, UISearchBarDelegate, UISearchDisplayDelegate, UISearchResultsUpdating
 {
     
     var gitHubFriends = Array<GitHubFriend>()
@@ -17,62 +17,84 @@ class SearchTableViewController: UITableViewController,APIControllerProtocol, UI
     var cancelSearch = true
     var filteredTableData = [String]()
     var shouldShowSearchResults = false
-    var searchController = UISearchController()
+    var searchController = UISearchController(searchResultsController: nil)
 
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        definesPresentationContext = true
+        edgesForExtendedLayout = .None
         
+               title = "Inser your friend name or username"
         apiSearch = APIController(delegate: self)
-        //apiSearch.searchGitHubFor("jcgohlke")
-        //apiSearch.searchGitHubFor("Ben Gohlke")
         //apiSearch.searchGitHubFor("Leslie Brown")
         
         
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
-        
-        //self.navigationItem.setRightBarButtonItems([rigthAddButtonItem], animated: true)
-        
         self.tableView.registerClass(GitHubFriendCell.self, forCellReuseIdentifier: "GitHubFriendCell")
         
-        self.searchController = ({ //http://www.ioscreator.com/tutorials/add-search-table-view-tutorial-ios8-swift
-            let controller = UISearchController(searchResultsController: nil)
-           controller.searchResultsUpdater = self
-            controller.dimsBackgroundDuringPresentation = false
-            controller.searchBar.sizeToFit()
-            
-            self.tableView.tableHeaderView = controller.searchBar
-            
-            return controller
-        })()
+//       http://www.ioscreator.com/tutorials/add-search-table-view-tutorial-ios8-swift
+
         
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        //searchController.searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 80)
+        //searchController.searchBar.center.y = 200
+        searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
+        tableView.tableHeaderView = searchController.searchBar
+        
+//
+//         tableView.tableHeaderView?.center.y = 200
+//        tableView.tableHeaderView!.frame = CGRect(x: 0, y: 0, width: 200, height: 80)
         // Reload the table
+        
+     //view.addSubview(searchController.searchBar)
+        
+        //searchController.searchBar.center.y = 100
+        //self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(customView: searchController.searchBar), animated: true)
+      
+     
+        
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         self.tableView.reloadData()
     }
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
     //MARK: Search bar methods
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar)
+    {
+        print("me empieza! usame! soy tuya!")
         shouldShowSearchResults = true
+        //gitHubFriends.removeAll()
         tableView.reloadData()
     }
     
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar)
     {
-        gitHubFriends.removeAll()
+        print("no pares!!")
         shouldShowSearchResults = false
+        gitHubFriends.removeAll()
         tableView.reloadData()
-        //dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
+        dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar)
+    {
         if !shouldShowSearchResults {
+            print("ahi! me tocaste el boton de buscar")
             //gitHubFriends.removeAll()
             shouldShowSearchResults = true
+            apiSearch.searchGitHubFor( searchBar.text!)
             tableView.reloadData()
         }
         
@@ -81,35 +103,36 @@ class SearchTableViewController: UITableViewController,APIControllerProtocol, UI
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
     {
-       
-        //gitHubFriends.removeAll()
-        //tableView.reloadData()
+        print("me estas escribiendo")
+        shouldShowSearchResults = false
+        gitHubFriends.removeAll()
+        tableView.reloadData()
         
     }
-
     
-//    func searchBarResultsListButtonClicked(searchBar: UISearchBar) {
-//        shouldShowSearchResults = false
-//        tableView.reloadData()
-//    }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchString = searchController.searchBar.text
-        
-        // Filter the data array and get only those countries that match the search text.
-        apiSearch.searchGitHubFor(searchString!)
-        
-        print("Hola papy estoy buscando")
-        // Reload the tableview.
+    func searchBarTextDidEndEditing(searchBar: UISearchBar)
+    {
+        print("no te demores quiero mas")
+        shouldShowSearchResults = true
+        gitHubFriends.removeAll()
+        apiSearch.searchGitHubFor(searchBar.text!)
         tableView.reloadData()
     }
-
-
-    override func didReceiveMemoryWarning()
+    
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController)
     {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+            print("Hola papy estoy buscando")
+            // Reload the tableview.
+            tableView.reloadData()
+
     }
+    
+    
+
+
+    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
@@ -131,17 +154,18 @@ class SearchTableViewController: UITableViewController,APIControllerProtocol, UI
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("GitHubFriendCell", forIndexPath: indexPath) as! GitHubFriendCell
-//        if shouldShowSearchResults
-//        {
+
             let friend = gitHubFriends[indexPath.row]
             
             print("friend: "+friend.name)
             cell.textLabel!.text = friend.name != "" ? friend.name: "User: "+friend.login
             cell.loadImage(friend.thumbnailImageURL)
             //cell.detailTextLabel?.text = "Penpenuche"
-//        }
+     
+        
         return cell
     }
+    
     
   
     
@@ -163,8 +187,6 @@ class SearchTableViewController: UITableViewController,APIControllerProtocol, UI
         
         delegator?.friendWasFound(gitHubFriends[indexPath.row].login)
        
-        
-        
         print("From didSelectRowAtIndexPath SearchTableView Protocol: "+gitHubFriends[indexPath.row].login)
     }
     
@@ -215,14 +237,14 @@ class SearchTableViewController: UITableViewController,APIControllerProtocol, UI
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

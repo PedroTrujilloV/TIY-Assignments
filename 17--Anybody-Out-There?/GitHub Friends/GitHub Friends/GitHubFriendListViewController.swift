@@ -75,9 +75,28 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
         print("friend: "+friend.name)
         cell.textLabel!.text = friend.name
         cell.loadImage(friend.thumbnailImageURL)
+        cell.editing = true
         //cell.detailTextLabel?.text = "Penpenuche"
         return cell
     }
+//    
+//    // Override to support conditional editing of the table view.
+//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//    // Return false if you do not want the specified item to be editable.
+//    return true
+//    }
+//    
+//    
+//    
+//    // Override to support editing the table view.
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//    if editingStyle == .Delete {
+//    // Delete the row from the data source
+//    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//    } else if editingStyle == .Insert {
+//    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//    }
+//    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
@@ -93,10 +112,14 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
     {
         print("Hay que rico!")
 
+        //MARK: this piece of code is fucking awesome !!!!
         let searchTableVC = SearchTableViewController()
+        let navigationController = UINavigationController(rootViewController: searchTableVC)// THIS is fucking awesome!!!! this create a new navigation controller that  allows the modal view animation !!!!!!!!!!!!!
+        
         searchTableVC.delegator = self // 3 nescessary to get the value from the popover
-        //navigationController?.pushViewController(searchTableVC, animated: true)
-        presentViewController(searchTableVC, animated: true, completion: nil)// it shows like a modal view
+//        navigationController?.pushViewController(searchTableVC, animated: true)
+        //presentViewController(searchTableVC, animated: true, completion: nil)// it shows like a modal view
+        presentViewController(navigationController, animated: true, completion: nil)
     }
     
     //MARK: - API Controller Protocl
@@ -127,7 +150,6 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
         }
         
     }
-   
 
 
 }
