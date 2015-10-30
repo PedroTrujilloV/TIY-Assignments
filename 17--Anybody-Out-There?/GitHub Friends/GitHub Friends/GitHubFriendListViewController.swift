@@ -75,7 +75,7 @@ class GitHubFriendListViewController: UITableViewController, APIControllerProtoc
         print("friend: "+friend.name)
         cell.textLabel!.text = friend.name
         cell.loadImage(friend.thumbnailImageURL)
-        cell.editing = true
+        //cell.editing = true
         //cell.detailTextLabel?.text = "Penpenuche"
         return cell
     }
