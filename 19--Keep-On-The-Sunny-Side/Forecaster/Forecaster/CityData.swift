@@ -99,31 +99,31 @@ struct CityData
                 
                 let fromatedAddress = result["formatted_address"] as? String ?? ""
                 
-                let fromatedAddressNoComa = fromatedAddress.stringByReplacingOccurrencesOfString(",", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+//                let fromatedAddressNoComa = fromatedAddress.stringByReplacingOccurrencesOfString(",", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
                 
-                let arrayFormated =  fromatedAddressNoComa.characters.split(" ")
+//                let arrayFormated =  fromatedAddressNoComa.characters.split(" ")
+                let fromatedAddressNoComa = fromatedAddress.characters.split(",")
+                
+                let arrayFormated = fromatedAddressNoComa[1].split(" ")
                 
                 
+                let cityName = String(fromatedAddressNoComa[0]) ?? ""
                 
-                let cityName = String(arrayFormated[0]) ?? ""
-                
-                let cityState = String(arrayFormated[1]) ?? ""
-                
+                var cityState = ""
                 var cityZip = ""
                 
-                var cityCountry = ""
-                
-                if arrayFormated.count == 4
+                if arrayFormated.count == 2
                 {
-                    cityZip = String(arrayFormated[2]) ?? ""
-                    
-                    cityCountry = String(arrayFormated[3]) ?? ""
+                    cityZip = String(arrayFormated[1]) ?? ""
+                    cityState = String(arrayFormated[0]) ?? ""
+             
                 }
                 else
                 {
-                    cityCountry = String(arrayFormated[2]) ?? ""
+                    cityState = String(arrayFormated[0]) ?? ""
                 }
                 
+                let cityCountry = String(fromatedAddressNoComa[2]) ?? ""
                 
                 let geometryDic:NSDictionary = result["geometry"] as! NSDictionary
                 
