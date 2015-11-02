@@ -39,9 +39,9 @@ class APIController
         }
         
         print(">>>>>>>>>>>>>>>>>>arrayTerm: \(arrayTerm.count)")
-        let gitHubSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+        let googleSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
         
-        if let escapedSearchTerm = gitHubSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())
+        if let escapedSearchTerm = googleSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())
         {
             
             //let searchString = cityAndStateArray.joinWithSeparator(", ")
