@@ -33,7 +33,7 @@ struct CityData
     
     static func setCityWeather(results: NSArray) ->[WeatherDay]
     {
-        print("results setCityWeather \(results)")
+        //print("results setCityWeather \(results)")
         
         var WeatherWeekly = [WeatherDay]()
         
@@ -55,8 +55,12 @@ struct CityData
                 
                 let temperature =  String(format: "%.0f", doubleTemperature)
                 
+                let doubleTime = (currently["time"] as! NSNumber).doubleValue
                 
-                WeatherWeekly.append(WeatherDay(summary: summary, icon: icon, temperature: temperature))
+                let time =  String(format: "%.0f", doubleTime)
+                
+                
+                WeatherWeekly.append(WeatherDay(summary: summary, icon: icon, temperature: temperature, time:time))
                 
                 let daily:NSDictionary = result["daily"] as! NSDictionary
                 
@@ -66,7 +70,7 @@ struct CityData
                 for value in data
                 {
                     
-                    print("Fetching Weather JSON!!")
+                    //print("Fetching Weather JSON!!")
                     
                     
                     let summary:String = value["summary"] as? String ?? ""
@@ -77,7 +81,11 @@ struct CityData
 
                     let temperature =  String(format: "%.0f", doubleTemperature)
                     
-                    WeatherWeekly.append(WeatherDay(summary: summary, icon: icon, temperature: temperature))
+                    let doubleTime = (value["time"] as! NSNumber).doubleValue
+                    
+                    let time =  String(format: "%.0f", doubleTime)
+                    
+                    WeatherWeekly.append(WeatherDay(summary: summary, icon: icon, temperature: temperature, time:time))
                 }
                 
             }
@@ -87,14 +95,14 @@ struct CityData
     
     static func CitiesDataWithJSON(results: NSArray) ->[CityData]
     {
-        print("CitiesDataWithJSON")
+        //print("CitiesDataWithJSON")
         var CitiesData = [CityData]()
         
         if results.count > 0
         {
             for result in results
             {
-                print("Fetching Cities Data JSON!!")
+                //print("Fetching Cities Data JSON!!")
                 
                 
                 let fromatedAddress = result["formatted_address"] as? String ?? ""
@@ -127,23 +135,23 @@ struct CityData
                 
                 let geometryDic:NSDictionary = result["geometry"] as! NSDictionary
                 
-               // print("+++++++++++++++++++++++ geometry: \(geometryDic)")
+               // //print("+++++++++++++++++++++++ geometry: \(geometryDic)")
                 
                 let locationDic:NSDictionary = geometryDic["location"] as! NSDictionary
                 
-                //print("+++++++++++++++++++++++ location: \(locationDic)")
+                ////print("+++++++++++++++++++++++ location: \(locationDic)")
                 
                 let LatDoub = (locationDic["lat"] as! NSNumber).doubleValue
 
                 let cityLat =  String(format: "%f", LatDoub) // Esta hijueputa conversion es nescesaria para poder obtener esos valores del puto google map api JSON
                 
-                //print("+++++++++++++++++++++++ latitude : "+(cityLat as String))
+                ////print("+++++++++++++++++++++++ latitude : "+(cityLat as String))
                 
                 let LonDoub = (locationDic["lng"] as! NSNumber).doubleValue
                 
                 let cityLon =  String(format: "%f", LonDoub) // Esta hijueputa conversion es nescesaria para poder obtener esos valores del puto google map api JSON
                 
-               // print("+++++++++++++++++++++++ longitude : "+(cityLon as String))
+               // //print("+++++++++++++++++++++++ longitude : "+(cityLon as String))
 //
                 
                 
