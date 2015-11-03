@@ -9,7 +9,15 @@
 
 import Foundation
 
-struct CityData
+let kNameKey = "name"
+let kZipCodeKey = "zipCode"
+let KLatitudeKey = "latitude"
+let KLongitudeKey = "longitude"
+let kCountryKey = "country"
+let kStateKey = "state"
+
+//struct CityData // NSObject, NSCoding
+class CityData: NSObject, NSCoding
 {
     let name: String
     let postalCode: String
@@ -104,34 +112,93 @@ struct CityData
             {
                 //print("Fetching Cities Data JSON!!")
                 
+                var cityZip:String = ""
+                var cityState:String = ""
+                var cityName:String = ""
+                var cityCountry:String = ""
                 
-                let fromatedAddress = result["formatted_address"] as? String ?? ""
+                let address_components:NSArray = result["address_components"] as! NSArray
                 
-//                let fromatedAddressNoComa = fromatedAddress.stringByReplacingOccurrencesOfString(",", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-                
-//                let arrayFormated =  fromatedAddressNoComa.characters.split(" ")
-                let fromatedAddressNoComa = fromatedAddress.characters.split(",")
-                
-                let arrayFormated = fromatedAddressNoComa[1].split(" ")
-                
-                
-                let cityName = String(fromatedAddressNoComa[0]) ?? ""
-                
-                var cityState = ""
-                var cityZip = ""
-                
-                if arrayFormated.count == 2
+                for component in address_components
                 {
-                    cityZip = String(arrayFormated[1]) ?? ""
-                    cityState = String(arrayFormated[0]) ?? ""
-             
-                }
-                else
-                {
-                    cityState = String(arrayFormated[0]) ?? ""
+                    if let typesComponent:NSArray = component["types"] as? NSArray
+                    {
+                        if typesComponent.containsObject("postal_code")
+                        {
+                          cityZip = component["long_name"] as? String ?? ""
+                        }
+                    }
                 }
                 
-                let cityCountry = String(fromatedAddressNoComa[fromatedAddressNoComa.count-1]) ?? ""
+                for component in address_components
+                {
+                    if let typesComponent:NSArray = component["types"] as? NSArray
+                    {
+                        if typesComponent.containsObject("administrative_area_level_1")
+                        {
+                            cityState = component["short_name"] as? String ?? ""
+                            let cityStateName = component["long_name"] as? String ?? ""
+                        }
+                    }
+                }
+                
+                for component in address_components
+                {
+                    if let typesComponent:NSArray = component["types"] as? NSArray
+                    {
+                        if typesComponent.containsObject("locality")
+                        {
+                            cityName = component["long_name"] as? String ?? ""
+                        }
+                    }
+                }
+                
+                for component in address_components
+                {
+                    if let typesComponent:NSArray = component["types"] as? NSArray
+                    {
+                        if typesComponent.containsObject("country")
+                        {
+                            cityCountry = component["long_name"] as? String ?? ""
+                        }
+                    }
+                }
+                
+                
+                //let fromatedAddress = result["formatted_address"] as? String ?? ""
+                
+                //let fromatedAddressNoComa = fromatedAddress.stringByReplacingOccurrencesOfString(",", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+                
+//                let arrayFormated =  fromatedAddressNoComa.characters.split(",")
+                
+               // let fromatedAddressArray = fromatedAddressNoComa.characters.split(" ")
+                
+                //let cityName = String(fromatedAddressArray[0]) ?? ""
+                
+                //let cityCountry = String(fromatedAddressArray[fromatedAddressArray.count-1]) ?? ""
+               //////////from here erase//////////
+//                var cityState = ""
+//                var cityZip = ""
+//                
+//                if fromatedAddressArray.count > 2
+//                {
+//                    let arrayFormated = fromatedAddressArray[1].split(" ")
+//                    
+//                    
+//                    if arrayFormated.count == 2
+//                    {
+//                        cityZip = String(arrayFormated[1]) ?? ""
+//                        cityState = String(arrayFormated[0]) ?? ""
+//                        
+//                    }
+//                    else
+//                    {
+//                        cityState = String(arrayFormated[0]) ?? ""
+//                    }
+//                }
+               /////////////
+                
+                
                 
                 let geometryDic:NSDictionary = result["geometry"] as! NSDictionary
                 
@@ -161,6 +228,27 @@ struct CityData
         }
         
         return CitiesData
+    }
+    
+    required convenience init?(coder aDecoder:NSCoder)
+    {
+        guard let name = aDecoder.decodeObjectForKey(kNameKey) as? String,
+        let zipCode = aDecoder.decodeObjectForKey(kZipCodeKey) as? String
+        else
+        { return nil}
+        
+        self.init(name:name, postalCode:zipCode, latitude: (aDecoder.decodeObjectForKey(KLatitudeKey) as? String)!, longitude: (aDecoder.decodeObjectForKey(KLongitudeKey) as? String)!, state: (aDecoder.decodeObjectForKey(kStateKey) as? String)!, country: (aDecoder.decodeObjectForKey(kCountryKey) as? String)!)
+        
+    }
+    
+    func encodeWithCoder(aCoder:NSCoder)
+    {
+        aCoder.encodeObject(self.name, forKey: kNameKey)
+        aCoder.encodeObject(self.postalCode, forKey: kZipCodeKey)
+        aCoder.encodeObject(self.latitude, forKey: KLatitudeKey)
+        aCoder.encodeObject(self.longitude, forKey: KLongitudeKey)
+        aCoder.encodeObject(self.country, forKey: kCountryKey)
+        aCoder.encodeObject(self.state, forKey: kStateKey)
     }
     
     

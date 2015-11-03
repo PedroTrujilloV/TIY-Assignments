@@ -142,7 +142,7 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol, U
             let city = cities[indexPath.row]
             
             //print("city: "+city.name)
-            cell.textLabel!.text = city.name+", "+city.state
+            cell.textLabel!.text = city.name+", "+city.state+", "+city.country
             //cell.loadImage(friend.thumbnailImageURL)
             cell.detailTextLabel?.text = "Penpenuche"
      

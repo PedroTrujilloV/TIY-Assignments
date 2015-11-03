@@ -8,6 +8,8 @@
 
 import UIKit
 
+let KCitiesKey = "cities"
+
 protocol APIControllerProtocol
 {
     func didReceiveAPIResults(results:NSArray)
@@ -176,6 +178,26 @@ class ForecasterListViewController: UITableViewController, APIControllerProtocol
         
     }
     
+    //MARK: Save and Load data in phone
+    
+    func loadCityData()
+    {
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey(KCitiesKey) as? NSData
+        {
+            if let savedCities = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [CityData]
+            {
+                cities = savedCities
+                tableView.reloadData()
+            }
+        }
+    }
+    
+    func saveCityData()
+    {
+        let cityData
+         = NSKeyedArchiver.archivedDataWithRootObject(cities)
+        NSUserDefaults.standardUserDefaults().setObject(cityData, forKey: KCitiesKey)
+    }
     
 
 

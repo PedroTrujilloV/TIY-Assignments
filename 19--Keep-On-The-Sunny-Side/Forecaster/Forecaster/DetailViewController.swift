@@ -9,10 +9,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class DetailViewController: UIViewController
+class DetailViewController: UIViewController,CLLocationManagerDelegate
 {
     var widthDevice = UIScreen.mainScreen().bounds.width
     var heightDevice = UIScreen.mainScreen().bounds.height
+    
+  //  var currentDevice: UIDevice = UIDevice.currentDevice()
+    
     
     var superiorView:UIView!
     
@@ -26,6 +29,11 @@ class DetailViewController: UIViewController
     let SummaryLabel:UILabel = UILabel(frame: CGRect(x: 0 , y: 0, width: UIScreen.mainScreen().bounds.width, height: 100))
 
     var mapView: MKMapView!//= MKMapView(frame: CGRect(x: 0 , y: 0, width: UIScreen.mainScreen().bounds.width, height: 200))
+    var widthConstrain :NSLayoutConstraint!
+    var heighConstrain: NSLayoutConstraint!
+    
+    let locationManager = CLLocationManager()
+    let geoCoder = CLGeocoder()
 
     
     var cityData: CityData!
@@ -35,7 +43,7 @@ class DetailViewController: UIViewController
     {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    
         
         self.view.backgroundColor = UIColor.whiteColor()
         //
@@ -52,6 +60,44 @@ class DetailViewController: UIViewController
         rigthAddButtonItem = UIBarButtonItem(title: "Next days", style: UIBarButtonItemStyle.Plain, target: self, action: "addButtonActionTapped:")
         self.navigationItem.setRightBarButtonItems([rigthAddButtonItem], animated: true)
         
+    }
+    
+    //http://stackoverflow.com/questions/25666269/ios8-swift-how-to-detect-orientation-change
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+    {
+        updateConstraints()
+        
+    }
+    func updateConstraints() //update
+    {
+        mapView.removeConstraint(widthConstrain)
+        mapView.removeConstraint(heighConstrain)
+        
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue
+        {
+           
+            print("landscape")
+            heighConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
+            mapView.addConstraint(heighConstrain)
+            
+            widthConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice * 0.7)
+            mapView.addConstraint(widthConstrain)
+            
+            
+        }
+        else
+        {
+            print("portraight")
+            
+            widthConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
+            mapView.addConstraint(widthConstrain)
+            
+            
+            heighConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice * 0.7)
+            mapView.addConstraint(heighConstrain)
+            
+            
+        }
     }
 
     override func didReceiveMemoryWarning()
@@ -102,7 +148,7 @@ class DetailViewController: UIViewController
         //let verticalConstraint = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
         //view.addConstraint(verticalConstraint)
         
-        let widthConstraint = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
+         let widthConstraint  = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
         superiorView.addConstraint(widthConstraint)
         // view.addConstraint(widthConstraint) // also works
         
@@ -117,7 +163,7 @@ class DetailViewController: UIViewController
     
     func setMap(city:CityData)
     {
-        
+        print(UIDevice.currentDevice().orientation)
         
         var superiorXpos = view.center.x
         var superiorYpos = heightDevice * 0.8
@@ -137,7 +183,7 @@ class DetailViewController: UIViewController
         mapView.center.x = superiorXpos //view.center.x//UIScreen.mainScreen().bounds.width * (2/3)
         mapView.center.y = superiorYpos// UIScreen.mainScreen().bounds.height * 0.8
         
-       // mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mapView)
         
         let LocationCroords = CLLocationCoordinate2DMake( Double(city.latitude)!, Double(city.longitude)!)
@@ -155,28 +201,30 @@ class DetailViewController: UIViewController
         
         //mapView.translatesAutoresizingMaskIntoConstraints = false
         
-       //let horizontalConstraint = NSLayoutConstraint(item: mapView , attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        //let horizontalConstraint = NSLayoutConstraint(item: mapView , attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
         //view.addConstraint(horizontalConstraint)
         
-        //let horizontalConstraint2 = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1, constant: 0)
-        //superiorView(horizontalConstraint2)
+        let horizontalConstraintRight = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
+        view.addConstraint(horizontalConstraintRight)
         
-       //let topMarginConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: superiorView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+        //let topMarginConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: superiorView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
         //view.addConstraint(topMarginConstraint)
         
         
-       //let verticalConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        //let verticalConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
         //view.addConstraint(verticalConstraint)
         
-       // let widthConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
-        //superiorView.addConstraint(widthConstraint)
+         widthConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
+        mapView.addConstraint(widthConstrain)
         // view.addConstraint(widthConstraint) // also works
         
-        //let heightConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
-       // superiorView.addConstraint(heightConstraint)
+        heighConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice * 0.7)
+         mapView.addConstraint(heighConstrain)
         
-        //let BottomMarginConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: -5)
-        //view.addConstraint(BottomMarginConstraint)
+        updateConstraints()
+        
+        let BottomMarginConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+        view.addConstraint(BottomMarginConstraint)
     }
     
     func setNameLabel(name:String = "0")

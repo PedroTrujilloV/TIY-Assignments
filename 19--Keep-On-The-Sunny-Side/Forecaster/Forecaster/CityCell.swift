@@ -11,9 +11,9 @@ import UIKit
 class CityCell: UITableViewCell
 {
     let WeatherLabelEmoji:UILabel = UILabel(frame: CGRect(x: 5, y: 10, width: 100, height: 60))
-    let TemperatureLabel:UILabel = UILabel(frame: CGRect(x: UIScreen.mainScreen().bounds.width * 7/12, y: 0, width: 100, height: 80))
-    let SummaryLabel:UILabel = UILabel(frame: CGRect(x: UIScreen.mainScreen().bounds.width * 3/10, y: 40, width: 100, height: 40))
-    let NameLabel:UILabel = UILabel(frame: CGRect(x: UIScreen.mainScreen().bounds.width * 3/10, y: 5, width: 100, height: 40))
+    let TemperatureLabel:UILabel = UILabel(frame: CGRect(x: UIScreen.mainScreen().bounds.width * 6/10, y: 0, width: 100, height: 80))
+    let SummaryLabel:UILabel = UILabel(frame: CGRect(x: UIScreen.mainScreen().bounds.width * 3/10, y: 40, width: UIScreen.mainScreen().bounds.width * 3/10, height: 40))
+    let NameLabel:UILabel = UILabel(frame: CGRect(x: UIScreen.mainScreen().bounds.width * 3/10, y: 5, width: UIScreen.mainScreen().bounds.width * 3/10, height: 40))
     
     
     var weekDays = ["1":"Sunday","2":"Monday","3":"Tuesday","4":"Wednesday","5":"Thursday","6":"Friday","7":"Saturday","0":"Today"]
@@ -22,7 +22,7 @@ class CityCell: UITableViewCell
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        // Initialization code
+        // Initialization codes
         
     }
 
@@ -34,7 +34,7 @@ class CityCell: UITableViewCell
         
     }
     
-
+ 
     
     func setTemperaturLabel(temperature:String = "0")
     {
