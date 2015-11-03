@@ -40,6 +40,7 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol, U
         //searchController.searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 80)
         //searchController.searchBar.center.y = 200
         searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = " zip code, Name, etc.."
         searchController.searchBar.sizeToFit()
         tableView.tableHeaderView = searchController.searchBar
 

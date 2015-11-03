@@ -61,7 +61,13 @@ class NextSevenDaysTableViewController: UITableViewController
         cell.setSummaryLabel(cityData.WeatherWeek[indexPath.row].summary)
         cell.setTemperaturLabel(cityData.WeatherWeek[indexPath.row].temperature)
         cell.loadImage(cityData.WeatherWeek[indexPath.row].icon)
+        
         cell.setNameLabel(cell.getDateDayString(cityData.WeatherWeek[indexPath.row].time))
+        
+        if indexPath.row == 0
+        {
+            cell.setNameLabel("Today")
+        }
         // Configure the cell...
         
         

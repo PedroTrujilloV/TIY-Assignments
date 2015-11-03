@@ -16,7 +16,7 @@ class CityCell: UITableViewCell
     let NameLabel:UILabel = UILabel(frame: CGRect(x: UIScreen.mainScreen().bounds.width * 3/10, y: 5, width: 100, height: 40))
     
     
-    var weekDays = ["1":"Sunday","2":"Monday","3":"Tuesday","4":"Wednesday","5":"Thursday","6":"Friday","7":"Saturday"]
+    var weekDays = ["1":"Sunday","2":"Monday","3":"Tuesday","4":"Wednesday","5":"Thursday","6":"Friday","7":"Saturday","0":"Today"]
 
 
     override func awakeFromNib()
@@ -120,25 +120,31 @@ class CityCell: UITableViewCell
 //        WeatherLabelEmoji.center.y = (imageView?.center.y)! - ((imageView?.frame.size.height)!/2)
     }
     
-    func getDateDayString(wdate:String) -> String //http://stackoverflow.com/questions/28875356/how-to-get-next-10-days-from-current-date-in-swift
+    func getDateDayString(wdate:String = "0") -> String //http://stackoverflow.com/questions/28875356/how-to-get-next-10-days-from-current-date-in-swift
     {//http://stackoverflow.com/questions/25533147/get-day-of-week-using-nsdate-swift
         
-        
-        
-        
+
         let date = NSDate(timeIntervalSince1970: NSTimeInterval(wdate)!  ) //1415637900 )
         
-        let formatter        = NSDateFormatter()
-        formatter.dateFormat = "YYYY-MM-dd"
+        if wdate == "0"
+        {
+            return wdate
+
+        }
+        else
+        {
         
-        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let myComponents = myCalendar.components(.Weekday, fromDate: date)
-        let weekDay = myComponents.weekday
-        
-        
-        //let newDate = formatter.stringFromDate(date)
-        
-        return self.weekDays[weekDay.description]!
+            let formatter        = NSDateFormatter()
+            formatter.dateFormat = "YYYY-MM-dd"
+            
+            let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+            let myComponents = myCalendar.components(.Weekday, fromDate: date)
+            let weekDay = myComponents.weekday
+
+            //let newDate = formatter.stringFromDate(date)
+            
+            return self.weekDays[weekDay.description]!
+        }
     }
 
 }

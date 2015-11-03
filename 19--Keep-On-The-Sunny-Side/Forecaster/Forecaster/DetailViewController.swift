@@ -11,6 +11,12 @@ import CoreLocation
 
 class DetailViewController: UIViewController
 {
+    var widthDevice = UIScreen.mainScreen().bounds.width
+    var heightDevice = UIScreen.mainScreen().bounds.height
+    
+    var superiorView:UIView!
+    
+    
     var userImageView:UIImageView!
     var imagePath = "gravatar.png"
     var userImage:UIImage!
@@ -18,9 +24,9 @@ class DetailViewController: UIViewController
     let TemperatureLabel:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 100))
     let NameLabel:UILabel = UILabel(frame: CGRect(x:0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 100))
     let SummaryLabel:UILabel = UILabel(frame: CGRect(x: 0 , y: 0, width: UIScreen.mainScreen().bounds.width, height: 100))
-    
-    var mapView: MKMapView = MKMapView(frame: CGRect(x: 0 , y: 0, width: UIScreen.mainScreen().bounds.width, height: 200))
-    ///let map: MKMapItem = MKMapItem(
+
+    var mapView: MKMapView!//= MKMapView(frame: CGRect(x: 0 , y: 0, width: UIScreen.mainScreen().bounds.width, height: 200))
+
     
     var cityData: CityData!
     var rigthAddButtonItem:UIBarButtonItem!
@@ -32,9 +38,11 @@ class DetailViewController: UIViewController
         // Do any additional setup after loading the view.
         
         self.view.backgroundColor = UIColor.whiteColor()
-        
         //
-        title = cityData.name
+        title = "City"
+        
+        self.setSuperiorView()
+        
        self.loadImage(cityData.WeatherWeek[0].icon)
         self.setTemperaturLabel(cityData.WeatherWeek[0].temperature)
         self.setNameLabel(cityData.name)
@@ -51,20 +59,92 @@ class DetailViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setSuperiorView()
+    {
+        
+        var superiorXpos = view.center.x
+        var superiorYpos = view.center.y
+        
+        if widthDevice > heightDevice
+        {
+            let temp = widthDevice
+            widthDevice = heightDevice
+            heightDevice = temp
+            
+            superiorXpos = view.center.y
+            superiorYpos = view.center.x
+        }
+       
+        superiorView = UIView(frame: CGRect(x: 0 , y: 0, width: widthDevice  , height: widthDevice ))
+        //superiorView.backgroundColor = UIColor.blueColor()
+        
+        superiorView.center.x = superiorXpos
+        //superiorView.center.y = UIScreen.mainScreen().bounds.height/2
+        
+        //http://stackoverflow.com/questions/26180822/swift-adding-constraints-programmatically
+        superiorView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(superiorView)
+        
+        
+      
+        
+        let horizontalConstraint = NSLayoutConstraint(item: superiorView , attribute: NSLayoutAttribute.LeadingMargin, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.LeadingMargin, multiplier: 1, constant: -10)
+        view.addConstraint(horizontalConstraint)
+        
+        /*let horizontalConstraint2 = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1, constant: 0)
+        superiorView(horizontalConstraint2)*/
+        
+        let topMarginConstraint = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 30)
+        view.addConstraint(topMarginConstraint)
+        
+      
+        //let verticalConstraint = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        //view.addConstraint(verticalConstraint)
+        
+        let widthConstraint = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
+        superiorView.addConstraint(widthConstraint)
+        // view.addConstraint(widthConstraint) // also works
+        
+        let heightConstraint = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
+        superiorView.addConstraint(heightConstraint)
+        
+        let BottomMarginConstraint = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.LessThanOrEqual, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: -5)
+        view.addConstraint(BottomMarginConstraint)
+        
+    }
  
     
     func setMap(city:CityData)
     {
-        mapView.center.x = view.center.x//UIScreen.mainScreen().bounds.width * (2/3)
-        mapView.center.y = UIScreen.mainScreen().bounds.height * 0.8
         
+        
+        var superiorXpos = view.center.x
+        var superiorYpos = heightDevice * 0.8
+        
+        if widthDevice > heightDevice
+        {
+            let temp = widthDevice
+            widthDevice = heightDevice
+            heightDevice = temp
+            
+            superiorXpos = UIScreen.mainScreen().bounds.width * 0.8
+            superiorYpos = UIScreen.mainScreen().bounds.height/2//heightDevice * 0.8
+        }
+        
+        mapView = MKMapView(frame: CGRect(x: 0 , y: 0, width: widthDevice, height: widthDevice * 0.8))
+        
+        mapView.center.x = superiorXpos //view.center.x//UIScreen.mainScreen().bounds.width * (2/3)
+        mapView.center.y = superiorYpos// UIScreen.mainScreen().bounds.height * 0.8
+        
+       // mapView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mapView)
         
         let LocationCroords = CLLocationCoordinate2DMake( Double(city.latitude)!, Double(city.longitude)!)
         
         let weatherPlace = MKPointAnnotation()
         weatherPlace.coordinate = LocationCroords
-        weatherPlace.title = city.name
+        weatherPlace.title = city.name+", "+city.state
         weatherPlace.subtitle = city.WeatherWeek[0].temperature+"°F"
     
         let annotations = [weatherPlace]
@@ -72,24 +152,32 @@ class DetailViewController: UIViewController
         
         mapView.showAnnotations(annotations, animated: true)
         mapView.camera.altitude *= 2
+        
+        //mapView.translatesAutoresizingMaskIntoConstraints = false
+        
+       //let horizontalConstraint = NSLayoutConstraint(item: mapView , attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        //view.addConstraint(horizontalConstraint)
+        
+        //let horizontalConstraint2 = NSLayoutConstraint(item: superiorView, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1, constant: 0)
+        //superiorView(horizontalConstraint2)
+        
+       //let topMarginConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: superiorView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+        //view.addConstraint(topMarginConstraint)
+        
+        
+       //let verticalConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        //view.addConstraint(verticalConstraint)
+        
+       // let widthConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
+        //superiorView.addConstraint(widthConstraint)
+        // view.addConstraint(widthConstraint) // also works
+        
+        //let heightConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice)
+       // superiorView.addConstraint(heightConstraint)
+        
+        //let BottomMarginConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: -5)
+        //view.addConstraint(BottomMarginConstraint)
     }
-    
-    func setTemperaturLabel(temperature:String = "0")
-    {
-        
-        TemperatureLabel.text = temperature+"°F"
-        
-        // WeatherLabelEmoji.center.y = (imageView?.center.y)!
-        TemperatureLabel.font = UIFont(name: "AvenirNextCondensed-Bold", size: 80)//-Next-Condensed
-        TemperatureLabel.textAlignment = .Center
-        TemperatureLabel.textColor = UIColor.blackColor()
-        
-        TemperatureLabel.center.x = UIScreen.mainScreen().bounds.width * (2/3)
-        TemperatureLabel.center.y = UIScreen.mainScreen().bounds.height * 0.3
-        
-        view.addSubview(TemperatureLabel)
-    }
-    
     
     func setNameLabel(name:String = "0")
     {
@@ -105,11 +193,30 @@ class DetailViewController: UIViewController
         NameLabel.textAlignment = .Center
         NameLabel.textColor = UIColor.blackColor()
         
-        NameLabel.center.x = view.center.x
-        NameLabel.center.y = UIScreen.mainScreen().bounds.height * 0.18
+        NameLabel.center.x = superiorView.center.x
+        NameLabel.center.y = superiorView.bounds.height * 0.2
         
-        view.addSubview(NameLabel)
+        superiorView.addSubview(NameLabel)
     }
+    
+    func setTemperaturLabel(temperature:String = "0")
+    {
+        
+        TemperatureLabel.text = temperature+"°F"
+        
+        // WeatherLabelEmoji.center.y = (imageView?.center.y)!
+        TemperatureLabel.font = UIFont(name: "AvenirNextCondensed-Bold", size: 80)//-Next-Condensed
+        TemperatureLabel.textAlignment = .Center
+        TemperatureLabel.textColor = UIColor.blackColor()
+        
+        TemperatureLabel.center.x = superiorView.bounds.width * (3/4)
+        TemperatureLabel.center.y = superiorView.bounds.height * 0.4
+        
+        superiorView.addSubview(TemperatureLabel)
+    }
+    
+    
+    
     
     func setSummaryLabel(summary:String = "0")
     {
@@ -125,12 +232,12 @@ class DetailViewController: UIViewController
         SummaryLabel.textAlignment = .Center
         SummaryLabel.textColor = UIColor.grayColor()
         
-        SummaryLabel.center.x = view.center.x
-        SummaryLabel.center.y = UIScreen.mainScreen().bounds.height * 0.45
+        SummaryLabel.center.x = superiorView.center.x
+        SummaryLabel.center.y = superiorView.bounds.height * 0.6
         
         
         
-        view.addSubview(SummaryLabel)
+        superiorView.addSubview(SummaryLabel)
     }
     
     func loadImage(wEmoji:String = "fog",var ImagePath:String = "gravatar.png")
@@ -150,10 +257,10 @@ class DetailViewController: UIViewController
                 self.userImageView = UIImageView(image: userImage!)
                 self.userImageView!.contentMode = UIViewContentMode.ScaleAspectFit
                 self.userImageView.frame = CGRect(x: 0, y: 0 , width: self.view.frame.size.width * 0.5 , height: self.view.frame.size.width * 0.5 )
-                self.userImageView.center.x = UIScreen.mainScreen().bounds.width * (1/4)
-                self.userImageView.center.y = UIScreen.mainScreen().bounds.height * 0.3
+                self.userImageView.center.x = superiorView.bounds.width * (1/5)
+                self.userImageView.center.y = superiorView.bounds.height * 0.4
                 
-                view.addSubview(userImageView)
+                superiorView.addSubview(userImageView)
             }
         }
         
@@ -167,11 +274,11 @@ class DetailViewController: UIViewController
         WeatherLabelEmoji.textAlignment = .Center
         WeatherLabelEmoji.textColor = UIColor.cyanColor()
         
-        WeatherLabelEmoji.center.x = UIScreen.mainScreen().bounds.width * (1/4)
-        WeatherLabelEmoji.center.y = UIScreen.mainScreen().bounds.height * 0.3
+        WeatherLabelEmoji.center.x = superiorView.bounds.width * (1/5)
+        WeatherLabelEmoji.center.y = superiorView.bounds.height * 0.4
 
         
-       view.addSubview(WeatherLabelEmoji)
+       superiorView.addSubview(WeatherLabelEmoji)
         
     }
     

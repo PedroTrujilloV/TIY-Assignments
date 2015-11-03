@@ -131,7 +131,7 @@ struct CityData
                     cityState = String(arrayFormated[0]) ?? ""
                 }
                 
-                let cityCountry = String(fromatedAddressNoComa[2]) ?? ""
+                let cityCountry = String(fromatedAddressNoComa[fromatedAddressNoComa.count-1]) ?? ""
                 
                 let geometryDic:NSDictionary = result["geometry"] as! NSDictionary
                 
