@@ -37,7 +37,10 @@ func printFirstPrimes(count:Int)
     if count > 0
     {
        if isPrime(count)
-       { print(count)}
+       {
+            print(count)
+            count
+        }
         printFirstPrimes(count - 1)
     }
 }
