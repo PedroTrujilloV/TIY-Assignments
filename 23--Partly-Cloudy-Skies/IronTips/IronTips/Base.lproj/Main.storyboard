@@ -63,10 +63,6 @@
                                     <action selector="sinInTapped:" destination="WK3-cF-1HL" eventType="touchUpInside" id="0DC-OS-ofT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgA-fF-UTu">
-                                <rect key="frame" x="273" y="246" width="55" height="30"/>
-                                <state key="normal" title="Sing Up"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-5s-8uh">
                                 <rect key="frame" x="20" y="120" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -75,6 +71,10 @@
                                     <outlet property="delegate" destination="WK3-cF-1HL" id="TDv-V0-dRn"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgA-fF-UTu">
+                                <rect key="frame" x="273" y="246" width="55" height="30"/>
+                                <state key="normal" title="Sing Up"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
