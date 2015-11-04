@@ -52,10 +52,11 @@ class ZipCodeViewController: UIViewController, UITextFieldDelegate, CLLocationMa
         if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Denied && CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Restricted
         {
             locationManager.delegate = self
+            
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined
             {
-                locationManager.requestWhenInUseAuthorization()
+                locationManager.requestAlwaysAuthorization()
             }
             else
             {

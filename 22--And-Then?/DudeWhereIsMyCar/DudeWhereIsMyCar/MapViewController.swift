@@ -203,14 +203,14 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     func appendAnnotation(city:City)
     {
         let annotation = MKPointAnnotation()
-        annotation.coordinate.latitude = city.latitude as CLLocationDegrees
-        annotation.coordinate.longitude = city.longitude as CLLocationDegrees
+        annotation.coordinate.latitude = city.latitude
+        annotation.coordinate.longitude = city.longitude
         annotation.title = city.name+", "+city.state
         annotation.subtitle = "Destination 🚗🏁"//"init point"
         self.anotationsArray.append(annotation)
         self.mapView.addAnnotations(self.anotationsArray)
         
-        self.showMapAnnotations()
+       // self.showMapAnnotations()
     }
     
     func saveAnnotationsData()

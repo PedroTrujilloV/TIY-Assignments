@@ -27,11 +27,13 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        locationTextField.text = ""
-        locationTextField.becomeFirstResponder()
         
         configureLocationManager()
         currentLocationButton.enabled = false
+        locationTextField.text = ""
+        locationTextField.becomeFirstResponder()
+        
+        
         
         //delegator?.operatorWasChosen(selectedOperation)
     }
@@ -62,25 +64,28 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
     
     func configureLocationManager()
     {
-        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Denied && CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Restricted
+        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Denied
         {
-            locationManager.delegate = self
-            
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined
+        
+            if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Restricted
             {
-                locationManager.requestAlwaysAuthorization()
-            }
-            else
-            {
-                currentLocationButton.enabled = true
+                locationManager.delegate = self
+                
+                locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+                if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined
+                {
+                    locationManager.requestAlwaysAuthorization()
+                }
+                else
+                {
+                    currentLocationButton.enabled = true
+                }
             }
         }
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus)
     {
-        
         if status == CLAuthorizationStatus.AuthorizedWhenInUse
         {
             currentLocationButton.enabled = true
@@ -89,7 +94,6 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
     {
-        
         print(error.localizedDescription)
     }
     
@@ -124,7 +128,7 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
     @IBAction func userCurrentLocationWasTapped(sender: UIButton)
     {
         locationManager.startUpdatingLocation()
-        locationTextField.resignFirstResponder()
+        //locationTextField.resignFirstResponder()
     }
     
     func findLocationForZipCode(zipCode: String)

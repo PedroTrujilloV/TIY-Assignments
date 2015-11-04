@@ -70,7 +70,7 @@
                                 <rect key="frame" x="232" y="51" width="137" height="30"/>
                                 <state key="normal" title="use current location"/>
                                 <connections>
-                                    <action selector="userCurrentLocationWasTapped:" destination="988-jL-heq" eventType="touchUpInside" id="H6A-XK-tSI"/>
+                                    <action selector="userCurrentLocationWasTapped:" destination="988-jL-heq" eventType="touchUpInside" id="Wh2-xA-VgT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -84,7 +84,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentLocationButton" destination="iUw-8A-IkV" id="3pP-Df-BgP"/>
+                        <outlet property="currentLocationButton" destination="iUw-8A-IkV" id="Bww-Hd-6Wz"/>
                         <outlet property="locationTextField" destination="SsR-8U-v0P" id="twz-sA-gfZ"/>
                     </connections>
                 </viewController>
