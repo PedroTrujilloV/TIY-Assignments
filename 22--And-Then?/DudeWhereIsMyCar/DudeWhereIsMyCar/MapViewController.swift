@@ -94,7 +94,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
             
             print("error: \(error)")
             //print(response?.routes.first?.distance)
-            print("Driving Distance from \(self.anotationsArray[self.anotationsArray.count-1].title!) is: "+String(format: "%.2f", (response?.routes.first?.distance)! * 0.00062137)+" miles")
+//            print("Driving Distance from \(self.anotationsArray[self.anotationsArray.count-1].title!) is: "+String(format: "%.2f", (response?.routes.first?.distance)! * 0.00062137)+" miles")
             self.drivingDistance = response?.routes.first?.distance
             if error == nil
             {
@@ -105,9 +105,14 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
                 {
                     self.mapView.addOverlay((route as! MKRoute).polyline, level: MKOverlayLevel.AboveRoads)
                 }
-                
+                self.anotationsArray[self.anotationsArray.count - 2].subtitle = "Distance to \(self.anotationsArray[self.anotationsArray.count - 1].title!): "+String(format: "%.1f", (self.drivingDistance)! * 0.00062137)+" miles🚶🏻"
             }
-            self.anotationsArray[self.anotationsArray.count - 2].subtitle = "Distance to \(self.anotationsArray[self.anotationsArray.count - 1].title!): "+String(format: "%.1f", (self.drivingDistance)! * 0.00062137)+" miles🚶🏻"
+            else
+            {
+                print("error: "+(error?.localizedDescription)!)
+                self.anotationsArray[self.anotationsArray.count - 2].subtitle = "There is no way to go walking..."
+            }
+            
         }
         
     }

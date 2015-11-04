@@ -29,7 +29,7 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
         // Do any additional setup after loading the view.
         
         configureLocationManager()
-        currentUserLocationButton.enabled = false
+        //currentUserLocationButton.enabled = false
         locationTextField.text = ""
         locationTextField.becomeFirstResponder()
         
