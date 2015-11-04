@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YFk-q1-tud">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="DudeWhereIsMyCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l3D-KE-Uyd">
+                                <rect key="frame" x="20" y="64" width="560" height="536"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l3D-KE-Uyd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="903-OM-i3A"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l3D-KE-Uyd" secondAttribute="bottom" id="Fnb-8f-gyN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l3D-KE-Uyd" secondAttribute="trailing" id="QVu-26-mLu"/>
+                            <constraint firstItem="l3D-KE-Uyd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sUr-wl-7J7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OTu-NB-LHL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1XR-Tr-bob">
+                            <connections>
+                                <segue destination="988-jL-heq" kind="popoverPresentation" identifier="ShowPopoverAddCityViewControllerSegue" popoverAnchorBarButtonItem="1XR-Tr-bob" id="Yi0-zI-Bob">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="l3D-KE-Uyd" id="mK9-Wi-vsh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="357"/>
+        </scene>
+        <!--Popover Add City View Controller-->
+        <scene sceneID="4WH-Ma-fuF">
+            <objects>
+                <viewController id="988-jL-heq" customClass="PopoverAddCityViewController" customModule="DudeWhereIsMyCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FjT-U2-xr6"/>
+                        <viewControllerLayoutGuide type="bottom" id="kuB-ZG-y4O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="63l-EL-nVa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert location or" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SsR-8U-v0P">
+                                <rect key="frame" x="20" y="25" width="560" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <action selector="cityEditingDidEnd:" destination="988-jL-heq" eventType="editingDidEnd" id="Woz-tt-eez"/>
+                                    <outlet property="delegate" destination="988-jL-heq" id="r40-rO-y4h"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUw-8A-IkV">
+                                <rect key="frame" x="232" y="51" width="137" height="30"/>
+                                <state key="normal" title="use current location"/>
+                                <connections>
+                                    <action selector="userCurrentLocationWasTapped:" destination="988-jL-heq" eventType="touchUpInside" id="H6A-XK-tSI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SsR-8U-v0P" secondAttribute="trailing" id="7BE-tN-85a"/>
+                            <constraint firstItem="SsR-8U-v0P" firstAttribute="top" secondItem="FjT-U2-xr6" secondAttribute="bottom" constant="5" id="Dk4-wc-pWh"/>
+                            <constraint firstItem="iUw-8A-IkV" firstAttribute="top" secondItem="SsR-8U-v0P" secondAttribute="bottom" constant="8" id="MWT-Sa-d3A"/>
+                            <constraint firstItem="iUw-8A-IkV" firstAttribute="centerX" secondItem="63l-EL-nVa" secondAttribute="centerX" id="bxZ-dJ-MTS"/>
+                            <constraint firstItem="SsR-8U-v0P" firstAttribute="leading" secondItem="63l-EL-nVa" secondAttribute="leadingMargin" id="hSC-sM-nlw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cityTextFiled" destination="SsR-8U-v0P" id="vfE-TD-2Xf"/>
+                        <outlet property="currentLocationButton" destination="iUw-8A-IkV" id="3pP-Df-BgP"/>
+                        <outlet property="locationTextField" destination="SsR-8U-v0P" id="twz-sA-gfZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jkd-Re-pw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962" y="271"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kKG-AE-o6i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YFk-q1-tud" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6EE-MY-Y2W">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pvH-TY-j1Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGW-a6-6uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="457" y="-335"/>
+        </scene>
+    </scenes>
+</document>
