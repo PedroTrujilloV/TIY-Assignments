@@ -56,7 +56,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     {
         
         appendAnnotation(city)
-        self.mapView.addAnnotations(self.anotationsArray)
+        //self.mapView.addAnnotations(self.anotationsArray)
         self.showMapAnnotations()
     }
     
@@ -107,7 +107,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
                 }
                 
             }
-            self.anotationsArray[self.anotationsArray.count - 2].subtitle = "Distance to \(self.anotationsArray[self.anotationsArray.count - 1].title!): "+String(format: "%.1f", (self.drivingDistance)! * 0.00062137)+" miles🚗"
+            self.anotationsArray[self.anotationsArray.count - 2].subtitle = "Distance to \(self.anotationsArray[self.anotationsArray.count - 1].title!): "+String(format: "%.1f", (self.drivingDistance)! * 0.00062137)+" miles🚶🏻"
         }
         
     }
@@ -131,8 +131,11 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
             mapView.camera.altitude *= 2
             mapView.showAnnotations(anotationsArray, animated: true)
             calculateDrivingDistance()
-            
-            
+
+        }
+        else
+        {
+            self.mapView.showAnnotations(anotationsArray, animated: true)
         }
     }
     
@@ -157,7 +160,10 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     func cityWasChosen(city:City)
     {
         print("City Was Chosen: "+city.name)
+        print(" latitudde: " + city.latitude.description)
+        print(" longitude: " + city.longitude.description)
         
+        CitiesArray.append(city)
         createcityAnnotation(city)
         navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
         
@@ -187,18 +193,24 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     {
         for city in CitiesArray
         {
+            print("Stored: "+city.name)
             appendAnnotation(city)
+            
         }
-        self.mapView.addAnnotations(self.anotationsArray)
+        
     }
     
     func appendAnnotation(city:City)
     {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2DMake(city.latitude, city.latitude)
+        annotation.coordinate.latitude = city.latitude as CLLocationDegrees
+        annotation.coordinate.longitude = city.longitude as CLLocationDegrees
         annotation.title = city.name+", "+city.state
-        annotation.subtitle = "Destination 🏁"//"init point"
+        annotation.subtitle = "Destination 🚗🏁"//"init point"
         self.anotationsArray.append(annotation)
+        self.mapView.addAnnotations(self.anotationsArray)
+        
+        self.showMapAnnotations()
     }
     
     func saveAnnotationsData()
