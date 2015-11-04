@@ -195,9 +195,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         {
             print("Stored: "+city.name)
             appendAnnotation(city)
-            
         }
-        
     }
     
     func appendAnnotation(city:City)
@@ -208,7 +206,8 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         annotation.title = city.name+", "+city.state
         annotation.subtitle = "Destination 🚗🏁"//"init point"
         self.anotationsArray.append(annotation)
-        self.mapView.addAnnotations(self.anotationsArray)
+       print(" test annotations: "+annotation.coordinate.longitude.description)
+        self.mapView.addAnnotations(self.anotationsArray)// here the error
         
        // self.showMapAnnotations()
     }

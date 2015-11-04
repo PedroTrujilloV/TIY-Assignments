@@ -66,11 +66,11 @@
                                     <outlet property="delegate" destination="988-jL-heq" id="r40-rO-y4h"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUw-8A-IkV">
-                                <rect key="frame" x="232" y="51" width="137" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrd-yF-gnp">
+                                <rect key="frame" x="232" y="53" width="137" height="30"/>
                                 <state key="normal" title="use current location"/>
                                 <connections>
-                                    <action selector="userCurrentLocationWasTapped:" destination="988-jL-heq" eventType="touchUpInside" id="Wh2-xA-VgT"/>
+                                    <action selector="userCurrentLocationWasTapped:" destination="988-jL-heq" eventType="touchUpInside" id="dBj-vd-JfG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -78,13 +78,13 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="SsR-8U-v0P" secondAttribute="trailing" id="7BE-tN-85a"/>
                             <constraint firstItem="SsR-8U-v0P" firstAttribute="top" secondItem="FjT-U2-xr6" secondAttribute="bottom" constant="5" id="Dk4-wc-pWh"/>
-                            <constraint firstItem="iUw-8A-IkV" firstAttribute="top" secondItem="SsR-8U-v0P" secondAttribute="bottom" constant="8" id="MWT-Sa-d3A"/>
-                            <constraint firstItem="iUw-8A-IkV" firstAttribute="centerX" secondItem="63l-EL-nVa" secondAttribute="centerX" id="bxZ-dJ-MTS"/>
+                            <constraint firstItem="Vrd-yF-gnp" firstAttribute="top" secondItem="SsR-8U-v0P" secondAttribute="bottom" constant="10" id="OaG-Ez-YhE"/>
                             <constraint firstItem="SsR-8U-v0P" firstAttribute="leading" secondItem="63l-EL-nVa" secondAttribute="leadingMargin" id="hSC-sM-nlw"/>
+                            <constraint firstItem="Vrd-yF-gnp" firstAttribute="centerX" secondItem="63l-EL-nVa" secondAttribute="centerX" id="u0L-df-Uom"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentLocationButton" destination="iUw-8A-IkV" id="Bww-Hd-6Wz"/>
+                        <outlet property="currentUserLocationButton" destination="Vrd-yF-gnp" id="ivT-vE-cN6"/>
                         <outlet property="locationTextField" destination="SsR-8U-v0P" id="twz-sA-gfZ"/>
                     </connections>
                 </viewController>

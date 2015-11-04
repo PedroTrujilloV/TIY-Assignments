@@ -13,7 +13,7 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
 {
    
     @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var currentUserLocationButton: UIButton!
     
     let locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
@@ -29,7 +29,7 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
         // Do any additional setup after loading the view.
         
         configureLocationManager()
-        currentLocationButton.enabled = false
+        currentUserLocationButton.enabled = false
         locationTextField.text = ""
         locationTextField.becomeFirstResponder()
         
@@ -78,7 +78,7 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
                 }
                 else
                 {
-                    currentLocationButton.enabled = true
+                    currentUserLocationButton.enabled = true
                 }
             }
         }
@@ -88,7 +88,7 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
     {
         if status == CLAuthorizationStatus.AuthorizedWhenInUse
         {
-            currentLocationButton.enabled = true
+            currentUserLocationButton.enabled = true
         }
     }
     
@@ -128,7 +128,7 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
     @IBAction func userCurrentLocationWasTapped(sender: UIButton)
     {
         locationManager.startUpdatingLocation()
-        //locationTextField.resignFirstResponder()
+        locationTextField.resignFirstResponder()
     }
     
     func findLocationForZipCode(zipCode: String)
