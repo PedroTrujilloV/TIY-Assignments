@@ -24,7 +24,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
 {
     
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var mapView: MKMapView!
     
     var anotationsArray = Array<MKPointAnnotation>()
     var CitiesArray = Array<City>()
@@ -39,7 +39,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         // Do any additional setup after loading the view, typically from a nib.
         
         mapView.delegate = self
-        
+        loadAnnotationsData()
         
         //        createcityAnnotation("Orlando, Fl")
         //        createcityAnnotation("Miami, Fl")
@@ -132,9 +132,10 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     {
         if anotationsArray.count > 1
         {
+            
             calculateLineOfSightDistance()
-            mapView.camera.altitude *= 2
             mapView.showAnnotations(anotationsArray, animated: true)
+            mapView.camera.altitude *= 2
             calculateDrivingDistance()
 
         }
@@ -206,14 +207,16 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     func appendAnnotation(city:City)
     {
         let annotation = MKPointAnnotation()
-        annotation.coordinate.latitude = city.latitude
-        annotation.coordinate.longitude = city.longitude
+        //annotation.coordinate.latitude = city.latitude
+        //annotation.coordinate.longitude = city.longitude
+        annotation.coordinate = CLLocationCoordinate2DMake(city.latitude, city.longitude)
         annotation.title = city.name+", "+city.state
         annotation.subtitle = "Destination 🚗🏁"//"init point"
         self.anotationsArray.append(annotation)
-       print(" test annotations: "+annotation.coordinate.longitude.description)
-        self.mapView.addAnnotations(self.anotationsArray)// here the error
+        print(" test annotations: "+annotation.coordinate.longitude.description)
+        mapView.addAnnotations(anotationsArray)// here the error
         
+
        // self.showMapAnnotations()
     }
     

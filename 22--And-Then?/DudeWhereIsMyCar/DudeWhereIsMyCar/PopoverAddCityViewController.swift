@@ -27,9 +27,9 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        currentUserLocationButton.enabled = false
         configureLocationManager()
-        //currentUserLocationButton.enabled = false
+        
         locationTextField.text = ""
         locationTextField.becomeFirstResponder()
         
@@ -64,10 +64,9 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
     
     func configureLocationManager()
     {
-        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Denied
+        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Restricted
         {
-        
-            if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Restricted
+            if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Denied
             {
                 locationManager.delegate = self
                 
