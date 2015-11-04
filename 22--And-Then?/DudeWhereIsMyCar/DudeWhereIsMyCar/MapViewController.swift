@@ -134,8 +134,9 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         {
             
             calculateLineOfSightDistance()
+             mapView.camera.altitude *= 2.2
             mapView.showAnnotations(anotationsArray, animated: true)
-            mapView.camera.altitude *= 2
+            //mapView.camera.altitude *= 2
             calculateDrivingDistance()
 
         }
@@ -191,6 +192,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
                 CitiesArray = savedAnnotations
                 savedCitiesToMapAnnotations()
                 self.showMapAnnotations()
+                mapView.camera.altitude *= 2
             }
         }
     }
