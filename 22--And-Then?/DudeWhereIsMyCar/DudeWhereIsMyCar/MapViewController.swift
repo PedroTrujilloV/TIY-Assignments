@@ -144,8 +144,8 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         if segue.identifier == "ShowPopoverAddCityViewControllerSegue"
         {
             let destVC  = segue.destinationViewController as! PopoverAddCityViewController // 1
-            destVC.delegator = self // 3 nescessary to get the value from the popover
             destVC.popoverPresentationController?.delegate = self // 2
+            destVC.delegator = self // 3 nescessary to get the value from the popover
             destVC.preferredContentSize = CGSizeMake(200.0, 65.0)
         }
         // Get the new view controller using segue.destinationViewController.

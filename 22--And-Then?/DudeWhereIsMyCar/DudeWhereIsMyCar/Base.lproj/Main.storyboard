@@ -63,7 +63,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
-                                    <action selector="cityEditingDidEnd:" destination="988-jL-heq" eventType="editingDidEnd" id="Woz-tt-eez"/>
                                     <outlet property="delegate" destination="988-jL-heq" id="r40-rO-y4h"/>
                                 </connections>
                             </textField>
@@ -85,7 +84,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cityTextFiled" destination="SsR-8U-v0P" id="vfE-TD-2Xf"/>
                         <outlet property="currentLocationButton" destination="iUw-8A-IkV" id="3pP-Df-BgP"/>
                         <outlet property="locationTextField" destination="SsR-8U-v0P" id="twz-sA-gfZ"/>
                     </connections>
