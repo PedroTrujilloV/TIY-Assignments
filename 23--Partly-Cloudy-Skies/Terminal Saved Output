@@ -1,0 +1,361 @@
+Last login: Wed Nov  4 09:42:08 on ttys012
+Leslies-MacBook:~ pedrotrujillo$ ls
+2015--FALL--iOS	Desktop		Downloads	Movies		Pictures
+Applications	Documents	Library		Music		Public
+Leslies-MacBook:~ pedrotrujillo$ sudo gem instal cocoapods
+        
+Fetching: thread_safe-0.3.5.gem (100%)
+Successfully installed thread_safe-0.3.5
+Fetching: tzinfo-1.2.2.gem (100%)
+Successfully installed tzinfo-1.2.2
+Fetching: minitest-5.8.2.gem (100%)
+Successfully installed minitest-5.8.2
+Fetching: activesupport-4.2.4.gem (100%)
+Successfully installed activesupport-4.2.4
+Fetching: nap-1.0.0.gem (100%)
+Successfully installed nap-1.0.0
+Fetching: fuzzy_match-2.0.4.gem (100%)
+Successfully installed fuzzy_match-2.0.4
+Fetching: cocoapods-core-0.39.0.gem (100%)
+Successfully installed cocoapods-core-0.39.0
+Fetching: claide-0.9.1.gem (100%)
+Successfully installed claide-0.9.1
+Fetching: colored-1.2.gem (100%)
+Successfully installed colored-1.2
+Fetching: xcodeproj-0.28.2.gem (100%)
+Successfully installed xcodeproj-0.28.2
+Fetching: cocoapods-downloader-0.9.3.gem (100%)
+Successfully installed cocoapods-downloader-0.9.3
+Fetching: cocoapods-plugins-0.4.2.gem (100%)
+Successfully installed cocoapods-plugins-0.4.2
+Fetching: cocoapods-search-0.1.0.gem (100%)
+Successfully installed cocoapods-search-0.1.0
+Fetching: cocoapods-stats-0.6.2.gem (100%)
+Successfully installed cocoapods-stats-0.6.2
+Fetching: cocoapods-try-0.5.1.gem (100%)
+Successfully installed cocoapods-try-0.5.1
+Fetching: netrc-0.7.8.gem (100%)
+Successfully installed netrc-0.7.8
+Fetching: cocoapods-trunk-0.6.4.gem (100%)
+Successfully installed cocoapods-trunk-0.6.4
+Fetching: molinillo-0.4.0.gem (100%)
+Successfully installed molinillo-0.4.0
+Fetching: escape-0.0.4.gem (100%)
+Successfully installed escape-0.0.4
+Fetching: cocoapods-0.39.0.gem (100%)
+Successfully installed cocoapods-0.39.0
+Parsing documentation for thread_safe-0.3.5
+Installing ri documentation for thread_safe-0.3.5
+Parsing documentation for tzinfo-1.2.2
+Installing ri documentation for tzinfo-1.2.2
+Parsing documentation for minitest-5.8.2
+Installing ri documentation for minitest-5.8.2
+Parsing documentation for activesupport-4.2.4
+unable to convert "\x84" from ASCII-8BIT to UTF-8 for lib/active_support/values/unicode_tables.dat, skipping
+Installing ri documentation for activesupport-4.2.4
+Parsing documentation for nap-1.0.0
+Installing ri documentation for nap-1.0.0
+Parsing documentation for fuzzy_match-2.0.4
+Installing ri documentation for fuzzy_match-2.0.4
+Parsing documentation for cocoapods-core-0.39.0
+Installing ri documentation for cocoapods-core-0.39.0
+Parsing documentation for claide-0.9.1
+Installing ri documentation for claide-0.9.1
+Parsing documentation for colored-1.2
+Installing ri documentation for colored-1.2
+Parsing documentation for xcodeproj-0.28.2
+Installing ri documentation for xcodeproj-0.28.2
+Parsing documentation for cocoapods-downloader-0.9.3
+Installing ri documentation for cocoapods-downloader-0.9.3
+Parsing documentation for cocoapods-plugins-0.4.2
+Installing ri documentation for cocoapods-plugins-0.4.2
+Parsing documentation for cocoapods-search-0.1.0
+Installing ri documentation for cocoapods-search-0.1.0
+Parsing documentation for cocoapods-stats-0.6.2
+Installing ri documentation for cocoapods-stats-0.6.2
+Parsing documentation for cocoapods-try-0.5.1
+Installing ri documentation for cocoapods-try-0.5.1
+Parsing documentation for netrc-0.7.8
+Installing ri documentation for netrc-0.7.8
+Parsing documentation for cocoapods-trunk-0.6.4
+Installing ri documentation for cocoapods-trunk-0.6.4
+Parsing documentation for molinillo-0.4.0
+Installing ri documentation for molinillo-0.4.0
+Parsing documentation for escape-0.0.4
+Installing ri documentation for escape-0.0.4
+Parsing documentation for cocoapods-0.39.0
+Installing ri documentation for cocoapods-0.39.0
+20 gems installed
+Leslies-MacBook:~ pedrotrujillo$ 
+Leslies-MacBook:~ pedrotrujillo$ ls
+2015--FALL--iOS	Desktop		Downloads	Movies		Pictures
+Applications	Documents	Library		Music		Public
+Leslies-MacBook:~ pedrotrujillo$ cd Documents
+Leslies-MacBook:Documents pedrotrujillo$ ls
+2015--FALL--iOS			TIY-Assignments
+PedroTrujilloV.github.io
+Leslies-MacBook:Documents pedrotrujillo$ cd TI*
+Leslies-MacBook:TIY-Assignments pedrotrujillo$ ls
+00--This-is-Heavy
+01--Great-Scott
+02--Fourth-Dimensionally
+03--Good-Morning-Agent-Hunt
+04--121Gigawatts
+06--Strategic-Homeland-Intervention-Enforcement-Logistics-Division
+07--Clean-Up
+08--Validation
+09--If-My-Calculations-Are-Correct
+11--Raiders-of-the-Lost-App
+12--The-Temple-of-Core-Data
+13--The-Last-Playlist
+14--A-New-HIG
+16--Come-About
+17--Anybody-Out-There?
+18--Mary-Samsonite
+19--Keep-On-The-Sunny-Side
+20--Intro-To-Design
+22--And-Then?
+23--Partly-Cloudy-Skies
+LICENSE
+README.md
+Leslies-MacBook:TIY-Assignments pedrotrujillo$ cd 23*
+Leslies-MacBook:23--Partly-Cloudy-Skies pedrotrujillo$ ls
+IronTips	README.md	quiz23.md
+Leslies-MacBook:23--Partly-Cloudy-Skies pedrotrujillo$ cd Ir*
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj
+Leslies-MacBook:IronTips pedrotrujillo$ pod init
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj	Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ opend P*
+-bash: opend: command not found
+Leslies-MacBook:IronTips pedrotrujillo$ opend Podfile
+-bash: opend: command not found
+Leslies-MacBook:IronTips pedrotrujillo$ open Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ open vi Podfile 
+The file /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/vi does not exist.
+Leslies-MacBook:IronTips pedrotrujillo$ open vi Podfile 
+The file /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/vi does not exist.
+Leslies-MacBook:IronTips pedrotrujillo$ open Podfile 
+Leslies-MacBook:IronTips pedrotrujillo$ open vi Podfile 
+The file /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/vi does not exist.
+Leslies-MacBook:IronTips pedrotrujillo$ open vi Podfile 
+The file /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/vi does not exist.
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile 
+Leslies-MacBook:IronTips pedrotrujillo$ cat Podfile
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+target 'IronTips' 
+pod 'Parse'
+end
+
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+
+[!] Invalid `Podfile` file: syntax error, unexpected keyword_end, expecting end-of-input. Updating CocoaPods might fix the issue.
+
+ #  from /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/Podfile:8
+ #  -------------------------------------------
+ #  pod 'Parse'
+ >  end
+ #  
+ #  -------------------------------------------
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+
+[!] Invalid `Podfile` file: syntax error, unexpected keyword_end, expecting end-of-input. Updating CocoaPods might fix the issue.
+
+ #  from /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/Podfile:8
+ #  -------------------------------------------
+ #  pod 'Parse'
+ >  end
+ #  
+ #  -------------------------------------------
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj	Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj	Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+
+[!] Invalid `Podfile` file: syntax error, unexpected keyword_end, expecting end-of-input. Updating CocoaPods might fix the issue.
+
+ #  from /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/Podfile:8
+ #  -------------------------------------------
+ #  pod 'Parse'
+ >  end
+ #  
+ #  -------------------------------------------
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+
+[!] Invalid `Podfile` file: syntax error, unexpected keyword_end, expecting end-of-input. Updating CocoaPods might fix the issue.
+
+ #  from /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/Podfile:8
+ #  -------------------------------------------
+ #  pod 'Parse'
+ >  end
+ #  
+ #  -------------------------------------------
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ cat Podfile
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+target 'IronTips' 
+pod 'Parse'
+end
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+
+[!] Invalid `Podfile` file: syntax error, unexpected keyword_end, expecting end-of-input. Updating CocoaPods might fix the issue.
+
+ #  from /Users/pedrotrujillo/Documents/TIY-Assignments/23--Partly-Cloudy-Skies/IronTips/Podfile:8
+ #  -------------------------------------------
+ #  pod 'Parse'
+ >  end
+ #  -------------------------------------------
+Leslies-MacBook:IronTips pedrotrujillo$ open Podfile 
+Leslies-MacBook:IronTips pedrotrujillo$ cat Podfile
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+target 'IronTips' do
+pod ‘IronTips’
+end
+
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Creating shallow clone of spec repo `master` from `https://github.com/CocoaPods/Specs.git`
+^C[!] Cancelled
+
+[!] Your Podfile has had smart quotes sanitised. To avoid issues in the future, you should not use TextEdit for editing it. If you are not using TextEdit, you should turn off smart quotes in your editor of choice.
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Updating local specs repositories
+Analyzing dependencies
+[!] Unable to find a specification for `Parse`
+
+[!] Your Podfile has had smart quotes sanitised. To avoid issues in the future, you should not use TextEdit for editing it. If you are not using TextEdit, you should turn off smart quotes in your editor of choice.
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		Podfile
+IronTips.xcodeproj	Pods
+Leslies-MacBook:IronTips pedrotrujillo$ rm Pods
+rm: Pods: is a directory
+Leslies-MacBook:IronTips pedrotrujillo$ rm -rf Pods
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj	Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Updating local specs repositories
+Analyzing dependencies
+[!] Unable to find a specification for `Parse`
+Leslies-MacBook:IronTips pedrotrujillo$ rm Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj	Pods
+Leslies-MacBook:IronTips pedrotrujillo$ rm -rf Pods
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj
+Leslies-MacBook:IronTips pedrotrujillo$ pod init
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		IronTips.xcodeproj	Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Updating local specs repositories
+Analyzing dependencies
+[!] Unable to find a specification for `Parse`
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		Podfile
+IronTips.xcodeproj	Pods
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ cd Pods
+Leslies-MacBook:Pods pedrotrujillo$ ls
+Headers			Local Podspecs		Target Support Files
+Leslies-MacBook:Pods pedrotrujillo$ cd ..
+Leslies-MacBook:IronTips pedrotrujillo$ ls
+IronTips		Podfile
+IronTips.xcodeproj	Pods
+Leslies-MacBook:IronTips pedrotrujillo$ sudo gem update cocoapods
+Password:
+Updating installed gems
+Nothing to update
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Updating local specs repositories
+Analyzing dependencies
+[!] Unable to find a specification for `Parse`
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Updating local specs repositories
+Analyzing dependencies
+[!] Unable to find a specification for `Parse`
+Leslies-MacBook:IronTips pedrotrujillo$ vi Podfile
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Updating local specs repositories
+Analyzing dependencies
+[!] Unable to find a specification for `Parse`
+Leslies-MacBook:IronTips pedrotrujillo$ pod
+Usage:
+
+    $ pod COMMAND
+
+      CocoaPods, the Cocoa library package manager.
+
+Commands:
+
+    + cache      Manipulate the CocoaPods cache
+    + init       Generate a Podfile for the current directory.
+    + install    Install project dependencies to Podfile.lock versions
+    + ipc        Inter-process communication
+    + lib        Develop pods
+    + list       List pods
+    + outdated   Show outdated project dependencies
+    + plugins    Show available CocoaPods plugins
+    + repo       Manage spec-repositories
+    + search     Search for pods.
+    + setup      Setup the CocoaPods environment
+    + spec       Manage pod specs
+    + trunk      Interact with the CocoaPods API (e.g. publishing new specs)
+    + try        Try a Pod!
+    + update     Update outdated project dependencies and create new
+                 Podfile.lock
+
+Options:
+
+    --silent     Show nothing
+    --version    Show the version of the tool
+    --verbose    Show more debugging information
+    --no-ansi    Show output without ANSI codes
+    --help       Show help banner of specified command
+Leslies-MacBook:IronTips pedrotrujillo$ pod --version
+0.39.0
+Leslies-MacBook:IronTips pedrotrujillo$ pod setup
+Setting up CocoaPods master repo
+Already up-to-date.
+Setup completed
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Updating local specs repositories
+Analyzing dependencies
+[!] Unable to find a specification for `Parse`
+Leslies-MacBook:IronTips pedrotrujillo$ rm -rf ~/.cocoapods/
+Leslies-MacBook:IronTips pedrotrujillo$ pod setup
+Setting up CocoaPods master repo
+Setup completed
+Leslies-MacBook:IronTips pedrotrujillo$ pod install
+Updating local specs repositories
+Analyzing dependencies
+Downloading dependencies
+Installing Bolts (1.4.0)
+Installing Parse (1.9.1)
+Generating Pods project
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `IronTips.xcworkspace` for this project from now on.
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 2 total
+pods installed.
+Leslies-MacBook:IronTips pedrotrujillo$ open .
+Leslies-MacBook:IronTips pedrotrujillo$ pod install

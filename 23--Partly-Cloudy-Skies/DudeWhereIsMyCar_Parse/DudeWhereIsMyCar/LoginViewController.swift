@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         return false
     }
     
-    @IBAction func sinInTapped(sender: UIButton)
+    @IBAction func signInTapped(sender: UIButton)
     {
         if userCanSing()
         {

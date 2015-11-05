@@ -31,9 +31,9 @@
 		68CC3EB71BE9594D00D6AF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68CC3EBD1BE95A1500D6AF13 /* PopoverAddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAddCityViewController.swift; sourceTree = "<group>"; };
 		68CC3EBF1BE95D3400D6AF13 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		68CC3EEF1BEB183500D6AF13 /* DudeWhereIsMyCar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DudeWhereIsMyCar-Bridging-Header.h"; sourceTree = "<group>"; };
 		68CC3EF01BEB18AE00D6AF13 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		68CC3EF11BEB18AE00D6AF13 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		68CC3EFD1BEB209C00D6AF13 /* Dude, Where's My Car?-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dude, Where's My Car?-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A7E76993E699D3F032AE60 /* libPods-DudeWhereIsMyCar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DudeWhereIsMyCar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,9 +87,9 @@
 				68CC3EB41BE9594D00D6AF13 /* LaunchScreen.storyboard */,
 				68CC3EB71BE9594D00D6AF13 /* Info.plist */,
 				68CC3EBF1BE95D3400D6AF13 /* City.swift */,
-				68CC3EEF1BEB183500D6AF13 /* DudeWhereIsMyCar-Bridging-Header.h */,
 				68CC3EF01BEB18AE00D6AF13 /* LoginViewController.swift */,
 				68CC3EF11BEB18AE00D6AF13 /* RegisterViewController.swift */,
+				68CC3EFD1BEB209C00D6AF13 /* Dude, Where's My Car?-Bridging-Header.h */,
 			);
 			path = DudeWhereIsMyCar;
 			sourceTree = "<group>";
@@ -131,6 +131,7 @@
 		68CC3EA01BE9594D00D6AF13 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Pedro Trujillo";
 				TargetAttributes = {
@@ -342,10 +343,13 @@
 			baseConfigurationReference = 3B7C23B5A27CD914A54BBCA3 /* Pods-DudeWhereIsMyCar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DudeWhereIsMyCar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.DudeWhereIsMyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DudeWhereIsMyCar/DudeWhereIsMyCar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -354,10 +358,12 @@
 			baseConfigurationReference = 2FBF723D943690266788A9C5 /* Pods-DudeWhereIsMyCar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DudeWhereIsMyCar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.DudeWhereIsMyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DudeWhereIsMyCar/DudeWhereIsMyCar-Bridging-Header.h";
 			};
 			name = Release;
 		};

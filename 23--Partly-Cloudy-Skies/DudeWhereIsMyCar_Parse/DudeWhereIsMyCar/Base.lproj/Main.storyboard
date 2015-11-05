@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YFk-q1-tud">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jdK-hz-Gip">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -67,6 +67,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKh-2C-obN">
                                 <rect key="frame" x="277" y="198" width="47" height="30"/>
                                 <state key="normal" title="Sign in"/>
+                                <connections>
+                                    <action selector="signInTapped:" destination="4m7-z2-iS9" eventType="touchUpInside" id="6QG-MS-HMW"/>
+                                    <segue destination="YFk-q1-tud" kind="show" id="jA6-dR-b3J"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,6 +93,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="passordTextField" destination="GT6-o2-9LY" id="gNk-9Z-fF2"/>
+                        <outlet property="usernameTextField" destination="DOn-IO-rJH" id="BUB-fW-Mki"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebS-1m-d2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,19 +114,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Inser new username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05H-zL-djU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Inser new username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05H-zL-djU">
                                 <rect key="frame" x="20" y="80" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eS7-La-SJ9" id="cqu-XW-kJD"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="insert password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tYP-T4-0IH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="insert password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tYP-T4-0IH">
                                 <rect key="frame" x="20" y="127" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eS7-La-SJ9" id="WhV-A1-xx8"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-gr-83s">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-gr-83s">
                                 <rect key="frame" x="248" y="214" width="105" height="30"/>
                                 <state key="normal" title="Create account"/>
+                                <connections>
+                                    <action selector="createAccount:" destination="eS7-La-SJ9" eventType="touchUpInside" id="07N-GX-k8y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -132,8 +149,18 @@
                             <constraint firstItem="tYP-T4-0IH" firstAttribute="width" secondItem="05H-zL-djU" secondAttribute="width" id="mib-Bi-z4w"/>
                             <constraint firstItem="ZtP-gr-83s" firstAttribute="centerX" secondItem="F2w-bT-qsw" secondAttribute="centerX" id="nE1-23-q04"/>
                             <constraint firstItem="05H-zL-djU" firstAttribute="leading" secondItem="F2w-bT-qsw" secondAttribute="leadingMargin" id="ny3-yE-Xow"/>
+                            <constraint firstItem="05H-zL-djU" firstAttribute="top" secondItem="aNx-vy-qn7" secondAttribute="bottom" constant="16" id="rGt-y3-heL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7Sw-1h-sCf"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="passordTextField" destination="tYP-T4-0IH" id="UL3-Sg-uLM"/>
+                        <outlet property="usernameTextField" destination="05H-zL-djU" id="y3n-17-kcA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyr-6N-0UO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
