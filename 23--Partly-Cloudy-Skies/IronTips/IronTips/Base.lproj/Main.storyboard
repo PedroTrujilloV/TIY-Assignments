@@ -71,10 +71,6 @@
                                     <outlet property="delegate" destination="WK3-cF-1HL" id="TDv-V0-dRn"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgA-fF-UTu">
-                                <rect key="frame" x="273" y="246" width="55" height="30"/>
-                                <state key="normal" title="Sing Up"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -87,9 +83,7 @@
                             <constraint firstItem="qVi-AM-mq9" firstAttribute="top" secondItem="B3j-5s-8uh" secondAttribute="bottom" constant="8" id="P53-Rl-yfx"/>
                             <constraint firstItem="UVW-iA-cQI" firstAttribute="top" secondItem="qVi-AM-mq9" secondAttribute="bottom" constant="20" id="T1B-8x-lq4"/>
                             <constraint firstItem="B3j-5s-8uh" firstAttribute="top" secondItem="klv-dq-gT9" secondAttribute="bottom" constant="56" id="XkD-NR-etE"/>
-                            <constraint firstItem="AgA-fF-UTu" firstAttribute="top" secondItem="UVW-iA-cQI" secondAttribute="bottom" constant="8" id="ezP-VI-b1D"/>
                             <constraint firstItem="B3j-5s-8uh" firstAttribute="centerX" secondItem="jjc-3g-AGR" secondAttribute="centerX" id="xYc-mN-5AO"/>
-                            <constraint firstItem="AgA-fF-UTu" firstAttribute="centerX" secondItem="jjc-3g-AGR" secondAttribute="centerX" id="zTm-xC-Xvo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b5v-XG-whF">

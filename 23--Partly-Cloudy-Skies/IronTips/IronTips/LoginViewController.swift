@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class LoginViewController: UIViewController, UITextFieldDelegate
 {
 
@@ -52,7 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     {
         if userCanSing()
         {
-            PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passordTextField.text!)
+            PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passordTextField.text!, block:
             {
                 (user: PFUser?, error: NSError?) -> Void in
                 
@@ -62,7 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                 else
                 {print("error: "+(error?.localizedDescription)!)}
                 
-            }
+            })
         }
     }
 

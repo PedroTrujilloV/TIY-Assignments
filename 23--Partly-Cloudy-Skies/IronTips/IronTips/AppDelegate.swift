@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreData
+//import Parse
+//import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        PFObject
+        //Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
         Parse.setApplicationId("3jBrRTB9xRiXADI0Z08TWE93JXnVe7SkpG5s7nkY",
             clientKey: "kia0361iUs4n8RNTNG5bg3OjYQ4KH7BwIaklEmE0")
+        
+        // [Optional] Track statistics around application opens.
+        //PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         
 //        let player = PFObject(className: "Player")

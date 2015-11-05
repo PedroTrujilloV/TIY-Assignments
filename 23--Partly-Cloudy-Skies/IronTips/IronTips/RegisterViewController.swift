@@ -8,7 +8,8 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate
+
+class RegisterViewController: UIViewController
 {
     @IBOutlet weak var usernameTextField: UITextField!
     
@@ -49,15 +50,50 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         return false
     }
     
+    func signUp() -> Bool
+    {
+        var rc = false
+        
+        let user = PFUser()
+        user.username = usernameTextField.text
+        user.password = passordTextField.text
+
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error
+            {
+                //let errorString = error.userInfo["error"] as? NSString
+                print("error: "+(error.localizedDescription))
+                rc = false
+            }
+            else
+            {
+                // Hooray! Let them use the app now.
+                print("Este puto hizo finalmente SignUp")
+                rc = true
+            }
+        }
+        return rc
+    }
+
+    
     @IBAction func createAccount(sender: UIButton)
     {
-        if userCanRegister()
+        
+        if userCanRegister() && signUp()
         {
             
             
             let user = PFUser()
             user.username = usernameTextField.text!
             user.password = passordTextField.text!
+            user.email = "email@example.com"
+            user["phone"] = "415-392-0202"
+            
+//            let user = PFObject(className: "login")
+//                    user["username"] = usernameTextField.text
+//                    user["password"] = passordTextField.text
             
             user.saveInBackgroundWithBlock
             {
