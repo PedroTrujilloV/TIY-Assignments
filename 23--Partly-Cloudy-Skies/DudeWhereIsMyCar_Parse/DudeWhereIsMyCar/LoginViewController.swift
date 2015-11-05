@@ -48,6 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                     if user !== nil
                     {
                         print("login successful!")
+                        print(user?.description)
                         if segue.identifier == "ShowMapViewControllerSegue"
                         {
                             let MapViewSesion = segue.destinationViewController as! MapViewController

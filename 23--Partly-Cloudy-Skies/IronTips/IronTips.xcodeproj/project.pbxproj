@@ -13,7 +13,8 @@
 		68CC3EDA1BEA515600D6AF13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CC3ED81BEA515600D6AF13 /* LaunchScreen.storyboard */; };
 		68CC3EE71BEA6C1A00D6AF13 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC3EE61BEA6C1A00D6AF13 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		68CC3EE91BEA6FB600D6AF13 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC3EE81BEA6FB600D6AF13 /* RegisterViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		68CC3EEB1BEA80AB00D6AF13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC3EEA1BEA80AB00D6AF13 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		68CC3EFF1BEB9F6D00D6AF13 /* TipsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC3EFE1BEB9F6D00D6AF13 /* TipsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		68CC3F011BEBA11600D6AF13 /* TipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC3F001BEBA11600D6AF13 /* TipCell.swift */; settings = {ASSET_TAGS = (); }; };
 		DD10FFBD651D7B7D3F1F02F8 /* libPods-IronTips.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8E8073D93178364C295F12 /* libPods-IronTips.a */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +30,8 @@
 		68CC3EE11BEA5CCF00D6AF13 /* IronTips-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IronTips-Bridging-Header.h"; sourceTree = "<group>"; };
 		68CC3EE61BEA6C1A00D6AF13 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		68CC3EE81BEA6FB600D6AF13 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		68CC3EEA1BEA80AB00D6AF13 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68CC3EFE1BEB9F6D00D6AF13 /* TipsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsTableViewController.swift; sourceTree = "<group>"; };
+		68CC3F001BEBA11600D6AF13 /* TipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCell.swift; sourceTree = "<group>"; };
 		6B8E8073D93178364C295F12 /* libPods-IronTips.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IronTips.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -68,13 +70,14 @@
 			children = (
 				68CC3ECF1BEA515600D6AF13 /* AppDelegate.swift */,
 				68CC3ED31BEA515600D6AF13 /* Main.storyboard */,
-				68CC3EEA1BEA80AB00D6AF13 /* ViewController.swift */,
 				68CC3ED61BEA515600D6AF13 /* Assets.xcassets */,
 				68CC3ED81BEA515600D6AF13 /* LaunchScreen.storyboard */,
 				68CC3EDB1BEA515600D6AF13 /* Info.plist */,
 				68CC3EE11BEA5CCF00D6AF13 /* IronTips-Bridging-Header.h */,
 				68CC3EE61BEA6C1A00D6AF13 /* LoginViewController.swift */,
 				68CC3EE81BEA6FB600D6AF13 /* RegisterViewController.swift */,
+				68CC3EFE1BEB9F6D00D6AF13 /* TipsTableViewController.swift */,
+				68CC3F001BEBA11600D6AF13 /* TipCell.swift */,
 			);
 			path = IronTips;
 			sourceTree = "<group>";
@@ -218,8 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68CC3EEB1BEA80AB00D6AF13 /* ViewController.swift in Sources */,
+				68CC3EFF1BEB9F6D00D6AF13 /* TipsTableViewController.swift in Sources */,
 				68CC3EE91BEA6FB600D6AF13 /* RegisterViewController.swift in Sources */,
+				68CC3F011BEBA11600D6AF13 /* TipCell.swift in Sources */,
 				68CC3EE71BEA6C1A00D6AF13 /* LoginViewController.swift in Sources */,
 				68CC3ED01BEA515600D6AF13 /* AppDelegate.swift in Sources */,
 			);

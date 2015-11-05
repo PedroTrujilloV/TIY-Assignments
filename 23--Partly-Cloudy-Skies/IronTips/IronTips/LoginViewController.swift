@@ -59,7 +59,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                 
 
                 if user !== nil
-                {print("login successful!")}
+                {
+                    print("login successful!")
+                    performSegueWithIdentifier("unwindFromLoginToTipsTableViewController", sender: self)
+                }
                 else
                 {print("error: "+(error?.localizedDescription)!)}
                 
