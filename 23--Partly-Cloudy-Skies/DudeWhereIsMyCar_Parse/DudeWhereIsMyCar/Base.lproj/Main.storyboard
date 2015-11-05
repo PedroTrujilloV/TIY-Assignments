@@ -69,7 +69,7 @@
                                 <state key="normal" title="Sign in"/>
                                 <connections>
                                     <action selector="signInTapped:" destination="4m7-z2-iS9" eventType="touchUpInside" id="6QG-MS-HMW"/>
-                                    <segue destination="YFk-q1-tud" kind="show" id="jA6-dR-b3J"/>
+                                    <segue destination="YFk-q1-tud" kind="show" identifier="ShowMapViewControllerSegue" id="jA6-dR-b3J"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -191,6 +191,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OTu-NB-LHL">
+                        <barButtonItem key="leftBarButtonItem" title="Save" id="TCp-ZQ-qqH">
+                            <connections>
+                                <action selector="saveDataButton:" destination="BYZ-38-t0r" id="8Hh-mW-NWT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1XR-Tr-bob">
                             <connections>
                                 <segue destination="988-jL-heq" kind="popoverPresentation" identifier="ShowPopoverAddCityViewControllerSegue" popoverAnchorBarButtonItem="1XR-Tr-bob" id="Yi0-zI-Bob">

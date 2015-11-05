@@ -28,15 +28,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+       
+        
+        if userCanSing()
+        {
+            PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passordTextField.text!, block:
+                {
+                    (user: PFUser?, error: NSError?) -> Void in
+                    
+                    
+                    if user !== nil
+                    {
+                        print("login successful!")
+                        if segue.identifier == "ShowMapViewControllerSegue"
+                        {
+                            let MapViewSesion = segue.destinationViewController as! MapViewController
+//                            MapViewSesion
+                            
+                        }
+                    }
+                    else
+                    {print("error: "+(error?.localizedDescription)!)}
+                    
+            })
+        }
+        
+       
     }
-    */
+    
     
     func userCanSing() -> Bool
     {
@@ -51,20 +78,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func signInTapped(sender: UIButton)
     {
-        if userCanSing()
-        {
-            PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passordTextField.text!, block:
-            {
-                (user: PFUser?, error: NSError?) -> Void in
-                
-
-                if user !== nil
-                {print("login successful!")}
-                else
-                {print("error: "+(error?.localizedDescription)!)}
-                
-            })
-        }
+//        if userCanSing()
+//        {
+//            PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passordTextField.text!, block:
+//            {
+//                (user: PFUser?, error: NSError?) -> Void in
+//                
+//
+//                if user !== nil
+//                {print("login successful!")}
+//                else
+//                {print("error: "+(error?.localizedDescription)!)}
+//                
+//            })
+//        }
     }
 
 }

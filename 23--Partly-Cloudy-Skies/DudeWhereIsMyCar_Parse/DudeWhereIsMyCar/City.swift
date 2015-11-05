@@ -8,17 +8,16 @@
 
 
 import Foundation
-import MapKit
-import CoreLocation
+//import CoreLocation // remove all coments if you want store localy with NScoding
 
 // NSCoding Constants
-let kNameKey = "name"
-let kZipCodeKey = "zipCode"
-let kLatitudeKey = "latitude"
-let kLongitudeKey = "longitude"
-let kStateKey = "state"
+//let kNameKey = "name"
+//let kZipCodeKey = "zipCode"
+//let kLatitudeKey = "latitude"
+//let kLongitudeKey = "longitude"
+//let kStateKey = "state"
 
-class City: NSObject, NSCoding
+class City//: NSObject, NSCoding
 {
     let name: String
     let zipCode: String
@@ -36,7 +35,7 @@ class City: NSObject, NSCoding
         self.state = state
         
     }
-    
+   /*
     // MARK: - NSCoding
     
     required convenience init?(coder aDecoder: NSCoder)
@@ -56,4 +55,5 @@ class City: NSObject, NSCoding
         aCoder.encodeDouble(self.longitude, forKey: kLongitudeKey)
         aCoder.encodeObject(self.state , forKey: kStateKey)
     }
+    */
 }

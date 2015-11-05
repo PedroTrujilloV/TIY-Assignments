@@ -20,6 +20,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("3jBrRTB9xRiXADI0Z08TWE93JXnVe7SkpG5s7nkY",
             clientKey: "kia0361iUs4n8RNTNG5bg3OjYQ4KH7BwIaklEmE0")
+        
+        
+        // [Optional] Track statistics around application opens.
+        //PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        
+        //        let player = PFObject(className: "Player")
+        //        player["name"] = "Pedro"
+        //        player["score"] = 234
+        //        player.saveInBackgroundWithBlock
+        //        {
+        //            (success: Bool, error: NSError?) -> Void in
+        //            if success
+        //            {print("YAY!!!")}
+        //            else
+        //            {
+        //                print(error?.description)
+        //            }
+        //        }
+        //
+        //        let query = PFQuery(className: "Player")
+        //        query.whereKey("score", greaterThan: 500)
+        //        query.findObjectsInBackgroundWithBlock
+        //        {
+        //            (results: [PFObject]?, error: NSError?) -> Void in
+        //            if error == nil
+        //            {
+        //                print(results)
+        //            }
+        //            else
+        //            {
+        //                print(error?.description)
+        //            }
+        //        }
+        
         return true
     }
 

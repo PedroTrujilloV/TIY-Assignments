@@ -185,16 +185,32 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     
     func loadAnnotationsData()
     {
-        if let data = NSUserDefaults.standardUserDefaults().objectForKey(kCitiesArrayKey) as? NSData
-        {
-            if let savedAnnotations = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [City]
-            {
-                CitiesArray = savedAnnotations
-                savedCitiesToMapAnnotations()
-                self.showMapAnnotations()
-                mapView.camera.altitude *= 2
-            }
-        }
+//        if let data = NSUserDefaults.standardUserDefaults().objectForKey(kCitiesArrayKey) as? NSData
+//        {
+//            if let savedAnnotations = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [City]
+//            {
+//                CitiesArray = savedAnnotations
+//                savedCitiesToMapAnnotations()
+//                self.showMapAnnotations()
+//                mapView.camera.altitude *= 2
+//            }
+//        }
+        
+                let query = PFQuery(className: "cityAnnotationsArray")
+                query.whereKey("name")//, greaterThan: 500)
+                query.findObjectsInBackgroundWithBlock
+                {
+                    (results: [PFObject]?, error: NSError?) -> Void in
+                    if error == nil
+                    {
+                        print("Yay it was loaded!!!")
+                        print(results)
+                    }
+                    else
+                    {
+                        print(error?.description)
+                    }
+                }
     }
     
     func savedCitiesToMapAnnotations()
@@ -224,9 +240,32 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     
     func saveAnnotationsData()
     {
-        let cityData = NSKeyedArchiver.archivedDataWithRootObject(CitiesArray)
-        NSUserDefaults.standardUserDefaults().setObject(cityData, forKey: kCitiesArrayKey)
+        //        let cityData = NSKeyedArchiver.archivedDataWithRootObject(CitiesArray)
+        //        NSUserDefaults.standardUserDefaults().setObject(cityData, forKey: kCitiesArrayKey)
+        
+        let cityAnnotationsArray = PFObject(className: "cityAnnotationsArray")
+        
+        cityAnnotationsArray["name"] = "Pedro"
+        
+        cityAnnotationsArray.saveInBackgroundWithBlock
+            {
+                (success: Bool, error: NSError?) -> Void in
+                if success
+                {print("YAY it is SaVE!!!")}
+                else
+                {
+                    print(error?.description)
+                }
+        }
     }
+    
+    //MARK: Action Handles
+    @IBAction func saveDataButton(sender: UIBarButtonItem)
+    {
+        saveAnnotationsData()
+    }
+    
+    
     
 }
 
