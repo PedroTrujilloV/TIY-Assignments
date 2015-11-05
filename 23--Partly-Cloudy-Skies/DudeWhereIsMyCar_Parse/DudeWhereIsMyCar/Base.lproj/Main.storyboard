@@ -69,7 +69,7 @@
                                 <state key="normal" title="Sign in"/>
                                 <connections>
                                     <action selector="signInTapped:" destination="4m7-z2-iS9" eventType="touchUpInside" id="6QG-MS-HMW"/>
-                                    <segue destination="YFk-q1-tud" kind="show" identifier="ShowMapViewControllerSegue" id="jA6-dR-b3J"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowMapViewControllerSegue" id="lth-yO-wsf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -164,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyr-6N-0UO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160" y="454"/>
+            <point key="canvasLocation" x="1156" y="634"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -274,7 +274,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGW-a6-6uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1269" y="-335"/>
+            <point key="canvasLocation" x="1269" y="-719"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ugy-Ld-pjI">
@@ -295,4 +295,7 @@
             <point key="canvasLocation" x="-354" y="58"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lth-yO-wsf"/>
+    </inferredMetricsTieBreakers>
 </document>

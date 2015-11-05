@@ -197,7 +197,8 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
 //        }
         
                 let query = PFQuery(className: "cityAnnotationsArray")
-                query.whereKey("name")//, greaterThan: 500)
+        query.whereKey("name", containsString: "Pedro")
+                //query.whereKey("name", greaterThan: 500)
                 query.findObjectsInBackgroundWithBlock
                 {
                     (results: [PFObject]?, error: NSError?) -> Void in
