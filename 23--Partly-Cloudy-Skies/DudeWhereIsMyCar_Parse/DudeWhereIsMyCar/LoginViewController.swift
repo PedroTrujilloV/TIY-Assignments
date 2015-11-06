@@ -38,29 +38,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         // Pass the selected object to the new view controller.
        
         
-        if userCanSing()
-        {
-            PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passordTextField.text!, block:
-                {
-                    (user: PFUser?, error: NSError?) -> Void in
-                    
-                    
-                    if user !== nil
-                    {
-                        print("login successful!")
-                        print(user?.description)
-                        if segue.identifier == "ShowMapViewControllerSegue"
-                        {
-                            let MapViewSesion = segue.destinationViewController as! MapViewController
-//                            MapViewSesion
-                            
-                        }
-                    }
-                    else
-                    {print("error: "+(error?.localizedDescription)!)}
-                    
-            })
-        }
         
        
     }
@@ -79,20 +56,40 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func signInTapped(sender: UIButton)
     {
-//        if userCanSing()
-//        {
-//            PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passordTextField.text!, block:
-//            {
-//                (user: PFUser?, error: NSError?) -> Void in
-//                
-//
-//                if user !== nil
-//                {print("login successful!")}
-//                else
-//                {print("error: "+(error?.localizedDescription)!)}
-//                
-//            })
-//        }
+        
+        if userCanSing()
+        {
+            PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passordTextField.text!, block:
+                {
+                    (user: PFUser?, error: NSError?) -> Void in
+                    
+                    
+                    if user != nil
+                    {
+                        print("login successful!")
+                        print(user?.description)
+                        
+                            //let MapViewSesion = segue.destinationViewController as! MapViewController
+                            //                            MapViewSesion
+                            self.performSegueWithIdentifier("ShowMapViewControllerSegue", sender: self)
+                            
+                            
+                            
+                        
+                    }
+                    else
+                    {
+                        print("User no registered")
+                        print("error: "+(error?.localizedDescription)!)
+                    }
+                    
+            })
+        }
+
+    }
+    
+    @IBAction func unwindFromMapViewController(sender: UIStoryboardSegue) // remember create this IBAaction every time when you want come back here from other view controller!
+    {
     }
 
 }

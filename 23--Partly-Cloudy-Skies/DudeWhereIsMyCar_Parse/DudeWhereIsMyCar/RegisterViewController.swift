@@ -91,6 +91,7 @@ class RegisterViewController: UIViewController
             user.email = "email@example.com"
             user["phone"] = "415-392-0202"
             
+            
 //            let user = PFObject(className: "login")
 //                    user["username"] = usernameTextField.text
 //                    user["password"] = passordTextField.text

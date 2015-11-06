@@ -68,9 +68,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        let navController = window?.rootViewController as! UINavigationController
-        let citiesVC = navController.viewControllers[0] as! MapViewController
-        citiesVC.saveAnnotationsData()
+
+
+        //http://stackoverflow.com/questions/27715861/how-do-you-check-current-view-controller-class-in-swift
+        if let wd = self.window
+        {
+            var vc = wd.rootViewController
+            if(vc is UINavigationController)
+            {
+                vc = (vc as! UINavigationController).visibleViewController
+            }
+            
+            if(vc is MapViewController)
+            {
+//                print("-------> Encontrado MapViewController!: ")
+//                print(vc)
+                (vc as! MapViewController).saveAnnotationsData()
+            }
+        }
+        
+//        let navController = window!.rootViewController as! UINavigationController
+        //let citiesVC = navController.viewControllers[0] as! MapViewController
+        //citiesVC.saveAnnotationsData()
+        
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

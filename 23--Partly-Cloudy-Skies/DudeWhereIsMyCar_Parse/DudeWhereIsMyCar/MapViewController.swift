@@ -39,11 +39,25 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         // Do any additional setup after loading the view, typically from a nib.
         
         mapView.delegate = self
-        loadAnnotationsData()
+        //loadAnnotationsData()
         
-        //        createcityAnnotation("Orlando, Fl")
-        //        createcityAnnotation("Miami, Fl")
         
+    }
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        if PFUser.currentUser() == nil
+        {
+            print("no currren user logged")
+            performSegueWithIdentifier("unwindShowMapViewControllerSegue", sender: self)
+            
+            
+        }
+        else
+        {
+            loadAnnotationsData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,15 +65,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func createcityAnnotation(city:City)
-    {
-        
-        appendAnnotation(city)
-        //self.mapView.addAnnotations(self.anotationsArray)
-        self.showMapAnnotations()
-    }
-    
+ 
     func calculateLineOfSightDistance()
     {
         // if anotationsArray.count > 1
@@ -171,7 +177,9 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         print(" longitude: " + city.longitude.description)
         
         CitiesArray.append(city)
-        createcityAnnotation(city)
+        appendAnnotation(city)
+        //self.mapView.addAnnotations(self.anotationsArray)
+        self.showMapAnnotations()
         navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
         
     }
@@ -196,22 +204,42 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
 //            }
 //        }
         
-                let query = PFQuery(className: "cityAnnotationsArray")
-        query.whereKey("name", containsString: "Pedro")
-                //query.whereKey("name", greaterThan: 500)
-                query.findObjectsInBackgroundWithBlock
+        let query = PFQuery(className: "cityAnnotationsArray")
+        query.whereKey("username", equalTo: (PFUser.currentUser()?.username)!)
+        query.getFirstObjectInBackgroundWithBlock
+            {
+                (cityAnnotationsArray: PFObject?, error: NSError?) -> Void in
+                
+                if error != nil
                 {
-                    (results: [PFObject]?, error: NSError?) -> Void in
-                    if error == nil
-                    {
-                        print("Yay it was loaded!!!")
-                        print(results)
-                    }
-                    else
-                    {
-                        print(error?.description)
-                    }
+                    print("IT WAS NOT POSIBLE LOAD VALUES FROM DATABASE, PARSE ERROR:")
+                    print(error?.localizedDescription)
                 }
+                else if let cityAnnotationsArray = cityAnnotationsArray
+                {
+                    
+                  self.CitiesArray.removeAll()//be sure that the principal array of city annotations is clean to append the stored cities
+                    
+                    let savedAnnotations = cityAnnotationsArray["cities_array"] as! NSArray
+                    
+                    for savedAnnotation in savedAnnotations
+                    {
+                        if let annotation:NSDictionary = savedAnnotation as? NSDictionary
+                        {
+                            
+                            self.CitiesArray.append(City(name: annotation["name"] as! String,
+                                                        zip: annotation["zipCode"] as! String,
+                                                        lat: (annotation["lat"]?.doubleValue)!,
+                                                        lng: (annotation["lon"]?.doubleValue)!,
+                                                        state: annotation["state"] as! String))
+                        }
+                    }
+                    self.savedCitiesToMapAnnotations()
+                    self.showMapAnnotations()
+                    self.mapView.camera.altitude *= 2
+                }
+                
+        }
     }
     
     func savedCitiesToMapAnnotations()
@@ -244,19 +272,73 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         //        let cityData = NSKeyedArchiver.archivedDataWithRootObject(CitiesArray)
         //        NSUserDefaults.standardUserDefaults().setObject(cityData, forKey: kCitiesArrayKey)
         
-        let cityAnnotationsArray = PFObject(className: "cityAnnotationsArray")
         
-        cityAnnotationsArray["name"] = "Pedro"
         
-        cityAnnotationsArray.saveInBackgroundWithBlock
+        var arrayCitiesPFObject = Array<NSDictionary>()
+        
+        for city in CitiesArray
+        {
+            arrayCitiesPFObject.append(["name":city.name, "zipCode":city.zipCode, "lat":city.latitude, "lon":city.longitude, "state":city.state])
+            
+        }
+        
+        
+        
+        let query = PFQuery(className: "cityAnnotationsArray") /// there is one array per user
+        query.whereKey("username", equalTo: (PFUser.currentUser()?.username)!)  ////  so here prepare the condicion to search for that array by user
+        query.getFirstObjectInBackgroundWithBlock // and here we ask for that unique value per user.
+        {
+            (cityAnnotationsArray: PFObject?, error: NSError?) -> Void in
+            
+            if error != nil
             {
-                (success: Bool, error: NSError?) -> Void in
-                if success
-                {print("YAY it is SaVE!!!")}
-                else
-                {
-                    print(error?.description)
+                print("IT DIDN,T FIND ANY VALUE IN THE DATABASE TO UPDATE AFTER, PARSE ERROR:")
+                print(error?.localizedDescription)
+                let cityAnnotationsArrayNEW = PFObject(className: "cityAnnotationsArray")
+                
+                        cityAnnotationsArrayNEW["username"] = PFUser.currentUser()?.username
+                        cityAnnotationsArrayNEW["cities_array"] = arrayCitiesPFObject
+                        
+                        print("SO..")
+                        
+                        cityAnnotationsArrayNEW.saveInBackgroundWithBlock
+                            {
+                                (success: Bool, error: NSError?) -> Void in
+                                if success
+                                {
+                                    print("YAY A  > NEW! < ARRAY WAS SAVED!!!")
+                                }
+                                else
+                                {
+                                    print("IT COULDN'T SAVE ANY NEW VALUE IN THE DATABASE")
+                                    print(error?.localizedDescription)
+                                }
+                            }
+                    
+
+            }
+            else if let cityAnnotationsArray = cityAnnotationsArray
+            {
+                cityAnnotationsArray["username"] = PFUser.currentUser()?.username
+                cityAnnotationsArray["cities_array"] = arrayCitiesPFObject
+                
+                
+                
+                cityAnnotationsArray.saveInBackgroundWithBlock
+                    {
+                        (success: Bool, error: NSError?) -> Void in
+                        if success
+                        {
+                            print("YAY THE ARRAY WAS UPDATED!!!")
+                        }
+                        else
+                        {
+                            print("IT COULDN'T UPDATE ANY VALUE IN THE DATABASE")
+                            print(error?.localizedDescription)
+                        }
                 }
+            }
+            
         }
     }
     

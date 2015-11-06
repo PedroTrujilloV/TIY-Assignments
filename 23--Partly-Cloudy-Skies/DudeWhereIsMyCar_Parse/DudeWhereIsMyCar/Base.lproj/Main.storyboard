@@ -1,41 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jdK-hz-Gip">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tDt-vp-OmK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="UIw-gR-Nc2">
-            <objects>
-                <viewController id="jdK-hz-Gip" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="W1g-ez-N2e"/>
-                        <viewControllerLayoutGuide type="bottom" id="rn5-Ys-tO1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uah-hk-Vpi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGe-iY-NbS">
-                                <rect key="frame" x="281" y="120" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="tDt-vp-OmK" kind="presentation" id="oXO-fg-aqM"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RGe-iY-NbS" firstAttribute="centerX" secondItem="uah-hk-Vpi" secondAttribute="centerX" id="IOu-Jf-MlF"/>
-                            <constraint firstItem="RGe-iY-NbS" firstAttribute="top" secondItem="W1g-ez-N2e" secondAttribute="bottom" constant="100" id="aij-vX-IXy"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="av0-2W-5Sc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-354" y="-677"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="uxP-tW-yyg">
             <objects>
@@ -69,7 +38,6 @@
                                 <state key="normal" title="Sign in"/>
                                 <connections>
                                     <action selector="signInTapped:" destination="4m7-z2-iS9" eventType="touchUpInside" id="6QG-MS-HMW"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowMapViewControllerSegue" id="lth-yO-wsf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,9 +64,11 @@
                     <connections>
                         <outlet property="passordTextField" destination="GT6-o2-9LY" id="gNk-9Z-fF2"/>
                         <outlet property="usernameTextField" destination="DOn-IO-rJH" id="BUB-fW-Mki"/>
+                        <segue destination="YFk-q1-tud" kind="presentation" identifier="ShowMapViewControllerSegue" id="1n0-fB-M4n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebS-1m-d2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QbT-H6-h5V" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="458" y="58"/>
         </scene>
@@ -164,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyr-6N-0UO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="634"/>
+            <point key="canvasLocation" x="1168" y="882"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -206,6 +176,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="l3D-KE-Uyd" id="mK9-Wi-vsh"/>
+                        <segue destination="QbT-H6-h5V" kind="unwind" identifier="unwindShowMapViewControllerSegue" unwindAction="unwindFromMapViewController:" id="fYd-XD-6sI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -295,7 +266,4 @@
             <point key="canvasLocation" x="-354" y="58"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lth-yO-wsf"/>
-    </inferredMetricsTieBreakers>
 </document>
