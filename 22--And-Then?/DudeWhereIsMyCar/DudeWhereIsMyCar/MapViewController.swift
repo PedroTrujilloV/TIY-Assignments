@@ -37,7 +37,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        title = "Dude Map Searching"
         mapView.delegate = self
         loadAnnotationsData()
         
@@ -51,14 +51,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func createcityAnnotation(city:City)
-    {
-        
-        appendAnnotation(city)
-        //self.mapView.addAnnotations(self.anotationsArray)
-        self.showMapAnnotations()
-    }
+ 
     
     func calculateLineOfSightDistance()
     {
@@ -110,7 +103,7 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
             else
             {
                 print("error: "+(error?.localizedDescription)!)
-                self.anotationsArray[self.anotationsArray.count - 2].subtitle = "There is no way to go walking..."
+                self.anotationsArray[self.anotationsArray.count - 2].subtitle = "Dude there is no way to go walking..."
             }
             
         }
@@ -171,7 +164,8 @@ class MapViewController: UIViewController,MKMapViewDelegate, UIPopoverPresentati
         print(" longitude: " + city.longitude.description)
         
         CitiesArray.append(city)
-        createcityAnnotation(city)
+        appendAnnotation(city)
+        self.showMapAnnotations()
         navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
         
     }
