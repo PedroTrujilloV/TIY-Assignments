@@ -18,6 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Dude login"
 
         // Do any additional setup after loading the view.
     }

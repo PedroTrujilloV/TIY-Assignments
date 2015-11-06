@@ -18,6 +18,8 @@ class RegisterViewController: UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Dude Sign Up"
 
         // Do any additional setup after loading the view.
     }
