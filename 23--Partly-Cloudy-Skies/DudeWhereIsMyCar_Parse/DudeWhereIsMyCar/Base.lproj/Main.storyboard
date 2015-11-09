@@ -40,9 +40,16 @@
                                     <action selector="signInTapped:" destination="4m7-z2-iS9" eventType="touchUpInside" id="6QG-MS-HMW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jur-Ja-Rei">
+                                <rect key="frame" x="279" y="236" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jur-Ja-Rei" firstAttribute="centerX" secondItem="MGp-P7-qGf" secondAttribute="centerX" id="1hS-8L-nC4"/>
                             <constraint firstItem="GT6-o2-9LY" firstAttribute="centerX" secondItem="MGp-P7-qGf" secondAttribute="centerX" id="31d-Ys-GMA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DOn-IO-rJH" secondAttribute="trailing" id="E9E-Iu-9El"/>
                             <constraint firstItem="DOn-IO-rJH" firstAttribute="top" secondItem="T4F-f3-FWy" secondAttribute="bottom" constant="29" id="QEy-i0-SCl"/>
@@ -51,6 +58,7 @@
                             <constraint firstItem="GT6-o2-9LY" firstAttribute="width" secondItem="DOn-IO-rJH" secondAttribute="width" id="jEI-qF-vBP"/>
                             <constraint firstItem="DOn-IO-rJH" firstAttribute="centerX" secondItem="MGp-P7-qGf" secondAttribute="centerX" id="lDw-jJ-Y6a"/>
                             <constraint firstItem="DOn-IO-rJH" firstAttribute="leading" secondItem="MGp-P7-qGf" secondAttribute="leadingMargin" id="nZV-WQ-zuk"/>
+                            <constraint firstItem="jur-Ja-Rei" firstAttribute="top" secondItem="VKh-2C-obN" secondAttribute="bottom" constant="8" id="zUC-hA-7VZ"/>
                             <constraint firstItem="VKh-2C-obN" firstAttribute="centerX" secondItem="MGp-P7-qGf" secondAttribute="centerX" id="znb-Lp-Mh8"/>
                         </constraints>
                     </view>
@@ -62,6 +70,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="alertMessageLabel" destination="jur-Ja-Rei" id="GJa-3D-zyR"/>
                         <outlet property="passordTextField" destination="GT6-o2-9LY" id="gNk-9Z-fF2"/>
                         <outlet property="usernameTextField" destination="DOn-IO-rJH" id="BUB-fW-Mki"/>
                         <segue destination="YFk-q1-tud" kind="presentation" identifier="ShowMapViewControllerSegue" id="1n0-fB-M4n"/>

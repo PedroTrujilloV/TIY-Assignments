@@ -16,14 +16,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     
     @IBOutlet weak var passordTextField: UITextField!
     
-    override func viewDidLoad() {
+    @IBOutlet weak var alertMessageLabel: UILabel!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         title = "Dude login"
+        
+        alertMessageLabel.text = ""
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -72,15 +78,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                         
                             //let MapViewSesion = segue.destinationViewController as! MapViewController
                             //                            MapViewSesion
+                        self.alertMessageLabel.text = ""
                             self.performSegueWithIdentifier("ShowMapViewControllerSegue", sender: self)
-                            
-                            
-                            
-                        
+      
                     }
                     else
                     {
                         print("User no registered")
+                        self.alertMessageLabel.text = "Sorry, user no registered, please create an account."
                         print("error: "+(error?.localizedDescription)!)
                     }
                     
