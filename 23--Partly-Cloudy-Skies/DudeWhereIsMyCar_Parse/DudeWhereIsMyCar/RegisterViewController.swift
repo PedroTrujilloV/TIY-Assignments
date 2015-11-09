@@ -15,11 +15,15 @@ class RegisterViewController: UIViewController
     
     @IBOutlet weak var passordTextField: UITextField!
     
+    @IBOutlet weak var alertMessageLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Dude Sign Up"
+        
+        alertMessageLabel.text = ""
 
         // Do any additional setup after loading the view.
     }
@@ -66,12 +70,16 @@ class RegisterViewController: UIViewController
             if let error = error
             {
                 //let errorString = error.userInfo["error"] as? NSString
+                self.alertMessageLabel.textColor = UIColor.redColor()
+                self.alertMessageLabel.text = "Username already exists, try with another username"
                 print("error: "+(error.localizedDescription))
                 rc = false
             }
             else
             {
                 // Hooray! Let them use the app now.
+                self.alertMessageLabel.textColor = UIColor.greenColor()
+                self.alertMessageLabel.text = "User was created, now you can log in "
                 print("Este puto hizo finalmente SignUp")
                 rc = true
             }

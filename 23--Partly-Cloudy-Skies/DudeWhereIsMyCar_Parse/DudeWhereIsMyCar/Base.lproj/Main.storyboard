@@ -40,8 +40,8 @@
                                     <action selector="signInTapped:" destination="4m7-z2-iS9" eventType="touchUpInside" id="6QG-MS-HMW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jur-Ja-Rei">
-                                <rect key="frame" x="279" y="236" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jur-Ja-Rei">
+                                <rect key="frame" x="20" y="236" width="560" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,6 +49,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jur-Ja-Rei" firstAttribute="width" secondItem="GT6-o2-9LY" secondAttribute="width" id="1Of-Zk-LTl"/>
                             <constraint firstItem="jur-Ja-Rei" firstAttribute="centerX" secondItem="MGp-P7-qGf" secondAttribute="centerX" id="1hS-8L-nC4"/>
                             <constraint firstItem="GT6-o2-9LY" firstAttribute="centerX" secondItem="MGp-P7-qGf" secondAttribute="centerX" id="31d-Ys-GMA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DOn-IO-rJH" secondAttribute="trailing" id="E9E-Iu-9El"/>
@@ -110,19 +111,28 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-gr-83s">
-                                <rect key="frame" x="248" y="214" width="105" height="30"/>
+                                <rect key="frame" x="248" y="202" width="105" height="30"/>
                                 <state key="normal" title="Create account"/>
                                 <connections>
                                     <action selector="createAccount:" destination="eS7-La-SJ9" eventType="touchUpInside" id="07N-GX-k8y"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-jz-AXk">
+                                <rect key="frame" x="20" y="240" width="560" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pEW-jz-AXk" firstAttribute="top" secondItem="ZtP-gr-83s" secondAttribute="bottom" constant="8" id="1ef-pv-lrq"/>
                             <constraint firstItem="05H-zL-djU" firstAttribute="top" secondItem="aNx-vy-qn7" secondAttribute="bottom" constant="60" id="7Sw-1h-sCf"/>
                             <constraint firstItem="tYP-T4-0IH" firstAttribute="centerX" secondItem="F2w-bT-qsw" secondAttribute="centerX" id="Far-wJ-H1O"/>
+                            <constraint firstItem="pEW-jz-AXk" firstAttribute="width" secondItem="tYP-T4-0IH" secondAttribute="width" id="KfR-Fq-vaS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="05H-zL-djU" secondAttribute="trailing" id="NSh-zv-fbO"/>
-                            <constraint firstItem="ZtP-gr-83s" firstAttribute="top" secondItem="tYP-T4-0IH" secondAttribute="bottom" constant="57" id="W5U-tr-uyp"/>
+                            <constraint firstItem="pEW-jz-AXk" firstAttribute="centerX" secondItem="F2w-bT-qsw" secondAttribute="centerX" id="SdP-Nr-FLp"/>
+                            <constraint firstItem="ZtP-gr-83s" firstAttribute="top" secondItem="tYP-T4-0IH" secondAttribute="bottom" constant="45" id="W5U-tr-uyp"/>
                             <constraint firstItem="05H-zL-djU" firstAttribute="centerX" secondItem="F2w-bT-qsw" secondAttribute="centerX" id="jr9-Mk-7uW"/>
                             <constraint firstItem="tYP-T4-0IH" firstAttribute="top" secondItem="05H-zL-djU" secondAttribute="bottom" constant="17" id="laG-d8-jrz"/>
                             <constraint firstItem="tYP-T4-0IH" firstAttribute="width" secondItem="05H-zL-djU" secondAttribute="width" id="mib-Bi-z4w"/>
@@ -137,6 +147,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="alertMessageLabel" destination="pEW-jz-AXk" id="mgx-ow-sBr"/>
                         <outlet property="passordTextField" destination="tYP-T4-0IH" id="UL3-Sg-uLM"/>
                         <outlet property="usernameTextField" destination="05H-zL-djU" id="y3n-17-kcA"/>
                     </connections>

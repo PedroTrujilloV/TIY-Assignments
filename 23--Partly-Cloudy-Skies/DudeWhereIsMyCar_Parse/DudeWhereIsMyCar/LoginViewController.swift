@@ -85,7 +85,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                     else
                     {
                         print("User no registered")
-                        self.alertMessageLabel.text = "Sorry, user no registered, please create an account."
+                        self.alertMessageLabel.textColor = UIColor.redColor()
+
+                        self.alertMessageLabel.text = "Sorry, user isn't registered, please create an account."
                         print("error: "+(error?.localizedDescription)!)
                     }
                     
