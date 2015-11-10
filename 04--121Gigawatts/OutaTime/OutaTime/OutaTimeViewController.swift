@@ -102,7 +102,7 @@ class OutaTimeViewController: UIViewController, TimeCircuitsDelegate
     
     func setCurrentSpeed_UI()
     {
-        if currenSpeed <= 88
+        if currenSpeed <= 87
         {
             self.currenSpeed = self.currenSpeed + 1
             speedLabel.text = "\(String(currenSpeed)) MPH"

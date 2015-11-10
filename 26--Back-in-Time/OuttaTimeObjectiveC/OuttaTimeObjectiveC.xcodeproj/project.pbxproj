@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68F0EAC71BF1824F008BD825 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0EAC61BF1824F008BD825 /* main.m */; };
+		68F0EACA1BF1824F008BD825 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0EAC91BF1824F008BD825 /* AppDelegate.m */; };
+		68F0EAD01BF1824F008BD825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F0EACE1BF1824F008BD825 /* Main.storyboard */; };
+		68F0EAD21BF1824F008BD825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F0EAD11BF1824F008BD825 /* Assets.xcassets */; };
+		68F0EAD51BF1824F008BD825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F0EAD31BF1824F008BD825 /* LaunchScreen.storyboard */; };
+		68F0EADE1BF182AA008BD825 /* OuttaTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0EADD1BF182AA008BD825 /* OuttaTimeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		68F0EAE11BF183A7008BD825 /* TimeCircutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0EAE01BF183A7008BD825 /* TimeCircutsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		68F0EAE31BF184BA008BD825 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68F0EAE21BF184BA008BD825 /* digital-7.ttf */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		68F0EAC21BF1824F008BD825 /* OuttaTimeObjectiveC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuttaTimeObjectiveC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F0EAC61BF1824F008BD825 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		68F0EAC81BF1824F008BD825 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		68F0EAC91BF1824F008BD825 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		68F0EACF1BF1824F008BD825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		68F0EAD11BF1824F008BD825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68F0EAD41BF1824F008BD825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		68F0EAD61BF1824F008BD825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68F0EADC1BF182AA008BD825 /* OuttaTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OuttaTimeViewController.h; sourceTree = "<group>"; };
+		68F0EADD1BF182AA008BD825 /* OuttaTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OuttaTimeViewController.m; sourceTree = "<group>"; };
+		68F0EADF1BF183A7008BD825 /* TimeCircutsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCircutsViewController.h; sourceTree = "<group>"; };
+		68F0EAE01BF183A7008BD825 /* TimeCircutsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCircutsViewController.m; sourceTree = "<group>"; };
+		68F0EAE21BF184BA008BD825 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68F0EABF1BF1824F008BD825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68F0EAB91BF1824F008BD825 = {
+			isa = PBXGroup;
+			children = (
+				68F0EAC41BF1824F008BD825 /* OuttaTimeObjectiveC */,
+				68F0EAC31BF1824F008BD825 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		68F0EAC31BF1824F008BD825 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68F0EAC21BF1824F008BD825 /* OuttaTimeObjectiveC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68F0EAC41BF1824F008BD825 /* OuttaTimeObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				68F0EAC81BF1824F008BD825 /* AppDelegate.h */,
+				68F0EAC91BF1824F008BD825 /* AppDelegate.m */,
+				68F0EACE1BF1824F008BD825 /* Main.storyboard */,
+				68F0EAD11BF1824F008BD825 /* Assets.xcassets */,
+				68F0EAD31BF1824F008BD825 /* LaunchScreen.storyboard */,
+				68F0EAD61BF1824F008BD825 /* Info.plist */,
+				68F0EAC51BF1824F008BD825 /* Supporting Files */,
+				68F0EADC1BF182AA008BD825 /* OuttaTimeViewController.h */,
+				68F0EADD1BF182AA008BD825 /* OuttaTimeViewController.m */,
+				68F0EADF1BF183A7008BD825 /* TimeCircutsViewController.h */,
+				68F0EAE01BF183A7008BD825 /* TimeCircutsViewController.m */,
+			);
+			path = OuttaTimeObjectiveC;
+			sourceTree = "<group>";
+		};
+		68F0EAC51BF1824F008BD825 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				68F0EAE21BF184BA008BD825 /* digital-7.ttf */,
+				68F0EAC61BF1824F008BD825 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68F0EAC11BF1824F008BD825 /* OuttaTimeObjectiveC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68F0EAD91BF1824F008BD825 /* Build configuration list for PBXNativeTarget "OuttaTimeObjectiveC" */;
+			buildPhases = (
+				68F0EABE1BF1824F008BD825 /* Sources */,
+				68F0EABF1BF1824F008BD825 /* Frameworks */,
+				68F0EAC01BF1824F008BD825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OuttaTimeObjectiveC;
+			productName = OuttaTimeObjectiveC;
+			productReference = 68F0EAC21BF1824F008BD825 /* OuttaTimeObjectiveC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68F0EABA1BF1824F008BD825 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Pedro Trujillo";
+				TargetAttributes = {
+					68F0EAC11BF1824F008BD825 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 68F0EABD1BF1824F008BD825 /* Build configuration list for PBXProject "OuttaTimeObjectiveC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68F0EAB91BF1824F008BD825;
+			productRefGroup = 68F0EAC31BF1824F008BD825 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68F0EAC11BF1824F008BD825 /* OuttaTimeObjectiveC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68F0EAC01BF1824F008BD825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68F0EAD51BF1824F008BD825 /* LaunchScreen.storyboard in Resources */,
+				68F0EAD21BF1824F008BD825 /* Assets.xcassets in Resources */,
+				68F0EAD01BF1824F008BD825 /* Main.storyboard in Resources */,
+				68F0EAE31BF184BA008BD825 /* digital-7.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68F0EABE1BF1824F008BD825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68F0EACA1BF1824F008BD825 /* AppDelegate.m in Sources */,
+				68F0EAE11BF183A7008BD825 /* TimeCircutsViewController.m in Sources */,
+				68F0EADE1BF182AA008BD825 /* OuttaTimeViewController.m in Sources */,
+				68F0EAC71BF1824F008BD825 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		68F0EACE1BF1824F008BD825 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68F0EACF1BF1824F008BD825 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		68F0EAD31BF1824F008BD825 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68F0EAD41BF1824F008BD825 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		68F0EAD71BF1824F008BD825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		68F0EAD81BF1824F008BD825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68F0EADA1BF1824F008BD825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OuttaTimeObjectiveC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.OuttaTimeObjectiveC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		68F0EADB1BF1824F008BD825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OuttaTimeObjectiveC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.OuttaTimeObjectiveC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68F0EABD1BF1824F008BD825 /* Build configuration list for PBXProject "OuttaTimeObjectiveC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68F0EAD71BF1824F008BD825 /* Debug */,
+				68F0EAD81BF1824F008BD825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68F0EAD91BF1824F008BD825 /* Build configuration list for PBXNativeTarget "OuttaTimeObjectiveC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68F0EADA1BF1824F008BD825 /* Debug */,
+				68F0EADB1BF1824F008BD825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 68F0EABA1BF1824F008BD825 /* Project object */;
+}
