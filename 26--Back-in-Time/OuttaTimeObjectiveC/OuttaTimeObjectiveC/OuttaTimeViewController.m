@@ -13,7 +13,11 @@
 
 @interface OuttaTimeViewController () <DatePickerDelegate>
 
-@property (nonatomic) IBOutlet UILabel *presentTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *presentTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *DestinationTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *LastTimeDepartedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *SpeedLabel;
+
 @end
 
 @implementation OuttaTimeViewController
@@ -30,9 +34,9 @@
     
     NSDate * now = [NSDate date];
 
-    NSString * dateString = [[self setDateTimeAndFormat:[NSDate date]] description];
+    NSString * dateString = [self setDateTimeAndFormat:[NSDate date]];
     
-    [self setPresentTimeLabel: [dateString mutableCopy]];
+    self.presentTimeLabel.text = dateString; /////////////////
 
 }
 
@@ -78,13 +82,13 @@
 
 -(void) setDestinationLabel:(NSString *) destination
 {
-    DestinationTimeLabel.text = destination;
+    self.DestinationTimeLabel.text = destination;
 }
 
 
 -(void) setPresentTimeLabel:(NSString *)presentTime
 {
-    self.presentTimeLabel.text = presentTime;
+    self.presentTimeLabel.text = presentTime;////////////////////
 }
 
 

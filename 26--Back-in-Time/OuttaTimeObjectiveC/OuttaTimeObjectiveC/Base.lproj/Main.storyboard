@@ -61,12 +61,6 @@
                                 <color key="textColor" red="0.99215692281723022" green="0.96078437566757202" blue="0.30588236451148987" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- -- ----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd6-Ad-Fvn">
-                                <rect key="frame" x="188" y="296" width="225" height="55"/>
-                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="60"/>
-                                <color key="textColor" red="0.83529418706893921" green="0.56862747669219971" blue="0.19607844948768616" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 MPH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktc-Dd-WSB">
                                 <rect key="frame" x="235" y="391" width="130" height="55"/>
                                 <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="60"/>
@@ -86,6 +80,12 @@
                                     <segue destination="bXw-A2-QPf" kind="show" identifier="ShowTimeCircutsViewControllerSegue" id="zLe-Cs-OoT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- -- ----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd6-Ad-Fvn">
+                                <rect key="frame" x="188" y="296" width="225" height="55"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="60"/>
+                                <color key="textColor" red="0.83529418706893921" green="0.56862747669219971" blue="0.19607844948768616" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.019607843831181526" green="0.023529414087533951" blue="0.019607843831181526" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -125,11 +125,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="dtC-3j-fKU"/>
                     <connections>
-                        <outlet property="DestinationTimeLabel" destination="evA-Vr-ZfE" id="F1C-RR-EZy"/>
-                        <outlet property="LastTimeDepartedLabel" destination="Xd6-Ad-Fvn" id="sMN-KK-zBi"/>
-                        <outlet property="PresentTimeLabel" destination="EgY-Y4-tGg" id="jA0-SC-ILd"/>
-                        <outlet property="SpeedLabel" destination="ktc-Dd-WSB" id="Qc5-Yx-ROk"/>
-                        <outlet property="presentTimeLabel" destination="EgY-Y4-tGg" id="Mxd-xJ-NuZ"/>
+                        <outlet property="DestinationTimeLabel" destination="evA-Vr-ZfE" id="JJ5-eC-QZZ"/>
+                        <outlet property="LastTimeDepartedLabel" destination="Xd6-Ad-Fvn" id="4r7-aK-03H"/>
+                        <outlet property="SpeedLabel" destination="ktc-Dd-WSB" id="FpS-4P-Fdo"/>
+                        <outlet property="presentTimeLabel" destination="EgY-Y4-tGg" id="yCI-Yr-CnT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qT-IA-dlL" userLabel="First Responder" sceneMemberID="firstResponder"/>

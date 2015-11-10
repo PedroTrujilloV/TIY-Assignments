@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68F0EAF21BF236FA008BD825 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0EAF11BF236FA008BD825 /* main.m */; };
+		68F0EAF51BF236FA008BD825 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0EAF41BF236FA008BD825 /* AppDelegate.m */; };
+		68F0EAFD1BF236FA008BD825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F0EAFC1BF236FA008BD825 /* Assets.xcassets */; };
+		68F0EB001BF236FA008BD825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F0EAFE1BF236FA008BD825 /* LaunchScreen.storyboard */; };
+		68F0EB091BF2373D008BD825 /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0EB081BF2373D008BD825 /* FriendsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		68F0EB0C1BF23D73008BD825 /* NewFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0EB0B1BF23D73008BD825 /* NewFriendViewController.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		68F0EAED1BF236FA008BD825 /* GitHubFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F0EAF11BF236FA008BD825 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		68F0EAF31BF236FA008BD825 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		68F0EAF41BF236FA008BD825 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		68F0EAFC1BF236FA008BD825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68F0EAFF1BF236FA008BD825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		68F0EB011BF236FA008BD825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68F0EB071BF2373D008BD825 /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
+		68F0EB081BF2373D008BD825 /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		68F0EB0A1BF23D73008BD825 /* NewFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFriendViewController.h; sourceTree = "<group>"; };
+		68F0EB0B1BF23D73008BD825 /* NewFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFriendViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68F0EAEA1BF236FA008BD825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68F0EAE41BF236FA008BD825 = {
+			isa = PBXGroup;
+			children = (
+				68F0EAEF1BF236FA008BD825 /* GitHubFriends */,
+				68F0EAEE1BF236FA008BD825 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		68F0EAEE1BF236FA008BD825 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68F0EAED1BF236FA008BD825 /* GitHubFriends.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68F0EAEF1BF236FA008BD825 /* GitHubFriends */ = {
+			isa = PBXGroup;
+			children = (
+				68F0EAF31BF236FA008BD825 /* AppDelegate.h */,
+				68F0EAF41BF236FA008BD825 /* AppDelegate.m */,
+				68F0EB0A1BF23D73008BD825 /* NewFriendViewController.h */,
+				68F0EB0B1BF23D73008BD825 /* NewFriendViewController.m */,
+				68F0EB071BF2373D008BD825 /* FriendsTableViewController.h */,
+				68F0EB081BF2373D008BD825 /* FriendsTableViewController.m */,
+				68F0EAFC1BF236FA008BD825 /* Assets.xcassets */,
+				68F0EAFE1BF236FA008BD825 /* LaunchScreen.storyboard */,
+				68F0EB011BF236FA008BD825 /* Info.plist */,
+				68F0EAF01BF236FA008BD825 /* Supporting Files */,
+			);
+			path = GitHubFriends;
+			sourceTree = "<group>";
+		};
+		68F0EAF01BF236FA008BD825 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				68F0EAF11BF236FA008BD825 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68F0EAEC1BF236FA008BD825 /* GitHubFriends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68F0EB041BF236FA008BD825 /* Build configuration list for PBXNativeTarget "GitHubFriends" */;
+			buildPhases = (
+				68F0EAE91BF236FA008BD825 /* Sources */,
+				68F0EAEA1BF236FA008BD825 /* Frameworks */,
+				68F0EAEB1BF236FA008BD825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GitHubFriends;
+			productName = GitHubFriends;
+			productReference = 68F0EAED1BF236FA008BD825 /* GitHubFriends.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68F0EAE51BF236FA008BD825 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Pedro Trujillo";
+				TargetAttributes = {
+					68F0EAEC1BF236FA008BD825 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 68F0EAE81BF236FA008BD825 /* Build configuration list for PBXProject "GitHubFriends" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68F0EAE41BF236FA008BD825;
+			productRefGroup = 68F0EAEE1BF236FA008BD825 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68F0EAEC1BF236FA008BD825 /* GitHubFriends */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68F0EAEB1BF236FA008BD825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68F0EB001BF236FA008BD825 /* LaunchScreen.storyboard in Resources */,
+				68F0EAFD1BF236FA008BD825 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68F0EAE91BF236FA008BD825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68F0EB091BF2373D008BD825 /* FriendsTableViewController.m in Sources */,
+				68F0EB0C1BF23D73008BD825 /* NewFriendViewController.m in Sources */,
+				68F0EAF51BF236FA008BD825 /* AppDelegate.m in Sources */,
+				68F0EAF21BF236FA008BD825 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		68F0EAFE1BF236FA008BD825 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68F0EAFF1BF236FA008BD825 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		68F0EB021BF236FA008BD825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		68F0EB031BF236FA008BD825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68F0EB051BF236FA008BD825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GitHubFriends/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.GitHubFriends;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		68F0EB061BF236FA008BD825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GitHubFriends/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.GitHubFriends;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68F0EAE81BF236FA008BD825 /* Build configuration list for PBXProject "GitHubFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68F0EB021BF236FA008BD825 /* Debug */,
+				68F0EB031BF236FA008BD825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68F0EB041BF236FA008BD825 /* Build configuration list for PBXNativeTarget "GitHubFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68F0EB051BF236FA008BD825 /* Debug */,
+				68F0EB061BF236FA008BD825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 68F0EAE51BF236FA008BD825 /* Project object */;
+}
