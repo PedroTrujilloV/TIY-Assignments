@@ -23,6 +23,8 @@ class root_main_GlobalTimeTableViewController: UITableViewController,SearchTimeZ
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.title = "Global Time"
         timeZonesNamesArray = []
         
 
