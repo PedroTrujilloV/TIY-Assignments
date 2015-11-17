@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Now Playing View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NowPlayingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Acoustic" translatesAutoresizingMaskIntoConstraints="NO" id="hdo-WB-sle">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hdo-WB-sle" secondAttribute="height" multiplier="1:1" id="RbZ-NR-n1w"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RbZ-NR-n1w"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="RbZ-NR-n1w"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBL-oR-hm7">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-ez-Bc1">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBl-xB-Qt9">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Play"/>
+                                <connections>
+                                    <action selector="playPauseTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uKS-Yj-z7z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISt-zS-G59">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Next" image="SkipForward"/>
+                                <connections>
+                                    <action selector="skipFordawardTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wta-kT-amW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYc-13-bto">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="SkipBack"/>
+                                <connections>
+                                    <action selector="skipBackTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E3N-9s-bU8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nBl-xB-Qt9" firstAttribute="centerX" secondItem="KsN-ez-Bc1" secondAttribute="centerX" id="5gk-lC-hwM"/>
+                            <constraint firstItem="DYc-13-bto" firstAttribute="centerY" secondItem="nBl-xB-Qt9" secondAttribute="centerY" id="9tT-1Z-2rc"/>
+                            <constraint firstItem="KsN-ez-Bc1" firstAttribute="centerX" secondItem="IBL-oR-hm7" secondAttribute="centerX" id="CRx-Em-Vhe"/>
+                            <constraint firstItem="IBL-oR-hm7" firstAttribute="top" secondItem="hdo-WB-sle" secondAttribute="bottom" constant="8" id="IBu-KA-erc"/>
+                            <constraint firstItem="hdo-WB-sle" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MCr-ct-IpL"/>
+                            <constraint firstItem="KsN-ez-Bc1" firstAttribute="top" secondItem="IBL-oR-hm7" secondAttribute="bottom" constant="8" id="RBg-D4-99c"/>
+                            <constraint firstItem="nBl-xB-Qt9" firstAttribute="top" secondItem="KsN-ez-Bc1" secondAttribute="bottom" constant="31" id="ZLV-cq-JlT">
+                                <variation key="widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="IBL-oR-hm7" firstAttribute="centerX" secondItem="hdo-WB-sle" secondAttribute="centerX" id="brN-zD-JKu"/>
+                            <constraint firstItem="nBl-xB-Qt9" firstAttribute="leading" secondItem="DYc-13-bto" secondAttribute="trailing" constant="94" id="ezR-fS-h3h">
+                                <variation key="widthClass=compact" constant="40"/>
+                            </constraint>
+                            <constraint firstItem="ISt-zS-G59" firstAttribute="centerY" secondItem="nBl-xB-Qt9" secondAttribute="centerY" id="h9y-Dj-thV"/>
+                            <constraint firstItem="hdo-WB-sle" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ik0-bg-Y3c"/>
+                            <constraint firstAttribute="trailing" secondItem="hdo-WB-sle" secondAttribute="trailing" id="js0-gV-Qrn"/>
+                            <constraint firstItem="ISt-zS-G59" firstAttribute="leading" secondItem="nBl-xB-Qt9" secondAttribute="trailing" constant="87" id="xuo-cU-qT9">
+                                <variation key="widthClass=compact" constant="40"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="hdo-WB-sle"/>
+                                <exclude reference="IBL-oR-hm7"/>
+                                <exclude reference="KsN-ez-Bc1"/>
+                                <exclude reference="nBl-xB-Qt9"/>
+                                <exclude reference="ISt-zS-G59"/>
+                                <exclude reference="DYc-13-bto"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="MCr-ct-IpL"/>
+                                <exclude reference="ik0-bg-Y3c"/>
+                                <exclude reference="js0-gV-Qrn"/>
+                                <exclude reference="IBu-KA-erc"/>
+                                <exclude reference="brN-zD-JKu"/>
+                                <exclude reference="CRx-Em-Vhe"/>
+                                <exclude reference="RBg-D4-99c"/>
+                                <exclude reference="9tT-1Z-2rc"/>
+                                <exclude reference="5gk-lC-hwM"/>
+                                <exclude reference="ZLV-cq-JlT"/>
+                                <exclude reference="ezR-fS-h3h"/>
+                                <exclude reference="h9y-Dj-thV"/>
+                                <exclude reference="xuo-cU-qT9"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="hdo-WB-sle"/>
+                                <include reference="IBL-oR-hm7"/>
+                                <include reference="KsN-ez-Bc1"/>
+                                <include reference="nBl-xB-Qt9"/>
+                                <include reference="ISt-zS-G59"/>
+                                <include reference="DYc-13-bto"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="MCr-ct-IpL"/>
+                                <include reference="ik0-bg-Y3c"/>
+                                <include reference="js0-gV-Qrn"/>
+                                <include reference="IBu-KA-erc"/>
+                                <include reference="brN-zD-JKu"/>
+                                <include reference="CRx-Em-Vhe"/>
+                                <include reference="RBg-D4-99c"/>
+                                <include reference="9tT-1Z-2rc"/>
+                                <include reference="5gk-lC-hwM"/>
+                                <include reference="ZLV-cq-JlT"/>
+                                <include reference="ezR-fS-h3h"/>
+                                <include reference="h9y-Dj-thV"/>
+                                <include reference="xuo-cU-qT9"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="albumArtwork" destination="hdo-WB-sle" id="cBL-ep-ye2"/>
+                        <outlet property="artisLabel" destination="KsN-ez-Bc1" id="CLW-xz-9fi"/>
+                        <outlet property="playPauseButton" destination="nBl-xB-Qt9" id="JPE-qo-gui"/>
+                        <outlet property="songTitleLabel" destination="IBL-oR-hm7" id="8d7-z0-IUA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Acoustic" width="1024" height="1024"/>
+        <image name="Play" width="65" height="65"/>
+        <image name="SkipBack" width="61" height="35"/>
+        <image name="SkipForward" width="61" height="35"/>
+    </resources>
+</document>
