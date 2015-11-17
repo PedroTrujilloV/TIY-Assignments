@@ -87,13 +87,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXv-mR-8kq">
-                                <rect key="frame" x="0.0" y="192" width="600" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Emf-WB-7ZP" id="Kl1-qQ-FD0"/>
-                                    <outlet property="delegate" destination="Emf-WB-7ZP" id="VdV-GU-HcI"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-15-S8A">
                                 <rect key="frame" x="236" y="140" width="128" height="30"/>
                                 <state key="normal" title="Generate Winners!"/>
@@ -101,6 +94,13 @@
                                     <action selector="GenerateWinnersNumberCompare:" destination="Emf-WB-7ZP" eventType="touchUpInside" id="Y5A-qh-Kjf"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXv-mR-8kq">
+                                <rect key="frame" x="0.0" y="192" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Emf-WB-7ZP" id="Kl1-qQ-FD0"/>
+                                    <outlet property="delegate" destination="Emf-WB-7ZP" id="VdV-GU-HcI"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

@@ -13,10 +13,7 @@
 
 @interface OuttaTimeViewController () <DatePickerDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *presentTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *DestinationTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *LastTimeDepartedLabel;
-@property (weak, nonatomic) IBOutlet UILabel *SpeedLabel;
+
 
 @end
 
@@ -25,6 +22,7 @@
 
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
@@ -32,11 +30,15 @@
     self.currentSpeed = 0;
     //[self.lastTimeDeparted ]
     
-    NSDate * now = [NSDate date];
-
-    NSString * dateString = [self setDateTimeAndFormat:[NSDate date]];
+    NSString * dateString = [self setDateTimeAndFormat: [NSDate date]];
     
-    self.presentTimeLabel.text = dateString; /////////////////
+    
+    [_presentTimeLabel.text copy:@"jajajaja"];
+    
+    
+    _presentTimeLabel.reloadInputViews;
+    _presentTimeLabel.text = @"Hello f!";//dateString; /////////////////
+
 
 }
 

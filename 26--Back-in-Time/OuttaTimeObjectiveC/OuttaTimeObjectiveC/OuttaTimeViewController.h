@@ -15,6 +15,10 @@
 @property(nonatomic) int currentSpeed;
 @property(nonatomic) NSDate * currentDate;
 
+@property (weak, nonatomic) IBOutlet UILabel *presentTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *DestinationTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *LastTimeDepartedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *SpeedLabel;
 
 -(NSString *) setDateTimeAndFormat:(NSDate *)seclectedDate;
 @end
