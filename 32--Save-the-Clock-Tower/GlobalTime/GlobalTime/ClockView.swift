@@ -186,7 +186,7 @@ class ClockView: UIView
             digitColor = UIColor.greenColor()
 
         }
-        print(hours)
+        //print(hours)
         setNeedsDisplay()
     }
 }

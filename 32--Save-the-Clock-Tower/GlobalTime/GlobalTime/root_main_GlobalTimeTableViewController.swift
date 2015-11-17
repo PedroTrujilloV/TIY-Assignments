@@ -32,7 +32,7 @@ class root_main_GlobalTimeTableViewController: UITableViewController,SearchTimeZ
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         //self.navigationItem.leftBarButtonItem = self.editButtonItem()
+         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addButtonActionTapped:")
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier:"UITableViewCell")
@@ -66,7 +66,7 @@ class root_main_GlobalTimeTableViewController: UITableViewController,SearchTimeZ
 
         // Configure the cell...
         
-        let newClockView = ClockView(frame: CGRect(x: 10.0, y: 10.0, width: DEFAULT_CLOCK_SIZE, height: DEFAULT_CLOCK_SIZE))
+        let newClockView = ClockView(frame: CGRect(x: 20.0, y: 10.0, width: DEFAULT_CLOCK_SIZE, height: DEFAULT_CLOCK_SIZE))
         newClockView.timezone = NSTimeZone(name: timeZonesNamesArray[indexPath.row])
         
         cell.imageView?.image = UIImage(named: "gravatar.png")
@@ -81,25 +81,42 @@ class root_main_GlobalTimeTableViewController: UITableViewController,SearchTimeZ
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+        if editingStyle == .Delete
+        {
             // Delete the row from the data source
+            let cellViews = tableView.cellForRowAtIndexPath(indexPath)?.subviews
+            
+            for UIv in cellViews!
+            {
+                if UIv is ClockView
+                {
+                    (UIv as! ClockView).animationTimer?.invalidate()
+                }
+            }
+             
+            print(cellViews?.count)
+            
+            timeZonesNamesArray.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+//        else if editingStyle == .Insert
+//        {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
