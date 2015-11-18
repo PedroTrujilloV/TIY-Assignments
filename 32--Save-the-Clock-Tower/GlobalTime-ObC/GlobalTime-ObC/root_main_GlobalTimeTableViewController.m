@@ -67,7 +67,7 @@ const CGFloat DEFAULT_CLOCK_SIZE = 100.0;
     // Configure the cell...
     
     SPClockView * newClockView = [[SPClockView alloc] initWithFrame:(CGRectMake(30.0, 10.0, DEFAULT_CLOCK_SIZE, DEFAULT_CLOCK_SIZE))];
-    //[newClockView setTimeZone:[[NSTimeZone alloc] initWithName:_namesTimeZonesArray[indexPath.row]]];
+    [newClockView setTimeZone:[[NSTimeZone alloc] initWithName:_namesTimeZonesArray[indexPath.row]]];
     //[newClockView setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"EDT"]];
     cell.textLabel.text = _namesTimeZonesArray[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:@"gravatar.png"];
