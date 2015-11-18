@@ -226,13 +226,12 @@
 - (void)timerFired:(id)sender
 {
     static NSCalendar *gregorian;
-    
     if (!gregorian) gregorian = [NSCalendar currentCalendar];
 //    if (!gregorian) gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    self.time = [NSDate date];
+    _time = [NSDate date];
     [gregorian setTimeZone:_timeZone]; // Japan
     NSDateComponents *weekdayComponents =
-    [gregorian components:(NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:self.time];
+    [gregorian components:(NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:_time];
     
     self.hours = [weekdayComponents hour];
     BOOL isDay = (self.hours > 6 && self.hours < 18);
