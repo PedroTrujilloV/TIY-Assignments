@@ -18,6 +18,7 @@
 
 @interface root_main_GlobalTimeTableViewController : UITableViewController
 
+extern const CGFloat DEFAULT_CLOCK_SIZE;
 
 @property (nonatomic) UIBarButtonItem * rightAddButton;
 @property (nonatomic) NSMutableArray * namesTimeZonesArray;

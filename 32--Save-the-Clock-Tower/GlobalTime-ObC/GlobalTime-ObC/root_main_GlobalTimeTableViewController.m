@@ -8,6 +8,9 @@
 
 #import "root_main_GlobalTimeTableViewController.h"
 #import "SearchTimeZoneTableViewController.h"
+#import "SPClockView.h"
+
+const CGFloat DEFAULT_CLOCK_SIZE = 100.0;
 
 @interface root_main_GlobalTimeTableViewController ()<SearchTimeZoneProtocol>
 
@@ -23,16 +26,18 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     self.tableView.separatorColor = [UIColor clearColor];
     _namesTimeZonesArray = [[NSMutableArray alloc] init];
     
     _rightAddButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTimeZoneTappedButtonAction:)];
     self.navigationItem.rightBarButtonItem = _rightAddButton;
+    [self.tableView registerClass:UITableViewCell.self forCellReuseIdentifier:@"UITableViewCell"];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -40,42 +45,64 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return _namesTimeZonesArray.count;
 }
 
-/*
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+        return  120.0;
+
+}
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    SPClockView * newClockView = [[SPClockView alloc] initWithFrame:(CGRectMake(30.0, 10.0, DEFAULT_CLOCK_SIZE, DEFAULT_CLOCK_SIZE))];
+    //[newClockView setTimeZone:[[NSTimeZone alloc] initWithName:_namesTimeZonesArray[indexPath.row]]];
+    //[newClockView setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"EDT"]];
+    cell.textLabel.text = _namesTimeZonesArray[indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:@"gravatar.png"];
+    [cell addSubview:newClockView];
+    
+   
     return cell;
 }
-*/
 
-/*
+
+
 // Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         // Delete the row from the data source
+        [_namesTimeZonesArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
+//    else if (editingStyle == UITableViewCellEditingStyleInsert)
+//    {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//    }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -105,6 +132,10 @@
 {
     printf("Hello world ");
     NSLog(@"me lo mando! esto: %@",timeZoneString);
+    
+    [_namesTimeZonesArray addObject:timeZoneString];
+    
+    [self.tableView reloadData];
 }
 
 
