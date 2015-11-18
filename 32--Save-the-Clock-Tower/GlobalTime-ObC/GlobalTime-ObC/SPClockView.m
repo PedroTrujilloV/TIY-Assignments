@@ -228,7 +228,7 @@
 {
     static NSCalendar *gregorian;
     
-     NSDate * newtime = [NSDate date];
+     NSDate * newtime = [NSDate date]; //here was an error when I was triying to use only the analog Clock
 
     //NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     if (!gregorian) gregorian = [NSCalendar currentCalendar];
