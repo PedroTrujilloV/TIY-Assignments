@@ -40,10 +40,11 @@
 
 - (void)timerFired:(id)sender
 {
-    _time = [NSDate date];
+    
     static NSCalendar *gregorian;
     
     if (!gregorian) gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    _time = [NSDate date];
     [gregorian setTimeZone:_timeZone]; // Japan
     NSDateComponents *weekdayComponents =
     [gregorian components:(NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:_time];
@@ -226,12 +227,16 @@
 - (void)timerFired:(id)sender
 {
     static NSCalendar *gregorian;
+    
+     NSDate * newtime = [NSDate date];
+
+    //NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     if (!gregorian) gregorian = [NSCalendar currentCalendar];
 //    if (!gregorian) gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    _time = [NSDate date];
+    newtime = [NSDate date];
     [gregorian setTimeZone:_timeZone]; // Japan
     NSDateComponents *weekdayComponents =
-    [gregorian components:(NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:_time];
+    [gregorian components:(NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:newtime];
     
     self.hours = [weekdayComponents hour];
     BOOL isDay = (self.hours > 6 && self.hours < 18);
