@@ -24,7 +24,7 @@ class root_main_GlobalTimeTableViewController: UITableViewController,SearchTimeZ
     {
         super.viewDidLoad()
         
-        self.title = "Global Time"
+        self.title = "Global Time 🌐"
         timeZonesNamesArray = []
         
 
@@ -102,7 +102,7 @@ class root_main_GlobalTimeTableViewController: UITableViewController,SearchTimeZ
             {
                 if UIv is ClockView
                 {
-                    (UIv as! ClockView).animationTimer?.invalidate()
+                    (UIv as! ClockView).animationTimer?.invalidate()//pedir cell.tag par aexperimentar
                 }
             }
              
