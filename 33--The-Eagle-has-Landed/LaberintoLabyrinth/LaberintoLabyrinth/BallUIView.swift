@@ -19,8 +19,8 @@ class BallUIView: UIView
 {
     var ID:Int = 0
     var boundsCenter: CGPoint
-    var ballBgColor = UIColor.redColor()
-    var borderColor = UIColor.yellowColor()
+    var ballBgColor = UIColor.orangeColor()
+    var borderColor = UIColor.redColor()
     var digitColor = UIColor.blackColor()
     var digitFont: UIFont
 

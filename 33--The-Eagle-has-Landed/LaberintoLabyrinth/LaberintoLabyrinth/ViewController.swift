@@ -11,6 +11,10 @@ import CoreMotion
 
 class ViewController: UIViewController//, UICollisionBehaviorDelegate
 {
+    //main variables
+    var borderUpDistance = 100
+    var mazeSize:Int = 26
+    
     //phyx
     var animator:UIDynamicAnimator!
     var gravity:UIGravityBehavior!
@@ -20,6 +24,11 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
     //objects
     var numberOfBalls: Int = 3
     var ballsArray:Array<BallUIView> = []
+    
+    var mazeArray:Array<Array<BrickMaze>> = []
+    
+    //objects visual properties
+    var radiusBalls: CGFloat = 30.0
     
     //objects phyx properties
     var ballsElasticity: CGFloat = 0.8
@@ -31,18 +40,47 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
     {
         super.viewDidLoad()
 
-        
-        
-        setProperties(numberOfBalls)
-        
-        
-        
         //this is for test in simulator
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated:", name: UIDeviceOrientationDidChangeNotification, object: UIDevice.currentDevice())
         
-        //createGrid()//uncoment
+        //createMatrix()//uncoment
+        
+        createMaze()
+        createBalls(numberOfBalls)
+        setProperties()
+
+    }
+    
+    func render()
+    {
+        
         
     }
+    func createMaze()
+    {
+        let brickSize = CGFloat(UIScreen.mainScreen().bounds.size.width)/CGFloat(mazeSize) // calculate size of each brick
+        radiusBalls =  CGFloat(brickSize)///CGFloat(2.0)//calculate the size of ball
+        let matrix = createMatrix()
+        
+        var yPos:CGFloat = CGFloat(borderUpDistance)
+        for y in matrix
+        {
+            var xPos:CGFloat = 0
+            var rowArray: Array<BrickMaze> = []
+            for x in y
+            {
+                let aBrick:BrickMaze = BrickMaze(frame: CGRect(x: xPos, y: yPos, width: brickSize, height: brickSize))
+                aBrick.setId(x)//set the colors of each brick
+                rowArray.append(aBrick)
+                view.addSubview(aBrick)
+                xPos += brickSize
+            }
+            mazeArray.append(rowArray)
+            yPos += brickSize
+        }
+
+    }
+    
     func rotated(note: NSNotification)
     {
         let device: UIDevice = note.object as! UIDevice
@@ -82,10 +120,24 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
         
     }
     
-    func createGrid()
+    func createBalls(numberOfBalls:Int)
+    {
+        //objects
+        for nb in 0..<(numberOfBalls)
+        {
+            let aBall:BallUIView = BallUIView(frame: CGRectMake(100.0, 50.0, radiusBalls, radiusBalls))
+            aBall.ID = nb
+            aBall.layer.cornerRadius = aBall.bounds.size.width/2
+            aBall.layer.masksToBounds = true
+            ballsArray.append(aBall)
+            view.addSubview(aBall)
+        }
+    }
+    
+    func createMatrix() -> Array<Array<Int>>
     {
         var list = [Int]()
-        let size = 20
+        let size = mazeSize
         let rootValue = 7//Int(arc4random_uniform(UInt32(size)))//Int(size/5)// it can chagne to set the sie of the maze just spliting the size, it decide where begin the root
         let newTree:BinaryTree = BinaryTree(rootVal:  rootValue)
         
@@ -94,40 +146,40 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
         list.append(ran)
         print("root insert: \(rootValue)")
         
-        for x in 1..<size
+        for x in 1...size
         {
             list.append(ran)
             
             repeat
             {
                 
+                
                 ran = Int(arc4random_uniform(UInt32(size)))
             }
-            while list.contains(ran)
+            while list.contains(ran) && ran == 0
       
             newTree.sortedInsert(ran, newNode: newTree.root)
 
         }
         print("\n tree level \(newTree.height)")
 
-        newTree.BFSearchMatix(newTree.root,size: size)
+        return newTree.BFSearchMatix(newTree.root,size: size)
     }
     
     
   
-    func setProperties(numberOfBalls:Int)
+    func setProperties()//numberOfBalls:Int)
     {
         //objects
-        for nb in 0..<(numberOfBalls)
-        {
-            let aBall:BallUIView = BallUIView(frame: CGRectMake(100.0, 200.0, 50.0, 50.0))
-            aBall.ID = nb
-            aBall.ballBgColor = UIColor.orangeColor()
-            aBall.layer.cornerRadius = aBall.bounds.size.width/2
-            aBall.layer.masksToBounds = true
-            ballsArray.append(aBall)
-            view.addSubview(aBall)
-        }
+//        for nb in 0..<(numberOfBalls)
+//        {
+//            let aBall:BallUIView = BallUIView(frame: CGRectMake(100.0, 50.0, radiusBalls, radiusBalls))
+//            aBall.ID = nb
+//            aBall.layer.cornerRadius = aBall.bounds.size.width/2
+//            aBall.layer.masksToBounds = true
+//            ballsArray.append(aBall)
+//            view.addSubview(aBall)
+//        }
         
         //phyx
         animator = UIDynamicAnimator(referenceView: view)
@@ -207,10 +259,7 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
         print("dir Y: \(self.gravity.gravityDirection.dy)")
     }
     
-    func render()
-    {
-        
-    }
+ 
 
     override func didReceiveMemoryWarning()
     {

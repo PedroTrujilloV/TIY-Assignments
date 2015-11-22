@@ -82,7 +82,7 @@ class BinaryTree
         
     }
     
-    func BFSearchMatix(dataNode:Node, size:Int)
+    func BFSearchMatix(dataNode:Node, size:Int) -> Array<Array<Int>>
     {
         print("Breadth Firs Search :\(dataNode)")
 
@@ -142,6 +142,8 @@ class BinaryTree
             print(matrixNodes[x-1])
 
         }
+        
+        return matrixNodes
         
     }
     
