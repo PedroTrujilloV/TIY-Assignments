@@ -13,6 +13,7 @@
 		68CD4E551BFD45C2003EA578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68CD4E541BFD45C2003EA578 /* Assets.xcassets */; };
 		68CD4E581BFD45C2003EA578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CD4E561BFD45C2003EA578 /* LaunchScreen.storyboard */; };
 		68CD4E601BFD4BDA003EA578 /* BallUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CD4E5F1BFD4BDA003EA578 /* BallUIView.swift */; settings = {ASSET_TAGS = (); }; };
+		68F60E9B1C01AD0400CA192E /* BrickMaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F60E9A1C01AD0400CA192E /* BrickMaze.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		68CD4E571BFD45C2003EA578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68CD4E591BFD45C2003EA578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68CD4E5F1BFD4BDA003EA578 /* BallUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallUIView.swift; sourceTree = "<group>"; };
+		68F60E9A1C01AD0400CA192E /* BrickMaze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickMaze.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				68CD4E591BFD45C2003EA578 /* Info.plist */,
 				68CD4E5F1BFD4BDA003EA578 /* BallUIView.swift */,
 				683741D31BFD980E00525B4D /* BinaryTreeGenerator.swift */,
+				68F60E9A1C01AD0400CA192E /* BrickMaze.swift */,
 			);
 			path = LaberintoLabyrinth;
 			sourceTree = "<group>";
@@ -98,6 +101,7 @@
 				TargetAttributes = {
 					68CD4E491BFD45C2003EA578 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = S775VU6U75;
 					};
 				};
 			};
@@ -138,6 +142,7 @@
 			files = (
 				683741D41BFD980E00525B4D /* BinaryTreeGenerator.swift in Sources */,
 				68CD4E501BFD45C2003EA578 /* ViewController.swift in Sources */,
+				68F60E9B1C01AD0400CA192E /* BrickMaze.swift in Sources */,
 				68CD4E601BFD4BDA003EA578 /* BallUIView.swift in Sources */,
 				68CD4E4E1BFD45C2003EA578 /* AppDelegate.swift in Sources */,
 			);
@@ -242,11 +247,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LaberintoLabyrinth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.LaberintoLabyrinth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -254,11 +262,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LaberintoLabyrinth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.LaberintoLabyrinth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

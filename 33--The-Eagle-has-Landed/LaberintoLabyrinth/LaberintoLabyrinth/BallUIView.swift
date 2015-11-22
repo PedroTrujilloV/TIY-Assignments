@@ -17,6 +17,7 @@ let digitOffset: CGFloat = 10
 
 class BallUIView: UIView
 {
+    var ID:Int = 0
     var boundsCenter: CGPoint
     var ballBgColor = UIColor.redColor()
     var borderColor = UIColor.yellowColor()
@@ -59,6 +60,24 @@ class BallUIView: UIView
         CGContextAddEllipseInRect(cxt, CGRect(x: rect.origin.x + borderWidth/2, y: rect.origin.y + borderWidth/2, width: rect.size.width - borderWidth, height: rect.size.height - borderWidth))
         CGContextSetStrokeColorWithColor(cxt, borderColor.CGColor)
         CGContextSetLineWidth(cxt, borderWidth)
+        CGContextStrokePath(cxt)
+        
+        
+
+        
+        drawLineGuide()///this is a test line to check rotation
+    }
+    
+    func drawLineGuide()
+    {
+        let cxt = UIGraphicsGetCurrentContext()
+
+        let lineGuide = CGPoint(x: bounds.width, y: bounds.height/2.0)
+        CGContextSetStrokeColorWithColor(cxt, UIColor.blackColor().CGColor)
+        CGContextBeginPath(cxt)
+        CGContextMoveToPoint(cxt, boundsCenter.x, boundsCenter.y)
+        CGContextSetLineWidth(cxt, 1.0)
+        CGContextAddLineToPoint(cxt, lineGuide.x, lineGuide.y)
         CGContextStrokePath(cxt)
     }
 
