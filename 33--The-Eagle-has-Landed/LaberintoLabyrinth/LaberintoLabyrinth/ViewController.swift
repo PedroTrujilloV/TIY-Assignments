@@ -9,7 +9,7 @@
 import UIKit
 import CoreMotion
 
-class ViewController: UIViewController//, UICollisionBehaviorDelegate
+class ViewController: UIViewController, UICollisionBehaviorDelegate
 {
     //main variables
     var borderUpDistance = 100
@@ -22,32 +22,42 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
     var motionManager:CMMotionManager!
     
     //objects
-    var numberOfBalls: Int = 3
+    var numberOfBalls: Int = 1
     var ballsArray:Array<BallUIView> = []
     
     var mazeArray:Array<Array<BrickMaze>> = []
     
+    
     //objects visual properties
     var radiusBalls: CGFloat = 30.0
     
+    var brickSize:CGFloat!
+    
     //objects phyx properties
     var ballsElasticity: CGFloat = 0.8
-    var ballsDensity:CGFloat = 1.0
+    var ballsDensity:CGFloat = 0.1
     var ballsFriction:CGFloat = 0.01
 
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+         brickSize = CGFloat(UIScreen.mainScreen().bounds.size.width)/CGFloat(mazeSize) // calculate size of each brick
+         radiusBalls =  CGFloat(brickSize)///CGFloat(2.0)//calculate the size of ball
 
         //this is for test in simulator
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated:", name: UIDeviceOrientationDidChangeNotification, object: UIDevice.currentDevice())
         
         //createMatrix()//uncoment
         
-        createMaze()
+        
+        //collision = UICollisionBehavior()
+        
+        
         createBalls(numberOfBalls)
         setProperties()
+        createMaze()
 
     }
     
@@ -58,8 +68,7 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
     }
     func createMaze()
     {
-        let brickSize = CGFloat(UIScreen.mainScreen().bounds.size.width)/CGFloat(mazeSize) // calculate size of each brick
-        radiusBalls =  CGFloat(brickSize)///CGFloat(2.0)//calculate the size of ball
+        
         let matrix = createMatrix()
         
         var yPos:CGFloat = CGFloat(borderUpDistance)
@@ -71,6 +80,13 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
             {
                 let aBrick:BrickMaze = BrickMaze(frame: CGRect(x: xPos, y: yPos, width: brickSize, height: brickSize))
                 aBrick.setId(x)//set the colors of each brick
+                
+                if x == 0
+                {
+                    //self.collision.addItem(aBrick)
+                    self.collision.addBoundaryWithIdentifier("aBrick", forPath: UIBezierPath(rect: aBrick.frame))
+                }
+                
                 rowArray.append(aBrick)
                 view.addSubview(aBrick)
                 xPos += brickSize
@@ -129,9 +145,13 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
             aBall.ID = nb
             aBall.layer.cornerRadius = aBall.bounds.size.width/2
             aBall.layer.masksToBounds = true
+            
+            //collision.addItem(aBall)
+            
             ballsArray.append(aBall)
             view.addSubview(aBall)
         }
+        
     }
     
     func createMatrix() -> Array<Array<Int>>
@@ -170,17 +190,7 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
   
     func setProperties()//numberOfBalls:Int)
     {
-        //objects
-//        for nb in 0..<(numberOfBalls)
-//        {
-//            let aBall:BallUIView = BallUIView(frame: CGRectMake(100.0, 50.0, radiusBalls, radiusBalls))
-//            aBall.ID = nb
-//            aBall.layer.cornerRadius = aBall.bounds.size.width/2
-//            aBall.layer.masksToBounds = true
-//            ballsArray.append(aBall)
-//            view.addSubview(aBall)
-//        }
-        
+
         //phyx
         animator = UIDynamicAnimator(referenceView: view)
         
@@ -189,6 +199,8 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
         animator.addBehavior(gravity)
         
         collision = UICollisionBehavior(items: ballsArray)
+        collision.collisionDelegate = self
+
         collision.translatesReferenceBoundsIntoBoundary = true // add stage frame to colisions area
         animator?.addBehavior(collision)
         
@@ -212,6 +224,17 @@ class ViewController: UIViewController//, UICollisionBehaviorDelegate
         //motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: gravityUpdated)
     }
     
+    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, atPoint p: CGPoint)
+    {
+        print("Boundary contact occurred - \(identifier)")
+        
+        let collidingView = item as! UIView
+        collidingView.backgroundColor = UIColor.whiteColor()
+        UIView.animateWithDuration(0.3)
+            {
+            collidingView.backgroundColor = UIColor.orangeColor()
+        }
+    }
 
 
     func gravityUpdated(motion:CMDeviceMotion?, error:NSError?)
