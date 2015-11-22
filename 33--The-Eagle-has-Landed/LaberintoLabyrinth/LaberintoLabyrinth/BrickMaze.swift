@@ -11,6 +11,7 @@ import UIKit
 class BrickMaze: UIView
 {
     
+    let borderWidth: CGFloat = 2
     var ID:Int = 0
     var boundsCenter: CGPoint
     var squareColor = UIColor.cyanColor()
@@ -50,7 +51,7 @@ class BrickMaze: UIView
         CGContextSetFillColorWithColor(cxt, squareColor.CGColor)
         CGContextFillPath(cxt)
         
-        // clock's border
+        // border
         CGContextAddRect(cxt, CGRect(x: rect.origin.x + borderWidth/2, y: rect.origin.y + borderWidth/2, width: rect.size.width - borderWidth, height: rect.size.height - borderWidth))
         CGContextSetStrokeColorWithColor(cxt, borderColor.CGColor)
         CGContextSetLineWidth(cxt, borderWidth)

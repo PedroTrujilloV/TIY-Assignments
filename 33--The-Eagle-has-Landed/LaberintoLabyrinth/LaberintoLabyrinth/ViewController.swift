@@ -44,17 +44,17 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
         super.viewDidLoad()
         
          brickSize = CGFloat(UIScreen.mainScreen().bounds.size.width)/CGFloat(mazeSize) // calculate size of each brick
-         radiusBalls =  CGFloat(brickSize)///CGFloat(2.0)//calculate the size of ball
+         radiusBalls =  CGFloat(brickSize)/CGFloat(1.7)//calculate the size of ball
 
         //this is for test in simulator
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated:", name: UIDeviceOrientationDidChangeNotification, object: UIDevice.currentDevice())
+       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated:", name: UIDeviceOrientationDidChangeNotification, object: UIDevice.currentDevice())
         
         //createMatrix()//uncoment
         
         
-        //collision = UICollisionBehavior()
+        ///collision = UICollisionBehavior()
         
-        
+        //this order is nescesary to conserv the speed of the app
         createBalls(numberOfBalls)
         setProperties()
         createMaze()
@@ -147,7 +147,8 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
             aBall.layer.masksToBounds = true
             
             //collision.addItem(aBall)
-            
+            ///self.collision.addBoundaryWithIdentifier("aBall", forPath: UIBezierPath(rect: aBall.frame))
+
             ballsArray.append(aBall)
             view.addSubview(aBall)
         }
@@ -172,7 +173,6 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
             
             repeat
             {
-                
                 
                 ran = Int(arc4random_uniform(UInt32(size)))
             }
@@ -221,17 +221,20 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
         
         //Motion Device//reference [2]
         motionManager = CMMotionManager()
-        //motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: gravityUpdated)
+        motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: gravityUpdated)
     }
     
     func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, atPoint p: CGPoint)
     {
         print("Boundary contact occurred - \(identifier)")
+        //print("Contact Item occurred - \(item)")
         
         let collidingView = item as! UIView
+        
         collidingView.backgroundColor = UIColor.whiteColor()
-        UIView.animateWithDuration(0.3)
-            {
+        
+        UIView.animateWithDuration(0.4)
+        {
             collidingView.backgroundColor = UIColor.orangeColor()
         }
     }
@@ -239,7 +242,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
 
     func gravityUpdated(motion:CMDeviceMotion?, error:NSError?)
     {
-        print("Test")
+        //print("Test")
         
 //        if (error != nil)
 //        {
@@ -278,8 +281,8 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
         let v = CGVectorMake(p.x, 0 - p.y);
         gravity.gravityDirection = v;
         
-        print("dir X: \(self.gravity.gravityDirection.dx)")
-        print("dir Y: \(self.gravity.gravityDirection.dy)")
+        //print("dir X: \(self.gravity.gravityDirection.dx)")
+        //print("dir Y: \(self.gravity.gravityDirection.dy)")
     }
     
  

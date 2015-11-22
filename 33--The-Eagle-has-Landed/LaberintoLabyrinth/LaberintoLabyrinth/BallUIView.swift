@@ -9,7 +9,7 @@
 import UIKit
 
 
-let borderWidth: CGFloat = 2
+let borderWidth: CGFloat = 1
 let borderAlpha: CGFloat = 1.0
 let graduationOffset: CGFloat = 10
 let radius: CGFloat = 5.0
@@ -56,16 +56,16 @@ class BallUIView: UIView
         CGContextSetFillColorWithColor(cxt, ballBgColor.CGColor)
         CGContextFillPath(cxt)
         
-        // clock's border
-        CGContextAddEllipseInRect(cxt, CGRect(x: rect.origin.x + borderWidth/2, y: rect.origin.y + borderWidth/2, width: rect.size.width - borderWidth, height: rect.size.height - borderWidth))
-        CGContextSetStrokeColorWithColor(cxt, borderColor.CGColor)
-        CGContextSetLineWidth(cxt, borderWidth)
-        CGContextStrokePath(cxt)
+//        // border
+//        CGContextAddEllipseInRect(cxt, CGRect(x: rect.origin.x + borderWidth/2, y: rect.origin.y + borderWidth/2, width: rect.size.width - borderWidth, height: rect.size.height - borderWidth))
+//        CGContextSetStrokeColorWithColor(cxt, borderColor.CGColor)
+//        CGContextSetLineWidth(cxt, borderWidth)
+//        CGContextStrokePath(cxt)
         
         
 
         
-        drawLineGuide()///this is a test line to check rotation
+        //drawLineGuide()///this is a test line to check rotation
     }
     
     func drawLineGuide()
