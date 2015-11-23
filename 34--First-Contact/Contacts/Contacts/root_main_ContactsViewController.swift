@@ -19,17 +19,18 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
     var contacts: Results<Contact>!
     var currentCreateAction : UIAlertAction!
     
-    var stringAlphabet:String = "0123456789abcdefghijklmnopqrstuwxyz"
-    //var arrayAphabet = []
-    var sortedContactsDict = ["":""]
+    var stringAlphabet = "abcdefghijklmnopqrstuwxyz0123456789"
+    var arrayAphabet:Array<String>!
+    var sortedContactsDict = [String:Results<Contact>]()
+    
+    let collation = UILocalizedIndexedCollation.currentCollation() as UILocalizedIndexedCollation
 
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         contacts = realm.objects(Contact).sorted("name")
-        
-        let arrayAphabet = Array(stringAlphabet.characters)
+        createSortedDict()
         
         print(arrayAphabet)
         
@@ -41,6 +42,22 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
         tableView.reloadData()
     }
     
+    func createSortedDict()
+    {
+        //let sortedDogs = realm.objects(Dog).filter("color = 'tan' AND name BEGINSWITH 'B'").sorted("name")
+        
+        arrayAphabet = stringAlphabet.characters.map { String($0) }
+        
+        for ch in arrayAphabet
+        {
+            print("\(ch)")
+            sortedContactsDict["\(ch)"] = realm.objects(Contact).filter("name BEGINSWITH '\(ch.uppercaseString)'")//.sorted("name")
+        }
+        
+        print(sortedContactsDict)
+        
+    }
+    
 
     override func didReceiveMemoryWarning()
     {
@@ -48,35 +65,70 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - Table View Properties
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return 1
+        //return 1
+        return arrayAphabet.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return contacts.count
+        //return contacts.count
+        let aSection = sortedContactsDict[arrayAphabet[section]]!
+        print(aSection)
+        return aSection.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath)
-        let aContact = contacts[indexPath.row]
+        //let aContact = contacts[indexPath.row]
+        
+        let aContact:Contact = sortedContactsDict[arrayAphabet[indexPath.section]]![indexPath.row]
         cell.textLabel?.text = aContact.name
         cell.detailTextLabel?.text = "Contacts: \(aContact.familyConunt + aContact.friendCount)"
         
         return cell
     }
-
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         print("Hay que rico!!!")
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let contactDetailVC = storyboard?.instantiateViewControllerWithIdentifier("ContactViewController") as! ContactViewController
-        contactDetailVC.contact = contacts[indexPath.row]
+        contactDetailVC.contact = sortedContactsDict[arrayAphabet[indexPath.section]]![indexPath.row]
         navigationController?.pushViewController(contactDetailVC, animated: true)
     }
+    
+    
+    //MARK: - Section titles
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?//reference[1]
+    {
+        if sortedContactsDict[arrayAphabet[section]]?.isEmpty == false
+        {
+            return arrayAphabet[section]
+        }
+        
+        return ""
+    }
+    
+    
+    //MARK: - Section index titles right
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]?
+    {
+        
+        return self.arrayAphabet
+    }
+    
+    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int
+    {
+        return index
+    }
+
+   
 
     //MARK: - Action Handlers
     
@@ -209,3 +261,5 @@ class AlertdatePickerViewController: UIViewController
         dateTextField.text =  datePicker.date.description
     }
 }
+// MARK: Refrences:
+//reference[1]: http://www.pumpmybicep.com/2014/07/04/uitableview-sectioning-and-indexing/

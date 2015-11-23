@@ -7,6 +7,8 @@
 //
 
 import SpriteKit
+import CoreMotion
+
 
 class GameScene: SKScene
 {
@@ -25,6 +27,10 @@ class GameScene: SKScene
         case DownThenLeft
         case None
     }
+    
+    let motionManager: CMMotionManager = CMMotionManager()
+    
+    
     var contentCreated = false
     var invaderMovementDirection:InvaderMovementDirection = .Right
     
@@ -68,10 +74,13 @@ class GameScene: SKScene
 //        let invader = SKSpriteNode(imageNamed: "InvaderA_00.png")
 //        invader.position = CGPoint(x: size.width/2, y: size.height/2)
 //        addChild(invader)
+        backgroundColor = SKColor.blackColor()
+        
+        physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
+
         setupInvaders()
         setUpShip()
         setupHud()
-        backgroundColor = SKColor.blackColor()
     }
     
     
@@ -122,7 +131,7 @@ class GameScene: SKScene
             
             for var col = 1; col <= kInvaderColCount; col++
             {
-                var invader = makeInvaderOfType(invaderType)
+                let invader = makeInvaderOfType(invaderType)
                 invader.position = invaderPisition
                 
                 addChild(invader)
@@ -145,6 +154,13 @@ class GameScene: SKScene
     {
         let ship = SKSpriteNode(color: SKColor.greenColor(), size: kShipSize)
         ship.name = kShipName
+        
+        ship.physicsBody = SKPhysicsBody(rectangleOfSize: ship.frame.size)
+        ship.physicsBody!.dynamic = true
+        ship.physicsBody!.affectedByGravity = false
+        ship.physicsBody!.mass = 0.02
+        
+        
         return ship
     }
     
@@ -178,6 +194,8 @@ class GameScene: SKScene
             return
         }
         
+        determineInvaderMovementDirection()
+        
         enumerateChildNodesWithName(kInvaderName)
         {
             node, stop in
@@ -194,6 +212,62 @@ class GameScene: SKScene
             }
             
             self.timeOfLastMove = currentTime
+        }
+    }
+    
+    func determineInvaderMovementDirection()
+    {
+        var proposedMovementDirection: InvaderMovementDirection = invaderMovementDirection
+        enumerateChildNodesWithName(kInvaderName)
+        {
+            node, stop in
+            
+            //stop.memory = true
+
+            switch self.invaderMovementDirection
+            {
+            case .Right:
+                if CGRectGetMaxX(node.frame) >= node.scene!.size.width - 1.0
+                {
+                    proposedMovementDirection = .DownThenLeft
+                    stop.memory = true
+                }
+            case .Left:
+                if CGRectGetMaxX(node.frame) <= 1.0
+                {
+                    proposedMovementDirection = .DownThenRight
+                    stop.memory = true
+                    
+                }
+            case .DownThenLeft:
+                proposedMovementDirection = .Left
+                stop.memory = true
+            case .DownThenRight:
+                proposedMovementDirection = .Right
+                stop.memory = true
+            case .None:
+                break
+            }
+        }
+        
+        
+        invaderMovementDirection = proposedMovementDirection
+    }
+    
+    
+    func processuserMotionForUpdate(currentTime:CFTimeInterval)
+    {
+        let ship = childNodeWithName(kShipName) as! SKSpriteNode
+        
+        if let data = motionManager.accelerometerData
+        {
+            if (fabs(data.acceleration.x) > 0.2)
+            {
+                print("move the ship")
+                
+                ship.physicsBody!.applyForce(CGVectorMake(40.0 * CGFloat(data.acceleration.x), 0))
+                
+            }
         }
     }
 
@@ -217,7 +291,11 @@ class GameScene: SKScene
         }
     }
    
-    override func update(currentTime: CFTimeInterval) {
+    override func update(currentTime: CFTimeInterval)
+    {
         /* Called before each frame is rendered */
+        moveInvadersForUpdate(currentTime)
+        processuserMotionForUpdate(currentTime)
+
     }
 }
