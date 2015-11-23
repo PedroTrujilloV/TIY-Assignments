@@ -30,8 +30,9 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
     {
         super.viewDidLoad()
         contacts = realm.objects(Contact).sorted("name")
+        arrayAphabet = stringAlphabet.characters.map { String($0) }
         createSortedDict()
-        
+        title = "Contact List"
         print(arrayAphabet)
         
     }
@@ -42,19 +43,18 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
         tableView.reloadData()
     }
     
-    func createSortedDict()
+    func createSortedDict(critreria: String = "name")
     {
         //let sortedDogs = realm.objects(Dog).filter("color = 'tan' AND name BEGINSWITH 'B'").sorted("name")
-        
-        arrayAphabet = stringAlphabet.characters.map { String($0) }
+
         
         for ch in arrayAphabet
         {
             print("\(ch)")
-            sortedContactsDict["\(ch)"] = realm.objects(Contact).filter("name BEGINSWITH '\(ch.uppercaseString)'")//.sorted("name")
+            sortedContactsDict["\(ch)"] = contacts.filter("name BEGINSWITH '\(ch.uppercaseString)'").sorted(critreria, ascending: false)
         }
         
-        print(sortedContactsDict)
+        //print(sortedContactsDict)
         
     }
     
@@ -140,15 +140,20 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
         popUpAlertController.addTextFieldWithConfigurationHandler
         { (textField) -> Void in
             textField.placeholder = "Name"
+            textField.autocapitalizationType = UITextAutocapitalizationType.Words
+            textField.keyboardType = UIKeyboardType.ASCIICapable
             textField.addTarget(self, action: "personNameFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
         }
         popUpAlertController.addTextFieldWithConfigurationHandler
             { (textField) -> Void in
                 textField.placeholder = "Phone number"
+                textField.keyboardType = UIKeyboardType.PhonePad
+                
         }
         popUpAlertController.addTextFieldWithConfigurationHandler
             { (textField) -> Void in
                 textField.placeholder = "Email"
+                textField.keyboardType = UIKeyboardType.EmailAddress
         }
         popUpAlertController.addTextFieldWithConfigurationHandler
             { (textField) -> Void in
@@ -175,7 +180,7 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
             
             let newContact = Contact()
             
-            newContact.name = contactName!
+            newContact.name = contactName!.capitalizedString
             newContact.email = (contactEmail?.text)!
             newContact.phone = (contactNumber?.text)!
             newContact.birthdaty = (contactBirthday?.text)!
@@ -201,15 +206,17 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
     {
         if sender.selectedSegmentIndex == 0
         {
-            contacts = contacts.sorted("name")
+            //contacts = contacts.sorted("name")
+            createSortedDict()
         }
         else if sender.selectedSegmentIndex == 1
         {
-            contacts = contacts.sorted("friendCount", ascending: false)
+            //contacts = contacts.sorted("friendCount", ascending: false)
+            createSortedDict("friendCount")
         }
         else
         {
-            contacts = contacts.sorted("familyConunt", ascending: false)
+            createSortedDict("familyConunt")
         }
         
         tableView.reloadData()

@@ -12,11 +12,12 @@ import RealmSwift
 
 class ContactViewController: UIViewController {
 
-    @IBOutlet weak var contactCountLabel: UILabel!
+    //@IBOutlet weak var contactCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var PhoneLabel: UILabel!
     @IBOutlet weak var EmailLabel: UILabel!
     @IBOutlet weak var BirthdayLabel: UILabel!
+    @IBOutlet weak var segmentControlButton: UISegmentedControl!
     
     let realm = try! Realm()
     var contact: Contact?
@@ -35,14 +36,22 @@ class ContactViewController: UIViewController {
         allContacts = realm.objects(Contact).filter("name != %@", contact!.name).sorted("name")
         allContacts = allContacts.sorted("familyConunt", ascending: false)
         
+        title = "About \(contact!.name):"
+        
         updateContactsLabel()
     }
     
     func updateContactsLabel()
     {
-        let thing = (contact!.friendCount == 1 ? "" : "s")
+        //let thing = (contact!.friendCount == 1 ? "" : "s")
 
-        contactCountLabel.text = "\(contact!.name) has \(contact!.familyConunt) family and \(contact!.friendCount) friend\(thing) "
+       // contactCountLabel.text = "has \(contact!.familyConunt) family and \(contact!.friendCount) friend\(thing) "
+        
+//        
+//        segmentControlButton.titleForSegmentAtIndex(0) = "Friends: \(contact?.friendCount)"
+        segmentControlButton.setTitle("Friends: \(contact!.friendCount)", forSegmentAtIndex: 1)
+        segmentControlButton.setTitle("Family: \(contact!.familyConunt)", forSegmentAtIndex: 0)
+        
     }
     
     override func didReceiveMemoryWarning()
@@ -166,6 +175,7 @@ class ContactViewController: UIViewController {
             modeSelectionfamily = true
             allContacts = allContacts.sorted("familyConunt", ascending: false)
         }
+        updateContactsLabel()
         
         tableView.reloadData()
     }
