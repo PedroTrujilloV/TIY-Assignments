@@ -46,11 +46,8 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
          brickSize = CGFloat(UIScreen.mainScreen().bounds.size.width)/CGFloat(mazeSize) // calculate size of each brick
          radiusBalls =  CGFloat(brickSize)/CGFloat(1.7)//calculate the size of ball
 
-        //this is for test in simulator
+        //[!!!] uncoment this if you don't have an iPhone to test, this is for test in simulator 
        // NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated:", name: UIDeviceOrientationDidChangeNotification, object: UIDevice.currentDevice())
-        
-        //createMatrix()//uncoment
-        
         
         ///collision = UICollisionBehavior()
         

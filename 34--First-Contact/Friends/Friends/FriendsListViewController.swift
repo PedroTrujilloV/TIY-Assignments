@@ -60,7 +60,9 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func addFriend(sender: UIBarButtonItem)
     {
         let alertController = UIAlertController(title: "Add Person", message: "Type the person's name.", preferredStyle: UIAlertControllerStyle.Alert)
-        currentCreateAction = UIAlertAction(title: "Create", style: .Default) { (action) -> Void in
+        currentCreateAction = UIAlertAction(title: "Create", style: .Default)
+        {
+            (action) -> Void in
             let personName = alertController.textFields?.first?.text
             let newPerson = Person()
             newPerson.name = personName!
