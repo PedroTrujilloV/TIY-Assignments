@@ -18,13 +18,15 @@ class ContactViewController: UIViewController {
     let realm = try! Realm()
     var contact: Contact?
     var allContacts: Results<Contact>!
-    var modeSelectionfamily = false
+    var modeSelectionfamily = true
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         allContacts = realm.objects(Contact).filter("name != %@", contact!.name).sorted("name")
+        allContacts = allContacts.sorted("familyConunt", ascending: false)
+        
         updateContactsLabel()
     }
     
@@ -32,7 +34,7 @@ class ContactViewController: UIViewController {
     {
         let thing = (contact!.friendCount == 1 ? "" : "s")
 
-        contactCountLabel.text = "\(contact!.name) has \(contact!.friendCount) friend\(thing) and \(contact?.familyConunt) family"
+        contactCountLabel.text = "\(contact!.name) has \(contact!.familyConunt) family and \(contact!.friendCount) friend\(thing) "
     }
     
     override func didReceiveMemoryWarning()
@@ -64,16 +66,31 @@ class ContactViewController: UIViewController {
         
         let aPosibleContact = allContacts[indexPath.row]
         cell.textLabel?.text = aPosibleContact.name
-        let results = contact!.friends.filter("name == %@", aPosibleContact.name)
         
-        if results.count == 1
+        cell.accessoryType = .None
+        
+        if modeSelectionfamily == false
         {
-            cell.accessoryType = .Checkmark
+            let results = contact!.friends.filter("name == %@", aPosibleContact.name)
+            
+            if results.count == 1
+            {
+                cell.accessoryType = .Checkmark
+                
+            }
+
         }
         else
         {
-            cell.accessoryType = .None
+            let results = contact!.family.filter("name == %@", aPosibleContact.name)
+            
+            if results.count == 1
+            {
+                cell.accessoryType = .Checkmark
+                
+            }
         }
+        
         
         return cell
     }
@@ -131,12 +148,14 @@ class ContactViewController: UIViewController {
     
     @IBAction func changeSortCriteria(sender: UISegmentedControl)
     {
-        if sender.selectedSegmentIndex == 0
+        if sender.selectedSegmentIndex == 1
         {
+            modeSelectionfamily = false
             allContacts = allContacts.sorted("friendCount", ascending: false)
         }
         else
         {
+            modeSelectionfamily = true
             allContacts = allContacts.sorted("familyConunt", ascending: false)
         }
         
