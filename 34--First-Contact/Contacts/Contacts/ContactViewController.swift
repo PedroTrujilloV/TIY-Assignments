@@ -14,6 +14,9 @@ class ContactViewController: UIViewController {
 
     @IBOutlet weak var contactCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var PhoneLabel: UILabel!
+    @IBOutlet weak var EmailLabel: UILabel!
+    @IBOutlet weak var BirthdayLabel: UILabel!
     
     let realm = try! Realm()
     var contact: Contact?
@@ -24,6 +27,11 @@ class ContactViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        PhoneLabel.text = "Phone number: "+(contact?.phone)!
+        EmailLabel.text = "Email: "+(contact?.email)!
+        BirthdayLabel.text = "Birthday: "+(contact?.birthdaty)!
+        
         allContacts = realm.objects(Contact).filter("name != %@", contact!.name).sorted("name")
         allContacts = allContacts.sorted("familyConunt", ascending: false)
         
