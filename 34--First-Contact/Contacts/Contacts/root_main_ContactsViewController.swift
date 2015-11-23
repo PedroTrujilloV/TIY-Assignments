@@ -18,12 +18,21 @@ class root_main_ContactsViewController: UIViewController, UITableViewDataSource,
     let realm = try! Realm()
     var contacts: Results<Contact>!
     var currentCreateAction : UIAlertAction!
+    
+    var stringAlphabet:String = "0123456789abcdefghijklmnopqrstuwxyz"
+    //var arrayAphabet = []
+    var sortedContactsDict = ["":""]
 
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         contacts = realm.objects(Contact).sorted("name")
+        
+        let arrayAphabet = Array(stringAlphabet.characters)
+        
+        print(arrayAphabet)
+        
     }
     
     override func viewWillAppear(animated: Bool)
