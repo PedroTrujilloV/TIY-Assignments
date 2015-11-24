@@ -28,7 +28,20 @@ class GameScene: SKScene
         case None
     }
     
+    
+    enum BulletType
+    {
+        case ShipFired
+        case InvaderFired
+        
+    }
+    
     let motionManager: CMMotionManager = CMMotionManager()
+    var tapQueue:Array<Int> = []
+    
+    var contactQueue:Array<SKPhysicsContact> = []
+    
+    
     
     
     var contentCreated = false
@@ -37,6 +50,9 @@ class GameScene: SKScene
     var timeOfLastMove: CFTimeInterval = 0.0
     let timePerMove: CFTimeInterval = 1.0
     
+    let kShipFiredBulletName = "shipFiredBullet"
+    let kInvaderFiredBulletName = "invaderFiredBullet"
+    let kBulletSize = CGSize(width: 4.0, height: 3.0) ///bulet size
     
     let kInvaderSize = CGSize(width: 24, height: 16)
     let kInvaderGridSpacing = CGSize(width: 12, height: 12)
@@ -64,6 +80,7 @@ class GameScene: SKScene
         {
             createContent()
             contentCreated = true
+            motionManager.startAccelerometerUpdates()
         }
         
         self.addChild(myLabel)
@@ -187,6 +204,48 @@ class GameScene: SKScene
         addChild(healthLabel)
     }
     
+    func makeBulletIfType(bulletType:BulletType)->SKNode
+    {
+        var bullet:SKNode
+        
+        switch bulletType
+        {
+        case .ShipFired:
+            bullet = SKSpriteNode(color: SKColor.greenColor(), size: kBulletSize)
+            bullet.name = kShipFiredBulletName
+        case .InvaderFired:
+            bullet = SKSpriteNode(color: SKColor.magentaColor(), size: kBulletSize)
+            bullet.name = kInvaderFiredBulletName
+        }
+        
+        return bullet
+    }
+    
+    func firedBullet(bullet:SKNode, toDestination destination:CGPoint, withDuration duration:CFTimeInterval, andSoundFileName soundName: String)
+    {
+        let bulletAction = SKAction.sequence([SKAction.moveTo(destination, duration: duration),SKAction.waitForDuration(3.0/60.0),SKAction.removeFromParent()])
+        let soundAction = SKAction.playSoundFileNamed(soundName, waitForCompletion: true)
+        bullet.runAction(SKAction.group([bulletAction,soundAction]))
+        addChild(bullet)
+    }
+    
+    func fireShipBullets()
+    {
+        let existingBullet = childNodeWithName(kShipFiredBulletName)
+        
+        if existingBullet == nil
+        {
+            if let ship = childNodeWithName(kShipName)
+            {
+                let bullet = makeBulletIfType(.ShipFired)
+                bullet.position = CGPoint(x: ship.position.x, y: ship.position.y + ship.frame.size.height - bullet.frame.size.height/2)
+                let bulletDestination = CGPoint(x: ship.position.x, y: frame.size.height + bullet.frame.size.height/2)
+                
+                firedBullet(bullet, toDestination: bulletDestination, withDuration: 0.5, andSoundFileName: "fart-01.wav")//"ShipBullet.wav")//
+            }
+        }
+    }
+    
     func moveInvadersForUpdate(currentTime:CFTimeInterval)
     {
         if currentTime - timeOfLastMove < timePerMove
@@ -270,24 +329,33 @@ class GameScene: SKScene
             }
         }
     }
+    
+    func processUserTapsForUpdates(currentTimet:CFTimeInterval)
+    {
+        for tapCount in tapQueue
+        {
+            if tapCount == 1
+            {
+                fireShipBullets()
+            }
+            tapQueue.removeAtIndex(0)
+        }
+        
+    }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
+        let touche = touches.first! as UITouch
+        
+        if touche.tapCount == 1
+        {
+            tapQueue.append(1)
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
         }
     }
    
@@ -296,6 +364,7 @@ class GameScene: SKScene
         /* Called before each frame is rendered */
         moveInvadersForUpdate(currentTime)
         processuserMotionForUpdate(currentTime)
+        processUserTapsForUpdates(currentTime)
 
     }
 }

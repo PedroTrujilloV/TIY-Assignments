@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		684D1B5C1C035A080047B519 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1B5B1C035A080047B519 /* AppDelegate.swift */; };
-		684D1B5E1C035A080047B519 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 684D1B5D1C035A080047B519 /* GameScene.sks */; };
 		684D1B601C035A080047B519 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1B5F1C035A080047B519 /* GameScene.swift */; };
 		684D1B621C035A080047B519 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1B611C035A080047B519 /* GameViewController.swift */; };
 		684D1B651C035A080047B519 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684D1B631C035A080047B519 /* Main.storyboard */; };
@@ -33,12 +32,12 @@
 		684D1B951C035E060047B519 /* Ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 684D1B821C035E060047B519 /* Ship@2x.png */; settings = {ASSET_TAGS = (); }; };
 		684D1B961C035E060047B519 /* ShipBullet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 684D1B831C035E060047B519 /* ShipBullet.wav */; settings = {ASSET_TAGS = (); }; };
 		684D1B971C035E060047B519 /* ShipHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 684D1B841C035E060047B519 /* ShipHit.wav */; settings = {ASSET_TAGS = (); }; };
+		684D1B991C04B7770047B519 /* fart-01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 684D1B981C04B7770047B519 /* fart-01.wav */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		684D1B581C035A080047B519 /* SkyInvaders - Pedro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SkyInvaders - Pedro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		684D1B5B1C035A080047B519 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		684D1B5D1C035A080047B519 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		684D1B5F1C035A080047B519 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		684D1B611C035A080047B519 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		684D1B641C035A080047B519 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		684D1B821C035E060047B519 /* Ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship@2x.png"; sourceTree = "<group>"; };
 		684D1B831C035E060047B519 /* ShipBullet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ShipBullet.wav; sourceTree = "<group>"; };
 		684D1B841C035E060047B519 /* ShipHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ShipHit.wav; sourceTree = "<group>"; };
+		684D1B981C04B7770047B519 /* fart-01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "fart-01.wav"; path = "../fart-01.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				684D1B5B1C035A080047B519 /* AppDelegate.swift */,
-				684D1B5D1C035A080047B519 /* GameScene.sks */,
 				684D1B5F1C035A080047B519 /* GameScene.swift */,
 				684D1B611C035A080047B519 /* GameViewController.swift */,
 				684D1B631C035A080047B519 /* Main.storyboard */,
@@ -131,6 +130,7 @@
 				684D1B821C035E060047B519 /* Ship@2x.png */,
 				684D1B831C035E060047B519 /* ShipBullet.wav */,
 				684D1B841C035E060047B519 /* ShipHit.wav */,
+				684D1B981C04B7770047B519 /* fart-01.wav */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -193,10 +193,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				684D1B5E1C035A080047B519 /* GameScene.sks in Resources */,
 				684D1B931C035E060047B519 /* InvaderHit.wav in Resources */,
 				684D1B921C035E060047B519 /* InvaderC_01@2x.png in Resources */,
 				684D1B871C035E060047B519 /* InvaderA_00@2x.png in Resources */,
+				684D1B991C04B7770047B519 /* fart-01.wav in Resources */,
 				684D1B8B1C035E060047B519 /* InvaderB_00@2x.png in Resources */,
 				684D1B8A1C035E060047B519 /* InvaderB_00.png in Resources */,
 				684D1B891C035E060047B519 /* InvaderA_01@2x.png in Resources */,
@@ -376,6 +376,7 @@
 				684D1B701C035A080047B519 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
