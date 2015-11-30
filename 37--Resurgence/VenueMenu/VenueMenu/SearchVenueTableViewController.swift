@@ -24,6 +24,8 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
     var venuesArray:Array<NSDictionary> = []
     var shouldShowSearchResults = false
     var searchController = UISearchController(searchResultsController: nil)
+    
+    var locationString:String = ""
 
     var api: APIController!
     
@@ -68,6 +70,14 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        venuesArray.removeAll()
+        dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
+
+
     }
 
     // MARK: - Table view data source
@@ -128,10 +138,8 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
     {
         print(" latitudde: " + lat)
         print(" longitude: " + long)
-//        
-//        CitiesArray.append(city)
-//        appendAnnotation(city)
-        //self.mapView.addAnnotations(self.anotationsArray)
+        
+        locationString = lat+","+long
         
         navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
         
@@ -154,6 +162,8 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
         shouldShowSearchResults = false
         venuesArray.removeAll()
         tableView.reloadData()
+        //UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
         dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
     }
     
@@ -186,7 +196,7 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
         //print("no te demores quiero mas")
         shouldShowSearchResults = true
         venuesArray.removeAll()
-        api.searchApiFoursquareForData(searchBar.text!,byCriteria: "ll",location: "28.5542151,-81.34544170000001")
+        api.searchApiFoursquareForData(searchBar.text!,byCriteria: "ll",location: locationString)
         tableView.reloadData()
     }
     
