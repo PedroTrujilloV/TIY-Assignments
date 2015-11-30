@@ -1,0 +1,329 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		684D1BA71C0524520047B519 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1BA61C0524520047B519 /* AppDelegate.swift */; };
+		684D1BAC1C0524520047B519 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684D1BAA1C0524520047B519 /* Main.storyboard */; };
+		684D1BAF1C0524520047B519 /* VenueMenu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 684D1BAD1C0524520047B519 /* VenueMenu.xcdatamodeld */; };
+		684D1BB11C0524520047B519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 684D1BB01C0524520047B519 /* Assets.xcassets */; };
+		684D1BB41C0524520047B519 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684D1BB21C0524520047B519 /* LaunchScreen.storyboard */; };
+		684D1BE31C0B676D0047B519 /* Venue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1BE11C0B676D0047B519 /* Venue+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		684D1BE41C0B676D0047B519 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1BE21C0B676D0047B519 /* Venue.swift */; settings = {ASSET_TAGS = (); }; };
+		684D1BE61C0B696F0047B519 /* VenueMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1BE51C0B696F0047B519 /* VenueMenuTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		684D1BE81C0BD8C80047B519 /* SearchVenueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1BE71C0BD8C80047B519 /* SearchVenueTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		684D1BEA1C0BE0A90047B519 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D1BE91C0BE0A90047B519 /* APIController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F506A51C0C35AE00BE7AAE /* PopoverAddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F506A41C0C35AE00BE7AAE /* PopoverAddCityViewController.swift */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		684D1BA31C0524520047B519 /* VenueMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		684D1BA61C0524520047B519 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		684D1BAB1C0524520047B519 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		684D1BAE1C0524520047B519 /* VenueMenu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VenueMenu.xcdatamodel; sourceTree = "<group>"; };
+		684D1BB01C0524520047B519 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		684D1BB31C0524520047B519 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		684D1BB51C0524520047B519 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		684D1BE11C0B676D0047B519 /* Venue+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Venue+CoreDataProperties.swift"; path = "../Venue+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		684D1BE21C0B676D0047B519 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Venue.swift; path = ../Venue.swift; sourceTree = "<group>"; };
+		684D1BE51C0B696F0047B519 /* VenueMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueMenuTableViewController.swift; sourceTree = "<group>"; };
+		684D1BE71C0BD8C80047B519 /* SearchVenueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVenueTableViewController.swift; sourceTree = "<group>"; };
+		684D1BE91C0BE0A90047B519 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		68F506A41C0C35AE00BE7AAE /* PopoverAddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAddCityViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		684D1BA01C0524520047B519 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		684D1B9A1C0524520047B519 = {
+			isa = PBXGroup;
+			children = (
+				684D1BA51C0524520047B519 /* VenueMenu */,
+				684D1BA41C0524520047B519 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		684D1BA41C0524520047B519 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				684D1BA31C0524520047B519 /* VenueMenu.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		684D1BA51C0524520047B519 /* VenueMenu */ = {
+			isa = PBXGroup;
+			children = (
+				684D1BA61C0524520047B519 /* AppDelegate.swift */,
+				684D1BE11C0B676D0047B519 /* Venue+CoreDataProperties.swift */,
+				684D1BE21C0B676D0047B519 /* Venue.swift */,
+				684D1BE51C0B696F0047B519 /* VenueMenuTableViewController.swift */,
+				684D1BE71C0BD8C80047B519 /* SearchVenueTableViewController.swift */,
+				684D1BE91C0BE0A90047B519 /* APIController.swift */,
+				68F506A41C0C35AE00BE7AAE /* PopoverAddCityViewController.swift */,
+				684D1BAA1C0524520047B519 /* Main.storyboard */,
+				684D1BB01C0524520047B519 /* Assets.xcassets */,
+				684D1BB21C0524520047B519 /* LaunchScreen.storyboard */,
+				684D1BB51C0524520047B519 /* Info.plist */,
+				684D1BAD1C0524520047B519 /* VenueMenu.xcdatamodeld */,
+			);
+			path = VenueMenu;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		684D1BA21C0524520047B519 /* VenueMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 684D1BB81C0524520047B519 /* Build configuration list for PBXNativeTarget "VenueMenu" */;
+			buildPhases = (
+				684D1B9F1C0524520047B519 /* Sources */,
+				684D1BA01C0524520047B519 /* Frameworks */,
+				684D1BA11C0524520047B519 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VenueMenu;
+			productName = VenueMenu;
+			productReference = 684D1BA31C0524520047B519 /* VenueMenu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		684D1B9B1C0524520047B519 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Pedro Trujillo";
+				TargetAttributes = {
+					684D1BA21C0524520047B519 = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = S775VU6U75;
+					};
+				};
+			};
+			buildConfigurationList = 684D1B9E1C0524520047B519 /* Build configuration list for PBXProject "VenueMenu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 684D1B9A1C0524520047B519;
+			productRefGroup = 684D1BA41C0524520047B519 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				684D1BA21C0524520047B519 /* VenueMenu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		684D1BA11C0524520047B519 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				684D1BB41C0524520047B519 /* LaunchScreen.storyboard in Resources */,
+				684D1BB11C0524520047B519 /* Assets.xcassets in Resources */,
+				684D1BAC1C0524520047B519 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		684D1B9F1C0524520047B519 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				684D1BEA1C0BE0A90047B519 /* APIController.swift in Sources */,
+				684D1BAF1C0524520047B519 /* VenueMenu.xcdatamodeld in Sources */,
+				684D1BE41C0B676D0047B519 /* Venue.swift in Sources */,
+				684D1BE61C0B696F0047B519 /* VenueMenuTableViewController.swift in Sources */,
+				684D1BA71C0524520047B519 /* AppDelegate.swift in Sources */,
+				68F506A51C0C35AE00BE7AAE /* PopoverAddCityViewController.swift in Sources */,
+				684D1BE31C0B676D0047B519 /* Venue+CoreDataProperties.swift in Sources */,
+				684D1BE81C0BD8C80047B519 /* SearchVenueTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		684D1BAA1C0524520047B519 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				684D1BAB1C0524520047B519 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		684D1BB21C0524520047B519 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				684D1BB31C0524520047B519 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		684D1BB61C0524520047B519 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		684D1BB71C0524520047B519 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		684D1BB91C0524520047B519 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VenueMenu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.VenueMenu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		684D1BBA1C0524520047B519 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VenueMenu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.VenueMenu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		684D1B9E1C0524520047B519 /* Build configuration list for PBXProject "VenueMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				684D1BB61C0524520047B519 /* Debug */,
+				684D1BB71C0524520047B519 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		684D1BB81C0524520047B519 /* Build configuration list for PBXNativeTarget "VenueMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				684D1BB91C0524520047B519 /* Debug */,
+				684D1BBA1C0524520047B519 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		684D1BAD1C0524520047B519 /* VenueMenu.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				684D1BAE1C0524520047B519 /* VenueMenu.xcdatamodel */,
+			);
+			currentVersion = 684D1BAE1C0524520047B519 /* VenueMenu.xcdatamodel */;
+			path = VenueMenu.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 684D1B9B1C0524520047B519 /* Project object */;
+}
