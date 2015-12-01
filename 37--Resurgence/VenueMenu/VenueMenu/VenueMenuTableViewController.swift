@@ -11,23 +11,51 @@ import CoreData
 
 protocol SearchTableViewProtocol
 {
-    func venueWasFound(city:Venue)
+    func venueWasFound(venues:NSArray)
 }
 
 
 class VenueMenuTableViewController: UITableViewController, SearchTableViewProtocol
 {
-    var venuesArray:Array<Venue>!
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
+    var venuesArray:Array<Venue> = []
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        
+        let fetchRequest = NSFetchRequest (entityName: "Venue")
+        
+        do
+        {
+            let fetchRequestResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? Array<Venue>
+            venuesArray = fetchRequestResults!
+            print(venuesArray)
+            for venue in venuesArray
+            {
+                print(venue)
+            }
+        }
+            
+        catch
+        {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+
     }
 
     override func didReceiveMemoryWarning()
@@ -38,25 +66,33 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return venuesArray.count
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
+        
+        let aVenue = venuesArray[indexPath.row] as Venue
 
-        // Configure the cell...
+        //let venue:NSDictionary = parseJSON(aVenue.infoDict!)!
+        
+        //print(venue)
+        //cell.textLabel?.text = venue["name"] as! NSString as String
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -93,21 +129,34 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ShowSearchVenueTableViewControllerSegue"
+        {
+            let datePickerVC = segue.destinationViewController as! SearchVenueTableViewController
+            datePickerVC.delegator = self
+        }
     }
-    */
+
     
     //MARK: Protocol functions 
 
     
-    func venueWasFound(city:Venue)
+    func venueWasFound(venues:NSArray)
     {
+        //print("venue.infoDict: ")
+        //print(venues)
+        let newVenue = NSEntityDescription.insertNewObjectForEntityForName("Venue", inManagedObjectContext: managedObjectContext) as! Venue
+        
+        venuesArray.append(newVenue)
+        newVenue.infoDict = venues[0].description
+        venuesArray.append(newVenue)
+        saveContext()
+        tableView.reloadData()
     }
 
     
@@ -117,6 +166,45 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
     {
         print("Hay que rico!")
     }
+    
+    
+    //MARK: Save context
+    func saveContext()
+    {
+        do
+        {
+            try managedObjectContext.save()
+        }
+        catch
+        {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+    }
+    
+    func parseJSON(stringCoreData:String) -> NSDictionary?
+    {
+        if let data = stringCoreData.dataUsingEncoding(NSUTF8StringEncoding)
+        {
+            do
+            {
+               
+                let dictionary: NSDictionary! = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
+                return dictionary
+            }
+            catch let error as NSError
+            {
+                print(error)
+                return nil
+            }
+        }
+        else
+        {
+            return nil
+        }
+    }
+        
     
     
 

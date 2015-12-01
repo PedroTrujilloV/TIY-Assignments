@@ -2,7 +2,7 @@
 //  Venue+CoreDataProperties.swift
 //  VenueMenu
 //
-//  Created by Pedro Trujillo on 11/29/15.
+//  Created by Pedro Trujillo on 11/30/15.
 //  Copyright © 2015 Pedro Trujillo. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,6 +14,6 @@ import CoreData
 
 extension Venue {
 
-    @NSManaged var infoDict: NSDictionary?
+    @NSManaged var infoDict: String?
 
 }

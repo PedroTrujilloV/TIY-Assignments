@@ -32,7 +32,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="6Jp-dG-ynR">
                             <connections>
                                 <action selector="SearchAddVenueButtonTappedAction:" destination="gEU-id-v5D" id="kHM-dW-C66"/>
-                                <segue destination="iKC-0y-DBo" kind="show" id="vcV-He-NTZ"/>
+                                <segue destination="iKC-0y-DBo" kind="show" identifier="ShowSearchVenueTableViewControllerSegue" id="vcV-He-NTZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

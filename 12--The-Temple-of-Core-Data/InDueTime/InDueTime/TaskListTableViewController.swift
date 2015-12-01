@@ -157,9 +157,6 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-            
-            
-            
         }
         
         tableView.reloadData()

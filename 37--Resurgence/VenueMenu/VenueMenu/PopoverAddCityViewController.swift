@@ -108,13 +108,13 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
             else
             {
                 self.locationManager.stopUpdatingLocation()
-//                let cityName = placemark?[0].locality
+                let cityName = placemark?[0].locality
 //                let zipCode = placemark?[0].postalCode
                 self.locationTextField.text = placemark?[0].locality
                 let lat = location!.coordinate.latitude
                 let lng = location!.coordinate.longitude
 //                let stateName = placemark?[0].administrativeArea
-                self.delegator!.cityWasChosen(lat.description, long: lng.description)
+                self.delegator!.cityWasChosen(lat.description, long: lng.description, name: cityName!)
             }
         })
         
@@ -143,7 +143,7 @@ class PopoverAddCityViewController: UIViewController, UITextFieldDelegate, CLLoc
                 let lat = placemarks![0].location?.coordinate.latitude
                 let lng = placemarks![0].location?.coordinate.longitude
                 let stateName = placemarks?[0].administrativeArea
-                self.delegator!.cityWasChosen(lat!.description, long: lng!.description)
+                self.delegator!.cityWasChosen(lat!.description, long: lng!.description, name: cityName!)
             }
         })
     }

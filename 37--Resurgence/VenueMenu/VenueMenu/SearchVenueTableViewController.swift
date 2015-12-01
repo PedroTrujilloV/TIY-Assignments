@@ -15,7 +15,7 @@ protocol APIControllerProtocol
 }
 protocol PopoverViewControllerProtocol
 {
-    func cityWasChosen(lat:String,long:String)
+    func cityWasChosen(lat:String,long:String, name:String)
 }
 
 class SearchVenueTableViewController: UITableViewController,APIControllerProtocol,UISearchBarDelegate, UISearchDisplayDelegate, UISearchResultsUpdating,PopoverViewControllerProtocol,UIPopoverPresentationControllerDelegate
@@ -29,11 +29,16 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
 
     var api: APIController!
     
+    var delegator: SearchTableViewProtocol!
 
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        title = "Set up the prefered"
+        self.performSegueWithIdentifier("PopoverAddCityViewControllerSegue", sender: self)
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,7 +53,7 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
         //api.searchApiFoursquareForData("sushi",byCriteria: "",location: "Orlando, Fl")
         
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = true//false
         searchController.hidesNavigationBarDuringPresentation = false
         //searchController.searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 80)
         //searchController.searchBar.center.y = 200
@@ -61,7 +66,6 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         
-        self.performSegueWithIdentifier("PopoverAddCityViewControllerSegue", sender: self)
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         self.tableView.reloadData()
     }
@@ -75,6 +79,8 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
     override func viewWillDisappear(animated: Bool)
     {
         venuesArray.removeAll()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        //searchController.hidesNavigationBarDuringPresentation = true
         dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
 
 
@@ -106,8 +112,20 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
 
-   
+        delegator.venueWasFound([venuesArray[indexPath.row]])
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
+        dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
+
+
+
+    }
+    
+
+   //MARK: Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
@@ -134,12 +152,14 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
         })
     }
     
-    func cityWasChosen(lat:String,long:String)
+    func cityWasChosen(lat:String,long:String, name:String)
     {
         print(" latitudde: " + lat)
         print(" longitude: " + long)
         
         locationString = lat+","+long
+        
+        title = name
         
         navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
         
@@ -169,9 +189,8 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar)
     {
-        if !shouldShowSearchResults {
-            //print("ahi! me tocaste el boton de buscar")
-            //gitHubFriends.removeAll()
+        if !shouldShowSearchResults
+        {
             shouldShowSearchResults = true
             
            // api.searchApiFoursquareForData(searchBar.text!,byCriteria: "ll",location: "28.5542151,-81.34544170000001")
