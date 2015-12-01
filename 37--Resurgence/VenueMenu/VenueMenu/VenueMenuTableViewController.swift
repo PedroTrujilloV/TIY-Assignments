@@ -11,7 +11,7 @@ import CoreData
 
 protocol SearchTableViewProtocol
 {
-    func venueWasFound(venues:NSArray)
+    func venueWasFound(venues:Array<NSDictionary>)
 }
 
 
@@ -20,6 +20,7 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     var venuesArray:Array<Venue> = []
+    var venuesIDsArray: Array<String> = []
 
     override func viewDidLoad()
     {
@@ -33,11 +34,16 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
             let fetchRequestResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? Array<Venue>
             venuesArray = fetchRequestResults!
             print(venuesArray)
-            //for venue in venuesArray
-            //{
-                //let newVenue:Venue = venue as Venue
-                //print(newVenue.infoDict)
-            //}
+            for venue in venuesArray
+            {
+                let newVenue:Venue = venue as Venue
+                
+                let venue:NSDictionary = parseJSONStringToNSDictionary(newVenue.infoDict!)!
+                venuesIDsArray.append(venue["id"] as! NSString as String)
+               // print(newVenue.infoDict)
+            }
+            
+            print(venuesIDsArray)
         }
             
         catch
@@ -88,7 +94,7 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
 
         let venue:NSDictionary = parseJSONStringToNSDictionary(aVenue.infoDict!)!
         
-        //print(venue)
+        print(venue)
         cell.textLabel?.text = venue["name"] as! NSString as String
 
         return cell
@@ -108,7 +114,13 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete
         {
-            let aVenue = venuesArray[indexPath.row]
+            let aVenue:Venue = venuesArray[indexPath.row] as Venue
+            
+            let venue:NSDictionary = parseJSONStringToNSDictionary(aVenue.infoDict!)!
+            let id:String = venue["id"] as! NSString as String
+            let index:Int = Int(venuesIDsArray.indexOf(id)!)
+            venuesIDsArray.removeAtIndex(index)
+
             venuesArray.removeAtIndex(indexPath.row)
             managedObjectContext.deleteObject(aVenue)
             saveContext()
@@ -135,6 +147,7 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
         {
             let datePickerVC = segue.destinationViewController as! SearchVenueTableViewController
             datePickerVC.delegator = self
+            datePickerVC.venuesIDsArray = self.venuesIDsArray
         }
     }
 
@@ -142,27 +155,28 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
     //MARK: Protocol functions 
 
     
-    func venueWasFound(venues:NSArray)
+    func venueWasFound(venues:Array<NSDictionary>)
     {
-        print("======= venue.infoDict: ")
-        let newVenue = NSEntityDescription.insertNewObjectForEntityForName("Venue", inManagedObjectContext: managedObjectContext) as! Venue
-        let infoVenue = venues[0] as! NSDictionary
         
-        
-        if let dictionaryString = parseJSONNSDictionaryToString(infoVenue) as? String
+        for venue in venues
         {
-
-            newVenue.infoDict = dictionaryString//infoVenue.description //reference [1]
-        
-            //print(newVenue.infoDict)
-            venuesArray.append(newVenue)
-        
-        
-            saveContext()
+            print("======= venue.infoDict: ")
+            
+            if let infoVenue:NSDictionary = venue 
+            {
+                if let dictionaryString = parseJSONNSDictionaryToString(infoVenue) as? String
+                {
+                    let newVenue = NSEntityDescription.insertNewObjectForEntityForName("Venue", inManagedObjectContext: managedObjectContext) as! Venue
+                    
+                    venuesIDsArray.append(infoVenue["id"] as! NSString as String)
+                    newVenue.infoDict = dictionaryString //reference [1]
+                    venuesArray.append(newVenue)
+                    saveContext()
+                }
+            }
         }
+        
         tableView.reloadData()
-        //print(venuesArray[venuesArray.count-2].infoDict)
-
     }
 
     

@@ -1,0 +1,813 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0346917A90B1799C698C31C62B1184D7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C556D34569EE2230B4420D5ABA99E /* Session.swift */; };
+		05D98411A3054C9B28DACDADD54E4982 /* NativeTouchAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD6A665622ADE389EA5512A5BEB16A2 /* NativeTouchAuthorizer.swift */; };
+		0BE7BDA09532B83827D62B379A26F426 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F0972445588DA2984B3910F673633 /* Users.swift */; };
+		101CF7F26307DBD128D41BD323EEBF8F /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B04792CC81EADE624B41588C2B5CBF2 /* Tips.swift */; };
+		3A5DF067CB08C287940313E587587512 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D820BA2602BCBFDAEFA60A2883FB8F30 /* Foundation.framework */; };
+		3C0D82F2B295B89EFB4B6F40966F0FF2 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DB7FFD1EB32B3CE5B15C22A34059B /* Lists.swift */; };
+		40886386CB7F57D84432FFFFD1EBBE31 /* Authorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15853A8D5FB459483A32876C9243C327 /* Authorizer.swift */; };
+		428243F18F630A7DD074189A487F1AA2 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB3134C2D605D7BA0DE3BBC75E3B849 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A3A1AB8BFFB59BCC325A9CC2F57D4EC /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5737AA9A468E11280B1C656FEDC1C0 /* Endpoint.swift */; };
+		5CC24A2FADC5A73D20A4A1143DCABD5C /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594569BE2B35BC5864BFA922AC736A1 /* Events.swift */; };
+		61D54291B20CE17B41F3BD92EEC9C47F /* OauthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEE07A27081C9B6A58BB671EF1AFEA /* OauthErrors.swift */; };
+		65CF835E43D975AF0C3774365BBA5D2B /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B5B8B787FF8F0A6FC48A67B070AFF /* Photos.swift */; };
+		66D9C6B8B75C4597B391A3438DD104D6 /* Venues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93380BBB17F6B12B3790A01B17D410D7 /* Venues.swift */; };
+		687011CF8DCEE113A7954B6FC9F6212E /* QuadratTouch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F8D7B6FCA5B09EA662B11BFEE79197 /* QuadratTouch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6991B281AAC9A092F54AA30F5F019797 /* Specials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3CEA80D2B5AA7D963FA60BCF6C8F25 /* Specials.swift */; };
+		6D2288B1C9AB053CF064FE80CAB39C82 /* Pods-VenuesMenuQuadrat-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 985F637FBD34C992454AEF8B785B2BD3 /* Pods-VenuesMenuQuadrat-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79596EFCCB703DFB1E83917BE0AE0027 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85A054078B0822C09E4EAE713A382B /* Keychain.swift */; };
+		7E0604FDFD488B92D9124D70644F1279 /* TouchAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1DE5ED942CDEF0C4C5765427C3DCB /* TouchAuthorizer.swift */; };
+		7E8A3974A286125CE2742A90C5D2A7ED /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC180037D3EB725FED6B796FCF24B5 /* Updates.swift */; };
+		801790ADD863CDABB6B4DDA6E7FD9CEF /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A898706A4071CC97A17773E82D66EB2 /* Pods-dummy.m */; };
+		84838FF0C63CD28211EF013923BF4975 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7AF2373EB56606D418EBD049781B32 /* Authorization.swift */; };
+		8B3746984C060C5C911A88DD37FADB27 /* Pods-VenuesMenuQuadrat-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F18C2A621419F5941875E2E95A7D28 /* Pods-VenuesMenuQuadrat-dummy.m */; };
+		95244E15E8370C3539F4924422ED98A0 /* Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326D6C8E1AC625DA70B058DBE1B4EA2E /* Pages.swift */; };
+		967C7243022C1CFEDEB98C9B74C9E370 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E4438DB1DF1ABAF970E61320B06DB /* Logger.swift */; };
+		9C93327B3D87C108ADA0191863EB5C00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D820BA2602BCBFDAEFA60A2883FB8F30 /* Foundation.framework */; };
+		A12F6E6CE5020E2804A43D5D673BB12E /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D682E8C57D9E21C4F4267BEB387B8D44 /* AuthorizationViewController.swift */; };
+		A1576C904A7F38A3FD059853860060E7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041D6CC92EBE424669CC3C69B52F424 /* Request.swift */; };
+		A917789787DA05B0FC9FC56B14EB9692 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B6FB22C29F210E080240A7699475F2 /* Result.swift */; };
+		AA3793AF9B205E93CA007ACB440AAFFC /* Checkins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FDE1451BBC4C4D3FA9AFE822EB12F /* Checkins.swift */; };
+		AA540851469A1DF68A273CDE576BAEF1 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A01BE44A2AFF507131971AED78EBC /* Configuration.swift */; };
+		ADA702EEBA9C8F3B78FA3BE7D9DD58B7 /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99293C4C09B861A7F978C54C20CE8DB3 /* DataCache.swift */; };
+		B17A816DD6A8C83E3496A71FA0D3B7B0 /* QuadratTouch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F46CFE9C33A2DA57FAF1176122418 /* QuadratTouch-dummy.m */; };
+		BC31E5F721713554B1D6E47ED6FED5B6 /* Multi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD26F2988BC9A262183438F376A76F2 /* Multi.swift */; };
+		BE1372CBFC53B45249D771A01F49D17F /* NetworkActivityIndicatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973B40C0CBA71380933C05661DBC08F8 /* NetworkActivityIndicatorController.swift */; };
+		BEDD86C13908EC9C635B3C9DDA4DB60E /* AuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1CE723D821C7094EB918FA4918437E /* AuthorizationViewController.xib */; };
+		C8C581C6D2E9F58DD5AC34A4D6E9B73B /* QuadratTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 09E329A8A7626045D06DBDF08B7FC8EB /* QuadratTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D395FC676763B6ED0B65599214A5BD51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D820BA2602BCBFDAEFA60A2883FB8F30 /* Foundation.framework */; };
+		D62250387F9E2AE2CAF15A584244B390 /* VenueGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC4AB93F8A841B9749165052FE3357 /* VenueGroups.swift */; };
+		E2F331A8C896BFF76E4C2F7E58BECF75 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB0853BD8CE1AE8CF5FE525E44C538C /* SystemConfiguration.framework */; };
+		E81FC50DCAA7236C6C87B163C00CA0C9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE434C4C5C42E6210DAEA72B530058E6 /* Task.swift */; };
+		EE0619861C6B7D239E2B89C55B31DEAB /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223F6804DF4AF5748078453D3B36AE7A /* Parameters.swift */; };
+		FD6CA0F4798423C58B952D75F40874C3 /* PageUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990FAE58A54763F558A22CBAD3046DBA /* PageUpdates.swift */; };
+		FDABB06144D54E6B1C106AFA1ECB2475 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBDE3D5A7EB6FF8441ECD47F16C842D /* Settings.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8274C1C29AB48322780305A0C1403E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AA7F305E1D4563483F437FA830DB678;
+			remoteInfo = QuadratTouch;
+		};
+		B4E36CCD2AC63E27AF40DF555AE669AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AA7F305E1D4563483F437FA830DB678;
+			remoteInfo = QuadratTouch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0209D3287A2E2CABADA632438D59A8EF /* Pods-VenuesMenuQuadrat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VenuesMenuQuadrat.debug.xcconfig"; sourceTree = "<group>"; };
+		02FC180037D3EB725FED6B796FCF24B5 /* Updates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = Source/Shared/Endpoints/Updates.swift; sourceTree = "<group>"; };
+		07F18C2A621419F5941875E2E95A7D28 /* Pods-VenuesMenuQuadrat-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VenuesMenuQuadrat-dummy.m"; sourceTree = "<group>"; };
+		08E4B8AC23E793772D35D690ACE4CF9B /* QuadratTouch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = QuadratTouch.modulemap; sourceTree = "<group>"; };
+		096B5B8B787FF8F0A6FC48A67B070AFF /* Photos.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Photos.swift; path = Source/Shared/Endpoints/Photos.swift; sourceTree = "<group>"; };
+		09E329A8A7626045D06DBDF08B7FC8EB /* QuadratTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuadratTouch.h; path = Source/QuadratTouch/QuadratTouch.h; sourceTree = "<group>"; };
+		0C506FC846034627F5F9565FFD280279 /* QuadratTouch-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QuadratTouch-prefix.pch"; sourceTree = "<group>"; };
+		124544507380EEE8D4015246E2E411D6 /* Pods-VenuesMenuQuadrat-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VenuesMenuQuadrat-frameworks.sh"; sourceTree = "<group>"; };
+		15853A8D5FB459483A32876C9243C327 /* Authorizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Authorizer.swift; path = Source/Shared/Authorizer.swift; sourceTree = "<group>"; };
+		17DEE07A27081C9B6A58BB671EF1AFEA /* OauthErrors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OauthErrors.swift; path = Source/Shared/OauthErrors.swift; sourceTree = "<group>"; };
+		1C99EE871C13D443E450230C6AA32349 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		1DD6A665622ADE389EA5512A5BEB16A2 /* NativeTouchAuthorizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NativeTouchAuthorizer.swift; path = Source/iOS/NativeTouchAuthorizer.swift; sourceTree = "<group>"; };
+		2017773404B536D38BD76AA7A4C2C7DD /* QuadratTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuadratTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20619FF4CC8C6C0761475166CDFD9DCC /* QuadratTouch.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QuadratTouch.xcconfig; sourceTree = "<group>"; };
+		223F6804DF4AF5748078453D3B36AE7A /* Parameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parameters.swift; path = Source/Shared/Parameters.swift; sourceTree = "<group>"; };
+		2332AB7B7FF050565D3960EC81ACE193 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		258E4438DB1DF1ABAF970E61320B06DB /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Source/Shared/Logger.swift; sourceTree = "<group>"; };
+		2B7AF2373EB56606D418EBD049781B32 /* Authorization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Authorization.swift; path = Source/iOS/Authorization.swift; sourceTree = "<group>"; };
+		3041D6CC92EBE424669CC3C69B52F424 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Shared/Request.swift; sourceTree = "<group>"; };
+		326D6C8E1AC625DA70B058DBE1B4EA2E /* Pages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pages.swift; path = Source/Shared/Endpoints/Pages.swift; sourceTree = "<group>"; };
+		339C556D34569EE2230B4420D5ABA99E /* Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Source/Shared/Session.swift; sourceTree = "<group>"; };
+		36E291880AFECB4C7BF6D659540602BA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E5B437974F9CC1D1110E0E71971DB38 /* Pods-VenuesMenuQuadrat-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VenuesMenuQuadrat-acknowledgements.plist"; sourceTree = "<group>"; };
+		445DB7FFD1EB32B3CE5B15C22A34059B /* Lists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Lists.swift; path = Source/Shared/Endpoints/Lists.swift; sourceTree = "<group>"; };
+		4BC610B50D1A0F3C93545E58D57F338C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		5C3CEA80D2B5AA7D963FA60BCF6C8F25 /* Specials.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Specials.swift; path = Source/Shared/Endpoints/Specials.swift; sourceTree = "<group>"; };
+		5CD26F2988BC9A262183438F376A76F2 /* Multi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Multi.swift; path = Source/Shared/Endpoints/Multi.swift; sourceTree = "<group>"; };
+		65F8D7B6FCA5B09EA662B11BFEE79197 /* QuadratTouch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QuadratTouch-umbrella.h"; sourceTree = "<group>"; };
+		6A898706A4071CC97A17773E82D66EB2 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		6B04792CC81EADE624B41588C2B5CBF2 /* Tips.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tips.swift; path = Source/Shared/Endpoints/Tips.swift; sourceTree = "<group>"; };
+		6DBC4AB93F8A841B9749165052FE3357 /* VenueGroups.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VenueGroups.swift; path = Source/Shared/Endpoints/VenueGroups.swift; sourceTree = "<group>"; };
+		79084BF9C668121811EDECD1A91F29F8 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7E85A054078B0822C09E4EAE713A382B /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Source/Shared/Keychain.swift; sourceTree = "<group>"; };
+		7ECDFFCEFF10C07B6A478559197AF64A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		886F0972445588DA2984B3910F673633 /* Users.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Users.swift; path = Source/Shared/Endpoints/Users.swift; sourceTree = "<group>"; };
+		891B99532BCEDAC69A77123187D7CB80 /* Pods-VenuesMenuQuadrat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VenuesMenuQuadrat.release.xcconfig"; sourceTree = "<group>"; };
+		8B1CE723D821C7094EB918FA4918437E /* AuthorizationViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = AuthorizationViewController.xib; path = Source/iOS/AuthorizationViewController.xib; sourceTree = "<group>"; };
+		90DC7AD9700B276F1E37A23E1967F865 /* Pods-VenuesMenuQuadrat-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VenuesMenuQuadrat-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93380BBB17F6B12B3790A01B17D410D7 /* Venues.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Venues.swift; path = Source/Shared/Endpoints/Venues.swift; sourceTree = "<group>"; };
+		973B40C0CBA71380933C05661DBC08F8 /* NetworkActivityIndicatorController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkActivityIndicatorController.swift; path = Source/Shared/NetworkActivityIndicatorController.swift; sourceTree = "<group>"; };
+		978FDE1451BBC4C4D3FA9AFE822EB12F /* Checkins.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Checkins.swift; path = Source/Shared/Endpoints/Checkins.swift; sourceTree = "<group>"; };
+		985F637FBD34C992454AEF8B785B2BD3 /* Pods-VenuesMenuQuadrat-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VenuesMenuQuadrat-umbrella.h"; sourceTree = "<group>"; };
+		990FAE58A54763F558A22CBAD3046DBA /* PageUpdates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PageUpdates.swift; path = Source/Shared/Endpoints/PageUpdates.swift; sourceTree = "<group>"; };
+		99293C4C09B861A7F978C54C20CE8DB3 /* DataCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataCache.swift; path = Source/Shared/DataCache.swift; sourceTree = "<group>"; };
+		9A8A01BE44A2AFF507131971AED78EBC /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Source/Shared/Configuration.swift; sourceTree = "<group>"; };
+		9B95258ED12E3397C3986D7A1D24924C /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
+		A00F46CFE9C33A2DA57FAF1176122418 /* QuadratTouch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QuadratTouch-dummy.m"; sourceTree = "<group>"; };
+		A0D1DE5ED942CDEF0C4C5765427C3DCB /* TouchAuthorizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TouchAuthorizer.swift; path = Source/iOS/TouchAuthorizer.swift; sourceTree = "<group>"; };
+		A1E22EB5A165F1D886F21593C20837C8 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		ACBDE3D5A7EB6FF8441ECD47F16C842D /* Settings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = Source/Shared/Endpoints/Settings.swift; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BE434C4C5C42E6210DAEA72B530058E6 /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Source/Shared/Task.swift; sourceTree = "<group>"; };
+		C43A44DCC1AB5D851CB76668E1EA0874 /* Pods-VenuesMenuQuadrat.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-VenuesMenuQuadrat.modulemap"; sourceTree = "<group>"; };
+		C6B6FB22C29F210E080240A7699475F2 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Shared/Result.swift; sourceTree = "<group>"; };
+		CADBD6019FA35C7A385C8BD6E8FC17FE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBB0853BD8CE1AE8CF5FE525E44C538C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		D4405DD8CD4641D31097BB036010CD4A /* Pods-VenuesMenuQuadrat-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VenuesMenuQuadrat-resources.sh"; sourceTree = "<group>"; };
+		D594569BE2B35BC5864BFA922AC736A1 /* Events.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Events.swift; path = Source/Shared/Endpoints/Events.swift; sourceTree = "<group>"; };
+		D682E8C57D9E21C4F4267BEB387B8D44 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthorizationViewController.swift; path = Source/iOS/AuthorizationViewController.swift; sourceTree = "<group>"; };
+		D820BA2602BCBFDAEFA60A2883FB8F30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DB3FC326093C9EE392220BEBFA185E76 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		EA5737AA9A468E11280B1C656FEDC1C0 /* Endpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Endpoint.swift; path = Source/Shared/Endpoints/Endpoint.swift; sourceTree = "<group>"; };
+		FB7C8E2E8333EF995867D3568355254E /* Pods_VenuesMenuQuadrat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenuesMenuQuadrat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB2708FF633204D2417AEDE9FD7BD68 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		FFB3134C2D605D7BA0DE3BBC75E3B849 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		108C5BAAB1F6DC52BA8CBA31370B3584 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D395FC676763B6ED0B65599214A5BD51 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		377996117A0863DD1EED0779C9B11D30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C93327B3D87C108ADA0191863EB5C00 /* Foundation.framework in Frameworks */,
+				E2F331A8C896BFF76E4C2F7E58BECF75 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A6DF0E8440A6C1EE83EF82D680208C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5DF067CB08C287940313E587587512 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D1A9B04773EF0CA51E38942760CD6D4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D820BA2602BCBFDAEFA60A2883FB8F30 /* Foundation.framework */,
+				CBB0853BD8CE1AE8CF5FE525E44C538C /* SystemConfiguration.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3CBBF0081F8779D7844BE72F3D77D786 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CADBD6019FA35C7A385C8BD6E8FC17FE /* Pods.framework */,
+				FB7C8E2E8333EF995867D3568355254E /* Pods_VenuesMenuQuadrat.framework */,
+				2017773404B536D38BD76AA7A4C2C7DD /* QuadratTouch.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A9B04773EF0CA51E38942760CD6D4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49D7D1538DDE5184C6AF199D539FF885 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				739D48FB4835646042E15D19808F8B09 /* Pods */,
+				B8EF0B0DF2EC809E92D9AF10C3BD17B6 /* Pods-VenuesMenuQuadrat */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		739D48FB4835646042E15D19808F8B09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2332AB7B7FF050565D3960EC81ACE193 /* Info.plist */,
+				9B95258ED12E3397C3986D7A1D24924C /* Pods.modulemap */,
+				79084BF9C668121811EDECD1A91F29F8 /* Pods-acknowledgements.markdown */,
+				1C99EE871C13D443E450230C6AA32349 /* Pods-acknowledgements.plist */,
+				6A898706A4071CC97A17773E82D66EB2 /* Pods-dummy.m */,
+				DB3FC326093C9EE392220BEBFA185E76 /* Pods-frameworks.sh */,
+				A1E22EB5A165F1D886F21593C20837C8 /* Pods-resources.sh */,
+				FFB3134C2D605D7BA0DE3BBC75E3B849 /* Pods-umbrella.h */,
+				4BC610B50D1A0F3C93545E58D57F338C /* Pods.debug.xcconfig */,
+				FDB2708FF633204D2417AEDE9FD7BD68 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				87627D0E8E177F456966184A14B698D5 /* Pods */,
+				3CBBF0081F8779D7844BE72F3D77D786 /* Products */,
+				49D7D1538DDE5184C6AF199D539FF885 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		87627D0E8E177F456966184A14B698D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E936A51A278020A758214292A9F48C1F /* QuadratTouch */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A5BBBAFE6EFC5F33050B91704D828B07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B1CE723D821C7094EB918FA4918437E /* AuthorizationViewController.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B8EF0B0DF2EC809E92D9AF10C3BD17B6 /* Pods-VenuesMenuQuadrat */ = {
+			isa = PBXGroup;
+			children = (
+				36E291880AFECB4C7BF6D659540602BA /* Info.plist */,
+				C43A44DCC1AB5D851CB76668E1EA0874 /* Pods-VenuesMenuQuadrat.modulemap */,
+				90DC7AD9700B276F1E37A23E1967F865 /* Pods-VenuesMenuQuadrat-acknowledgements.markdown */,
+				3E5B437974F9CC1D1110E0E71971DB38 /* Pods-VenuesMenuQuadrat-acknowledgements.plist */,
+				07F18C2A621419F5941875E2E95A7D28 /* Pods-VenuesMenuQuadrat-dummy.m */,
+				124544507380EEE8D4015246E2E411D6 /* Pods-VenuesMenuQuadrat-frameworks.sh */,
+				D4405DD8CD4641D31097BB036010CD4A /* Pods-VenuesMenuQuadrat-resources.sh */,
+				985F637FBD34C992454AEF8B785B2BD3 /* Pods-VenuesMenuQuadrat-umbrella.h */,
+				0209D3287A2E2CABADA632438D59A8EF /* Pods-VenuesMenuQuadrat.debug.xcconfig */,
+				891B99532BCEDAC69A77123187D7CB80 /* Pods-VenuesMenuQuadrat.release.xcconfig */,
+			);
+			name = "Pods-VenuesMenuQuadrat";
+			path = "Target Support Files/Pods-VenuesMenuQuadrat";
+			sourceTree = "<group>";
+		};
+		E200028E54AFC990132760C67769F4A2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7ECDFFCEFF10C07B6A478559197AF64A /* Info.plist */,
+				08E4B8AC23E793772D35D690ACE4CF9B /* QuadratTouch.modulemap */,
+				20619FF4CC8C6C0761475166CDFD9DCC /* QuadratTouch.xcconfig */,
+				A00F46CFE9C33A2DA57FAF1176122418 /* QuadratTouch-dummy.m */,
+				0C506FC846034627F5F9565FFD280279 /* QuadratTouch-prefix.pch */,
+				65F8D7B6FCA5B09EA662B11BFEE79197 /* QuadratTouch-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/QuadratTouch";
+			sourceTree = "<group>";
+		};
+		E936A51A278020A758214292A9F48C1F /* QuadratTouch */ = {
+			isa = PBXGroup;
+			children = (
+				2B7AF2373EB56606D418EBD049781B32 /* Authorization.swift */,
+				D682E8C57D9E21C4F4267BEB387B8D44 /* AuthorizationViewController.swift */,
+				15853A8D5FB459483A32876C9243C327 /* Authorizer.swift */,
+				978FDE1451BBC4C4D3FA9AFE822EB12F /* Checkins.swift */,
+				9A8A01BE44A2AFF507131971AED78EBC /* Configuration.swift */,
+				99293C4C09B861A7F978C54C20CE8DB3 /* DataCache.swift */,
+				EA5737AA9A468E11280B1C656FEDC1C0 /* Endpoint.swift */,
+				D594569BE2B35BC5864BFA922AC736A1 /* Events.swift */,
+				7E85A054078B0822C09E4EAE713A382B /* Keychain.swift */,
+				445DB7FFD1EB32B3CE5B15C22A34059B /* Lists.swift */,
+				258E4438DB1DF1ABAF970E61320B06DB /* Logger.swift */,
+				5CD26F2988BC9A262183438F376A76F2 /* Multi.swift */,
+				1DD6A665622ADE389EA5512A5BEB16A2 /* NativeTouchAuthorizer.swift */,
+				973B40C0CBA71380933C05661DBC08F8 /* NetworkActivityIndicatorController.swift */,
+				17DEE07A27081C9B6A58BB671EF1AFEA /* OauthErrors.swift */,
+				326D6C8E1AC625DA70B058DBE1B4EA2E /* Pages.swift */,
+				990FAE58A54763F558A22CBAD3046DBA /* PageUpdates.swift */,
+				223F6804DF4AF5748078453D3B36AE7A /* Parameters.swift */,
+				096B5B8B787FF8F0A6FC48A67B070AFF /* Photos.swift */,
+				09E329A8A7626045D06DBDF08B7FC8EB /* QuadratTouch.h */,
+				3041D6CC92EBE424669CC3C69B52F424 /* Request.swift */,
+				C6B6FB22C29F210E080240A7699475F2 /* Result.swift */,
+				339C556D34569EE2230B4420D5ABA99E /* Session.swift */,
+				ACBDE3D5A7EB6FF8441ECD47F16C842D /* Settings.swift */,
+				5C3CEA80D2B5AA7D963FA60BCF6C8F25 /* Specials.swift */,
+				BE434C4C5C42E6210DAEA72B530058E6 /* Task.swift */,
+				6B04792CC81EADE624B41588C2B5CBF2 /* Tips.swift */,
+				A0D1DE5ED942CDEF0C4C5765427C3DCB /* TouchAuthorizer.swift */,
+				02FC180037D3EB725FED6B796FCF24B5 /* Updates.swift */,
+				886F0972445588DA2984B3910F673633 /* Users.swift */,
+				6DBC4AB93F8A841B9749165052FE3357 /* VenueGroups.swift */,
+				93380BBB17F6B12B3790A01B17D410D7 /* Venues.swift */,
+				A5BBBAFE6EFC5F33050B91704D828B07 /* Resources */,
+				E200028E54AFC990132760C67769F4A2 /* Support Files */,
+			);
+			path = QuadratTouch;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6A560EA3691D2D5C30942D7AC192D903 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687011CF8DCEE113A7954B6FC9F6212E /* QuadratTouch-umbrella.h in Headers */,
+				C8C581C6D2E9F58DD5AC34A4D6E9B73B /* QuadratTouch.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89F433025D06065F43CC9EF40305E9A0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D2288B1C9AB053CF064FE80CAB39C82 /* Pods-VenuesMenuQuadrat-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB40BF737C4BF0B6A98DBBEA9B826061 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				428243F18F630A7DD074189A487F1AA2 /* Pods-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1AA7F305E1D4563483F437FA830DB678 /* QuadratTouch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 830356F8EA3AA1F4C670DE6EC4C9FBB6 /* Build configuration list for PBXNativeTarget "QuadratTouch" */;
+			buildPhases = (
+				F412C2CF7C0D687B6279D9AA929D21BE /* Sources */,
+				377996117A0863DD1EED0779C9B11D30 /* Frameworks */,
+				6A560EA3691D2D5C30942D7AC192D903 /* Headers */,
+				4D01D7D04FD70D8DE05BCFEDD918C7DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuadratTouch;
+			productName = QuadratTouch;
+			productReference = 2017773404B536D38BD76AA7A4C2C7DD /* QuadratTouch.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3C4C9105D0541EB38A71BCA6CC773564 /* Pods-VenuesMenuQuadrat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00E3C030DA902DF15253E5B5DDF09B2 /* Build configuration list for PBXNativeTarget "Pods-VenuesMenuQuadrat" */;
+			buildPhases = (
+				656453483688AEC25D201F9419ABA4AE /* Sources */,
+				108C5BAAB1F6DC52BA8CBA31370B3584 /* Frameworks */,
+				89F433025D06065F43CC9EF40305E9A0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3FC963140983E89AAA3AF0CEF41783B /* PBXTargetDependency */,
+			);
+			name = "Pods-VenuesMenuQuadrat";
+			productName = "Pods-VenuesMenuQuadrat";
+			productReference = FB7C8E2E8333EF995867D3568355254E /* Pods_VenuesMenuQuadrat.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F8C6283CF767EBD64FF4B041286A641E /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4A42DEB653DE55CC4E7F36324405ACE /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				B913D3BA4ED2CF70363638ED8DE6E962 /* Sources */,
+				4A6DF0E8440A6C1EE83EF82D680208C9 /* Frameworks */,
+				BB40BF737C4BF0B6A98DBBEA9B826061 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA8672FA1FE795A16E8BB1A23C90E778 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = CADBD6019FA35C7A385C8BD6E8FC17FE /* Pods.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 3CBBF0081F8779D7844BE72F3D77D786 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8C6283CF767EBD64FF4B041286A641E /* Pods */,
+				3C4C9105D0541EB38A71BCA6CC773564 /* Pods-VenuesMenuQuadrat */,
+				1AA7F305E1D4563483F437FA830DB678 /* QuadratTouch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D01D7D04FD70D8DE05BCFEDD918C7DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEDD86C13908EC9C635B3C9DDA4DB60E /* AuthorizationViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		656453483688AEC25D201F9419ABA4AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B3746984C060C5C911A88DD37FADB27 /* Pods-VenuesMenuQuadrat-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B913D3BA4ED2CF70363638ED8DE6E962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				801790ADD863CDABB6B4DDA6E7FD9CEF /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F412C2CF7C0D687B6279D9AA929D21BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84838FF0C63CD28211EF013923BF4975 /* Authorization.swift in Sources */,
+				A12F6E6CE5020E2804A43D5D673BB12E /* AuthorizationViewController.swift in Sources */,
+				40886386CB7F57D84432FFFFD1EBBE31 /* Authorizer.swift in Sources */,
+				AA3793AF9B205E93CA007ACB440AAFFC /* Checkins.swift in Sources */,
+				AA540851469A1DF68A273CDE576BAEF1 /* Configuration.swift in Sources */,
+				ADA702EEBA9C8F3B78FA3BE7D9DD58B7 /* DataCache.swift in Sources */,
+				4A3A1AB8BFFB59BCC325A9CC2F57D4EC /* Endpoint.swift in Sources */,
+				5CC24A2FADC5A73D20A4A1143DCABD5C /* Events.swift in Sources */,
+				79596EFCCB703DFB1E83917BE0AE0027 /* Keychain.swift in Sources */,
+				3C0D82F2B295B89EFB4B6F40966F0FF2 /* Lists.swift in Sources */,
+				967C7243022C1CFEDEB98C9B74C9E370 /* Logger.swift in Sources */,
+				BC31E5F721713554B1D6E47ED6FED5B6 /* Multi.swift in Sources */,
+				05D98411A3054C9B28DACDADD54E4982 /* NativeTouchAuthorizer.swift in Sources */,
+				BE1372CBFC53B45249D771A01F49D17F /* NetworkActivityIndicatorController.swift in Sources */,
+				61D54291B20CE17B41F3BD92EEC9C47F /* OauthErrors.swift in Sources */,
+				95244E15E8370C3539F4924422ED98A0 /* Pages.swift in Sources */,
+				FD6CA0F4798423C58B952D75F40874C3 /* PageUpdates.swift in Sources */,
+				EE0619861C6B7D239E2B89C55B31DEAB /* Parameters.swift in Sources */,
+				65CF835E43D975AF0C3774365BBA5D2B /* Photos.swift in Sources */,
+				B17A816DD6A8C83E3496A71FA0D3B7B0 /* QuadratTouch-dummy.m in Sources */,
+				A1576C904A7F38A3FD059853860060E7 /* Request.swift in Sources */,
+				A917789787DA05B0FC9FC56B14EB9692 /* Result.swift in Sources */,
+				0346917A90B1799C698C31C62B1184D7 /* Session.swift in Sources */,
+				FDABB06144D54E6B1C106AFA1ECB2475 /* Settings.swift in Sources */,
+				6991B281AAC9A092F54AA30F5F019797 /* Specials.swift in Sources */,
+				E81FC50DCAA7236C6C87B163C00CA0C9 /* Task.swift in Sources */,
+				101CF7F26307DBD128D41BD323EEBF8F /* Tips.swift in Sources */,
+				7E0604FDFD488B92D9124D70644F1279 /* TouchAuthorizer.swift in Sources */,
+				7E8A3974A286125CE2742A90C5D2A7ED /* Updates.swift in Sources */,
+				0BE7BDA09532B83827D62B379A26F426 /* Users.swift in Sources */,
+				D62250387F9E2AE2CAF15A584244B390 /* VenueGroups.swift in Sources */,
+				66D9C6B8B75C4597B391A3438DD104D6 /* Venues.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3FC963140983E89AAA3AF0CEF41783B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QuadratTouch;
+			target = 1AA7F305E1D4563483F437FA830DB678 /* QuadratTouch */;
+			targetProxy = 8274C1C29AB48322780305A0C1403E40 /* PBXContainerItemProxy */;
+		};
+		EA8672FA1FE795A16E8BB1A23C90E778 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QuadratTouch;
+			target = 1AA7F305E1D4563483F437FA830DB678 /* QuadratTouch */;
+			targetProxy = B4E36CCD2AC63E27AF40DF555AE669AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		13409C8E759CC32B01F0FDDB5836F5E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 891B99532BCEDAC69A77123187D7CB80 /* Pods-VenuesMenuQuadrat.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-VenuesMenuQuadrat/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VenuesMenuQuadrat/Pods-VenuesMenuQuadrat.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_VenuesMenuQuadrat;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		300A70CF6B4419635F39FE872BCD7DCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20619FF4CC8C6C0761475166CDFD9DCC /* QuadratTouch.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/QuadratTouch/QuadratTouch-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/QuadratTouch/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/QuadratTouch/QuadratTouch.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = QuadratTouch;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		829DB9C80B0A90BD52A56B1842BCB68B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BC610B50D1A0F3C93545E58D57F338C /* Pods.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8A21767A44FADB03BB3B81DD70D30CE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0209D3287A2E2CABADA632438D59A8EF /* Pods-VenuesMenuQuadrat.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-VenuesMenuQuadrat/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VenuesMenuQuadrat/Pods-VenuesMenuQuadrat.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_VenuesMenuQuadrat;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A247162663C6475FF1E8D73E5658E8CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDB2708FF633204D2417AEDE9FD7BD68 /* Pods.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F52FA099B0DFEEA549887287626D66C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20619FF4CC8C6C0761475166CDFD9DCC /* QuadratTouch.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/QuadratTouch/QuadratTouch-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/QuadratTouch/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/QuadratTouch/QuadratTouch.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = QuadratTouch;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
+				74857149DC1E0D599B8A01A78349A926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		830356F8EA3AA1F4C670DE6EC4C9FBB6 /* Build configuration list for PBXNativeTarget "QuadratTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				300A70CF6B4419635F39FE872BCD7DCC /* Debug */,
+				F52FA099B0DFEEA549887287626D66C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4A42DEB653DE55CC4E7F36324405ACE /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				829DB9C80B0A90BD52A56B1842BCB68B /* Debug */,
+				A247162663C6475FF1E8D73E5658E8CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F00E3C030DA902DF15253E5B5DDF09B2 /* Build configuration list for PBXNativeTarget "Pods-VenuesMenuQuadrat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A21767A44FADB03BB3B81DD70D30CE2 /* Debug */,
+				13409C8E759CC32B01F0FDDB5836F5E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

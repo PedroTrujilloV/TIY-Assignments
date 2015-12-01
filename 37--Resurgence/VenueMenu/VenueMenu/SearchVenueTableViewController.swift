@@ -22,6 +22,9 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
 
 {
     var venuesArray:Array<NSDictionary> = []
+    var venuesIDsArray: Array<String> = []
+    var selectedVenuesArray:Array<NSDictionary> = []
+    
     var shouldShowSearchResults = false
     var searchController = UISearchController(searchResultsController: nil)
     
@@ -78,7 +81,10 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
     
     override func viewWillDisappear(animated: Bool)
     {
+        print(selectedVenuesArray)
+        delegator.venueWasFound(selectedVenuesArray)
         venuesArray.removeAll()
+        selectedVenuesArray.removeAll()
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         //searchController.hidesNavigationBarDuringPresentation = true
         dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
@@ -88,12 +94,14 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
         return venuesArray.count
     }
@@ -107,20 +115,25 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
         
         let venue:NSDictionary = venuesArray[indexPath.row]
         
-        cell.textLabel?.text = venue["name"] as! NSString as String
+        if !venuesIDsArray.contains( venue["id"] as! NSString as String)
+        {
+            cell.textLabel?.text = venue["name"] as! NSString as String
+        }
 
         return cell
     }
     
+    
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-
-        delegator.venueWasFound([venuesArray[indexPath.row]])
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        navigationController?.dismissViewControllerAnimated(true, completion: nil)// this thing hides the popover
-        dismissViewControllerAnimated(true, completion: nil) // this destroy the modal view like the popover
-
-
+        let venue:NSDictionary = venuesArray[indexPath.row]
+        
+        if !venuesIDsArray.contains( venue["id"] as! NSString as String)
+        {
+            venuesIDsArray.append(venue["id"] as! NSString as String)
+            selectedVenuesArray.append(venue)
+        }
 
     }
     
@@ -144,7 +157,8 @@ class SearchVenueTableViewController: UITableViewController,APIControllerProtoco
     
     func didReceiveAPIResults(results:NSArray)
     {
-        dispatch_async(dispatch_get_main_queue(), {
+        dispatch_async(dispatch_get_main_queue(),
+        {
             
             self.venuesArray = results as! Array<NSDictionary>
             self.tableView.reloadData()
