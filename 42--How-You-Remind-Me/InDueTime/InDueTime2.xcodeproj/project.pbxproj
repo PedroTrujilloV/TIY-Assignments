@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		682719F01BD75B5900E50F31 /* TimeCircuitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		68271A221BD7F07000E50F31 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A201BD7F07000E50F31 /* Task+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		68271A231BD7F07000E50F31 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A211BD7F07000E50F31 /* Task.swift */; settings = {ASSET_TAGS = (); }; };
+		685837601C0E2F76006DB8C0 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858375E1C0E2F76006DB8C0 /* Task+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		685837611C0E2F76006DB8C0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858375F1C0E2F76006DB8C0 /* Task.swift */; settings = {ASSET_TAGS = (); }; };
 		6880BF0B1BD6B72700A97AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF0A1BD6B72700A97AC1 /* AppDelegate.swift */; };
 		6880BF101BD6B72700A97AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6880BF0E1BD6B72700A97AC1 /* Main.storyboard */; };
 		6880BF131BD6B72700A97AC1 /* InDueTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF111BD6B72700A97AC1 /* InDueTime.xcdatamodeld */; };
@@ -21,9 +21,9 @@
 
 /* Begin PBXFileReference section */
 		682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCircuitsViewController.swift; sourceTree = "<group>"; };
-		68271A201BD7F07000E50F31 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataProperties.swift"; path = "../Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		68271A211BD7F07000E50F31 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = ../Task.swift; sourceTree = "<group>"; };
-		6880BF071BD6B72700A97AC1 /* InDueTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InDueTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6858375E1C0E2F76006DB8C0 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataProperties.swift"; path = "../Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6858375F1C0E2F76006DB8C0 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = ../Task.swift; sourceTree = "<group>"; };
+		6880BF071BD6B72700A97AC1 /* InDueTime2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InDueTime2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6880BF0A1BD6B72700A97AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6880BF0F1BD6B72700A97AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6880BF121BD6B72700A97AC1 /* InDueTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InDueTime.xcdatamodel; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		6880BEFE1BD6B72700A97AC1 = {
 			isa = PBXGroup;
 			children = (
-				6880BF091BD6B72700A97AC1 /* InDueTime */,
+				6880BF091BD6B72700A97AC1 /* InDueTime2 */,
 				6880BF081BD6B72700A97AC1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,16 +56,16 @@
 		6880BF081BD6B72700A97AC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6880BF071BD6B72700A97AC1 /* InDueTime.app */,
+				6880BF071BD6B72700A97AC1 /* InDueTime2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6880BF091BD6B72700A97AC1 /* InDueTime */ = {
+		6880BF091BD6B72700A97AC1 /* InDueTime2 */ = {
 			isa = PBXGroup;
 			children = (
-				68271A201BD7F07000E50F31 /* Task+CoreDataProperties.swift */,
-				68271A211BD7F07000E50F31 /* Task.swift */,
+				6858375E1C0E2F76006DB8C0 /* Task+CoreDataProperties.swift */,
+				6858375F1C0E2F76006DB8C0 /* Task.swift */,
 				6880BF0A1BD6B72700A97AC1 /* AppDelegate.swift */,
 				6880BF2B1BD6CAED00A97AC1 /* TaskListTableViewController.swift */,
 				6880BF0E1BD6B72700A97AC1 /* Main.storyboard */,
@@ -76,15 +76,16 @@
 				6880BF111BD6B72700A97AC1 /* InDueTime.xcdatamodeld */,
 				682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */,
 			);
+			name = InDueTime2;
 			path = InDueTime;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6880BF061BD6B72700A97AC1 /* InDueTime */ = {
+		6880BF061BD6B72700A97AC1 /* InDueTime2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6880BF1C1BD6B72700A97AC1 /* Build configuration list for PBXNativeTarget "InDueTime" */;
+			buildConfigurationList = 6880BF1C1BD6B72700A97AC1 /* Build configuration list for PBXNativeTarget "InDueTime2" */;
 			buildPhases = (
 				6880BF031BD6B72700A97AC1 /* Sources */,
 				6880BF041BD6B72700A97AC1 /* Frameworks */,
@@ -94,9 +95,9 @@
 			);
 			dependencies = (
 			);
-			name = InDueTime;
+			name = InDueTime2;
 			productName = InDueTime;
-			productReference = 6880BF071BD6B72700A97AC1 /* InDueTime.app */;
+			productReference = 6880BF071BD6B72700A97AC1 /* InDueTime2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6880BF021BD6B72700A97AC1 /* Build configuration list for PBXProject "InDueTime" */;
+			buildConfigurationList = 6880BF021BD6B72700A97AC1 /* Build configuration list for PBXProject "InDueTime2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -126,7 +127,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6880BF061BD6B72700A97AC1 /* InDueTime */,
+				6880BF061BD6B72700A97AC1 /* InDueTime2 */,
 			);
 		};
 /* End PBXProject section */
@@ -153,8 +154,8 @@
 				682719F01BD75B5900E50F31 /* TimeCircuitsViewController.swift in Sources */,
 				6880BF0B1BD6B72700A97AC1 /* AppDelegate.swift in Sources */,
 				6880BF2E1BD6CBF700A97AC1 /* TaskCell.swift in Sources */,
-				68271A221BD7F07000E50F31 /* Task+CoreDataProperties.swift in Sources */,
-				68271A231BD7F07000E50F31 /* Task.swift in Sources */,
+				685837601C0E2F76006DB8C0 /* Task+CoreDataProperties.swift in Sources */,
+				685837611C0E2F76006DB8C0 /* Task.swift in Sources */,
 				6880BF2C1BD6CAED00A97AC1 /* TaskListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,8 +269,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = InDueTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.InDueTime;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.InDueTime2;
+				PRODUCT_NAME = InDueTime2;
 			};
 			name = Debug;
 		};
@@ -279,15 +280,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = InDueTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.InDueTime;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.InDueTime2;
+				PRODUCT_NAME = InDueTime2;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6880BF021BD6B72700A97AC1 /* Build configuration list for PBXProject "InDueTime" */ = {
+		6880BF021BD6B72700A97AC1 /* Build configuration list for PBXProject "InDueTime2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6880BF1A1BD6B72700A97AC1 /* Debug */,
@@ -296,7 +297,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6880BF1C1BD6B72700A97AC1 /* Build configuration list for PBXNativeTarget "InDueTime" */ = {
+		6880BF1C1BD6B72700A97AC1 /* Build configuration list for PBXNativeTarget "InDueTime2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6880BF1D1BD6B72700A97AC1 /* Debug */,

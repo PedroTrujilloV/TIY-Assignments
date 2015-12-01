@@ -57,7 +57,8 @@ class TimeCircuitsViewController: UIViewController {
     {
         
         self.dateFormatter.dateStyle = .MediumStyle
-        self.dateFormatter.dateFormat = "MM dd, yyyy"
+        self.dateFormatter.dateFormat = "MMM dd, yyyy"
+        self.dateFormatter.timeStyle = .ShortStyle
         datePickerString = dateFormatter.stringFromDate(datePicker.date)
     }
     

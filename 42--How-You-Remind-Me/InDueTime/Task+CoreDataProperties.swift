@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  InDueTime
 //
-//  Created by Pedro Trujillo on 10/21/15.
+//  Created by Pedro Trujillo on 12/1/15.
 //  Copyright © 2015 Pedro Trujillo. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

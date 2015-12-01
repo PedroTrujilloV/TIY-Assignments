@@ -5,6 +5,15 @@
 //  Created by Pedro Trujillo on 10/20/15.
 //  Copyright © 2015 Pedro Trujillo. All rights reserved.
 //
+//
+//Homework - Time's Up
+//
+//Return to In Due Time and add CoreData or Realm for persistence of the todo items. Also add local notifications on the date/time the todo item is due. When the user taps on the notification, open the app and flash the background of the cell that corresponds to the notification.
+//extension Task {
+//@NSManaged var statusTask: Bool
+//@NSManaged var titleTask: String?
+//@NSManaged var dueDateTask: String?
+
 
 import UIKit
 import CoreData
@@ -279,6 +288,29 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
         }
     }
     
+    //MARK: - Notifications
+    
+    func sendNotifications(dateString:String)
+    {
+        let dateFromater = NSDateFormatter()
+        dateFromater.dateFormat = "MMM dd, yyyy"
+        let date = dateFromater.dateFromString(dateString)
+        
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = date
+        print(localNotification.fireDate)
+        
+        localNotification.timeZone = NSTimeZone.localTimeZone()
+        localNotification.alertTitle = "Hey! Remember "+taskList[buttonSelectedIndexPath.row].titleTask!
+        localNotification.alertBody = "Due time for this is \(dateString)"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        
+        let uuid = NSUUID()
+        let userInfo = ["objectUUID":uuid.UUIDString]
+        localNotification.userInfo = userInfo
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        
+    }
     
 
     //MARK: - Delegate from table picker view
@@ -290,6 +322,7 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
         
        
         taskList[buttonSelectedIndexPath.row].dueDateTask = datePickerDateString
+        sendNotifications(datePickerDateString)
         saveContext()
         tableView.reloadData()
       

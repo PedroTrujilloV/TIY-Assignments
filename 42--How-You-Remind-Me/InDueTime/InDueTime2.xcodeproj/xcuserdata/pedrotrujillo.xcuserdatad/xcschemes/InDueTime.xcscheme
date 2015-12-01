@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6880BF061BD6B72700A97AC1"
-               BuildableName = "InDueTime.app"
-               BlueprintName = "InDueTime"
-               ReferencedContainer = "container:InDueTime.xcodeproj">
+               BuildableName = "InDueTime2.app"
+               BlueprintName = "InDueTime2"
+               ReferencedContainer = "container:InDueTime2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6880BF061BD6B72700A97AC1"
-            BuildableName = "InDueTime.app"
-            BlueprintName = "InDueTime"
-            ReferencedContainer = "container:InDueTime.xcodeproj">
+            BuildableName = "InDueTime2.app"
+            BlueprintName = "InDueTime2"
+            ReferencedContainer = "container:InDueTime2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6880BF061BD6B72700A97AC1"
-            BuildableName = "InDueTime.app"
-            BlueprintName = "InDueTime"
-            ReferencedContainer = "container:InDueTime.xcodeproj">
+            BuildableName = "InDueTime2.app"
+            BlueprintName = "InDueTime2"
+            ReferencedContainer = "container:InDueTime2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6880BF061BD6B72700A97AC1"
-            BuildableName = "InDueTime.app"
-            BlueprintName = "InDueTime"
-            ReferencedContainer = "container:InDueTime.xcodeproj">
+            BuildableName = "InDueTime2.app"
+            BlueprintName = "InDueTime2"
+            ReferencedContainer = "container:InDueTime2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

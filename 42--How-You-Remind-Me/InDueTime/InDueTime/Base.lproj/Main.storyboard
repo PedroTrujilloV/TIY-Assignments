@@ -9,13 +9,13 @@
         <!--Task List Table View Controller-->
         <scene sceneID="dIa-Gt-WiC">
             <objects>
-                <tableViewController id="ZZP-cn-xsk" customClass="TaskListTableViewController" customModule="InDueTime" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZZP-cn-xsk" customClass="TaskListTableViewController" customModule="InDueTime2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cii-tE-a6k">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="90" id="Vpg-bA-Ayg" customClass="TaskCell" customModule="InDueTime" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="90" id="Vpg-bA-Ayg" customClass="TaskCell" customModule="InDueTime2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vpg-bA-Ayg" id="tkQ-BO-I45">
@@ -134,7 +134,7 @@
         <!--Time Circuits View Controller-->
         <scene sceneID="Tj6-of-wwh">
             <objects>
-                <viewController id="4nU-Qj-t2p" customClass="TimeCircuitsViewController" customModule="InDueTime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4nU-Qj-t2p" customClass="TimeCircuitsViewController" customModule="InDueTime2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ayQ-cw-ywW"/>
                         <viewControllerLayoutGuide type="bottom" id="Mqd-vA-Y5a"/>
@@ -143,7 +143,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="CBs-xX-t6k">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="CBs-xX-t6k">
                                 <rect key="frame" x="60" y="192" width="480" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.023529414089999999" green="0.56862747670000002" blue="0.96470594409999999" alpha="1" colorSpace="deviceRGB"/>
