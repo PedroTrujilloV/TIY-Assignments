@@ -489,10 +489,28 @@ class DigestiveSystem: BodyPart
     }
 }
 
-
-
 //: - **15. Class Torso**
-class Torso: BodyPart
+protocol UrinarySystem
+{
+    func aKidney() ->Kidney
+    
+}
+
+extension UrinarySystem
+{
+    func aKidney() ->Kidney
+    {
+        let kidney:Kidney = Kidney(excretion: 12.0, filtration: 15.0, positionLeft: true)
+        return kidney
+    }
+}
+protocol urinarySystemProtocol
+{
+    func bladder() ->BodyPart
+    
+}
+
+class Torso: BodyPart, UrinarySystem, urinarySystemProtocol
 {
     var head:Head
     var heart:Heart
@@ -514,8 +532,22 @@ class Torso: BodyPart
         return (head:self.head.getId(), heart:self.heart.getId(), stomach:self.digestiveSystem.stomach.getId(), brain: self.head.brain.getId())
     }
     
+    func bladder() ->BodyPart
+    {
+        let bladderPart:BodyPart = BodyPart(Name: "Blader", id: 16)
+        return bladderPart
+    }
+    
 }
 
+//: - **16. Declare and instance a Torso**
+
+var newTorso:Torso = Torso(color: "white", visualCapacity: 30.0, positionLeft: false, Capacity: 45.0)
+
+newTorso.aKidney()
+newTorso.bladder()
+
+print(newTorso.getBodyPartID())
 
 
 
