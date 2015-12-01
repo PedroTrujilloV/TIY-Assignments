@@ -32,6 +32,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nf-yw-tiW">
                                 <rect key="frame" x="227" y="318" width="147" height="30"/>
                                 <state key="normal" title="Set Local Notification"/>
+                                <connections>
+                                    <action selector="setLocalNotificationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BKZ-z5-o0a"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

@@ -33,6 +33,27 @@ class MainViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func setLocalNotificationTapped(sender:UIButton)
+    {
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = NSDate(timeInterval: 10, sinceDate: NSDate())
+        print(NSDate())
+        print(localNotification.fireDate)
+        localNotification.timeZone = NSTimeZone.localTimeZone()
+        localNotification.alertBody = "Expecto Patronum!"
+        localNotification.alertAction = "Open App"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        
+        let uuid = NSUUID()//creates a unique! ID forever
+        let userInfo = ["objectUUID":uuid.UUIDString]
+        localNotification.userInfo = userInfo
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        
+        
+        
+    }
 
 
 }
