@@ -33,10 +33,11 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
             let fetchRequestResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? Array<Venue>
             venuesArray = fetchRequestResults!
             print(venuesArray)
-            for venue in venuesArray
-            {
-                print(venue)
-            }
+            //for venue in venuesArray
+            //{
+                //let newVenue:Venue = venue as Venue
+                //print(newVenue.infoDict)
+            //}
         }
             
         catch
@@ -83,12 +84,12 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
         
-        let aVenue = venuesArray[indexPath.row] as Venue
+        let aVenue:Venue = venuesArray[indexPath.row] as Venue
 
-        //let venue:NSDictionary = parseJSON(aVenue.infoDict!)!
+        let venue:NSDictionary = parseJSONStringToNSDictionary(aVenue.infoDict!)!
         
         //print(venue)
-        //cell.textLabel?.text = venue["name"] as! NSString as String
+        cell.textLabel?.text = venue["name"] as! NSString as String
 
         return cell
     }
@@ -148,15 +149,25 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
     
     func venueWasFound(venues:NSArray)
     {
-        //print("venue.infoDict: ")
-        //print(venues)
+        print("======= venue.infoDict: ")
         let newVenue = NSEntityDescription.insertNewObjectForEntityForName("Venue", inManagedObjectContext: managedObjectContext) as! Venue
+        let infoVenue = venues[0] as! NSDictionary
         
-        venuesArray.append(newVenue)
-        newVenue.infoDict = venues[0].description
-        venuesArray.append(newVenue)
-        saveContext()
+        
+        if let dictionaryString = parseJSONNSDictionaryToString(infoVenue) as? String
+        {
+
+            newVenue.infoDict = dictionaryString//infoVenue.description //reference [1]
+        
+            //print(newVenue.infoDict)
+            venuesArray.append(newVenue)
+        
+        
+            saveContext()
+        }
         tableView.reloadData()
+        //print(venuesArray[venuesArray.count-2].infoDict)
+
     }
 
     
@@ -183,7 +194,7 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
         }
     }
     
-    func parseJSON(stringCoreData:String) -> NSDictionary?
+    func parseJSONStringToNSDictionary(stringCoreData:String) -> NSDictionary? //reference [2]
     {
         if let data = stringCoreData.dataUsingEncoding(NSUTF8StringEncoding)
         {
@@ -204,12 +215,35 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
             return nil
         }
     }
+    
+    func parseJSONNSDictionaryToString(dict:NSDictionary) -> NSString?
+    {
         
+        do
+        {
+            
+           let data = try NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
+            
+            if let json = NSString(data: data, encoding: NSUTF8StringEncoding)
+            {
+                return json
+            }
+            
+            return nil
+        }
+        catch let error as NSError
+        {
+            print(error)
+            return nil
+        }
+    }
+    
     
     
 
 }
 
 ///https://api.foursquare.com/v2/venues/search?client_id=OA5RPW0Y4AHZ0EPBIMXRNOSJQGAM0IFCKY11KEBGWIUK4L2A&client_secret=WK3N22CGBLPEM3B5OKELM2JNI4ISXOGAIAAKLVLYZ0QVXP3D&v=20130815&ll=40.7,-74&query=sushi
-
+//reference [1] http://stackoverflow.com/questions/26372198/convert-swift-dictionary-to-string
+//reference [2] http://stackoverflow.com/questions/29221586/swift-how-to-convert-string-to-dictionary
 //https://api.foursquare.com/v2/venues/40a55d80f964a52020f31ee3
