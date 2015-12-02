@@ -54,6 +54,8 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
             var x = 0
             while  x < taskList.count
             {
+                
+                
                 if taskList[x].statusTask == false
                 {
                     taskList.removeAtIndex(x)
@@ -120,6 +122,9 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
                 ///tableView.editing = true editing style!!!!
         }
         
+        
+       
+        
         if aTask.dueDateTask == nil || aTask.dueDateTask == "MM/dd/YY"
         {
             aTask.dueDateTask = "MM/dd/YY"
@@ -130,6 +135,24 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
             cell.setDueDateButton.setTitle("due time: " + aTask.dueDateTask! + " >", forState: UIControlState.Normal)
             
         }
+        
+
+        
+        let dateFromater = NSDateFormatter()
+        dateFromater.dateFormat = "MMM dd, yyyy"
+        let date = dateFromater.dateFromString(taskList[indexPath.row].dueDateTask!)
+        
+//        if date?.timeIntervalSince1970 > NSDate().timeIntervalSince1970
+//        {
+//            cell.setDueDateButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+//        }
+//        else
+//        {
+//            cell.setDueDateButton.setTitleColor(UIColor.cyanColor(), forState: UIControlState.Normal)
+//
+//        }
+//        
+        
         
 
         
@@ -290,18 +313,21 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
     
     //MARK: - Notifications
     
-    func sendNotifications(dateString:String)
+    func sendNotifications(dateString:String, task:Task)
     {
         let dateFromater = NSDateFormatter()
         dateFromater.dateFormat = "MMM dd, yyyy"
         let date = dateFromater.dateFromString(dateString)
         
+        print("timeinterval")
+       // print(date?.timeIntervalSinceDate(NSDate()))
+        
         let localNotification = UILocalNotification()
         localNotification.fireDate = date
-        print(localNotification.fireDate)
+        //print(localNotification.fireDate)
         
         localNotification.timeZone = NSTimeZone.localTimeZone()
-        localNotification.alertTitle = "Hey! Remember "+taskList[buttonSelectedIndexPath.row].titleTask!
+        localNotification.alertTitle = "Hey! Remember "+task.titleTask!
         localNotification.alertBody = "Due time for this is \(dateString)"
         localNotification.soundName = UILocalNotificationDefaultSoundName
         
@@ -322,7 +348,7 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
         
        
         taskList[buttonSelectedIndexPath.row].dueDateTask = datePickerDateString
-        sendNotifications(datePickerDateString)
+        sendNotifications(datePickerDateString,task: taskList[buttonSelectedIndexPath.row])
         saveContext()
         tableView.reloadData()
       

@@ -38,20 +38,31 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="134" id="N74-B2-0Um">
-                                <rect key="frame" x="0.0" y="124" width="600" height="134"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="115" id="wqm-fd-d96">
+                                <rect key="frame" x="0.0" y="124" width="600" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N74-B2-0Um" id="yPz-2m-sda">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="133"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wqm-fd-d96" id="n2n-8Z-XIW">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="114"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wqm-fd-d96">
-                                <rect key="frame" x="0.0" y="258" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MapCell" rowHeight="255" id="N74-B2-0Um">
+                                <rect key="frame" x="0.0" y="239" width="600" height="255"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wqm-fd-d96" id="n2n-8Z-XIW">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N74-B2-0Um" id="yPz-2m-sda">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="254"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hqP-rl-1kz">
+                                            <rect key="frame" x="0.0" y="3" width="600" height="249"/>
+                                        </mapView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hqP-rl-1kz" secondAttribute="bottom" constant="-6" id="C03-n3-z3L"/>
+                                        <constraint firstItem="hqP-rl-1kz" firstAttribute="top" secondItem="yPz-2m-sda" secondAttribute="topMargin" constant="-5" id="HWK-Na-PHB"/>
+                                        <constraint firstItem="hqP-rl-1kz" firstAttribute="width" secondItem="yPz-2m-sda" secondAttribute="width" id="SpD-AM-hkx"/>
+                                        <constraint firstItem="hqP-rl-1kz" firstAttribute="centerX" secondItem="yPz-2m-sda" secondAttribute="centerX" id="fln-wm-C0m"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
