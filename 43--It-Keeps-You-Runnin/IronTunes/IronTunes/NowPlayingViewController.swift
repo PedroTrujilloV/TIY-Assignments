@@ -63,6 +63,11 @@ class NowPlayingViewController: UIViewController
     
     @IBAction func skipForwardTapped(sender: UIButton)
     {
+        skipFordward()
+    }
+    
+    func skipFordward()
+    {
         let currentSongIndex = (songs as NSArray).indexOfObject(currentSong!)
         let nextSong: Int
         
@@ -80,6 +85,11 @@ class NowPlayingViewController: UIViewController
     }
     
     @IBAction func skipBackTapped(sender: UIButton)
+    {
+        skipBack()
+    }
+    
+    func skipBack()
     {
         avQueuePlayer.seekToTime(CMTimeMakeWithSeconds(0.0, 1))
         if !nowPlaying
@@ -212,6 +222,10 @@ class NowPlayingViewController: UIViewController
         case .RemoteControlPause:
 //            p.pause()
             togglePlayback(!nowPlaying)
+        case .RemoteControlNextTrack:
+            skipFordward()
+        case .RemoteControlPreviousTrack:
+            skipBack()
         default:break
         }
         
