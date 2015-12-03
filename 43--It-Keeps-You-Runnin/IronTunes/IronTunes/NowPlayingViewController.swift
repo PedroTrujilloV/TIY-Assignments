@@ -121,12 +121,15 @@ class NowPlayingViewController: UIViewController
             artistLabel.text = song.artist
             albumArtwork.image = UIImage(named: song.albumArtworkName)
             
-//            let mpic = MPNowPlayingInfoCenter.defaultCenter()
-//            mpic.nowPlayingInfo = [
-//                MPMediaItemPropertyTitle: song.title ,
-//                MPMediaItemPropertyArtist: song.artist ,
-//                MPMediaItemPropertyArtwork: albumArtwork.image
-//            ]
+            let albumArt = MPMediaItemArtwork(image: UIImage(named: song.albumArtworkName)!)
+            
+            let mpic = MPNowPlayingInfoCenter.defaultCenter()
+            
+            mpic.nowPlayingInfo = [
+                MPMediaItemPropertyTitle: song.title ,
+                MPMediaItemPropertyArtist: song.artist ,
+                MPMediaItemPropertyArtwork: albumArt
+            ]
         }
         
         
