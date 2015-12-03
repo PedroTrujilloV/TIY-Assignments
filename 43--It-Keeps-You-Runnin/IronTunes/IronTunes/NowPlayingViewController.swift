@@ -230,3 +230,7 @@ class NowPlayingViewController: UIViewController
         }
         
     }}
+
+//reference  [1] http://luciancancescu.blogspot.com/2015/02/how-to-build-ios-radio-app-with-swift_23.html
+//reference  [2] https://github.com/mattneub/Programming-iOS-Book-Examples/blob/master/bk2ch14p643ducking/ch27p912ducking/ViewController.swift
+//reference [3] 
