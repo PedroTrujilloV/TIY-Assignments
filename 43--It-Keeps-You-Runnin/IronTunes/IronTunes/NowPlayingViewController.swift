@@ -180,4 +180,39 @@ class NowPlayingViewController: UIViewController
                 songTitleLabel.text = currentItem.URL.lastPathComponent ?? "Unknown"
         }
     }
-}
+    
+    
+    
+    // ======== respond to remote controls
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.becomeFirstResponder()
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent?) { // *
+        let rc = event!.subtype
+        let p = self.avQueuePlayer
+        print("received remote control \(rc.rawValue)") // 101 = pause, 100 = play
+        switch rc {
+        case .RemoteControlTogglePlayPause:
+//            if p.playing
+//            { p.pause() }
+//            else
+//            { p.play() }
+            togglePlayback(!nowPlaying)
+        case .RemoteControlPlay:
+//            p.play()
+            togglePlayback(!nowPlaying)
+        case .RemoteControlPause:
+//            p.pause()
+            togglePlayback(!nowPlaying)
+        default:break
+        }
+        
+    }}
