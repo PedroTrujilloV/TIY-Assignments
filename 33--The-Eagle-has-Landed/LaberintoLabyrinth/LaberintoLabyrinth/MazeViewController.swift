@@ -9,11 +9,15 @@
 import UIKit
 import CoreMotion
 
-class ViewController: UIViewController, UICollisionBehaviorDelegate
+class MazeViewController: UIViewController, UICollisionBehaviorDelegate
 {
     //main variables
+    var delegator: playMazeProtocolDelegate!
     var borderUpDistance = 100
     var mazeSize:Int = 26
+    var numberOfBalls: Int = 1
+    var mazeHightRows = 1 // por defirnir 
+
     
     //phyx
     var animator:UIDynamicAnimator!
@@ -22,9 +26,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
     var motionManager:CMMotionManager!
     
     //objects
-    var numberOfBalls: Int = 1
     var ballsArray:Array<BallUIView> = []
-    
     var mazeArray:Array<Array<BrickMaze>> = []
     
     
@@ -58,11 +60,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate
 
     }
     
-    func render()
-    {
-        
-        
-    }
+   
     func createMaze()
     {
         

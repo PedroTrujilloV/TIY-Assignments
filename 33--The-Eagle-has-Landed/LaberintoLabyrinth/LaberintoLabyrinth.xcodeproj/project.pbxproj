@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		683741D41BFD980E00525B4D /* BinaryTreeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683741D31BFD980E00525B4D /* BinaryTreeGenerator.swift */; settings = {ASSET_TAGS = (); }; };
+		685837CD1C14EA9E006DB8C0 /* ModeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837CC1C14EA9E006DB8C0 /* ModeSelectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		685837CF1C14EAB0006DB8C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685837CE1C14EAB0006DB8C0 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		685837D11C14FB2C006DB8C0 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 685837D01C14FB2C006DB8C0 /* digital-7.ttf */; settings = {ASSET_TAGS = (); }; };
 		68CD4E4E1BFD45C2003EA578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CD4E4D1BFD45C2003EA578 /* AppDelegate.swift */; };
-		68CD4E501BFD45C2003EA578 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CD4E4F1BFD45C2003EA578 /* ViewController.swift */; };
+		68CD4E501BFD45C2003EA578 /* MazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CD4E4F1BFD45C2003EA578 /* MazeViewController.swift */; };
 		68CD4E551BFD45C2003EA578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68CD4E541BFD45C2003EA578 /* Assets.xcassets */; };
 		68CD4E581BFD45C2003EA578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CD4E561BFD45C2003EA578 /* LaunchScreen.storyboard */; };
 		68CD4E601BFD4BDA003EA578 /* BallUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CD4E5F1BFD4BDA003EA578 /* BallUIView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -18,9 +21,12 @@
 
 /* Begin PBXFileReference section */
 		683741D31BFD980E00525B4D /* BinaryTreeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeGenerator.swift; sourceTree = "<group>"; };
+		685837CC1C14EA9E006DB8C0 /* ModeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectionViewController.swift; sourceTree = "<group>"; };
+		685837CE1C14EAB0006DB8C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		685837D01C14FB2C006DB8C0 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
 		68CD4E4A1BFD45C2003EA578 /* LaberintoLabyrinth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaberintoLabyrinth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CD4E4D1BFD45C2003EA578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68CD4E4F1BFD45C2003EA578 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68CD4E4F1BFD45C2003EA578 /* MazeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeViewController.swift; sourceTree = "<group>"; };
 		68CD4E541BFD45C2003EA578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68CD4E571BFD45C2003EA578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68CD4E591BFD45C2003EA578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,13 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				68CD4E4D1BFD45C2003EA578 /* AppDelegate.swift */,
-				68CD4E4F1BFD45C2003EA578 /* ViewController.swift */,
+				685837CC1C14EA9E006DB8C0 /* ModeSelectionViewController.swift */,
 				68CD4E541BFD45C2003EA578 /* Assets.xcassets */,
-				68CD4E561BFD45C2003EA578 /* LaunchScreen.storyboard */,
 				68CD4E591BFD45C2003EA578 /* Info.plist */,
 				68CD4E5F1BFD4BDA003EA578 /* BallUIView.swift */,
 				683741D31BFD980E00525B4D /* BinaryTreeGenerator.swift */,
 				68F60E9A1C01AD0400CA192E /* BrickMaze.swift */,
+				68CD4E4F1BFD45C2003EA578 /* MazeViewController.swift */,
+				685837CE1C14EAB0006DB8C0 /* Main.storyboard */,
+				68CD4E561BFD45C2003EA578 /* LaunchScreen.storyboard */,
+				685837D01C14FB2C006DB8C0 /* digital-7.ttf */,
 			);
 			path = LaberintoLabyrinth;
 			sourceTree = "<group>";
@@ -130,6 +139,8 @@
 			files = (
 				68CD4E581BFD45C2003EA578 /* LaunchScreen.storyboard in Resources */,
 				68CD4E551BFD45C2003EA578 /* Assets.xcassets in Resources */,
+				685837CF1C14EAB0006DB8C0 /* Main.storyboard in Resources */,
+				685837D11C14FB2C006DB8C0 /* digital-7.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				683741D41BFD980E00525B4D /* BinaryTreeGenerator.swift in Sources */,
-				68CD4E501BFD45C2003EA578 /* ViewController.swift in Sources */,
+				68CD4E501BFD45C2003EA578 /* MazeViewController.swift in Sources */,
 				68F60E9B1C01AD0400CA192E /* BrickMaze.swift in Sources */,
+				685837CD1C14EA9E006DB8C0 /* ModeSelectionViewController.swift in Sources */,
 				68CD4E601BFD4BDA003EA578 /* BallUIView.swift in Sources */,
 				68CD4E4E1BFD45C2003EA578 /* AppDelegate.swift in Sources */,
 			);

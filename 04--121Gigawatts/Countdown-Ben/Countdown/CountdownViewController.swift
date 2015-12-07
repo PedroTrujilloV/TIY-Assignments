@@ -107,8 +107,6 @@ class CountdownViewController: UIViewController, TimerPickerDelegate
     
         
     }
-    
-    
 
 }
 
