@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
-class TasksTableViewController: UITableViewController
+protocol APIControllerProtocol
+{
+    func didReceiveAPIResults(results:NSArray)
+    
+}
+
+class TasksTableViewController: UITableViewController, APIControllerProtocol
 {
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -21,19 +29,22 @@ class TasksTableViewController: UITableViewController
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
@@ -92,5 +103,18 @@ class TasksTableViewController: UITableViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK: Protocol function
+    
+    func didReceiveAPIResults(results:NSArray)
+    {
+        dispatch_async(dispatch_get_main_queue(),
+            {
+                
+                //self.venuesArray = results as! Array<NSDictionary>
+                self.tableView.reloadData()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
 
 }

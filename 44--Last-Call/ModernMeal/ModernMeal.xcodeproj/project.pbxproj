@@ -11,6 +11,10 @@
 		684855B61C1BEC6B006C1B21 /* groceryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 684855B51C1BEC6B006C1B21 /* groceryList.json */; settings = {ASSET_TAGS = (); }; };
 		684855B81C1BF2A0006C1B21 /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		684855BA1C1BF891006C1B21 /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855B91C1BF891006C1B21 /* CustomerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		684855BC1C1C00DF006C1B21 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855BB1C1C00DF006C1B21 /* NotesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		684855BE1C1C0786006C1B21 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855BD1C1C0786006C1B21 /* APIController.swift */; settings = {ASSET_TAGS = (); }; };
+		684855C11C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855BF1C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		684855C21C1C0A82006C1B21 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855C01C1C0A82006C1B21 /* GroceryList.swift */; settings = {ASSET_TAGS = (); }; };
 		685837741C11F4DE006DB8C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837731C11F4DE006DB8C0 /* AppDelegate.swift */; };
 		685837761C11F4DE006DB8C0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837751C11F4DE006DB8C0 /* MainViewController.swift */; };
 		685837791C11F4DE006DB8C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685837771C11F4DE006DB8C0 /* Main.storyboard */; };
@@ -44,6 +48,10 @@
 		684855B51C1BEC6B006C1B21 /* groceryList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = groceryList.json; sourceTree = "<group>"; };
 		684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
 		684855B91C1BF891006C1B21 /* CustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
+		684855BB1C1C00DF006C1B21 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		684855BD1C1C0786006C1B21 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		684855BF1C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroceryList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		684855C01C1C0A82006C1B21 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		685837701C11F4DD006DB8C0 /* ModernMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685837731C11F4DE006DB8C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685837751C11F4DE006DB8C0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +97,8 @@
 		685837671C11F4DD006DB8C0 = {
 			isa = PBXGroup;
 			children = (
+				684855BF1C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift */,
+				684855C01C1C0A82006C1B21 /* GroceryList.swift */,
 				685837721C11F4DE006DB8C0 /* ModernMeal */,
 				6858378A1C11F4DE006DB8C0 /* ModernMealTests */,
 				685837951C11F4DE006DB8C0 /* ModernMealUITests */,
@@ -112,9 +122,11 @@
 				685837731C11F4DE006DB8C0 /* AppDelegate.swift */,
 				685837751C11F4DE006DB8C0 /* MainViewController.swift */,
 				685837A81C120924006DB8C0 /* TasksTableViewController.swift */,
-				684855B31C1BCFAB006C1B21 /* HTTPController.swift */,
 				684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */,
 				684855B91C1BF891006C1B21 /* CustomerViewController.swift */,
+				684855BB1C1C00DF006C1B21 /* NotesViewController.swift */,
+				684855B31C1BCFAB006C1B21 /* HTTPController.swift */,
+				684855BD1C1C0786006C1B21 /* APIController.swift */,
 				685837771C11F4DE006DB8C0 /* Main.storyboard */,
 				6858377D1C11F4DE006DB8C0 /* Assets.xcassets */,
 				6858377F1C11F4DE006DB8C0 /* LaunchScreen.storyboard */,
@@ -280,10 +292,14 @@
 				6858377C1C11F4DE006DB8C0 /* ModernMeal.xcdatamodeld in Sources */,
 				684855B81C1BF2A0006C1B21 /* GroceryListTableViewController.swift in Sources */,
 				684855B41C1BCFAB006C1B21 /* HTTPController.swift in Sources */,
+				684855C11C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift in Sources */,
 				685837A91C120924006DB8C0 /* TasksTableViewController.swift in Sources */,
+				684855BC1C1C00DF006C1B21 /* NotesViewController.swift in Sources */,
+				684855C21C1C0A82006C1B21 /* GroceryList.swift in Sources */,
 				685837761C11F4DE006DB8C0 /* MainViewController.swift in Sources */,
 				685837741C11F4DE006DB8C0 /* AppDelegate.swift in Sources */,
 				684855BA1C1BF891006C1B21 /* CustomerViewController.swift in Sources */,
+				684855BE1C1C0786006C1B21 /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
