@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684855B41C1BCFAB006C1B21 /* HTTPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855B31C1BCFAB006C1B21 /* HTTPController.swift */; settings = {ASSET_TAGS = (); }; };
+		684855B61C1BEC6B006C1B21 /* groceryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 684855B51C1BEC6B006C1B21 /* groceryList.json */; settings = {ASSET_TAGS = (); }; };
+		684855B81C1BF2A0006C1B21 /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		685837741C11F4DE006DB8C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837731C11F4DE006DB8C0 /* AppDelegate.swift */; };
 		685837761C11F4DE006DB8C0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837751C11F4DE006DB8C0 /* MainViewController.swift */; };
 		685837791C11F4DE006DB8C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685837771C11F4DE006DB8C0 /* Main.storyboard */; };
@@ -15,7 +18,6 @@
 		685837811C11F4DE006DB8C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6858377F1C11F4DE006DB8C0 /* LaunchScreen.storyboard */; };
 		6858378C1C11F4DE006DB8C0 /* ModernMealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858378B1C11F4DE006DB8C0 /* ModernMealTests.swift */; };
 		685837971C11F4DE006DB8C0 /* ModernMealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837961C11F4DE006DB8C0 /* ModernMealUITests.swift */; };
-		685837A71C11FF67006DB8C0 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837A61C11FF67006DB8C0 /* RequestController.swift */; settings = {ASSET_TAGS = (); }; };
 		685837A91C120924006DB8C0 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837A81C120924006DB8C0 /* TasksTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		684855B31C1BCFAB006C1B21 /* HTTPController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPController.swift; path = ../HTTPController.swift; sourceTree = "<group>"; };
+		684855B51C1BEC6B006C1B21 /* groceryList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = groceryList.json; sourceTree = "<group>"; };
+		684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
 		685837701C11F4DD006DB8C0 /* ModernMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685837731C11F4DE006DB8C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685837751C11F4DE006DB8C0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +56,6 @@
 		685837921C11F4DE006DB8C0 /* ModernMealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModernMealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		685837961C11F4DE006DB8C0 /* ModernMealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernMealUITests.swift; sourceTree = "<group>"; };
 		685837981C11F4DE006DB8C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		685837A61C11FF67006DB8C0 /* RequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
 		685837A81C120924006DB8C0 /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,12 +110,14 @@
 				685837731C11F4DE006DB8C0 /* AppDelegate.swift */,
 				685837751C11F4DE006DB8C0 /* MainViewController.swift */,
 				685837A81C120924006DB8C0 /* TasksTableViewController.swift */,
+				684855B31C1BCFAB006C1B21 /* HTTPController.swift */,
+				684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */,
 				685837771C11F4DE006DB8C0 /* Main.storyboard */,
 				6858377D1C11F4DE006DB8C0 /* Assets.xcassets */,
 				6858377F1C11F4DE006DB8C0 /* LaunchScreen.storyboard */,
+				684855B51C1BEC6B006C1B21 /* groceryList.json */,
 				685837821C11F4DE006DB8C0 /* Info.plist */,
 				6858377A1C11F4DE006DB8C0 /* ModernMeal.xcdatamodeld */,
-				685837A61C11FF67006DB8C0 /* RequestController.swift */,
 			);
 			path = ModernMeal;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				685837811C11F4DE006DB8C0 /* LaunchScreen.storyboard in Resources */,
+				684855B61C1BEC6B006C1B21 /* groceryList.json in Resources */,
 				6858377E1C11F4DE006DB8C0 /* Assets.xcassets in Resources */,
 				685837791C11F4DE006DB8C0 /* Main.storyboard in Resources */,
 			);
@@ -268,8 +275,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6858377C1C11F4DE006DB8C0 /* ModernMeal.xcdatamodeld in Sources */,
+				684855B81C1BF2A0006C1B21 /* GroceryListTableViewController.swift in Sources */,
+				684855B41C1BCFAB006C1B21 /* HTTPController.swift in Sources */,
 				685837A91C120924006DB8C0 /* TasksTableViewController.swift in Sources */,
-				685837A71C11FF67006DB8C0 /* RequestController.swift in Sources */,
 				685837761C11F4DE006DB8C0 /* MainViewController.swift in Sources */,
 				685837741C11F4DE006DB8C0 /* AppDelegate.swift in Sources */,
 			);
@@ -496,6 +504,7 @@
 				6858379D1C11F4DE006DB8C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6858379E1C11F4DE006DB8C0 /* Build configuration list for PBXNativeTarget "ModernMealTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +513,7 @@
 				685837A01C11F4DE006DB8C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		685837A11C11F4DE006DB8C0 /* Build configuration list for PBXNativeTarget "ModernMealUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +522,7 @@
 				685837A31C11F4DE006DB8C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

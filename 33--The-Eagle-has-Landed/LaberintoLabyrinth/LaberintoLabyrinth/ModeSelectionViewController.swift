@@ -18,7 +18,7 @@ class ModeSelectionViewController: UIViewController,  UIPickerViewDataSource, UI
     
     @IBOutlet var modePicker: UIPickerView!
     
-    var modesArray: Array<String>!
+    var modesArray: Array<playMode> = []
     var modesDict: Dictionary = ["":[Int]()]
 
     override func viewDidLoad()
@@ -26,7 +26,12 @@ class ModeSelectionViewController: UIViewController,  UIPickerViewDataSource, UI
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        modesArray = [ "Easy", "Medium", "Dificult"]
+        //modesArray = [ "1 Easy", "1 Medium", "Dificult"]
+        //modesDict = ["Easy": [20,1,1], "Medium": [30,2,1], "Dificult": [35,2,2]]
+
+        modesArray.append(playMode(dataDictionary: ["id":"01","name":"Easy","mazeSize":"20", "numberOfBalls":"1", "mazeHightRows":"1", "idPlayer":"001", "maxScoreTime":"1234"]))
+        modesArray.append(playMode(dataDictionary: ["id":"02","name":"Medium","mazeSize":"30", "numberOfBalls":"2", "mazeHightRows":"1", "idPlayer":"002", "maxScoreTime":"1234"]))
+        modesArray.append(playMode(dataDictionary: ["id":"03","name":"Dificult","mazeSize":"35", "numberOfBalls":"2", "mazeHightRows":"2", "idPlayer":"001", "maxScoreTime":"1234"]))
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +51,8 @@ class ModeSelectionViewController: UIViewController,  UIPickerViewDataSource, UI
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        return modesArray[row]
+        let newPlayMode = modesArray[row] as playMode
+        return newPlayMode.name
     }
 
     @IBAction func PlayTapped(sender: UIButton)
@@ -62,11 +68,13 @@ class ModeSelectionViewController: UIViewController,  UIPickerViewDataSource, UI
         
         if segue.identifier == "ShowMazeViewControllerSegue"
         {
+            let aMode =  modesArray[ modePicker.selectedRowInComponent(0)] as playMode
+            
             let mazeVC = segue.destinationViewController as! MazeViewController
             mazeVC.delegator = self
-            mazeVC.mazeSize = 34
-            mazeVC.numberOfBalls = 2
-            mazeVC.mazeHightRows = 1
+            mazeVC.mazeSize = aMode.mazeSize
+            mazeVC.numberOfBalls = aMode.numberOfBalls
+            mazeVC.mazeHightRows = aMode.mazeHightRows
         }
     }
     

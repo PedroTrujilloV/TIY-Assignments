@@ -70,6 +70,7 @@ class AttendanceViewController: UIViewController, ESTBeaconManagerDelegate, NSUR
                 distance = "very weak signal"
             }
             beaconInfoLabel.text = "Beacon distance: " + distance
+            
             if nearestBeacon.proximity == CLProximity.Immediate && !signedIn
             {
                 let request = NSMutableURLRequest(URL: NSURL(string: baseUrl+"/attendances")! , cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)

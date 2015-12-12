@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O9e-6h-t7r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="digital-7.ttf">
+            <string>Digital-7</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Mode Selection View Controller-->
+        <scene sceneID="rXz-Tw-8BD">
+            <objects>
+                <viewController id="g5T-7r-Mie" customClass="ModeSelectionViewController" customModule="LaberintoLabyrinth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yXA-iV-H1y"/>
+                        <viewControllerLayoutGuide type="bottom" id="rC5-yc-siB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yBw-zZ-l83">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="az7-M0-Dcf">
+                                <rect key="frame" x="0.0" y="192" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="g5T-7r-Mie" id="bRm-fs-sDm"/>
+                                    <outlet property="delegate" destination="g5T-7r-Mie" id="hjo-su-AND"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFm-bS-E7F">
+                                <rect key="frame" x="285" y="423" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="PlayTapped:" destination="g5T-7r-Mie" eventType="touchUpInside" id="80C-lX-Koc"/>
+                                    <segue destination="hgg-ig-29f" kind="show" identifier="ShowMazeViewControllerSegue" id="pvv-MI-uLH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="az7-M0-Dcf" firstAttribute="centerX" secondItem="yBw-zZ-l83" secondAttribute="centerX" id="7Xu-jh-JK5"/>
+                            <constraint firstItem="az7-M0-Dcf" firstAttribute="width" secondItem="yBw-zZ-l83" secondAttribute="width" id="NN6-ma-ZCV"/>
+                            <constraint firstItem="vFm-bS-E7F" firstAttribute="top" secondItem="az7-M0-Dcf" secondAttribute="bottom" constant="15" id="R98-8U-c86"/>
+                            <constraint firstItem="az7-M0-Dcf" firstAttribute="centerY" secondItem="yBw-zZ-l83" secondAttribute="centerY" id="iBu-fB-q93"/>
+                            <constraint firstItem="vFm-bS-E7F" firstAttribute="centerX" secondItem="yBw-zZ-l83" secondAttribute="centerX" id="qPn-03-Js2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uMe-K3-xAB"/>
+                    <connections>
+                        <outlet property="modePicker" destination="az7-M0-Dcf" id="IZ3-93-OJm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="47g-JE-Cfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1599" y="379"/>
+        </scene>
+        <!--Maze View Controller-->
+        <scene sceneID="o7F-T7-5Vt">
+            <objects>
+                <viewController id="hgg-ig-29f" customClass="MazeViewController" customModule="LaberintoLabyrinth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8II-dO-lYz"/>
+                        <viewControllerLayoutGuide type="bottom" id="kwQ-b7-Axc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jSx-Y4-Ta8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU5-9v-fiR">
+                                <rect key="frame" x="285" y="553" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="startStopTapped:" destination="hgg-ig-29f" eventType="touchUpInside" id="1oh-s1-T9X"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NL-n6-ULl">
+                                <rect key="frame" x="164" y="548" width="111" height="32"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GU5-9v-fiR" firstAttribute="centerX" secondItem="jSx-Y4-Ta8" secondAttribute="centerX" id="VAr-lt-CRd"/>
+                            <constraint firstItem="kwQ-b7-Axc" firstAttribute="top" secondItem="7NL-n6-ULl" secondAttribute="bottom" constant="20" id="Y2X-Rv-k8y"/>
+                            <constraint firstItem="kwQ-b7-Axc" firstAttribute="top" secondItem="GU5-9v-fiR" secondAttribute="bottom" constant="17" id="qEr-HW-nmM"/>
+                            <constraint firstItem="GU5-9v-fiR" firstAttribute="leading" secondItem="7NL-n6-ULl" secondAttribute="trailing" constant="10" id="xh8-O1-iyU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="starStopButton" destination="GU5-9v-fiR" id="raY-6t-MiZ"/>
+                        <outlet property="timerLabel" destination="7NL-n6-ULl" id="oaX-eo-YTr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKW-UO-hTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2321" y="379"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y9R-vG-SOV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O9e-6h-t7r" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z07-R9-jLc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="g5T-7r-Mie" kind="relationship" relationship="rootViewController" id="8mO-PW-kn0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kqk-fP-5Gt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="787" y="379"/>
+        </scene>
+    </scenes>
+</document>

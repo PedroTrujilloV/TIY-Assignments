@@ -1,17 +1,18 @@
 //
-//  TasksTableViewController.swift
+//  GroceryListTableViewController.swift
 //  ModernMeal
 //
-//  Created by Pedro Trujillo on 12/4/15.
+//  Created by Pedro Trujillo on 12/12/15.
 //  Copyright © 2015 Pedro Trujillo. All rights reserved.
 //
 
 import UIKit
 
-class TasksTableViewController: UITableViewController
+class GroceryListTableViewController: UITableViewController
 {
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -19,21 +20,28 @@ class TasksTableViewController: UITableViewController
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //change title button and view
+        self.title = "1/1/2015 Jhon Smith"
+        self.tabBarItem.title = "List"
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }

@@ -11,6 +11,10 @@ import CoreMotion
 
 class MazeViewController: UIViewController, UICollisionBehaviorDelegate
 {
+    
+    @IBOutlet weak var starStopButton: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
+    
     //main variables
     var delegator: playMazeProtocolDelegate!
     var borderUpDistance = 100
@@ -28,6 +32,9 @@ class MazeViewController: UIViewController, UICollisionBehaviorDelegate
     //objects
     var ballsArray:Array<BallUIView> = []
     var mazeArray:Array<Array<BrickMaze>> = []
+    var timer:NSTimer?
+    var startTime = NSDate.timeIntervalSinceReferenceDate()//NSTimeInterval()
+    var originalCount = 0
     
     
     //objects visual properties
@@ -59,7 +66,7 @@ class MazeViewController: UIViewController, UICollisionBehaviorDelegate
         createMaze()
 
     }
-    
+  
    
     func createMaze()
     {
@@ -280,6 +287,89 @@ class MazeViewController: UIViewController, UICollisionBehaviorDelegate
         //print("dir Y: \(self.gravity.gravityDirection.dy)")
     }
     
+    //MARK: Timer
+    
+    
+    func setTimer()
+    {
+        
+    }
+    
+    //MARK: - Action Handlers
+    
+    @IBAction func startStopTapped(sender: UIButton)
+    {
+        
+        
+        startTimer()
+        
+    }
+    
+//    @IBAction func resetTapped(sender: UIButton)
+//    {
+//        stopTimer()
+//        timerLabel.text = "\(originalCount)"
+//    }
+    
+    private func startTimer()
+    {
+        
+        
+        if timer == nil
+        {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "Render:", userInfo: nil, repeats: true)
+        
+            starStopButton.setTitle("Pause", forState: UIControlState.Normal)
+        }
+        else
+        {
+            stopTimer()
+            starStopButton.setTitle("Start", forState: UIControlState.Normal)
+        }
+        
+    }
+    
+    private func stopTimer()
+    {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func Render(time:NSTimer)
+    {
+        
+        print(startTime)
+        var currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var elapsedTime : NSTimeInterval = currentTime - startTime
+        
+        let hours = Int(elapsedTime / 3600.0)
+        elapsedTime -= (NSTimeInterval(hours) * 3600)
+        
+        let minutes = Int(elapsedTime / 60.0)
+        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        
+        let seconds = Int(elapsedTime)
+        elapsedTime -= NSTimeInterval(seconds)
+        
+        let fraction = Int(elapsedTime * 100)
+        
+        let strMinutes = String(format: "%02d", minutes)
+        let strSeconds = String(format: "%02d", seconds)
+        let strFraction = String(format: "%02d", fraction)
+        
+        timerLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        
+        //timerLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        
+//        if newCount == 0
+//        {
+//            view.backgroundColor = UIColor.redColor()
+//            stopTimer()
+//        }
+        
+        
+    }
+    
  
 
     override func didReceiveMemoryWarning()
@@ -293,3 +383,4 @@ class MazeViewController: UIViewController, UICollisionBehaviorDelegate
 
 //reference [1] http://stackoverflow.com/questions/25651969/setting-device-orientation-in-swift-ios
 //reference [2] https://www.bignerdranch.com/blog/uidynamics-in-swift/
+//reference [3] http://stackoverflow.com/questions/32106856/how-to-make-nstimer-show-hrs-min-sec

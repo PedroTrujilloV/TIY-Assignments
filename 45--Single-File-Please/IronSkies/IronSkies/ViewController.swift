@@ -1,21 +1,16 @@
 //
 //  ViewController.swift
-//  ModernMeal
+//  IronSkies
 //
-//  Created by Pedro Trujillo on 12/4/15.
+//  Created by Pedro Trujillo on 12/7/15.
 //  Copyright © 2015 Pedro Trujillo. All rights reserved.
 //
 
 import UIKit
 
-class MainViewController: UIViewController, NSURLSessionDelegate
-{
-    
-  
+class ViewController: UIViewController {
 
-
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -24,14 +19,7 @@ class MainViewController: UIViewController, NSURLSessionDelegate
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func signInTapped(sender: UIButton)
-    {
-        
-    }
 
-        
-    
 
 }
 

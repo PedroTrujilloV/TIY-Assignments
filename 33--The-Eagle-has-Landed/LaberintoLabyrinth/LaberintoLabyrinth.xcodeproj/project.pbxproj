@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		683741D41BFD980E00525B4D /* BinaryTreeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683741D31BFD980E00525B4D /* BinaryTreeGenerator.swift */; settings = {ASSET_TAGS = (); }; };
+		684855431C151189006C1B21 /* playMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855421C151189006C1B21 /* playMode.swift */; settings = {ASSET_TAGS = (); }; };
 		685837CD1C14EA9E006DB8C0 /* ModeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837CC1C14EA9E006DB8C0 /* ModeSelectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		685837CF1C14EAB0006DB8C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685837CE1C14EAB0006DB8C0 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		685837D11C14FB2C006DB8C0 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 685837D01C14FB2C006DB8C0 /* digital-7.ttf */; settings = {ASSET_TAGS = (); }; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		683741D31BFD980E00525B4D /* BinaryTreeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeGenerator.swift; sourceTree = "<group>"; };
+		684855421C151189006C1B21 /* playMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playMode.swift; sourceTree = "<group>"; };
 		685837CC1C14EA9E006DB8C0 /* ModeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectionViewController.swift; sourceTree = "<group>"; };
 		685837CE1C14EAB0006DB8C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		685837D01C14FB2C006DB8C0 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				685837CE1C14EAB0006DB8C0 /* Main.storyboard */,
 				68CD4E561BFD45C2003EA578 /* LaunchScreen.storyboard */,
 				685837D01C14FB2C006DB8C0 /* digital-7.ttf */,
+				684855421C151189006C1B21 /* playMode.swift */,
 			);
 			path = LaberintoLabyrinth;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				68F60E9B1C01AD0400CA192E /* BrickMaze.swift in Sources */,
 				685837CD1C14EA9E006DB8C0 /* ModeSelectionViewController.swift in Sources */,
 				68CD4E601BFD4BDA003EA578 /* BallUIView.swift in Sources */,
+				684855431C151189006C1B21 /* playMode.swift in Sources */,
 				68CD4E4E1BFD45C2003EA578 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
