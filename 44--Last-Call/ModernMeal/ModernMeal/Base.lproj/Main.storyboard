@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gWJ-Ci-8wl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3vw-He-cuw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -34,6 +34,7 @@
                                 <state key="normal" title="Sing in"/>
                                 <connections>
                                     <action selector="signInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fdg-Jt-Fd0"/>
+                                    <segue destination="i11-0j-pBV" kind="show" id="L2w-cR-nmc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" textLabel="k1I-Ax-yFa" detailTextLabel="KAX-SR-yW0" style="IBUITableViewCellStyleSubtitle" id="EPg-UQ-IhE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskTableViewCell" textLabel="k1I-Ax-yFa" detailTextLabel="KAX-SR-yW0" style="IBUITableViewCellStyleSubtitle" id="EPg-UQ-IhE" customClass="TaskTableViewCell" customModule="ModernMeal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EPg-UQ-IhE" id="Sxu-YN-TbT">
@@ -90,9 +91,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="gWJ-Ci-8wl" kind="show" id="Dz6-N3-d39"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -100,7 +98,16 @@
                             <outlet property="delegate" destination="FEI-r0-Yt5" id="Aim-Me-iok"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fBf-Uc-XGc"/>
+                    <navigationItem key="navigationItem" id="fBf-Uc-XGc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xB1-dt-gq5">
+                            <connections>
+                                <action selector="temporalTestFile" destination="FEI-r0-Yt5" id="MqV-tk-Gkd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="gWJ-Ci-8wl" kind="show" identifier="ShowTabBarControllerSegue" id="Ua1-zv-GGJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVH-Ol-xEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="Dyw-Dm-82z" detailTextLabel="D6J-oP-Sw8" style="IBUITableViewCellStyleSubtitle" id="z33-gq-FpD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ItemTableViewCell" textLabel="Dyw-Dm-82z" detailTextLabel="D6J-oP-Sw8" style="IBUITableViewCellStyleSubtitle" id="z33-gq-FpD" customClass="ItemTableViewCell" customModule="ModernMeal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z33-gq-FpD" id="K3J-Cz-Ggb">
@@ -313,7 +320,6 @@
         <!--Navigation Controller-->
         <scene sceneID="7jA-C6-Q77">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Db-8E-D72" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3vw-He-cuw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RXc-Ip-e5E">
@@ -325,6 +331,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="v3p-rE-4XP"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Db-8E-D72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="471" y="-343"/>
         </scene>
@@ -347,4 +354,7 @@
             <point key="canvasLocation" x="2182" y="349"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="S6t-hN-czB"/>
+    </inferredMetricsTieBreakers>
 </document>

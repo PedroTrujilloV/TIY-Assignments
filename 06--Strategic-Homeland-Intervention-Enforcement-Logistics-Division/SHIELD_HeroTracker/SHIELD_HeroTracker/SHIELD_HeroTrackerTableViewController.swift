@@ -92,9 +92,9 @@ class SHIELD_HeroTrackerTableViewController: UITableViewController
         
         do
         {
-            var heroesFilePath = NSBundle.mainBundle().pathForResource(filePathName, ofType: typeOf)
-            var heroDataFromFile = NSData(contentsOfFile: heroesFilePath!)
-            var heroData = try NSJSONSerialization.JSONObjectWithData(heroDataFromFile!, options: []) as! NSArray
+            let heroesFilePath = NSBundle.mainBundle().pathForResource(filePathName, ofType: typeOf)
+            let heroDataFromFile = NSData(contentsOfFile: heroesFilePath!)
+            let heroData = try NSJSONSerialization.JSONObjectWithData(heroDataFromFile!, options: []) as! NSArray
             var tempArr = Array<Hero>()
             for hero in heroData
             {

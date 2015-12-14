@@ -10,6 +10,14 @@ import UIKit
 
 class GroceryListTableViewController: UITableViewController
 {
+    var delegator:ItemsListControllerProtocol!
+    var groceryList:GroceryList!
+
+    
+    var grocery_list_items: Array<NSDictionary> = []
+    var grocery_list_item_ids:Array<NSNumber> = []
+    var category_order: Array<String> = []
+    
 
     override func viewDidLoad()
     {
@@ -24,6 +32,8 @@ class GroceryListTableViewController: UITableViewController
         //change title button and view
         self.title = "1/1/2015 Jhon Smith"
         self.tabBarItem.title = "List"
+        
+        //groceryListItems = groceryList["grocery_list_items"] as NSArray as Array
     }
 
     override func didReceiveMemoryWarning()
@@ -36,25 +46,31 @@ class GroceryListTableViewController: UITableViewController
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        //return the number of sections
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        //return the number of rows
+        return grocery_list_items.count
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ItemTableViewCell", forIndexPath: indexPath) as! ItemTableViewCell
 
         // Configure the cell...
+        
+        let groceryListItem:NSDictionary = grocery_list_items[indexPath.row]
+        
+        cell.textLabel?.text = groceryListItem["text"] as! NSString as String
+        
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

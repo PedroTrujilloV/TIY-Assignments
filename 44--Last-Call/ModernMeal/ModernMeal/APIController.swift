@@ -128,7 +128,7 @@ class APIController
     
     
     
-    
+    //parse the JSON file to get a Dictionary to use with the app
     func parseJSON(data:NSData) -> NSDictionary?
     {
         do
@@ -143,4 +143,53 @@ class APIController
         }
         
     }
+    
+    
+    func parseJSONStringToNSDictionary(stringCoreData:String) -> NSDictionary? //reference [1]
+    {
+        if let data = stringCoreData.dataUsingEncoding(NSUTF8StringEncoding)
+        {
+            do
+            {
+                
+                let dictionary: NSDictionary! = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
+                return dictionary
+            }
+            catch let error as NSError
+            {
+                print(error)
+                return nil
+            }
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
+    func parseJSONNSDictionaryToString(dict:NSDictionary) -> NSString?
+    {
+        
+        do
+        {
+            let data = try NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
+            
+            if let json = NSString(data: data, encoding: NSUTF8StringEncoding)
+            {
+                return json
+            }
+            
+            return nil
+        }
+        catch let error as NSError
+        {
+            print(error)
+            return nil
+        }
+    }
+
+    
 }
+
+
+//reference [1] http://stackoverflow.com/questions/29221586/swift-how-to-convert-string-to-dictionary
