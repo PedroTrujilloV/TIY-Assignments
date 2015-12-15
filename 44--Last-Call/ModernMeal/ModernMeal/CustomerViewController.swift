@@ -14,18 +14,26 @@ class CustomerViewController: UIViewController
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var exclusionsTextView: UITextView!
     @IBOutlet weak var notesTextView: UITextView!
-   
+    
+    var customerName:String!
+    var address:String!
+    var exclusions:String!
+    var notes:String = "There are not notes..."
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        customerNameLabel.text = customerName
+        addressLabel.text = address
+        exclusionsTextView.text = exclusions
+        notesTextView.text = notes
+        
+        
 
         // Do any additional setup after loading the view.
         
         //change title button and view
-        self.title = "1/1/2015 Jhon Smith"
-        self.tabBarItem.title = "Customer"
     }
 
     override func didReceiveMemoryWarning() {

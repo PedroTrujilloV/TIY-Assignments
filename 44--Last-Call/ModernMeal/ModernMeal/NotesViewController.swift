@@ -8,23 +8,39 @@
 
 import UIKit
 
-class NotesViewController: UIViewController
+class NotesViewController: UIViewController, UITextViewDelegate
 {
 
-    @IBOutlet weak var addNoteTextField: UITextField!
+    @IBOutlet weak var addNoteTextField: UITextView!
+    
+    var delegator: NotesControllerProtocol!
+    var notes:String = "Type here your note..."
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
         
-        self.title = "1/1/2015 Jhon Smith"
-        self.tabBarItem.title = "Notes"
+        addNoteTextField.text = notes
+        addNoteTextField.becomeFirstResponder()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        delegator.didChangeNotes(addNoteTextField.text)
+    }
+    
+    func textViewDidEndEditing(textView: UITextView)
+    {
+        addNoteTextField.resignFirstResponder()
     }
     
 

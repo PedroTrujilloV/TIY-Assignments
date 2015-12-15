@@ -9,17 +9,22 @@
 import UIKit
 import CoreData
 
-protocol APIControllerProtocol
-{
-    func didReceiveAPIResults(results:NSArray)
-    
-}
+//protocol APIControllerProtocol
+//{
+//    func didReceiveAPIResults(results:NSArray)
+//    
+//}
 protocol ItemsListControllerProtocol
 {
     func didChangeItemsList(results:NSArray)
 }
 
-class TasksTableViewController: UITableViewController, APIControllerProtocol, ItemsListControllerProtocol
+protocol NotesControllerProtocol
+{
+    func didChangeNotes(results:NSString)
+}
+
+class TasksTableViewController: UITableViewController,  ItemsListControllerProtocol,NotesControllerProtocol //,APIControllerProtocol
 {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext // create context manager for coredata
     var api: APIController!
@@ -34,7 +39,7 @@ class TasksTableViewController: UITableViewController, APIControllerProtocol, It
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        api = APIController(delegate: self)        //create instance of API controller with self
+        //api = APIController(delegate: self)        //create instance of API controller with self
         loadContext() // CoreData, load context information
 
         //tableView.registerClass(TaskTableViewCell.self, forCellReuseIdentifier: "TaskTableViewCell") //register cell
@@ -80,7 +85,7 @@ class TasksTableViewController: UITableViewController, APIControllerProtocol, It
         
         let groceryList:NSDictionary = api.parseJSONStringToNSDictionary(aGroceryList.groceryListJSON!)!
         
-        print(groceryList)
+        //print(groceryList)
         
         
         if let grocery_list:NSDictionary = groceryList["grocery_list"] as? NSDictionary
@@ -147,11 +152,13 @@ class TasksTableViewController: UITableViewController, APIControllerProtocol, It
             let tabBarViewController = segue.destinationViewController as! UITabBarController
            // let nav = tabBarViewController.viewControllers![0] as! UINavigationController
            // let destinationViewController = nav.topViewController as! GroceryListTableViewController
-            let destinationViewController = tabBarViewController.viewControllers![0] as! GroceryListTableViewController
+            
+            //Set infroamtion in Items List Tab
+            let listTableVC = tabBarViewController.viewControllers![0] as! GroceryListTableViewController
             
             if let groceryList:NSDictionary = api.parseJSONStringToNSDictionary(groceryListSelected.groceryListJSON!)
             {
-                print(groceryList)
+                //print(groceryList)
                 if let grocery_list_items:Array = groceryList["grocery_list_items"] as! NSArray as? Array<NSDictionary>
                 {
                     if let grocery_list:NSDictionary = groceryList["grocery_list"] as! NSDictionary
@@ -163,41 +170,64 @@ class TasksTableViewController: UITableViewController, APIControllerProtocol, It
                                 if let category_order:Array = category_orderString.componentsSeparatedByString(",")
                                 {
                                     //Set all values of the next Items tableViewController
-                                    destinationViewController.delegator = self
-                                    destinationViewController.groceryList = groceryListSelected
-                                    destinationViewController.grocery_list_item_ids = grocery_list_Id
-                                    destinationViewController.grocery_list_items = grocery_list_items
-                                    destinationViewController.category_order = category_order
+                                    listTableVC.delegator = self
+                                    listTableVC.groceryList = groceryListSelected
+                                    listTableVC.grocery_list_item_ids = grocery_list_Id
+                                    listTableVC.grocery_list_items = grocery_list_items
+                                    listTableVC.category_order = category_order
                                 }
-                                
                             }
-                            
                         }
+                        
+                        //Set infromation in Customer Tab
+                        let customerVC = tabBarViewController.viewControllers![1] as! CustomerViewController
+                        customerVC.customerName = grocery_list["name"] as! NSString as String
+                        customerVC.address = grocery_list["name"] as! NSString as String
+                        customerVC.exclusions = grocery_list["name"] as! NSString as String
+                        
+                        
+                        //Set information in Notes Tab
+                        let notesVC = tabBarViewController.viewControllers![2] as! NotesViewController
+                        
+                        notesVC.delegator = self
+                        
+                        if let notesString: String = groceryListSelected.notesString
+                        {
+                            notesVC.notes = notesString
+                            
+                            //Set infromation in Customer Tab Notes too
+                            customerVC.notes = notesString
+                        }
+
                     }
                     
                 }
             }
+  
         }
     }
     
     
     //MARK: Protocol functions
     
-    func didReceiveAPIResults(results:NSArray)
-    {
-        dispatch_async(dispatch_get_main_queue(),
-            {
-                
-                //self.venuesArray = results as! Array<NSDictionary>
-                self.tableView.reloadData()
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        })
-    }
+//    func didReceiveAPIResults(results:NSArray)
+//    {
+//        dispatch_async(dispatch_get_main_queue(),
+//            {
+//                
+//                self.tableView.reloadData()
+//                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+//        })
+//    }
     
     func didChangeItemsList(results:NSArray)
     {
         print("results:")
         print(results)
+    }
+    
+    func didChangeNotes(results:NSString)
+    {
     }
     
     //MARK: - Tempora Test Grocery List JSON file:

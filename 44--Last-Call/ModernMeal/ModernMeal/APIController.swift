@@ -8,125 +8,143 @@
 
 import Foundation
 
-class APIController
+class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionDataDelegate
 {
+    var receiveData:NSMutableData!
+    var tasksArray:NSMutableArray = []
     var delegator: APIControllerProtocol
+    private var token: String!
     
+ 
     init(delegate:APIControllerProtocol)
     {
         self.delegator = delegate
     }
     
-    func searchApiFoursquareForData(searchTerm:String = "", byCriteria:String = "", location:String)
+    func getListOfGroceryListsFromAPIModernMeal(token:String)
     {
-        let arrayTerm = location.characters.split(" ")
+        print("doing getListOfGroceryListsFromAPIModernMeal")
+        var  arrayListsIds: Array<Int> = []
+        self.token = token
+
+        let urlRequest = baseUrl+"/api/v1/grocery_lists?limit=60&auth_token="+token
+        let url:NSURL = NSURL(string: urlRequest)!
         
-        
-        
-        print(">>>>>>>>>>>>>>>>>>arrayTerm: \(arrayTerm.count)")
-        
-        let foursquareSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-        
-        if let escapedSearchTerm = foursquareSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())
-        {
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
+            print("completed Task getListOfGroceryListsFromAPIModernMeal")
             
-            //let searchString = cityAndStateArray.joinWithSeparator(", ")
-            
-            
-            let url:NSURL
-            
-            if byCriteria == "ll"
+            if error != nil
             {
-                let urlRequestByLatAndLong = "https://api.foursquare.com/v2/venues/search?client_id=OA5RPW0Y4AHZ0EPBIMXRNOSJQGAM0IFCKY11KEBGWIUK4L2A&client_secret=WK3N22CGBLPEM3B5OKELM2JNI4ISXOGAIAAKLVLYZ0QVXP3D&v=20130815&ll="+location+"&query="+escapedSearchTerm
-                url = NSURL(string: urlRequestByLatAndLong)!
-                print("search by ll")
+                print(error!.localizedDescription)
                 
             }
             else
             {
-                let locationWithoutSpaces = location.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-                
-                
-                
-                let urlRequestByNamePlus = "https://api.foursquare.com/v2/venues/explore?client_id=OA5RPW0Y4AHZ0EPBIMXRNOSJQGAM0IFCKY11KEBGWIUK4L2A&client_secret=WK3N22CGBLPEM3B5OKELM2JNI4ISXOGAIAAKLVLYZ0QVXP3D&v=20130815&near="+locationWithoutSpaces+"&query="+escapedSearchTerm
-                url = NSURL(string: urlRequestByNamePlus)!
-                print("search by anything")
-                
-            }
-            
-            
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
-                print("completed Task foursquare ")
-                if error != nil
+                if let dictionary = self.parseJSON(data!)
                 {
-                    print(error!.localizedDescription)
                     
-                }
-                else
-                {
-                    if let dictionary = self.parseJSON(data!)
+                    if let grocery_list_elements:Array = dictionary["grocery_list_elements"] as! NSArray as! Array<NSDictionary>
                     {
                         
                         
-                        if let response:NSDictionary = dictionary["response"] as? NSDictionary
+                        for element in grocery_list_elements
                         {
-                            
-                            if byCriteria == "ll"
+                            if let newDict:NSDictionary = element as NSDictionary
                             {
-                                if let venues:NSArray = response["venues"] as? NSArray
-                                {
-                                    self.delegator.didReceiveAPIResults(venues)
-                                    // print("------------NSArray venues: \(venues)")
-                                    
-                                }
+                                arrayListsIds.append(Int(newDict["id"] as! NSNumber))
                             }
-                            else
-                            {
-                                if let groups:NSArray = response["groups"] as? NSArray
-                                {
-                                    var venuesArray:Array<NSDictionary> = []
-                                    
-                                    for group in groups
-                                    {
-                                        if let items:NSArray = group["items"] as? NSArray
-                                        {
-                                            
-                                            for item in items
-                                            {
-                                                if let venue:NSDictionary = item["venue"] as? NSDictionary
-                                                {
-                                                    venuesArray.append(venue)
-                                                    //print("------------NSDictionary venue: \(venue)")
-                                                    
-                                                }
-                                            }
-                                            
-                                            
-                                            //print("------------NSArray items: \(items)")
-                                        }
-                                    }
-                                    //print("------------NSArray groups: \(groups)")
-                                    
-                                    self.delegator.didReceiveAPIResults(venuesArray)
-                                    
-                                }
-                            }
-                            //print("------------NSDictionary response: \(response)")
-                            
                         }
                         
-                        //print("dictionary parseJSON: \(dictionary)" )
+                        self.delegator.didReceiveAPIResults(arrayListsIds)
+                        
                     }
-                    // print("urlRequestByUser: \(url)")
+                    
+                    //print("dictionary parseJSON: \(dictionary)" )
                 }
-            })
-            task.resume()
+                // print("urlRequestByUser: \(url)")
+            }
+        })
+        task.resume()
+        
+    }
+    
+    func getGroceryListFromAPIModernMeal(idListsArray:Array<Int>)//, token:String)
+    {
+        for idList in idListsArray
+        {
+            let urlRequest = baseUrl+"/api/v1/grocery_lists/\(idList)?auth_token="+token
+            let url:NSURL = NSURL(string: urlRequest)!
+            appendTask(url)
         }
+        tasksArray[0].resume()
+    }
+    
+    func appendTask(url:NSURL)
+    {
+        let sessionConfiguaration: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session:NSURLSession = NSURLSession(configuration: sessionConfiguaration, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        let dataTask:NSURLSessionDataTask = session.dataTaskWithURL(url)
+        tasksArray.addObject(dataTask)//.append(dataTask)
     }
     
     
+    //MARK - Functions delegated from NSURLSessionDataDelegate
     
+     func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveResponse response: NSURLResponse, completionHandler: (NSURLSessionResponseDisposition) -> Void)
+    {
+        completionHandler(NSURLSessionResponseDisposition.Allow)
+    }
+    
+    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData)
+    {
+        if receiveData != nil
+        {
+            receiveData.appendData(data)
+        }
+        else
+        {
+            receiveData = NSMutableData(data: data)
+        }
+    }
+    
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?)
+    {
+        if error != nil
+        {
+            print(error!.localizedDescription)
+        }
+        else
+        {
+            if receiveData != nil
+            {
+                if let dictionary = self.parseJSON(receiveData!)
+                {
+                    
+                    receiveData = nil // this is necessary to clean de task array for more requests
+                    print("dictionary URLSession parseJSON: \(dictionary)" )
+                }
+                // print("urlRequestByUser: \(url)")
+            }
+        }
+        
+        
+        tasksArray.removeObject(task)
+        
+        if tasksArray.count != 0
+        {
+            tasksArray[0].resume()
+        }
+        
+        receiveData = nil
+
+    }
+    
+    
+
+    
+    
+    //MARK - JSON Serializations and converters
     
     //parse the JSON file to get a Dictionary to use with the app
     func parseJSON(data:NSData) -> NSDictionary?

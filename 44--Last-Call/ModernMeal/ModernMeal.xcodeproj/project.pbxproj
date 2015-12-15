@@ -15,8 +15,6 @@
 		684855BA1C1BF891006C1B21 /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855B91C1BF891006C1B21 /* CustomerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		684855BC1C1C00DF006C1B21 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855BB1C1C00DF006C1B21 /* NotesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		684855BE1C1C0786006C1B21 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855BD1C1C0786006C1B21 /* APIController.swift */; settings = {ASSET_TAGS = (); }; };
-		684855C11C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855BF1C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		684855C21C1C0A82006C1B21 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855C01C1C0A82006C1B21 /* GroceryList.swift */; settings = {ASSET_TAGS = (); }; };
 		685837741C11F4DE006DB8C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837731C11F4DE006DB8C0 /* AppDelegate.swift */; };
 		685837761C11F4DE006DB8C0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837751C11F4DE006DB8C0 /* MainViewController.swift */; };
 		685837791C11F4DE006DB8C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685837771C11F4DE006DB8C0 /* Main.storyboard */; };
@@ -26,6 +24,13 @@
 		6858378C1C11F4DE006DB8C0 /* ModernMealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858378B1C11F4DE006DB8C0 /* ModernMealTests.swift */; };
 		685837971C11F4DE006DB8C0 /* ModernMealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837961C11F4DE006DB8C0 /* ModernMealUITests.swift */; };
 		685837A91C120924006DB8C0 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685837A81C120924006DB8C0 /* TasksTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		687D46171C1F34AA006DC730 /* GroceryList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D46151C1F34AA006DC730 /* GroceryList+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		687D46181C1F34AA006DC730 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D46161C1F34AA006DC730 /* GroceryList.swift */; settings = {ASSET_TAGS = (); }; };
+		687D46221C1F5B42006DC730 /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 687D46191C1F5B42006DC730 /* bookmark.png */; settings = {ASSET_TAGS = (); }; };
+		687D46231C1F5B42006DC730 /* bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 687D461A1C1F5B42006DC730 /* bookmark@2x.png */; settings = {ASSET_TAGS = (); }; };
+		687D46241C1F5B42006DC730 /* bookmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 687D461B1C1F5B42006DC730 /* bookmark@3x.png */; settings = {ASSET_TAGS = (); }; };
+		687D46251C1F5B42006DC730 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 687D461C1C1F5B42006DC730 /* list.png */; settings = {ASSET_TAGS = (); }; };
+		687D462E1C1F62FB006DC730 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D462D1C1F62FB006DC730 /* Item.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +59,6 @@
 		684855B91C1BF891006C1B21 /* CustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
 		684855BB1C1C00DF006C1B21 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		684855BD1C1C0786006C1B21 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		684855BF1C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroceryList+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		684855C01C1C0A82006C1B21 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		685837701C11F4DD006DB8C0 /* ModernMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685837731C11F4DE006DB8C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685837751C11F4DE006DB8C0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +74,13 @@
 		685837961C11F4DE006DB8C0 /* ModernMealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernMealUITests.swift; sourceTree = "<group>"; };
 		685837981C11F4DE006DB8C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		685837A81C120924006DB8C0 /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
+		687D46151C1F34AA006DC730 /* GroceryList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroceryList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		687D46161C1F34AA006DC730 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
+		687D46191C1F5B42006DC730 /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark.png; sourceTree = "<group>"; };
+		687D461A1C1F5B42006DC730 /* bookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmark@2x.png"; sourceTree = "<group>"; };
+		687D461B1C1F5B42006DC730 /* bookmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmark@3x.png"; sourceTree = "<group>"; };
+		687D461C1C1F5B42006DC730 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		687D462D1C1F62FB006DC730 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +111,8 @@
 		685837671C11F4DD006DB8C0 = {
 			isa = PBXGroup;
 			children = (
-				684855BF1C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift */,
-				684855C01C1C0A82006C1B21 /* GroceryList.swift */,
+				687D46151C1F34AA006DC730 /* GroceryList+CoreDataProperties.swift */,
+				687D46161C1F34AA006DC730 /* GroceryList.swift */,
 				685837721C11F4DE006DB8C0 /* ModernMeal */,
 				6858378A1C11F4DE006DB8C0 /* ModernMealTests */,
 				685837951C11F4DE006DB8C0 /* ModernMealUITests */,
@@ -125,16 +135,21 @@
 			children = (
 				685837731C11F4DE006DB8C0 /* AppDelegate.swift */,
 				685837751C11F4DE006DB8C0 /* MainViewController.swift */,
+				684855B31C1BCFAB006C1B21 /* HTTPController.swift */,
+				684855BD1C1C0786006C1B21 /* APIController.swift */,
 				685837A81C120924006DB8C0 /* TasksTableViewController.swift */,
 				680A09FD1C1D5CE900FAEF1E /* TaskTableViewCell.swift */,
 				684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */,
 				680A09FF1C1E5A3700FAEF1E /* ItemTableViewCell.swift */,
+				687D462D1C1F62FB006DC730 /* Item.swift */,
 				684855B91C1BF891006C1B21 /* CustomerViewController.swift */,
 				684855BB1C1C00DF006C1B21 /* NotesViewController.swift */,
-				684855B31C1BCFAB006C1B21 /* HTTPController.swift */,
-				684855BD1C1C0786006C1B21 /* APIController.swift */,
 				685837771C11F4DE006DB8C0 /* Main.storyboard */,
 				6858377D1C11F4DE006DB8C0 /* Assets.xcassets */,
+				687D46191C1F5B42006DC730 /* bookmark.png */,
+				687D461A1C1F5B42006DC730 /* bookmark@2x.png */,
+				687D461B1C1F5B42006DC730 /* bookmark@3x.png */,
+				687D461C1C1F5B42006DC730 /* list.png */,
 				6858377F1C11F4DE006DB8C0 /* LaunchScreen.storyboard */,
 				684855B51C1BEC6B006C1B21 /* groceryList.json */,
 				685837821C11F4DE006DB8C0 /* Info.plist */,
@@ -269,8 +284,12 @@
 			files = (
 				685837811C11F4DE006DB8C0 /* LaunchScreen.storyboard in Resources */,
 				684855B61C1BEC6B006C1B21 /* groceryList.json in Resources */,
+				687D46231C1F5B42006DC730 /* bookmark@2x.png in Resources */,
+				687D46221C1F5B42006DC730 /* bookmark.png in Resources */,
 				6858377E1C11F4DE006DB8C0 /* Assets.xcassets in Resources */,
 				685837791C11F4DE006DB8C0 /* Main.storyboard in Resources */,
+				687D46241C1F5B42006DC730 /* bookmark@3x.png in Resources */,
+				687D46251C1F5B42006DC730 /* list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,13 +315,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6858377C1C11F4DE006DB8C0 /* ModernMeal.xcdatamodeld in Sources */,
+				687D46171C1F34AA006DC730 /* GroceryList+CoreDataProperties.swift in Sources */,
 				684855B81C1BF2A0006C1B21 /* GroceryListTableViewController.swift in Sources */,
 				684855B41C1BCFAB006C1B21 /* HTTPController.swift in Sources */,
-				684855C11C1C0A82006C1B21 /* GroceryList+CoreDataProperties.swift in Sources */,
+				687D462E1C1F62FB006DC730 /* Item.swift in Sources */,
 				685837A91C120924006DB8C0 /* TasksTableViewController.swift in Sources */,
+				687D46181C1F34AA006DC730 /* GroceryList.swift in Sources */,
 				684855BC1C1C00DF006C1B21 /* NotesViewController.swift in Sources */,
 				680A0A001C1E5A3700FAEF1E /* ItemTableViewCell.swift in Sources */,
-				684855C21C1C0A82006C1B21 /* GroceryList.swift in Sources */,
 				685837761C11F4DE006DB8C0 /* MainViewController.swift in Sources */,
 				680A09FE1C1D5CE900FAEF1E /* TaskTableViewCell.swift in Sources */,
 				685837741C11F4DE006DB8C0 /* AppDelegate.swift in Sources */,

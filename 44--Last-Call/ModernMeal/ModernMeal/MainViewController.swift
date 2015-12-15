@@ -8,16 +8,36 @@
 
 import UIKit
 
-class MainViewController: UIViewController, NSURLSessionDelegate
+protocol APIControllerProtocol
 {
+    func didReceiveAPIResults(results:Array<Int>)
+    func didReceiveAPIResults2(results:Array<Int>)
     
-  
-
+}
+protocol HTTPControllerProtocol
+{
+    func didReceiveHTTPResults(token:String)
+    
+}
+class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDelegate, HTTPControllerProtocol, APIControllerProtocol
+{
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    var httpController: HTTPController!
+    var api: APIController!
+    
+    //var
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        httpController = HTTPController(delegate:self)
+        api = APIController(delegate: self)        //create instance of API controller with self
+        httpController.singIn()
+        
+//       usernameTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +47,44 @@ class MainViewController: UIViewController, NSURLSessionDelegate
     
     @IBAction func signInTapped(sender: UIButton)
     {
+        //UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+//        httpController.singIn()
         
+//        usernameTextField.resignFirstResponder()
+//        passwordTextField.resignFirstResponder()
+        
+    }
+    
+    //MARK: Protocol functions
+    
+    func didReceiveHTTPResults(token:String)
+    {
+        dispatch_async(dispatch_get_main_queue(),
+        {
+                self.api.getListOfGroceryListsFromAPIModernMeal(token)
+                
+        })
+    }
+    
+    func didReceiveAPIResults(results:Array<Int>)
+    {
+        dispatch_async(dispatch_get_main_queue(),
+        {
+                print(results)
+                self.api.getGroceryListFromAPIModernMeal(results)
+
+
+        })
+    }
+    
+    func didReceiveAPIResults2(results:Array<Int>)
+    {
+        dispatch_async(dispatch_get_main_queue(),
+        {
+                print("didReceiveAPIResults2")
+                print(results)
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
     }
 
         
