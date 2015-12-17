@@ -26,9 +26,8 @@ protocol NotesControllerProtocol
 
 class TasksTableViewController: UITableViewController,  ItemsListControllerProtocol,NotesControllerProtocol //,APIControllerProtocol
 {
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext // create context manager for coredata
-    var api: APIController!
-
+    // create context manager for coredata
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var groceryListsArray: Array<GroceryList> = [] // initialize the main array list
     var groceryListsIDsArray: Array<String> = [] // initialize the id arrays
@@ -53,6 +52,41 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
         
 
     }
+    
+    func sincronizeCoredataAndDataBase(groceryListArrayOfDictionaries:Array<NSDictionary>)
+    {
+        for aGroceryListDict in groceryListArrayOfDictionaries
+        {
+            
+            if let groceryListJSON:NSDictionary = aGroceryListDict
+            {
+                if let dictionaryString = api.parseJSONNSDictionaryToString(groceryListJSON) as? String
+                {
+                    if let grocery_list:NSDictionary = groceryListJSON["grocery_list"] as? NSDictionary
+                    {
+                        
+                        
+                        if let newID:Int = Int(grocery_list["id"] as! NSNumber) //To store id in array Ids
+                        {
+                            
+                            let newGroceryList = NSEntityDescription.insertNewObjectForEntityForName("GroceryList", inManagedObjectContext: managedObjectContext) as! GroceryList
+                            
+                            groceryListsIDsArray.append("\(newID)")
+                            newGroceryList.groceryListJSON = dictionaryString
+                            groceryListsArray.append(newGroceryList)
+                            saveContext()
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+        
+        print(groceryListArrayOfDictionaries)
+    }
+    
+    //MARK - Set
 
     override func didReceiveMemoryWarning()
     {
@@ -77,7 +111,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TaskTableViewCell", forIndexPath: indexPath) as! TaskTableViewCell
+        let cell:TaskTableViewCell = tableView.dequeueReusableCellWithIdentifier("TaskTableViewCell", forIndexPath: indexPath) as! TaskTableViewCell
 
         // Configure the cell...
         
@@ -230,6 +264,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     {
     }
     
+    
     //MARK: - Tempora Test Grocery List JSON file:
     
     @IBAction func temporalTestFile() //erase this after get the real information from server
@@ -282,14 +317,17 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
         
         do
         {
-            let fetchRequestResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? Array<GroceryList> //conver the result from coredata in array
-            groceryListsArray = fetchRequestResults! // To make equal the array coredata to array<gl>
+            //conver the result from coredata in array
+            let fetchRequestResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? Array<GroceryList>
+            // To make equal the array coredata to array<gl>
+            groceryListsArray = fetchRequestResults!
            // print(groceryListsArray)
             for groceryLists in groceryListsArray
             {
                 let newGroceryList:GroceryList = groceryLists as GroceryList
+                // conver the string from coredata in groceryLists[n] to a dictionary
+                let groceryListDict:NSDictionary = api.parseJSONStringToNSDictionary(newGroceryList.groceryListJSON!)!
                 
-                let groceryListDict:NSDictionary = api.parseJSONStringToNSDictionary(newGroceryList.groceryListJSON!)! // conver the string from coredata in groceryLists[n] to a dictionary
                 if let grocery_list:NSDictionary = groceryListDict["grocery_list"] as? NSDictionary
                 {
                     if let newID:Int = Int(grocery_list["id"] as! NSNumber) // store locally the IDs of each gl to use after
@@ -310,6 +348,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
             abort()
         }
     }
+    
     //MARK: Save context
     func saveContext()
     {

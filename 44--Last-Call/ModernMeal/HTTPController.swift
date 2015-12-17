@@ -15,7 +15,7 @@ class HTTPController
 {
     
     var request: NSMutableURLRequest!
-    var baseUrl = "http://mmpro-test.herokuapp.com"//set the url of the site
+    //var baseUrl = "http://mmpro-test.herokuapp.com"//set the url of the site
     var token: String!
     private var email: String = ""
     private var psw: String = ""
@@ -38,8 +38,8 @@ class HTTPController
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.HTTPMethod = "POST"
-            //let requestData = ["email": "leslie.k.brown@gmail.com", "password":"awsedrf"] // here I modify the json dict in whit the new information
-            let requestData = ["email": "tazvin2@gmail.com", "password":"password"] // here I modify the json dict in whit the new information
+            let requestData = ["email": "leslie.k.brown@gmail.com", "password":"awsedrf"] // here I modify the json dict in whit the new information
+            //let requestData = ["email": "tazvin2@gmail.com", "password":"password"] // here I modify the json dict in whit the new information
 
             
             do

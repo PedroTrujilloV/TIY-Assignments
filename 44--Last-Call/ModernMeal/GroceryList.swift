@@ -9,8 +9,14 @@
 import Foundation
 import CoreData
 
-class GroceryList: NSManagedObject {
+class GroceryList: NSManagedObject
+{
 
 // Insert code here to add functionality to your managed object subclass
+    
+//    func get_grocery_list_keyInfo()
+//    {
+//        
+//    }
 
 }

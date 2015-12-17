@@ -11,7 +11,7 @@ import UIKit
 protocol APIControllerProtocol
 {
     func didReceiveAPIResults(results:Array<Int>)
-    func didReceiveAPIResults2(results:Array<Int>)
+    func didReceiveListOfListsFromAPIResults(results:Array<NSDictionary>)
     
 }
 protocol HTTPControllerProtocol
@@ -19,15 +19,18 @@ protocol HTTPControllerProtocol
     func didReceiveHTTPResults(token:String)
     
 }
+
+var api: APIController!
+
 class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDelegate, HTTPControllerProtocol, APIControllerProtocol
 {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     var httpController: HTTPController!
-    var api: APIController!
+    var arrayResults:Array<NSDictionary>!
+    //var api: APIController!
     
-    //var
 
     override func viewDidLoad()
     {
@@ -35,7 +38,6 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
         // Do any additional setup after loading the view, typically from a nib.
         httpController = HTTPController(delegate:self)
         api = APIController(delegate: self)        //create instance of API controller with self
-        httpController.singIn()
         
 //       usernameTextField.becomeFirstResponder()
     }
@@ -47,8 +49,8 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
     
     @IBAction func signInTapped(sender: UIButton)
     {
-        //UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-//        httpController.singIn()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        httpController.singIn()
         
 //        usernameTextField.resignFirstResponder()
 //        passwordTextField.resignFirstResponder()
@@ -61,7 +63,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
     {
         dispatch_async(dispatch_get_main_queue(),
         {
-                self.api.getListOfGroceryListsFromAPIModernMeal(token)
+                api.getListOfGroceryListsFromAPIModernMeal(token)
                 
         })
     }
@@ -71,20 +73,47 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
         dispatch_async(dispatch_get_main_queue(),
         {
                 print(results)
-                self.api.getGroceryListFromAPIModernMeal(results)
+                api.getGroceryListFromAPIModernMeal(results)
 
 
         })
     }
     
-    func didReceiveAPIResults2(results:Array<Int>)
+    func didReceiveListOfListsFromAPIResults(results:Array<NSDictionary>)
     {
         dispatch_async(dispatch_get_main_queue(),
         {
-                print("didReceiveAPIResults2")
-                print(results)
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            print("didReceiveListOfListsFromAPIResults")
+            //print(results)
+            self.arrayResults = results
+            print("----------end")
+//            let taskTableVC:TasksTableViewController = TasksTableViewController()
+//            taskTableVC.sincronizeCoredataAndDataBase(results)
+//            //here is created the navigation controler for the app
+//            let navigationController = UINavigationController(rootViewController: taskTableVC)
+//            
+//            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+//            self.presentViewController(navigationController, animated: true, completion: nil)
+//            
+            self.performSegueWithIdentifier("PresentTaskTableViewControllerSegue", sender: self) //call the segue to navigate at tabBarController
+
         })
+    }
+    
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "PresentTaskTableViewControllerSegue"
+        {
+            let taskTableVC = segue.destinationViewController as! TasksTableViewController
+            taskTableVC.sincronizeCoredataAndDataBase(self.arrayResults)
+            
+            //here is created the navigation controler for the app
+            let navigationController = UINavigationController(rootViewController: taskTableVC)
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
+        }
     }
 
         

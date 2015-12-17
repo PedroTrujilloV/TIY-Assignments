@@ -12,6 +12,7 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
 {
     var receiveData:NSMutableData!
     var tasksArray:NSMutableArray = []
+    var groceryListOfListArray: Array<NSDictionary> = []
     var delegator: APIControllerProtocol
     private var token: String!
     
@@ -44,7 +45,7 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
                 if let dictionary = self.parseJSON(data!)
                 {
                     
-                    if let grocery_list_elements:Array = dictionary["grocery_list_elements"] as! NSArray as! Array<NSDictionary>
+                    if let grocery_list_elements:Array = dictionary["grocery_list_elements"] as! NSArray as? Array<NSDictionary>
                     {
                         
                         
@@ -120,9 +121,9 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
             {
                 if let dictionary = self.parseJSON(receiveData!)
                 {
-                    
+                    groceryListOfListArray.append(dictionary)
                     receiveData = nil // this is necessary to clean de task array for more requests
-                    print("dictionary URLSession parseJSON: \(dictionary)" )
+                    //print("dictionary URLSession parseJSON: \(dictionary)" )
                 }
                 // print("urlRequestByUser: \(url)")
             }
@@ -134,6 +135,10 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
         if tasksArray.count != 0
         {
             tasksArray[0].resume()
+        }
+        else
+        {
+            delegator.didReceiveListOfListsFromAPIResults(groceryListOfListArray)
         }
         
         receiveData = nil
