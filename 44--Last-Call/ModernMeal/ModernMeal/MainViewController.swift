@@ -10,8 +10,8 @@ import UIKit
 
 protocol APIControllerProtocol
 {
-    func didReceiveAPIResults(results:Array<Int>)
-    func didReceiveListOfListsFromAPIResults(results:Array<NSDictionary>)
+    func didReceiveAPIResults(results:NSMutableArray)
+    func didReceiveListOfListsFromAPIResults(results:[Int:NSDictionary])
     
 }
 protocol HTTPControllerProtocol
@@ -28,7 +28,8 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
     @IBOutlet weak var passwordTextField: UITextField!
     
     var httpController: HTTPController!
-    var arrayResults:Array<NSDictionary>!
+    var arrayResults = [Int:NSDictionary]()
+    var arrayIDs: NSMutableArray!
     //var api: APIController!
     
 
@@ -68,18 +69,19 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
         })
     }
     
-    func didReceiveAPIResults(results:Array<Int>)
+    func didReceiveAPIResults(results:NSMutableArray)
     {
         dispatch_async(dispatch_get_main_queue(),
         {
                 print(results)
+            self.arrayIDs = results
                 api.getGroceryListFromAPIModernMeal(results)
 
 
         })
     }
     
-    func didReceiveListOfListsFromAPIResults(results:Array<NSDictionary>)
+    func didReceiveListOfListsFromAPIResults(results:[Int:NSDictionary])
     {
         dispatch_async(dispatch_get_main_queue(),
         {
@@ -105,11 +107,16 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
     {
         if segue.identifier == "PresentTaskTableViewControllerSegue"
         {
-            let taskTableVC = segue.destinationViewController as! TasksTableViewController
-            taskTableVC.sincronizeCoredataAndDataBase(self.arrayResults)
+//            let taskTableVC = segue.destinationViewController as! TasksTableViewController
+//            taskTableVC.sincronizeCoredataAndDataBase(self.arrayResults)
             
             //here is created the navigation controler for the app
-            let navigationController = UINavigationController(rootViewController: taskTableVC)
+           
+            
+            let navigationController = segue.destinationViewController as! UINavigationController
+
+            let taskTableVC:TasksTableViewController = navigationController.viewControllers[0] as! TasksTableViewController
+            taskTableVC.sincronizeCoredataAndDataBase(self.arrayIDs,groceryListArrayOfDictionaries: self.arrayResults)
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 

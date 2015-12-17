@@ -102,16 +102,15 @@ class GroceryListTableViewController: UITableViewController
 //       // return UITableViewAutomaticDimension
 ////        let groceryListItem:NSDictionary = grocery_list_items[indexPath.row]
 ////        UIScreen.mainScreen().bounds.width
-////
-//        let chars = groceryListItem["text"] as! NSString as String
-//        
-//        let widhtScreen = view.bounds.width
-//        
-//        if chars.characters.count > 20
-//        {
-//            return chars.characters.count
-//        }
-        return 90
+        
+        var cellHeight = 85
+
+        if let anItem:Item = groceryListItemsDictionary[current_categories[indexPath.section]]![indexPath.row]
+        {
+            cellHeight = (anItem.getTotalNumberOfLines() * 30) + 40
+        }
+        
+        return CGFloat(cellHeight)
 //
     }
 
@@ -123,10 +122,10 @@ class GroceryListTableViewController: UITableViewController
         // Configure the cell...
 //        if indexPath.row < groceryListItemsDictionary[current_categories[indexPath.section]]!.count
 //        {
-            if let aItem:Item = groceryListItemsDictionary[current_categories[indexPath.section]]![indexPath.row]
+            if let anItem:Item = groceryListItemsDictionary[current_categories[indexPath.section]]![indexPath.row]
             {
-                cell.textLabel?.text = aItem.text + "\n" + aItem.recipe_name
-                cell.textLabel?.numberOfLines = 4
+                cell.textLabel?.text = anItem.text + "\n" + anItem.recipe_name
+                cell.textLabel?.numberOfLines = 0
             }
             
 //        }

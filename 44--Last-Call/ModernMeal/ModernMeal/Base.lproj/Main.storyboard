@@ -59,12 +59,12 @@
                     <connections>
                         <outlet property="passwordTextField" destination="Di3-iN-dVF" id="L3D-H9-xPQ"/>
                         <outlet property="usernameTextField" destination="U0h-gn-d28" id="cuR-bq-BeY"/>
-                        <segue destination="FEI-r0-Yt5" kind="presentation" identifier="PresentTaskTableViewControllerSegue" id="ywc-Dr-znV"/>
+                        <segue destination="rX5-ar-g07" kind="presentation" identifier="PresentTaskTableViewControllerSegue" id="c7v-Ac-x0r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920" y="532"/>
+            <point key="canvasLocation" x="2460" y="-70"/>
         </scene>
         <!--Tasks Table View Controller-->
         <scene sceneID="GxV-eG-I4g">
@@ -76,7 +76,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskTableViewCell" textLabel="k1I-Ax-yFa" detailTextLabel="KAX-SR-yW0" style="IBUITableViewCellStyleSubtitle" id="EPg-UQ-IhE" customClass="TaskTableViewCell" customModule="ModernMeal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EPg-UQ-IhE" id="Sxu-YN-TbT">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -270,7 +270,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ItemTableViewCell" textLabel="Dyw-Dm-82z" detailTextLabel="D6J-oP-Sw8" style="IBUITableViewCellStyleSubtitle" id="z33-gq-FpD" customClass="ItemTableViewCell" customModule="ModernMeal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z33-gq-FpD" id="K3J-Cz-Ggb">
                                     <rect key="frame" x="0.0" y="0.0" width="561" height="43"/>
@@ -348,7 +348,4 @@
         <image name="list" width="23" height="23"/>
         <image name="user" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ywc-Dr-znV"/>
-    </inferredMetricsTieBreakers>
 </document>

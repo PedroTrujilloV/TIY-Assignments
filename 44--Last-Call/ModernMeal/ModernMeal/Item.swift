@@ -18,6 +18,8 @@ class Item
     var recipe_name:String!
     var shopped:Bool!
     var item_name:String!
+    
+    
     init(ItemDict:NSDictionary)
     {
         id = Int(ItemDict["id"] as! NSNumber)
@@ -28,6 +30,19 @@ class Item
         recipe_name = ItemDict["recipe_name"] as! NSString as String
         shopped = ItemDict["shopped"] as! Bool
         item_name = ItemDict["item_name"] as! NSString as String
+        
     }
+    
+    func getTotalNumberOfCharacters() -> Int
+    {
+        return Int(text.characters.count + recipe_name.characters.count)
+    }
+    
+    func getTotalNumberOfLines() -> Int
+    {
+        return Int(Int(text.characters.count + recipe_name.characters.count)/30)
+    }
+    
+    
 
 }

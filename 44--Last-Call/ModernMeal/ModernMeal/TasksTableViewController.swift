@@ -30,7 +30,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var groceryListsArray: Array<GroceryList> = [] // initialize the main array list
-    var groceryListsIDsArray: Array<String> = [] // initialize the id arrays
+    var groceryListsIDsArray: Array<Int> = [] // initialize the id arrays
     
     var groceryListSelected:GroceryList!
     
@@ -39,7 +39,6 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     {
         super.viewDidLoad()
         //api = APIController(delegate: self)        //create instance of API controller with self
-        loadContext() // CoreData, load context information
 
         //tableView.registerClass(TaskTableViewCell.self, forCellReuseIdentifier: "TaskTableViewCell") //register cell
 
@@ -53,37 +52,82 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
 
     }
     
-    func sincronizeCoredataAndDataBase(groceryListArrayOfDictionaries:Array<NSDictionary>)
+    func sincronizeCoredataAndDataBase( groceryListsIDsArrayFromServer:NSMutableArray, groceryListArrayOfDictionaries:[Int:NSDictionary])
     {
-        for aGroceryListDict in groceryListArrayOfDictionaries
+        if loadContext() // CoreData, load context of previous information if this exists in the device
         {
-            
-            if let groceryListJSON:NSDictionary = aGroceryListDict
+            //compare ids by grocery list in core data
+            for aGroceryList in groceryListsArray
             {
-                if let dictionaryString = api.parseJSONNSDictionaryToString(groceryListJSON) as? String
+                if groceryListsIDsArrayFromServer.containsObject(aGroceryList.id)
                 {
-                    if let grocery_list:NSDictionary = groceryListJSON["grocery_list"] as? NSDictionary
+                    //compare lasts dates updated
+                    let aStringDate =  groceryListArrayOfDictionaries[aGroceryList.id]!["grocery_list"]!["updated_at"] as! String
+
+                    if  stringToDate(aStringDate).timeIntervalSince1970 <= stringToDate(aGroceryList.updated_at as String).timeIntervalSince1970
                     {
-                        
-                        
-                        if let newID:Int = Int(grocery_list["id"] as! NSNumber) //To store id in array Ids
-                        {
-                            
-                            let newGroceryList = NSEntityDescription.insertNewObjectForEntityForName("GroceryList", inManagedObjectContext: managedObjectContext) as! GroceryList
-                            
-                            groceryListsIDsArray.append("\(newID)")
-                            newGroceryList.groceryListJSON = dictionaryString
-                            groceryListsArray.append(newGroceryList)
-                            saveContext()
-                        }
-                        
+                        print("COREDATA: \(stringToDate(aStringDate)) IS THE MOST RECENT THAN: \(stringToDate(aGroceryList.updated_at as String))!!!")
                     }
+                    else
+                    {
+                        print("SERVER: \(stringToDate(aStringDate)) IS THE MOST RECENT THAN: \(stringToDate(aGroceryList.updated_at as String))!!!")
+                    }
+                    
+//                    //replace the las grocery List with the new one updated
+//                    print("last update gl[\(aGroceryList.id)] was : \(aGroceryList.updated_at)")
+//                    aGroceryList.groceryListJSON =  api.parseJSONNSDictionaryToString(groceryListArrayOfDictionaries[aGroceryList.id]!) as? String
+//                    aGroceryList.setModelAtributes() //set instances of each atribute of the model GroceryList class
+//                    print("new update gl[\(aGroceryList.id)] was : \(aGroceryList.updated_at)")
+//                    
+                    groceryListsIDsArrayFromServer.removeObject(aGroceryList.id)
                 }
+                
+                
             }
         }
-
         
+        if groceryListsIDsArrayFromServer.count != 0 // check if this is not empty
+        {
+            for groceryListID in groceryListsIDsArrayFromServer //add the new gls in the list
+            {
+                addGroceryList(groceryListArrayOfDictionaries[Int(groceryListID as! NSNumber)]!)
+                print("--- Apended: \(groceryListID)")
+            }
+            
+        }
+        
+
         print(groceryListArrayOfDictionaries)
+    }
+    
+    
+    //Create new core data GRoceryList object and save it
+    func addGroceryList(aGroceryListDict:NSDictionary)
+    {
+        if let dictionaryString = api.parseJSONNSDictionaryToString(aGroceryListDict) as? String
+        {
+            // create a new core data object 
+            let newGroceryList = NSEntityDescription.insertNewObjectForEntityForName("GroceryList", inManagedObjectContext: managedObjectContext) as! GroceryList
+            
+            newGroceryList.groceryListJSON = dictionaryString
+            newGroceryList.setModelAtributes() //set instances of each atribute of the model GroceryList class
+            groceryListsIDsArray.append(newGroceryList.id)
+            groceryListsArray.append(newGroceryList)
+            saveContext()
+        }
+        
+    }
+    
+    // 
+    func stringToDate(aStringDate:String) -> NSDate
+    {
+        let dateFormatter = NSDateFormatter()
+        //dateFormatter.dateFormat = "yyyy-MM-ddTkk:mm:ssZ" /*http://userguide.icu-project.org/formatparse/datetime*/
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ" //http://stackoverflow.com/questions/28791771/swift-iso-8601-date-formatting-with-ios7
+        let date = dateFormatter.dateFromString(aStringDate)
+        
+        return date!
+
     }
     
     //MARK - Set
@@ -257,7 +301,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     func didChangeItemsList(results:NSArray)
     {
         print("results:")
-        print(results)
+        //print(results)
     }
     
     func didChangeNotes(results:NSString)
@@ -267,50 +311,50 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     
     //MARK: - Tempora Test Grocery List JSON file:
     
-    @IBAction func temporalTestFile() //erase this after get the real information from server
-    {
-        do
-        {
-            let testFilePath = NSBundle.mainBundle().pathForResource("groceryList", ofType: "json")
-            if let testDataFromFile = NSData(contentsOfFile: testFilePath!)
-            {
-                let groceryListsDict = try NSJSONSerialization.JSONObjectWithData(testDataFromFile, options: []) as! NSDictionary
-                
-                if let groceryListJSON:NSDictionary = groceryListsDict
-                {
-                    if let dictionaryString = api.parseJSONNSDictionaryToString(groceryListJSON) as? String
-                    {
-                        if let grocery_list:NSDictionary = groceryListJSON["grocery_list"] as? NSDictionary
-                        {
-                            let newGroceryList = NSEntityDescription.insertNewObjectForEntityForName("GroceryList", inManagedObjectContext: managedObjectContext) as! GroceryList
-                            
-                            if let newID:Int = Int(grocery_list["id"] as! NSNumber) //To store id in array Ids
-                            {
-                                groceryListsIDsArray.append("\(newID)")
-                                newGroceryList.groceryListJSON = dictionaryString
-                                groceryListsArray.append(newGroceryList)
-                                saveContext()
-                            }
-                           
-                        }
-                    }
-                }
-            }
-            
-        }
-        catch let error as NSError
-        {
-            print("Error loading file groceryList.json error information: \(error)")
-        }
-        
-        tableView.reloadData()
-        
-    }
+//    @IBAction func temporalTestFile() //erase this after get the real information from server
+//    {
+//        do
+//        {
+//            let testFilePath = NSBundle.mainBundle().pathForResource("groceryList", ofType: "json")
+//            if let testDataFromFile = NSData(contentsOfFile: testFilePath!)
+//            {
+//                let groceryListsDict = try NSJSONSerialization.JSONObjectWithData(testDataFromFile, options: []) as! NSDictionary
+//                
+//                if let groceryListJSON:NSDictionary = groceryListsDict
+//                {
+//                    if let dictionaryString = api.parseJSONNSDictionaryToString(groceryListJSON) as? String
+//                    {
+//                        if let grocery_list:NSDictionary = groceryListJSON["grocery_list"] as? NSDictionary
+//                        {
+//                            let newGroceryList = NSEntityDescription.insertNewObjectForEntityForName("GroceryList", inManagedObjectContext: managedObjectContext) as! GroceryList
+//                            
+//                            if let newID:Int = Int(grocery_list["id"] as! NSNumber) //To store id in array Ids
+//                            {
+//                                groceryListsIDsArray.append(newID)
+//                                newGroceryList.groceryListJSON = dictionaryString
+//                                groceryListsArray.append(newGroceryList)
+//                                saveContext()
+//                            }
+//                           
+//                        }
+//                    }
+//                }
+//            }
+//            
+//        }
+//        catch let error as NSError
+//        {
+//            print("Error loading file groceryList.json error information: \(error)")
+//        }
+//        
+//        tableView.reloadData()
+//        
+//    }
     
     //MARK: - CoreData
     
     //MARK: Load context
-    func loadContext()
+    func loadContext() -> Bool
     {
         let fetchRequest = NSFetchRequest (entityName: "GroceryList")        //fethc the list of task from core data
         
@@ -318,27 +362,29 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
         do
         {
             //conver the result from coredata in array
-            let fetchRequestResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? Array<GroceryList>
-            // To make equal the array coredata to array<gl>
-            groceryListsArray = fetchRequestResults!
-           // print(groceryListsArray)
-            for groceryLists in groceryListsArray
+            if let fetchRequestResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? Array<GroceryList>
             {
-                let newGroceryList:GroceryList = groceryLists as GroceryList
-                // conver the string from coredata in groceryLists[n] to a dictionary
-                let groceryListDict:NSDictionary = api.parseJSONStringToNSDictionary(newGroceryList.groceryListJSON!)!
+                // To make equal the array coredata to array<gl>
+                groceryListsArray = fetchRequestResults //<============================
+               // print(groceryListsArray)
                 
-                if let grocery_list:NSDictionary = groceryListDict["grocery_list"] as? NSDictionary
+                for groceryLists in groceryListsArray
                 {
-                    if let newID:Int = Int(grocery_list["id"] as! NSNumber) // store locally the IDs of each gl to use after
-                    {
-                        groceryListsIDsArray.append("\(newID)")
-                    }
+                    let newGroceryList:GroceryList = groceryLists as GroceryList
+                    
+                    newGroceryList.setModelAtributes()
+                    
+                    //register the id in the array of ids to internal fast searchs
+                    groceryListsIDsArray.append(newGroceryList.id)
+
                 }
-                // print(newVenue.infoDict)
-            }
+                
+                
             
-            //print(groceryListsIDsArray)
+                //print(groceryListsIDsArray)
+                return true //succes!There is information stored in Core data
+            }
+
         }
             
         catch
@@ -347,6 +393,9 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
+        
+        return false //Is empty Core data
+        
     }
     
     //MARK: Save context

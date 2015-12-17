@@ -13,6 +13,7 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
     var receiveData:NSMutableData!
     var tasksArray:NSMutableArray = []
     var groceryListOfListArray: Array<NSDictionary> = []
+    var groceryListOfListDictionary = Dictionary<Int, NSDictionary>()//[Int: NSDictionary]()
     var delegator: APIControllerProtocol
     private var token: String!
     
@@ -25,7 +26,7 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
     func getListOfGroceryListsFromAPIModernMeal(token:String)
     {
         print("doing getListOfGroceryListsFromAPIModernMeal")
-        var  arrayListsIds: Array<Int> = []
+        var  arrayListsIds: NSMutableArray = []
         self.token = token
 
         let urlRequest = baseUrl+"/api/v1/grocery_lists?limit=60&auth_token="+token
@@ -53,7 +54,8 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
                         {
                             if let newDict:NSDictionary = element as NSDictionary
                             {
-                                arrayListsIds.append(Int(newDict["id"] as! NSNumber))
+                                arrayListsIds.addObject(Int(newDict["id"] as! NSNumber))
+                                
                             }
                         }
                         
@@ -70,7 +72,7 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
         
     }
     
-    func getGroceryListFromAPIModernMeal(idListsArray:Array<Int>)//, token:String)
+    func getGroceryListFromAPIModernMeal(idListsArray:NSMutableArray)//, token:String)
     {
         for idList in idListsArray
         {
@@ -121,7 +123,15 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
             {
                 if let dictionary = self.parseJSON(receiveData!)
                 {
-                    groceryListOfListArray.append(dictionary)
+                    groceryListOfListArray.append(dictionary)/// erase it after
+                    
+                    if let newDict:NSDictionary = dictionary as NSDictionary
+                    {
+                        //print(newDict)
+                        self.groceryListOfListDictionary[Int(newDict["grocery_list"]!["id"] as! NSNumber)] = newDict //======error
+                    }
+
+                    
                     receiveData = nil // this is necessary to clean de task array for more requests
                     //print("dictionary URLSession parseJSON: \(dictionary)" )
                 }
@@ -138,7 +148,7 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
         }
         else
         {
-            delegator.didReceiveListOfListsFromAPIResults(groceryListOfListArray)
+            delegator.didReceiveListOfListsFromAPIResults(groceryListOfListDictionary)
         }
         
         receiveData = nil
