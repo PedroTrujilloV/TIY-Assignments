@@ -64,21 +64,24 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
                     //compare lasts dates updated
                     let aStringDate =  groceryListArrayOfDictionaries[aGroceryList.id]!["grocery_list"]!["updated_at"] as! String
 
-                    if  stringToDate(aStringDate).timeIntervalSince1970 <= stringToDate(aGroceryList.updated_at as String).timeIntervalSince1970
+                    if  stringToDate(aStringDate).timeIntervalSince1970 > stringToDate(aGroceryList.updated_at as String).timeIntervalSince1970
                     {
-                        print("COREDATA: \(stringToDate(aStringDate)) IS THE MOST RECENT THAN: \(stringToDate(aGroceryList.updated_at as String))!!!")
+                        //replace the las grocery List with the new one updated
+                        print("last update gl[\(aGroceryList.id)] was : \(aGroceryList.updated_at)")
+                        aGroceryList.groceryListJSON =  api.parseJSONNSDictionaryToString(groceryListArrayOfDictionaries[aGroceryList.id]!) as? String
+                        aGroceryList.setModelAtributes() //set instances of each atribute of the model GroceryList class
+                        print("new update gl[\(aGroceryList.id)] was : \(aGroceryList.updated_at)")
+                        print("SERVER: \(stringToDate(aStringDate)) IS THE MOST RECENT THAN: \(stringToDate(aGroceryList.updated_at as String))!!!")
+                        
                     }
                     else
                     {
-                        print("SERVER: \(stringToDate(aStringDate)) IS THE MOST RECENT THAN: \(stringToDate(aGroceryList.updated_at as String))!!!")
+                        
+                        
+                        print("COREDATA: \(stringToDate(aStringDate)) IS THE MOST RECENT THAN: \(stringToDate(aGroceryList.updated_at as String))!!!")
                     }
                     
-//                    //replace the las grocery List with the new one updated
-//                    print("last update gl[\(aGroceryList.id)] was : \(aGroceryList.updated_at)")
-//                    aGroceryList.groceryListJSON =  api.parseJSONNSDictionaryToString(groceryListArrayOfDictionaries[aGroceryList.id]!) as? String
-//                    aGroceryList.setModelAtributes() //set instances of each atribute of the model GroceryList class
-//                    print("new update gl[\(aGroceryList.id)] was : \(aGroceryList.updated_at)")
-//                    
+            
                     groceryListsIDsArrayFromServer.removeObject(aGroceryList.id)
                 }
                 
