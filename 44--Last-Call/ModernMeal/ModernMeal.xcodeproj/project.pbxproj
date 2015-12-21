@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		680A09FE1C1D5CE900FAEF1E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A09FD1C1D5CE900FAEF1E /* TaskTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		680A0A001C1E5A3700FAEF1E /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A09FF1C1E5A3700FAEF1E /* ItemTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		68290C471C28A7BA004411F5 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68290C461C28A7B7004411F5 /* GroceryListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		684855B41C1BCFAB006C1B21 /* HTTPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855B31C1BCFAB006C1B21 /* HTTPController.swift */; settings = {ASSET_TAGS = (); }; };
 		684855B61C1BEC6B006C1B21 /* groceryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 684855B51C1BEC6B006C1B21 /* groceryList.json */; settings = {ASSET_TAGS = (); }; };
 		684855B81C1BF2A0006C1B21 /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		680A09FD1C1D5CE900FAEF1E /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		680A09FF1C1E5A3700FAEF1E /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		68290C461C28A7B7004411F5 /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
 		684855B31C1BCFAB006C1B21 /* HTTPController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPController.swift; path = ../HTTPController.swift; sourceTree = "<group>"; };
 		684855B51C1BEC6B006C1B21 /* groceryList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = groceryList.json; sourceTree = "<group>"; };
 		684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +141,7 @@
 				684855BD1C1C0786006C1B21 /* APIController.swift */,
 				685837A81C120924006DB8C0 /* TasksTableViewController.swift */,
 				680A09FD1C1D5CE900FAEF1E /* TaskTableViewCell.swift */,
-				684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */,
+				68290C461C28A7B7004411F5 /* GroceryListViewController.swift */,
 				680A09FF1C1E5A3700FAEF1E /* ItemTableViewCell.swift */,
 				687D462D1C1F62FB006DC730 /* Item.swift */,
 				684855B91C1BF891006C1B21 /* CustomerViewController.swift */,
@@ -154,6 +156,7 @@
 				684855B51C1BEC6B006C1B21 /* groceryList.json */,
 				685837821C11F4DE006DB8C0 /* Info.plist */,
 				6858377A1C11F4DE006DB8C0 /* ModernMeal.xcdatamodeld */,
+				684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */,
 			);
 			path = ModernMeal;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				684855B81C1BF2A0006C1B21 /* GroceryListTableViewController.swift in Sources */,
 				684855B41C1BCFAB006C1B21 /* HTTPController.swift in Sources */,
 				687D462E1C1F62FB006DC730 /* Item.swift in Sources */,
+				68290C471C28A7BA004411F5 /* GroceryListViewController.swift in Sources */,
 				685837A91C120924006DB8C0 /* TasksTableViewController.swift in Sources */,
 				687D46181C1F34AA006DC730 /* GroceryList.swift in Sources */,
 				684855BC1C1C00DF006C1B21 /* NotesViewController.swift in Sources */,

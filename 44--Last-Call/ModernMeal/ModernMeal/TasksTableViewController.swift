@@ -222,7 +222,8 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
            // let destinationViewController = nav.topViewController as! GroceryListTableViewController
             
             //Set infroamtion in Items List Tab
-            let listTableVC = tabBarViewController.viewControllers![0] as! GroceryListTableViewController
+            //let listTableVC = tabBarViewController.viewControllers![0] as! GroceryListTableViewController
+            let listTableVC = tabBarViewController.viewControllers![0] as! GroceryListViewController
             
             if let groceryList:NSDictionary = api.parseJSONStringToNSDictionary(groceryListSelected.groceryListJSON!)
             {
