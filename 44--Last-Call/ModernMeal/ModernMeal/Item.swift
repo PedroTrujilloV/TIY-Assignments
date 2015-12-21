@@ -10,18 +10,24 @@ import Foundation
 
 class Item
 {
+    var dictionary: NSDictionary = NSDictionary()
+    
     var id:Int!
     var grocery_list_id:Int!
     var category: String!
     var text: String!
     var recipe_id:String!
     var recipe_name:String!
-    var shopped:Bool!
+    var shopped:Bool = false
     var item_name:String!
+    
+    
     
     
     init(ItemDict:NSDictionary)
     {
+        dictionary = ItemDict
+        
         id = Int(ItemDict["id"] as! NSNumber)
         grocery_list_id = Int(ItemDict["grocery_list_id"] as! NSNumber)
         category = ItemDict["category"] as! NSString as String
@@ -32,9 +38,7 @@ class Item
 //        {
            recipe_id  = ItemDict["recipe_id"] as? String ?? ""
 //        }
-        
-        
-        
+
         recipe_name = ItemDict["recipe_name"] as! NSString as String
         shopped = ItemDict["shopped"] as! Bool
         item_name = ItemDict["item_name"] as! NSString as String
@@ -57,6 +61,24 @@ class Item
         return Int(Int(recipe_name.characters.count)/30)
     }
     
+    func setAllAttributes()
+    {
+        
+        dictionary.setValue(id, forKey: "id")
+        dictionary.setValue(grocery_list_id, forKey: "grocery_list_id")
+        dictionary.setValue(category, forKey: "category")
+        dictionary.setValue(text, forKey: "text")
+        dictionary.setValue(recipe_id, forKey: "recipe_id")
+        dictionary.setValue(recipe_name, forKey: "recipe_name")
+        dictionary.setValue(shopped, forKey: "shopped")
+        dictionary.setValue(item_name, forKey: "item_name")
+        
+    }
     
-
+    func getDictionary() -> NSDictionary
+    {
+        setAllAttributes()
+        return dictionary
+    }
+    
 }

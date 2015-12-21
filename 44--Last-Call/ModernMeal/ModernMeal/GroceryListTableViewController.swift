@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class GroceryListTableViewController: UITableViewController
 {
@@ -20,6 +21,8 @@ class GroceryListTableViewController: UITableViewController
     var grocery_list_item_ids:Array<NSNumber> = []
     var category_order: Array<String> = []
     
+    
+    var undoHistory:NSMutableArray = []
     
 
     override func viewDidLoad()
@@ -109,14 +112,15 @@ class GroceryListTableViewController: UITableViewController
         
             if anItem.getTotalNumberOfLinesTexTLabel() >= 2 || anItem.getTotalNumberOfLinesDetailLabel() > 2
             {
-                cellHeight = (anItem.getTotalNumberOfLinesTexTLabel() + anItem.getTotalNumberOfLinesDetailLabel()) * 40
+                cellHeight = (anItem.getTotalNumberOfLinesTexTLabel() + anItem.getTotalNumberOfLinesDetailLabel()) * 30
             }
             else
             {
                 cellHeight = (anItem.getTotalNumberOfLinesTexTLabel() + anItem.getTotalNumberOfLinesDetailLabel()) * 70
             }
-            
         
+
+//        
         
         return CGFloat(cellHeight)
 //
@@ -136,12 +140,42 @@ class GroceryListTableViewController: UITableViewController
                 cell.textLabel?.numberOfLines = 0
                 cell.detailTextLabel?.text = anItem.recipe_name
                 cell.detailTextLabel?.numberOfLines = 0
+                cell.accessoryType = .None
+                
+                if anItem.shopped
+                {
+                    cell.accessoryType = .Checkmark
+                }
+                
             }
             
 //        }
         
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let anItem:Item = groceryListItemsDictionary[current_categories[indexPath.section]]![indexPath.row]
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        if cell!.accessoryType == UITableViewCellAccessoryType.None
+        {
+            cell!.accessoryType = .Checkmark
+            undoHistory.addObject(indexPath)
+            anItem.shopped = true
+        }
+        else
+        {
+            cell!.accessoryType = .None
+            undoHistory.removeObject(indexPath)
+            anItem.shopped = false
+        }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
     }
     
     //MARK: - Section titles
@@ -155,6 +189,31 @@ class GroceryListTableViewController: UITableViewController
         
         return ""
     }
+    
+    //MARK: - Motion Shake
+    override func canBecomeFirstResponder() -> Bool
+    {
+        return true
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?)
+    {
+        if motion == .MotionShake
+        {
+            if undoHistory.count > 0
+            {
+                let indexPath:NSIndexPath = undoHistory.lastObject as! NSIndexPath
+                let anItem:Item = groceryListItemsDictionary[current_categories[indexPath.section]]![indexPath.row]
+                anItem.shopped = false
+                undoHistory.removeObject(indexPath)
+                print("removed: \(indexPath)")
+                
+                tableView.reloadData()
+            }
+        }
+    }
+  
+    
 
 
     /*
