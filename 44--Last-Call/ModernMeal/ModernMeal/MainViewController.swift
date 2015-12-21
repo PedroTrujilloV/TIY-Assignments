@@ -38,7 +38,9 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         httpController = HTTPController(delegate:self)
-        api = APIController(delegate: self)        //create instance of API controller with self
+        
+        //create instance of API controller with self
+        api = APIController(delegate: self)
         
 //       usernameTextField.becomeFirstResponder()
     }
@@ -89,15 +91,9 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
             //print(results)
             self.arrayResults = results
             print("----------end")
-//            let taskTableVC:TasksTableViewController = TasksTableViewController()
-//            taskTableVC.sincronizeCoredataAndDataBase(results)
-//            //here is created the navigation controler for the app
-//            let navigationController = UINavigationController(rootViewController: taskTableVC)
-//            
-//            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//            self.presentViewController(navigationController, animated: true, completion: nil)
-//            
-            self.performSegueWithIdentifier("PresentTaskTableViewControllerSegue", sender: self) //call the segue to navigate at tabBarController
+          
+            //call the segue to navigate at tabBarController
+            self.performSegueWithIdentifier("PresentTaskTableViewControllerSegue", sender: self)
 
         })
     }
@@ -107,11 +103,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
     {
         if segue.identifier == "PresentTaskTableViewControllerSegue"
         {
-//            let taskTableVC = segue.destinationViewController as! TasksTableViewController
-//            taskTableVC.sincronizeCoredataAndDataBase(self.arrayResults)
-            
-            //here is created the navigation controler for the app
-           
+
             
             let navigationController = segue.destinationViewController as! UINavigationController
 

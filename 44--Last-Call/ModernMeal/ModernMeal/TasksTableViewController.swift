@@ -98,28 +98,12 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
             }
             
         }
-        
 
         print(groceryListArrayOfDictionaries)
     }
     
     
-    //Create new core data GRoceryList object and save it
-    func addGroceryList(aGroceryListDict:NSDictionary)
-    {
-        if let dictionaryString = api.parseJSONNSDictionaryToString(aGroceryListDict) as? String
-        {
-            // create a new core data object 
-            let newGroceryList = NSEntityDescription.insertNewObjectForEntityForName("GroceryList", inManagedObjectContext: managedObjectContext) as! GroceryList
-            
-            newGroceryList.groceryListJSON = dictionaryString
-            newGroceryList.setModelAtributes() //set instances of each atribute of the model GroceryList class
-            groceryListsIDsArray.append(newGroceryList.id)
-            groceryListsArray.append(newGroceryList)
-            saveContext()
-        }
-        
-    }
+   
     
     // 
     func stringToDate(aStringDate:String) -> NSDate
@@ -141,7 +125,9 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    //===================================================================================================================
+    // MARK: - Table view data source and functions
+    //===================================================================================================================
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
@@ -222,8 +208,9 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     }
     */
 
-    
+    //===================================================================================================================
     // MARK: - Navigation
+    //===================================================================================================================
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -288,18 +275,9 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
         }
     }
     
-    
+    //===================================================================================================================
     //MARK: Protocol functions
-    
-//    func didReceiveAPIResults(results:NSArray)
-//    {
-//        dispatch_async(dispatch_get_main_queue(),
-//            {
-//                
-//                self.tableView.reloadData()
-//                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//        })
-//    }
+    //===================================================================================================================
     
     func didChangeItemsList(results:NSArray)
     {
@@ -312,49 +290,27 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     }
     
     
-    //MARK: - Tempora Test Grocery List JSON file:
-    
-//    @IBAction func temporalTestFile() //erase this after get the real information from server
-//    {
-//        do
-//        {
-//            let testFilePath = NSBundle.mainBundle().pathForResource("groceryList", ofType: "json")
-//            if let testDataFromFile = NSData(contentsOfFile: testFilePath!)
-//            {
-//                let groceryListsDict = try NSJSONSerialization.JSONObjectWithData(testDataFromFile, options: []) as! NSDictionary
-//                
-//                if let groceryListJSON:NSDictionary = groceryListsDict
-//                {
-//                    if let dictionaryString = api.parseJSONNSDictionaryToString(groceryListJSON) as? String
-//                    {
-//                        if let grocery_list:NSDictionary = groceryListJSON["grocery_list"] as? NSDictionary
-//                        {
-//                            let newGroceryList = NSEntityDescription.insertNewObjectForEntityForName("GroceryList", inManagedObjectContext: managedObjectContext) as! GroceryList
-//                            
-//                            if let newID:Int = Int(grocery_list["id"] as! NSNumber) //To store id in array Ids
-//                            {
-//                                groceryListsIDsArray.append(newID)
-//                                newGroceryList.groceryListJSON = dictionaryString
-//                                groceryListsArray.append(newGroceryList)
-//                                saveContext()
-//                            }
-//                           
-//                        }
-//                    }
-//                }
-//            }
-//            
-//        }
-//        catch let error as NSError
-//        {
-//            print("Error loading file groceryList.json error information: \(error)")
-//        }
-//        
-//        tableView.reloadData()
-//        
-//    }
-    
+
+    //===================================================================================================================
     //MARK: - CoreData
+    //===================================================================================================================
+    
+    //Create new core data GRoceryList object and save it
+    func addGroceryList(aGroceryListDict:NSDictionary)
+    {
+        if let dictionaryString = api.parseJSONNSDictionaryToString(aGroceryListDict) as? String
+        {
+            // create a new core data object
+            let newGroceryList = NSEntityDescription.insertNewObjectForEntityForName("GroceryList", inManagedObjectContext: managedObjectContext) as! GroceryList
+            
+            newGroceryList.groceryListJSON = dictionaryString
+            newGroceryList.setModelAtributes() //set instances of each atribute of the model GroceryList class
+            groceryListsIDsArray.append(newGroceryList.id)
+            groceryListsArray.append(newGroceryList)
+            saveContext()
+        }
+        
+    }
     
     //MARK: Load context
     func loadContext() -> Bool

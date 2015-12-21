@@ -13,6 +13,8 @@ class GroceryListTableViewController: UITableViewController
 {
     var delegator:ItemsListControllerProtocol!
     var groceryList:GroceryList!
+    
+    
     var groceryListItemsDictionary = [String: Array<Item>]()
     var current_categories:Array<String> = []
 
@@ -79,8 +81,12 @@ class GroceryListTableViewController: UITableViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //===================================================================================================================
 
-    // MARK: - Table view data source
+    // MARK: - Table view data source and functions
+    
+    //===================================================================================================================
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
@@ -118,12 +124,9 @@ class GroceryListTableViewController: UITableViewController
             {
                 cellHeight = (anItem.getTotalNumberOfLinesTexTLabel() + anItem.getTotalNumberOfLinesDetailLabel()) * 70
             }
-        
-
-//        
+    
         
         return CGFloat(cellHeight)
-//
     }
 
     
@@ -178,7 +181,11 @@ class GroceryListTableViewController: UITableViewController
 
     }
     
+    //===================================================================================================================
+    
     //MARK: - Section titles
+    
+    //===================================================================================================================
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
@@ -190,7 +197,9 @@ class GroceryListTableViewController: UITableViewController
         return ""
     }
     
+    //===================================================================================================================
     //MARK: - Motion Shake
+    //===================================================================================================================
     override func canBecomeFirstResponder() -> Bool
     {
         return true
