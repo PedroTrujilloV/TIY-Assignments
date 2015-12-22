@@ -17,6 +17,8 @@ class HTTPController
     var request: NSMutableURLRequest!
     //var baseUrl = "http://mmpro-test.herokuapp.com"//set the url of the site
     var token: String!
+    var signedIn: Bool = false
+    
     private var email: String = ""
     private var psw: String = ""
     
@@ -70,7 +72,7 @@ class HTTPController
                                 print(self.token)
                                 print("--- posData:")
                                 print(postData)
-                                
+                                self.signedIn = true
                                 self.delegator.didReceiveHTTPResults(self.token)
                             }
                         }
@@ -82,6 +84,56 @@ class HTTPController
                     }
             }
             authentificationTask.resume()
+        }
+        
+    }
+    
+    func update(dictionary:NSDictionary)
+    {
+        if signedIn
+        {
+            let fullUrl = "\(baseUrl)/sessions/create.json?"
+            let request = NSMutableURLRequest(URL: NSURL(string: fullUrl)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.HTTPMethod = "POST"
+            let updateData = dictionary
+            
+            do
+            {
+                let postData = try NSJSONSerialization.dataWithJSONObject(updateData, options: NSJSONWritingOptions.PrettyPrinted)
+                request.HTTPBody = postData
+                
+            }
+            catch let error as NSError
+            {
+                print("data couldn't be parsed: \(error)")
+            }
+            
+            let session = NSURLSession.sharedSession()
+            let updateDataTask: NSURLSessionDataTask = session.dataTaskWithRequest(request) // here I send the json file modified
+                {
+                    data, response, error -> Void in
+                    if error == nil
+                    {
+                        do
+                        {
+                            let postData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                            if let postDataDict:NSDictionary = (postData as! NSDictionary)
+                            {
+                                //self.token = postDataDict["token"] as! NSString as String
+
+                               // self.delegator.didReceiveHTTPResults(self.token)
+                            }
+                        }
+                        catch let error as NSError
+                        {
+                            print("data couln't be parsed: \(error)")
+                        }
+                        
+                    }
+            }
+            updateDataTask.resume()
         }
         
     }

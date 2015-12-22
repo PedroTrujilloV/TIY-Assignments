@@ -26,13 +26,15 @@ protocol NotesControllerProtocol
 
 class TasksTableViewController: UITableViewController,  ItemsListControllerProtocol,NotesControllerProtocol //,APIControllerProtocol
 {
+    //MARK: - Attributes
     // create context manager for coredata
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var groceryListsArray: Array<GroceryList> = [] // initialize the main array list
     var groceryListsIDsArray: Array<Int> = [] // initialize the id arrays
     
-    var groceryListSelected:GroceryList!
+    //var groceryListSelected:GroceryList!
+    var groceryListSelectedIndexPath:NSIndexPath!
     
 
     override func viewDidLoad()
@@ -81,7 +83,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
                         print("COREDATA: \(stringToDate(aStringDate)) IS THE MOST RECENT THAN: \(stringToDate(aGroceryList.updated_at as String))!!!")
                     }
                     
-            
+                    //for not repeat object
                     groceryListsIDsArrayFromServer.removeObject(aGroceryList.id)
                 }
                 
@@ -101,7 +103,6 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
 
         print(groceryListArrayOfDictionaries)
     }
-    
     
    
     
@@ -150,24 +151,30 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
         
         let aGroceryList:GroceryList = groceryListsArray[indexPath.row] as GroceryList
         
-        let groceryList:NSDictionary = api.parseJSONStringToNSDictionary(aGroceryList.groceryListJSON!)!
         
         //print(groceryList)
+
+        cell.textLabel?.text = aGroceryList.get_name()
         
-        
-        if let grocery_list:NSDictionary = groceryList["grocery_list"] as? NSDictionary
+        if aGroceryList.get_shopped()
         {
-            
-            cell.textLabel?.text = grocery_list["name"] as! NSString as String
-            cell.detailTextLabel?.text = grocery_list["name"] as! NSString as String
+            cell.detailTextLabel?.text = "The Shopping list is completed :)"
         }
+        else
+        {
+            cell.detailTextLabel?.text = "Missing ingredients :("
+        }
+    
 
         return cell
     }
     
+    //MARK: Select Row
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        groceryListSelected = groceryListsArray[indexPath.row] as GroceryList
+        //groceryListSelected = groceryListsArray[indexPath.row] as GroceryList
+        
+        groceryListSelectedIndexPath = indexPath
         self.performSegueWithIdentifier("ShowTabBarControllerSegue", sender: self) //call the segue to navigate at tabBarController
 
     }
@@ -225,22 +232,23 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
             //let listTableVC = tabBarViewController.viewControllers![0] as! GroceryListTableViewController
             let listTableVC = tabBarViewController.viewControllers![0] as! GroceryListViewController
             
-            if let groceryList:NSDictionary = api.parseJSONStringToNSDictionary(groceryListSelected.groceryListJSON!)
-            {
+            let selectedGroceryList:GroceryList = groceryListsArray[groceryListSelectedIndexPath.row] as GroceryList
+            
+           
                 //print(groceryList)
-                if let grocery_list_items:Array = groceryList["grocery_list_items"] as! NSArray as? Array<NSDictionary>
+                if let grocery_list_items:Array = selectedGroceryList.get_grocery_list_items()
                 {
-                    if let grocery_list:NSDictionary = groceryList["grocery_list"] as! NSDictionary
+                    if let grocery_list:NSDictionary = selectedGroceryList.get_grocery_list()
                     {
-                        if let grocery_list_Id:Array = grocery_list["grocery_list_item_ids"] as! NSArray as? Array<NSNumber>
+                        if let grocery_list_Id:Array = selectedGroceryList.get_grocery_list_item_ids()
                         {
-                            if let category_orderString:String = grocery_list["category_order"] as! NSString as String
+                            if let category_orderString:String = selectedGroceryList.get_category_order()
                             {
-                                if let category_order:Array = category_orderString.componentsSeparatedByString(",")
+                                if let category_order:Array = category_orderString.componentsSeparatedByString(",") //split categories by coma = array of categories
                                 {
                                     //Set all values of the next Items tableViewController
                                     listTableVC.delegator = self
-                                    listTableVC.groceryList = groceryListSelected
+                                    listTableVC.groceryList = selectedGroceryList
                                     listTableVC.grocery_list_item_ids = grocery_list_Id
                                     listTableVC.grocery_list_items = grocery_list_items
                                     listTableVC.category_order = category_order
@@ -250,9 +258,9 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
                         
                         //Set infromation in Customer Tab
                         let customerVC = tabBarViewController.viewControllers![1] as! CustomerViewController
-                        customerVC.customerName = grocery_list["name"] as! NSString as String
-                        customerVC.address = grocery_list["name"] as! NSString as String
-                        customerVC.exclusions = grocery_list["name"] as! NSString as String
+                        customerVC.customerName = selectedGroceryList.get_name()
+                        customerVC.address = selectedGroceryList.get_name() // <=========== no defined in json, replace it after!!
+                        customerVC.exclusions = selectedGroceryList.get_name() // <=========== no defined in json, replace it after!!
                         
                         
                         //Set information in Notes Tab
@@ -260,7 +268,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
                         
                         notesVC.delegator = self
                         
-                        if let notesString: String = groceryListSelected.notesString
+                        if let notesString: String = selectedGroceryList.notesString
                         {
                             notesVC.notes = notesString
                             
@@ -271,21 +279,28 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
                     }
                     
                 }
-            }
-  
         }
     }
     
     //===================================================================================================================
-    //MARK: Protocol functions
+    //MARK: - Protocol functions:
     //===================================================================================================================
     
+    
+    //MARK: for Item List
     func didChangeItemsList(results:NSArray)
     {
+
         print("results:")
-        //print(results)
+        print(results)
+        
+        //aGroceryList.groceryListJSON =  api.parseJSONNSDictionaryToString(groceryListArrayOfDictionaries[aGroceryList.id]!) as? String
+        //aGroceryList.setModelAtributes() //set instances of each atribute of the model GroceryList class
+        
+        //groceryListsArray[groceryListSelectedIndexPath.row]
     }
     
+    //MARK: for notes
     func didChangeNotes(results:NSString)
     {
     }

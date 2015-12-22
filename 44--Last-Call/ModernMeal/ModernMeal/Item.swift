@@ -26,7 +26,7 @@ class Item
     
     init(ItemDict:NSDictionary)
     {
-        dictionary = ItemDict
+        dictionary = ItemDict.mutableCopy() as! NSDictionary
         
         id = Int(ItemDict["id"] as! NSNumber)
         grocery_list_id = Int(ItemDict["grocery_list_id"] as! NSNumber)
@@ -61,23 +61,23 @@ class Item
         return Int(Int(recipe_name.characters.count)/30)
     }
     
-    func setAllAttributes()
+    func setAllAttributesInDictionary()
     {
-        
-        dictionary.setValue(id, forKey: "id")
-        dictionary.setValue(grocery_list_id, forKey: "grocery_list_id")
-        dictionary.setValue(category, forKey: "category")
-        dictionary.setValue(text, forKey: "text")
-        dictionary.setValue(recipe_id, forKey: "recipe_id")
-        dictionary.setValue(recipe_name, forKey: "recipe_name")
+        // comment lines is because the app just modify one key
+//        dictionary.setValue(id, forKey: "id")
+//        dictionary.setValue(grocery_list_id, forKey: "grocery_list_id")
+//        dictionary.setValue(category, forKey: "category")
+//        dictionary.setValue(text, forKey: "text")
+//        dictionary.setValue(recipe_id, forKey: "recipe_id")
+//        dictionary.setValue(recipe_name, forKey: "recipe_name")
         dictionary.setValue(shopped, forKey: "shopped")
-        dictionary.setValue(item_name, forKey: "item_name")
+//        dictionary.setValue(item_name, forKey: "item_name")
         
     }
     
     func getDictionary() -> NSDictionary
     {
-        setAllAttributes()
+        setAllAttributesInDictionary()
         return dictionary
     }
     

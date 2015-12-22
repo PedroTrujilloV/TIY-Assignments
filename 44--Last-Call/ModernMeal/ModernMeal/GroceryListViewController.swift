@@ -68,16 +68,13 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             if (groceryListItemsDictionary[item["category"] as! NSString as String] != nil)
             {
                 groceryListItemsDictionary[item["category"] as! NSString as String]!.append(Item(ItemDict: item))
-                
-                
-                
+
             }
             
             print(item["category"] as! NSString as String)
             print(item["item_name"] as! NSString as String)
         }
-        
-        
+
         //        print(groceryListItemsDictionary.count)
     }
     
@@ -87,6 +84,44 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK: - Send Back the updated Item list
+    override func viewDidDisappear(animated: Bool)
+    {
+        // This fetching is nescesary for avoid ani mutation in the array order 
+                if undoHistory.count > 0
+                {
+                    var undoIDHistoryDict = [Int: NSDictionary]()
+        
+                    for item in undoHistory
+                    {
+                        let indexPath:NSIndexPath = item as! NSIndexPath
+                        let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
+                        
+        
+                        undoIDHistoryDict[anItem.id] = anItem.getDictionary()
+        
+                    }
+        
+                    var grocery_list_items_copy: Array<NSDictionary> = []
+        
+                    for groceryItem in grocery_list_items
+                    {
+        
+                        if let aDictionary: NSDictionary = undoIDHistoryDict[Int(groceryItem["id"] as! NSNumber)]
+                        {
+                            grocery_list_items_copy.append(aDictionary)
+                        }
+        
+                        grocery_list_items_copy.append(groceryItem)
+        
+                    }
+                    
+              
+                    delegator.didChangeItemsList(grocery_list_items_copy)
+                }
+        
+    }
     //===================================================================================================================
     
     // MARK: - Table view data source and functions

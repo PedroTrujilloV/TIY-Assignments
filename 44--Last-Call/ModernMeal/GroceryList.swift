@@ -20,16 +20,23 @@ class GroceryList: NSManagedObject
     
     
     
-//MARK - Getters
+//MARK: - Getters
+    
     
     func getGroceryListJSONAsNSDictionary() -> NSDictionary?
     {
         if let groceryListDict:NSDictionary = api.parseJSONStringToNSDictionary(self.groceryListJSON!)!
         {
-                return groceryListDict
+            return groceryListDict
         }
         return nil
     }
+    
+    //=============================================================================================
+    
+    //MARK: - grocery_list
+    
+    
     
     func get_grocery_list() -> NSDictionary?
     {
@@ -45,9 +52,9 @@ class GroceryList: NSManagedObject
     
     func get_created_at() -> NSString?
     {
-        if let gLDic = get_grocery_list()
+        if let grocery_list = get_grocery_list()
         {
-            if let created_at:NSString = gLDic["created_at"] as? NSString
+            if let created_at:NSString = grocery_list["created_at"] as? NSString
             {
                 return created_at
             }
@@ -57,9 +64,9 @@ class GroceryList: NSManagedObject
     
     func get_updated_at() -> NSString?
     {
-        if let gLDic = get_grocery_list()
+        if let grocery_list = get_grocery_list()
         {
-            if let updated_at_string:NSString = gLDic["updated_at"] as? NSString
+            if let updated_at_string:NSString = grocery_list["updated_at"] as? NSString
             {
                 return updated_at_string
             }
@@ -69,9 +76,9 @@ class GroceryList: NSManagedObject
     
     func get_id() -> Int?
     {
-        if let gLDic = get_grocery_list()
+        if let grocery_list = get_grocery_list()
         {
-            if let id_int:Int =  Int(gLDic["id"] as! NSNumber)
+            if let id_int:Int =  Int(grocery_list["id"] as! NSNumber)
             {
                 return id_int
             }
@@ -79,7 +86,85 @@ class GroceryList: NSManagedObject
         return nil
     }
     
-//MARK - Setters
+    func get_grocery_list_item_ids() -> Array<NSNumber>?
+    {
+        
+        if let grocery_list:NSDictionary = get_grocery_list()
+        {
+            if let grocery_list_item_ids:Array = grocery_list["grocery_list_item_ids"] as! NSArray as? Array<NSNumber>
+            {
+                return grocery_list_item_ids
+            }
+        }
+        
+        return nil
+    }
+    
+    func get_category_order() -> String?
+    {
+        
+        if let grocery_list:NSDictionary = get_grocery_list()
+        {
+            if let category_order:String = grocery_list["category_order"] as! NSString as String
+            {
+                return category_order
+            }
+        }
+        
+        return nil
+    }
+    
+    func get_name() -> String?
+    {
+        
+        if let grocery_list:NSDictionary = get_grocery_list()
+        {
+            if let name:String = grocery_list["name"] as! NSString as String
+            {
+                return name
+            }
+        }
+        
+        return nil
+    }
+    
+    func get_shopped() -> Bool
+    {
+        
+        if let grocery_list:NSDictionary = get_grocery_list()
+        {
+            if let shopped:Bool = grocery_list["shopped"] as! Bool
+            {
+                return shopped
+            }
+        }
+        
+        return false
+        
+    }
+    
+    //=============================================================================================
+    
+    //MARK: - grocery_list_items
+    
+    func get_grocery_list_items() -> Array<NSDictionary>?
+    {
+        
+        if let groceryListDict:NSDictionary = getGroceryListJSONAsNSDictionary()
+        {
+            if let grocery_list_items:Array = groceryListDict["grocery_list_items"] as! NSArray as? Array<NSDictionary>
+            {
+                return grocery_list_items
+            }
+        }
+        
+        return nil
+    }
+    
+  
+    
+    
+//MARK: - Setters
     
     func setModelAtributes()
     {
