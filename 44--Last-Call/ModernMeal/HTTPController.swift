@@ -31,7 +31,7 @@ class HTTPController
         self.delegator = delegate
     }
     
-    func singIn()
+    func singIn(email:String, password:String)
     {
         if token == nil
         {
@@ -42,6 +42,9 @@ class HTTPController
             request.HTTPMethod = "POST"
             let requestData = ["email": "leslie.k.brown@gmail.com", "password":"awsedrf"] // here I modify the json dict in whit the new information
             //let requestData = ["email": "tazvin2@gmail.com", "password":"password"] // here I modify the json dict in whit the new information
+            
+            //let requestData = ["email": email, "password":password] // here I modify the json dict in whit the new information
+            
 
             
             do
@@ -92,7 +95,7 @@ class HTTPController
     {
         if signedIn
         {
-            let fullUrl = "\(baseUrl)/sessions/create.json?"
+            let fullUrl = "\(baseUrl)/sessions/create.json?auth_token="+token
             let request = NSMutableURLRequest(URL: NSURL(string: fullUrl)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")

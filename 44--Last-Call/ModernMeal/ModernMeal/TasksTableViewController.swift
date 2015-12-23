@@ -106,7 +106,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     
    
     
-    // 
+    //MARK: Time helper functions
     func stringToDate(aStringDate:String) -> NSDate
     {
         let dateFormatter = NSDateFormatter()
@@ -117,6 +117,17 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
         return date!
 
     }
+    
+    func dateToString(aDate:NSDate) -> String
+    {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ" //http://stackoverflow.com/questions/28791771/swift-iso-8601-date-formatting-with-ios7
+        let date = dateFormatter.stringFromDate(aDate)
+        
+        return date
+        
+    }
+    
     
     //MARK - Set
 
@@ -236,7 +247,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
             
            
                 //print(groceryList)
-                if let grocery_list_items:Array = selectedGroceryList.get_grocery_list_items()
+                if let grocery_list_items:Array = selectedGroceryList.grocery_list_items
                 {
                     if let grocery_list:NSDictionary = selectedGroceryList.get_grocery_list()
                     {
@@ -294,10 +305,13 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
         print("results:")
         print(results)
         
-        //aGroceryList.groceryListJSON =  api.parseJSONNSDictionaryToString(groceryListArrayOfDictionaries[aGroceryList.id]!) as? String
-        //aGroceryList.setModelAtributes() //set instances of each atribute of the model GroceryList class
+        groceryListsArray[groceryListSelectedIndexPath.row].set_updated_at(dateToString(NSDate())) // set present modification date
+        groceryListsArray[groceryListSelectedIndexPath.row].set_grocery_list_items(results)//set item list
+        saveContext()
+        groceryListsArray[groceryListSelectedIndexPath.row].setModelAtributes() //(reload)set instances of each atribute of the model GroceryList class
         
-        //groceryListsArray[groceryListSelectedIndexPath.row]
+        tableView.reloadData()
+        
     }
     
     //MARK: for notes

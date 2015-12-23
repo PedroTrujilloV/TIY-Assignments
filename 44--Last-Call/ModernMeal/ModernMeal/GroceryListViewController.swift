@@ -48,7 +48,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    
+    //MARK: - Dictionary of items by category
     func createDictionaryOfItems()
     {
         print("category_order")
@@ -98,7 +98,6 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
                         let indexPath:NSIndexPath = item as! NSIndexPath
                         let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
                         
-        
                         undoIDHistoryDict[anItem.id] = anItem.getDictionary()
         
                     }
@@ -112,12 +111,14 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
                         {
                             grocery_list_items_copy.append(aDictionary)
                         }
+                        else
+                        {
+                            grocery_list_items_copy.append(groceryItem)
+                        }
         
-                        grocery_list_items_copy.append(groceryItem)
         
                     }
                     
-              
                     delegator.didChangeItemsList(grocery_list_items_copy)
                 }
         
@@ -200,7 +201,6 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         //        }
-        
         
         return cell
     }

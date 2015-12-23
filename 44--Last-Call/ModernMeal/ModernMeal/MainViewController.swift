@@ -42,10 +42,11 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
         //create instance of API controller with self
         api = APIController(delegate: self)
         
-//       usernameTextField.becomeFirstResponder()
+       usernameTextField.becomeFirstResponder()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -53,10 +54,10 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
     @IBAction func signInTapped(sender: UIButton)
     {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        httpController.singIn()
+        httpController.singIn(usernameTextField.text!, password: passwordTextField.text!)
         
-//        usernameTextField.resignFirstResponder()
-//        passwordTextField.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
         
     }
     

@@ -16,6 +16,7 @@ class GroceryList: NSManagedObject
     
     var id:Int!
     var updated_at:NSString!
+    var grocery_list_items:Array<NSDictionary>!
     
     
     
@@ -27,7 +28,7 @@ class GroceryList: NSManagedObject
     {
         if let groceryListDict:NSDictionary = api.parseJSONStringToNSDictionary(self.groceryListJSON!)!
         {
-            return groceryListDict
+            return groceryListDict.mutableCopy() as! NSDictionary
         }
         return nil
     }
@@ -152,16 +153,14 @@ class GroceryList: NSManagedObject
         
         if let groceryListDict:NSDictionary = getGroceryListJSONAsNSDictionary()
         {
-            if let grocery_list_items:Array = groceryListDict["grocery_list_items"] as! NSArray as? Array<NSDictionary>
+            if let grocery_list_items_:Array = groceryListDict["grocery_list_items"] as! NSArray as? Array<NSDictionary>
             {
-                return grocery_list_items
+                return grocery_list_items_
             }
         }
         
         return nil
     }
-    
-  
     
     
 //MARK: - Setters
@@ -170,6 +169,27 @@ class GroceryList: NSManagedObject
     {
         updated_at = get_updated_at()
         id = get_id()
+        grocery_list_items = get_grocery_list_items()
+        
+        
+    }
+    
+    func set_updated_at(date:String)
+    {
+        if let dictionary:NSDictionary = getGroceryListJSONAsNSDictionary()
+        {
+            dictionary.setValue(date, forKey: "updated_at")
+            groceryListJSON = api.parseJSONNSDictionaryToString(dictionary) as! String
+        }
+    }
+    
+    func set_grocery_list_items(list:NSArray)
+    {
+        if let dictionary:NSDictionary = getGroceryListJSONAsNSDictionary()
+        {
+            dictionary.setValue(list, forKey: "grocery_list_items")
+            groceryListJSON = api.parseJSONNSDictionaryToString(dictionary) as! String
+        }
     }
     
     
