@@ -263,7 +263,6 @@
         <!--List-->
         <scene sceneID="OW1-p9-Ns6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Eo-eO-Xu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0pM-nL-MM4" customClass="GroceryListViewController" customModule="ModernMeal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bHy-0b-L3m"/>
@@ -346,6 +345,7 @@
                         <outlet property="tableView" destination="2fd-Dd-Nll" id="88s-kV-OZw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Eo-eO-Xu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4741" y="-468"/>
         </scene>

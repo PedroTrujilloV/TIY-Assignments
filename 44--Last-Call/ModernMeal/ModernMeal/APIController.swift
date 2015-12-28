@@ -127,8 +127,8 @@ class APIController:NSURLSessionDataTask, NSURLSessionDelegate, NSURLSessionData
                     
                     if let newDict:NSDictionary = dictionary as NSDictionary
                     {
-                        //print(newDict)
-                        self.groceryListOfListDictionary[Int(newDict["grocery_list"]!["id"] as! NSNumber)] = newDict //======error
+                        print(newDict)
+                        self.groceryListOfListDictionary[Int(newDict["grocery_list"]!["id"] as! NSNumber)] = newDict 
                     }
 
                     

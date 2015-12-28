@@ -20,9 +20,14 @@ protocol HTTPControllerProtocol
     
 }
 
+protocol sendBackTaskToServerProtocol
+{
+    func didReceiveTaskResults(groceryList:GroceryList)
+}
+
 var api: APIController!
 
-class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDelegate, HTTPControllerProtocol, APIControllerProtocol
+class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDelegate, HTTPControllerProtocol, APIControllerProtocol, sendBackTaskToServerProtocol
 {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -95,7 +100,6 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
           
             //call the segue to navigate at tabBarController
             self.performSegueWithIdentifier("PresentTaskTableViewControllerSegue", sender: self)
-
         })
     }
     
@@ -109,11 +113,20 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
             let navigationController = segue.destinationViewController as! UINavigationController
 
             let taskTableVC:TasksTableViewController = navigationController.viewControllers[0] as! TasksTableViewController
+            taskTableVC.delegator = self
             taskTableVC.sincronizeCoredataAndDataBase(self.arrayIDs,groceryListArrayOfDictionaries: self.arrayResults)
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
         }
+    }
+    
+    func didReceiveTaskResults(groceryList:GroceryList)
+    {
+        dispatch_async(dispatch_get_main_queue(),
+            {
+                self.httpController.update(groceryList)
+        })
     }
 
         

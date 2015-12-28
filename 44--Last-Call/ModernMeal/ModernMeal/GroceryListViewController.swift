@@ -30,12 +30,11 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+                
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
         
         
         
@@ -48,13 +47,30 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    //http://stackoverflow.com/questions/33707512/how-to-set-title-of-navigation-bar-in-swift
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.title = groceryList.get_name()
+        
+        //self.editButtonItem().image = UIImage(named: "bookmark.png")//  UIBarButtonSystemItem.Compose
+        
+        
+        let addItemButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addItemButtonAction:")        
+ 
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+            self.tabBarController?.navigationItem.rightBarButtonItems = [addItemButton, self.editButtonItem()]
+       
+    }
+    
     //MARK: - Dictionary of items by category
     func createDictionaryOfItems()
     {
-        print("category_order")
-        print(category_order)
-        print("grocery_list_items")
-        print(grocery_list_items)
+//        print("category_order")
+//        print(category_order)
+//        print("grocery_list_items")
+//        print(grocery_list_items)
         
         for category in category_order
         {
@@ -71,8 +87,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
 
             }
             
-            print(item["category"] as! NSString as String)
-            print(item["item_name"] as! NSString as String)
+//            print(item["category"] as! NSString as String)
+//            print(item["item_name"] as! NSString as String)
         }
 
         //        print(groceryListItemsDictionary.count)
@@ -89,8 +105,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidDisappear(animated: Bool)
     {
         // This fetching is nescesary for avoid ani mutation in the array order 
-                if undoHistory.count > 0
-                {
+//                if undoHistory.count > 0
+//                {
                     var undoIDHistoryDict = [Int: NSDictionary]()
         
                     for item in undoHistory
@@ -120,7 +136,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                     
                     delegator.didChangeItemsList(grocery_list_items_copy)
-                }
+//                }
         
     }
     //===================================================================================================================
@@ -262,7 +278,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
                 let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
                 anItem.shopped = false
                 undoHistory.removeObject(indexPath)
-                print("removed: \(indexPath)")
+               // print("removed: \(indexPath)")
                 
                 tableView.reloadData()
             }
@@ -272,25 +288,39 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
     
-    /*
+    // Override to support conditional editing of the table view.
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+
+    
+    
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
+            // Delete the row from the data source
+            if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
+            {
+                //if the element exist, erase it
+                groceryListItemsDictionary[category_order[indexPath.section]]?.removeAtIndex(indexPath.row)
+                
+            }
+            //delete table cell
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+        }
+//        else if editingStyle == .Insert
+//        {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+        tableView.reloadData()
     }
-    }
-    */
+    
     
     /*
     // Override to support rearranging the table view.
@@ -307,6 +337,16 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     */
     
+    //===================================================================================================================
+    //MARK: - Action Handlers
+    //===================================================================================================================
+    
+    func addItemButtonAction(sender:UIBarButtonItem)
+    {
+        
+        print("addItemButtonAction typed")
+    }
+
     /*
     // MARK: - Navigation
     

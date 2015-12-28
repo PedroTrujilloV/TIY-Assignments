@@ -32,6 +32,7 @@
 		687D46241C1F5B42006DC730 /* bookmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 687D461B1C1F5B42006DC730 /* bookmark@3x.png */; settings = {ASSET_TAGS = (); }; };
 		687D46251C1F5B42006DC730 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 687D461C1C1F5B42006DC730 /* list.png */; settings = {ASSET_TAGS = (); }; };
 		687D462E1C1F62FB006DC730 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D462D1C1F62FB006DC730 /* Item.swift */; settings = {ASSET_TAGS = (); }; };
+		68CD30E11C2B67BE007128F9 /* itemsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 68CD30E01C2B67BD007128F9 /* itemsList.json */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		687D461B1C1F5B42006DC730 /* bookmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmark@3x.png"; sourceTree = "<group>"; };
 		687D461C1C1F5B42006DC730 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		687D462D1C1F62FB006DC730 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		68CD30E01C2B67BD007128F9 /* itemsList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = itemsList.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				687D461C1C1F5B42006DC730 /* list.png */,
 				6858377F1C11F4DE006DB8C0 /* LaunchScreen.storyboard */,
 				684855B51C1BEC6B006C1B21 /* groceryList.json */,
+				68CD30E01C2B67BD007128F9 /* itemsList.json */,
 				685837821C11F4DE006DB8C0 /* Info.plist */,
 				6858377A1C11F4DE006DB8C0 /* ModernMeal.xcdatamodeld */,
 				684855B71C1BF2A0006C1B21 /* GroceryListTableViewController.swift */,
@@ -285,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68CD30E11C2B67BE007128F9 /* itemsList.json in Resources */,
 				685837811C11F4DE006DB8C0 /* LaunchScreen.storyboard in Resources */,
 				684855B61C1BEC6B006C1B21 /* groceryList.json in Resources */,
 				687D46231C1F5B42006DC730 /* bookmark@2x.png in Resources */,

@@ -28,6 +28,8 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
 {
     //MARK: - Attributes
     // create context manager for coredata
+    
+    var delegator:sendBackTaskToServerProtocol!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var groceryListsArray: Array<GroceryList> = [] // initialize the main array list
@@ -40,6 +42,8 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        title = "ModernMeal"
         //api = APIController(delegate: self)        //create instance of API controller with self
 
         //tableView.registerClass(TaskTableViewCell.self, forCellReuseIdentifier: "TaskTableViewCell") //register cell
@@ -96,12 +100,12 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
             for groceryListID in groceryListsIDsArrayFromServer //add the new gls in the list
             {
                 addGroceryList(groceryListArrayOfDictionaries[Int(groceryListID as! NSNumber)]!)
-                print("--- Apended: \(groceryListID)")
+                //print("--- Apended: \(groceryListID)")
             }
             
         }
 
-        print(groceryListArrayOfDictionaries)
+        //print(groceryListArrayOfDictionaries)
     }
     
    
@@ -263,6 +267,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
                                     listTableVC.grocery_list_item_ids = grocery_list_Id
                                     listTableVC.grocery_list_items = grocery_list_items
                                     listTableVC.category_order = category_order
+                                    listTableVC.navigationItem.title = selectedGroceryList.get_name()
                                 }
                             }
                         }
@@ -273,10 +278,8 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
                         customerVC.address = selectedGroceryList.get_name() // <=========== no defined in json, replace it after!!
                         customerVC.exclusions = selectedGroceryList.get_name() // <=========== no defined in json, replace it after!!
                         
-                        
                         //Set information in Notes Tab
                         let notesVC = tabBarViewController.viewControllers![2] as! NotesViewController
-                        
                         notesVC.delegator = self
                         
                         if let notesString: String = selectedGroceryList.notesString
@@ -302,13 +305,15 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     func didChangeItemsList(results:NSArray)
     {
 
-        print("results:")
-        print(results)
+        //print("results:")
+       // print(results)
         
         groceryListsArray[groceryListSelectedIndexPath.row].set_updated_at(dateToString(NSDate())) // set present modification date
         groceryListsArray[groceryListSelectedIndexPath.row].set_grocery_list_items(results)//set item list
         saveContext()
         groceryListsArray[groceryListSelectedIndexPath.row].setModelAtributes() //(reload)set instances of each atribute of the model GroceryList class
+        
+        delegator.didReceiveTaskResults(groceryListsArray[groceryListSelectedIndexPath.row])
         
         tableView.reloadData()
         
@@ -317,6 +322,7 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
     //MARK: for notes
     func didChangeNotes(results:NSString)
     {
+        addNewNote(results)
     }
     
     
@@ -340,6 +346,13 @@ class TasksTableViewController: UITableViewController,  ItemsListControllerProto
             saveContext()
         }
         
+    }
+    
+    // add a new note in the grocery list
+    func addNewNote(note:NSString)
+    {
+        groceryListsArray[groceryListSelectedIndexPath.row].notesString = note as String
+        saveContext()
     }
     
     //MARK: Load context

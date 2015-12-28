@@ -91,20 +91,21 @@ class HTTPController
         
     }
     
-    func update(dictionary:NSDictionary)
+    func update(groeryList:GroceryList)
     {
+        
         if signedIn
         {
-            let fullUrl = "\(baseUrl)/sessions/create.json?auth_token="+token
+            let fullUrl = "\(baseUrl)/api/v1/grocery_lists/\(groeryList.id)?auth_token="+token
             let request = NSMutableURLRequest(URL: NSURL(string: fullUrl)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.HTTPMethod = "POST"
-            let updateData = dictionary
+            let updateData = groeryList.getGroceryListJSONAsNSDictionary()
             
             do
             {
-                let postData = try NSJSONSerialization.dataWithJSONObject(updateData, options: NSJSONWritingOptions.PrettyPrinted)
+                let postData = try NSJSONSerialization.dataWithJSONObject(updateData!, options: NSJSONWritingOptions.PrettyPrinted)
                 request.HTTPBody = postData
                 
             }
@@ -119,20 +120,26 @@ class HTTPController
                     data, response, error -> Void in
                     if error == nil
                     {
-                        do
-                        {
-                            let postData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                            if let postDataDict:NSDictionary = (postData as! NSDictionary)
-                            {
-                                //self.token = postDataDict["token"] as! NSString as String
-
-                               // self.delegator.didReceiveHTTPResults(self.token)
-                            }
-                        }
-                        catch let error as NSError
-                        {
-                            print("data couln't be parsed: \(error)")
-                        }
+                        print("data was sent: \(response)")
+                        
+//                        do
+//                        {
+//                            let postData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+////                            if let postDataDict:NSDictionary = (postData as! NSDictionary)
+////                            {
+////                                //self.token = postDataDict["token"] as! NSString as String
+////                                
+//                                print("data was sent: \(postData)")
+////
+////                               // self.delegator.didReceiveHTTPResults(self.token)
+////                            }
+//                        }
+//                        catch let error as NSError
+//                        {
+//                            print("data couln't be sent: \(error)")
+//                        }
+                        
+                        
                         
                     }
             }

@@ -40,6 +40,7 @@ class NotesViewController: UIViewController, UITextViewDelegate
     
     func textViewDidEndEditing(textView: UITextView)
     {
+        delegator.didChangeNotes(textView.text)
         addNoteTextField.resignFirstResponder()
     }
     
