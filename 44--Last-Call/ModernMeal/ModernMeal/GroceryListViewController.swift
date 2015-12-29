@@ -9,7 +9,12 @@
 import UIKit
 import CoreMotion
 
-class GroceryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+protocol AddItemProtocol
+{
+    func itemWasCreated(item:Item)
+}
+
+class GroceryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,AddItemProtocol
 {
     
     @IBOutlet weak var tableView: UITableView!
@@ -33,11 +38,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
                 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
-        
-        
-        
-        
+
         //groceryListItems = groceryList["grocery_list_items"] as NSArray as Array
         
         createDictionaryOfItems()
@@ -345,6 +346,21 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     {
         
         print("addItemButtonAction typed")
+        
+        let addItemVC = storyboard?.instantiateViewControllerWithIdentifier("AddItemViewController") as! AddItemViewController
+        addItemVC.delegator = self
+        addItemVC.grocery_list_id = groceryList.id
+        addItemVC.category_order = category_order
+        navigationController?.pushViewController(addItemVC, animated: true)
+        
+    }
+    //===================================================================================================================
+    //MARK: - Protocol Functions
+    //===================================================================================================================
+    
+    func itemWasCreated(item:Item)
+    {
+        
     }
 
     /*
