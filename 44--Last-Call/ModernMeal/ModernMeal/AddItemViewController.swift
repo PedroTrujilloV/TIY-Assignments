@@ -2,7 +2,7 @@
 //  AddItemViewController.swift
 //  ModernMeal
 //
-//  Created by Pedro Trujillo on 12/28/15.
+//  Created by Pedro Trujillo on 12/29/15.
 //  Copyright © 2015 Pedro Trujillo. All rights reserved.
 //
 
@@ -21,11 +21,11 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var category_order: Array<String> = []
     
     
-
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -33,20 +33,20 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
     override func viewWillDisappear(animated: Bool)
     {
         let now = dateToString(NSDate())
-        let dictionary = [ "id": 0,
-            "grocery_list_id": grocery_list_id as NSNumber,
-            "category": categoryPicker.selectedRowInComponent(0),
-            "text": textTextField.text,
-            "recipe_id": 0,
-            "recipe_name": recipe_nameTextField.text,
-            "shopped": false,
-            "item_name": item_nameTextField.text,
-            "created_at": now,
-            "updated_at": now ]
-        
-        delegator.itemWasCreated(Item( ItemDict: dictionary))
+//        let dictionary = [ "id": 0,
+//            "grocery_list_id": grocery_list_id as NSNumber,
+//            "category": categoryPicker.selectedRowInComponent(0),
+//            "text": textTextField.text,
+//            "recipe_id": 0,
+//            "recipe_name": recipe_nameTextField.text,
+//            "shopped": false,
+//            "item_name": item_nameTextField.text,
+//            "created_at": now,
+//            "updated_at": now ]
+//        
+//        delegator.itemWasCreated(Item( ItemDict: dictionary))
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -69,7 +69,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         return category_order[row]
     }
-
+    
     //MARK: - Helpers
     func dateToString(aDate:NSDate) -> String
     {
@@ -80,15 +80,15 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
         return date
         
     }
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
