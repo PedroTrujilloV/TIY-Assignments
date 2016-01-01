@@ -11,7 +11,7 @@ import CoreMotion
 
 protocol AddItemProtocol
 {
-    func itemWasCreated(item:Item)
+    func itemWasCreated(item:Item,isNew:Bool)
 }
 
 class GroceryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,AddItemProtocol
@@ -30,6 +30,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     var undoHistory:NSMutableArray = []
+    var currentCellIndexPath:NSIndexPath!
     
     
     override func viewDidLoad()
@@ -56,22 +57,20 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         //self.editButtonItem().image = UIImage(named: "bookmark.png")//  UIBarButtonSystemItem.Compose
         
-        
-        let addItemButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addItemButtonAction:")        
+        let editItemButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "editItemButtonAction:")
+
+        let addItemButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addItemButtonAction:")
  
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-            self.tabBarController?.navigationItem.rightBarButtonItems = [addItemButton, self.editButtonItem()]
+            self.tabBarController?.navigationItem.rightBarButtonItems = [addItemButton, editItemButton]//self.editButtonItem()]
        
     }
     
     //MARK: - Dictionary of items by category
     func createDictionaryOfItems()
     {
-//        print("category_order")
-//        print(category_order)
-//        print("grocery_list_items")
-//        print(grocery_list_items)
+
         
         for category in category_order
         {
@@ -88,8 +87,6 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
 
             }
             
-//            print(item["category"] as! NSString as String)
-//            print(item["item_name"] as! NSString as String)
         }
 
         //        print(groceryListItemsDictionary.count)
@@ -103,43 +100,48 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     //MARK: - Send Back the updated Item list
-    override func viewDidDisappear(animated: Bool)
-    {
-        // This fetching is nescesary for avoid ani mutation in the array order 
-//                if undoHistory.count > 0
-//                {
-                    var undoIDHistoryDict = [Int: NSDictionary]()
-        
-                    for item in undoHistory
-                    {
-                        let indexPath:NSIndexPath = item as! NSIndexPath
-                        let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
-                        
-                        undoIDHistoryDict[anItem.id] = anItem.getDictionary()
-        
-                    }
-        
-                    var grocery_list_items_copy: Array<NSDictionary> = []
-        
-                    for groceryItem in grocery_list_items
-                    {
-        
-                        if let aDictionary: NSDictionary = undoIDHistoryDict[Int(groceryItem["id"] as! NSNumber)]
-                        {
-                            grocery_list_items_copy.append(aDictionary)
-                        }
-                        else
-                        {
-                            grocery_list_items_copy.append(groceryItem)
-                        }
-        
-        
-                    }
-                    
-                    delegator.didChangeItemsList(grocery_list_items_copy)
-//                }
-        
-    }
+//    override func viewDidDisappear(animated: Bool)
+//    {
+//        // This fetching is nescesary for avoid ani mutation in the array order 
+////                if undoHistory.count > 0
+////                {
+//                    var undoIDHistoryDict = [Int: NSDictionary]()
+//        
+//                    for item in undoHistory
+//                    {
+//                        let indexPath:NSIndexPath = item as! NSIndexPath
+//                        
+//                        //>>>>> Reform it!!
+//                        if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
+//                        {
+//                            undoIDHistoryDict[anItem.id] = anItem.getDictionary()
+//                        }
+//        
+//                    }
+//        
+//                    var grocery_list_items_copy: Array<NSDictionary> = []
+//        
+//                    for groceryItem in grocery_list_items
+//                    {
+//                        
+//                        //>>>>> Reform it!!
+//        
+//                        if let aDictionary: NSDictionary = undoIDHistoryDict[Int(groceryItem["id"] as! NSNumber)]
+//                        {
+//                            grocery_list_items_copy.append(aDictionary)
+//                        }
+//                        else
+//                        {
+//                            grocery_list_items_copy.append(groceryItem)
+//                        }
+//        
+//        
+//                    }
+//                    
+//                    delegator.didChangeItemsList(grocery_list_items_copy)
+////                }
+//        
+//    }
     //===================================================================================================================
     
     // MARK: - Table view data source and functions
@@ -241,9 +243,46 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             anItem.shopped = false
         }
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        currentCellIndexPath = indexPath
+        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
     }
+    
+    //MARK: Editon mode
+    
+    // Override to support conditional editing of the table view.
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    
+    
+    // Override to support editing the table view.
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
+            // Delete the row from the data source
+            if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
+            {
+                //if the element exist, erase it
+                groceryListItemsDictionary[category_order[indexPath.section]]?.removeAtIndex(indexPath.row)
+                //delete table cell
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            
+            
+        }
+        //        else if editingStyle == .Insert
+        //        {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        //        }
+        tableView.reloadData()
+    }
+    
     
     //===================================================================================================================
     
@@ -261,6 +300,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         return ""
     }
     
+    
+   
     //===================================================================================================================
     //MARK: - Motion Shake
     //===================================================================================================================
@@ -286,41 +327,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    
-    
-    
-    
-    // Override to support conditional editing of the table view.
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
-    {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
 
-    
-    
-    // Override to support editing the table view.
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-    {
-        if editingStyle == .Delete
-        {
-            // Delete the row from the data source
-            if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
-            {
-                //if the element exist, erase it
-                groceryListItemsDictionary[category_order[indexPath.section]]?.removeAtIndex(indexPath.row)
-                
-            }
-            //delete table cell
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
-        }
-//        else if editingStyle == .Insert
-//        {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
-        tableView.reloadData()
-    }
     
     
     /*
@@ -342,6 +349,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     //MARK: - Action Handlers
     //===================================================================================================================
     
+    //MARK: Add new item
     func addItemButtonAction(sender:UIBarButtonItem)
     {
         
@@ -354,13 +362,57 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         navigationController?.pushViewController(addItemVC, animated: true)
         
     }
+    
+    //MARK: Edit item attributes
+    func editItemButtonAction(sender:UIBarButtonItem)
+    {
+        if currentCellIndexPath != nil
+        {
+            let addItemVC = storyboard?.instantiateViewControllerWithIdentifier("AddItemViewController") as! AddItemViewController
+            addItemVC.delegator = self
+            //only difference: send the item to modify
+            addItemVC.newItem = groceryListItemsDictionary[category_order[currentCellIndexPath.section]]![currentCellIndexPath.row]
+            addItemVC.grocery_list_id = groceryList.id
+            addItemVC.category_order = category_order
+            navigationController?.pushViewController(addItemVC, animated: true)
+        }
+    }
     //===================================================================================================================
     //MARK: - Protocol Functions
     //===================================================================================================================
     
-    func itemWasCreated(item:Item)
+    func itemWasCreated(item:Item,isNew:Bool)
     {
+        print(">> itemWasCreated:")
+        print(item.text)
         
+        if isNew
+        {
+            //add the new item at the right category
+            groceryListItemsDictionary[item.category]!.append(item)
+        }
+        else
+        {
+            //ask if the category of the new item is equal/same to the old one(modified)
+            if item.category == groceryListItemsDictionary[category_order[currentCellIndexPath.section]]![currentCellIndexPath.row].category
+            {
+                //replace old item with new item
+                groceryListItemsDictionary[category_order[currentCellIndexPath.section]]![currentCellIndexPath.row] = item
+            }
+            else
+            {
+                //remove the old item
+                groceryListItemsDictionary[category_order[currentCellIndexPath.section]]!.removeAtIndex(currentCellIndexPath.row)
+                //delete table cell
+                tableView.deleteRowsAtIndexPaths([currentCellIndexPath], withRowAnimation: .Fade)
+                
+                //add the modified item at the right category
+                groceryListItemsDictionary[item.category]!.append(item)
+            }
+        }
+        
+        
+        tableView.reloadData()
     }
 
     /*

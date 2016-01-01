@@ -17,8 +17,12 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBOutlet weak var categoryPicker: UIPickerView!
     
     var delegator: AddItemProtocol!
+    
+    var newItem:Item!
+    
     var grocery_list_id: Int!
     var category_order: Array<String> = []
+    var created_at:String = ""
     
     
     
@@ -26,25 +30,43 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
     {
         super.viewDidLoad()
         
+        let saveItemButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveItemButtonAction:")
+        
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        self.navigationItem.rightBarButtonItem = saveItemButton//self.editButtonItem()]
+        self.navigationItem.rightBarButtonItem?.enabled = false
+        
+        
+        //check if is an update or is adding a new item
+        if newItem != nil
+        {
+            title = "Edit "+newItem.item_name
+            self.navigationItem.rightBarButtonItem?.enabled = true
+            
+            item_nameTextField.text = newItem.item_name
+            recipe_nameTextField.text = newItem.recipe_name
+            textTextField.text = newItem.text
+            let index = category_order.indexOf(newItem.category)
+            categoryPicker.selectRow(index!, inComponent: 0, animated: true)
+            
+        }
+        else
+        {
+            title = "Add Item"
+            item_nameTextField.text = ""
+            recipe_nameTextField.text = ""
+            textTextField.text = ""
+            let index = category_order.indexOf("Other & Uncategorized")
+            categoryPicker.selectRow(index!, inComponent: 0, animated: true)
+        }
+        
         // Do any additional setup after loading the view.
     }
     
     //MARK: - SendBack Info
     override func viewWillDisappear(animated: Bool)
     {
-        let now = dateToString(NSDate())
-//        let dictionary = [ "id": 0,
-//            "grocery_list_id": grocery_list_id as NSNumber,
-//            "category": categoryPicker.selectedRowInComponent(0),
-//            "text": textTextField.text,
-//            "recipe_id": 0,
-//            "recipe_name": recipe_nameTextField.text,
-//            "shopped": false,
-//            "item_name": item_nameTextField.text,
-//            "created_at": now,
-//            "updated_at": now ]
-//        
-//        delegator.itemWasCreated(Item( ItemDict: dictionary))
     }
     
     override func didReceiveMemoryWarning()
@@ -52,6 +74,35 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //MARK: - Text Field functions
+    
+    @IBAction func item_nameActionEditingDidEnd(sender: UITextField)
+    {
+        if item_nameTextField.text != "" && textTextField.text != ""
+        {
+           
+            self.navigationItem.rightBarButtonItem?.enabled = true
+            
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
+    }
+    @IBAction func item_nameActionEditiongChanged(sender: UITextField)
+    {
+        if item_nameTextField.text != "" && textTextField.text != ""
+        {
+            
+            self.navigationItem.rightBarButtonItem?.enabled = true
+            
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
+    }
+    
     
     //MARK: - Picker Functions
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
@@ -79,6 +130,71 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         return date
         
+    }
+    
+    //MARK: - Action Handlers 
+    
+    func saveItemButtonAction(sender:UIBarButtonItem)
+    {
+        if item_nameTextField.text != ""// || item_nameTextField.text != nil
+        {
+            var isNew = false
+            
+            print("adding new item")
+            
+            //determinate the current date of updating
+            let now = dateToString(NSDate())
+            //determinate the final category
+            let category:String = category_order[categoryPicker.selectedRowInComponent(0)]
+            
+            //if the item is new
+            if created_at == ""
+            {
+                created_at = now
+            }
+            
+            //check if is an new Item or edition
+            if let mierda = newItem?.id
+            {
+                newItem = Item(ItemDict: NSDictionary(dictionary:
+                    [
+                        "id": newItem.id,
+                        "recipe_id": newItem.recipe_id,
+                        "grocery_list_id": grocery_list_id,
+                        "category": category,
+                        "text": textTextField.text! ,
+                        "recipe_name": recipe_nameTextField.text!,
+                        "shopped": false,
+                        "item_name": item_nameTextField.text!,
+                        "created_at": created_at,
+                        "updated_at": now
+                    ]
+                    ))
+            }
+            else
+            {
+                
+                isNew = true
+                
+                newItem = Item(ItemDict: NSDictionary(dictionary:
+                    [
+                        "grocery_list_id": grocery_list_id,
+                        "category": category,
+                        "text": textTextField.text! ,
+                        "recipe_name": recipe_nameTextField.text!,
+                        "shopped": false,
+                        "item_name": item_nameTextField.text!,
+                        "created_at": created_at,
+                        "updated_at": now
+                    ]
+                    ))
+            }
+            
+            
+            
+            delegator.itemWasCreated(newItem,isNew: isNew)
+        }
+
     }
     
     /*

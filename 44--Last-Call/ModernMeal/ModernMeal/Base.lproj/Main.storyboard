@@ -361,14 +361,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g: Tomato" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1w-hU-Uut">
-                                <rect key="frame" x="30" y="52" width="541" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gcc-tM-Dgv" id="Pra-FL-f4Q"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX1-6z-arj">
                                 <rect key="frame" x="258" y="28" width="85" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -400,6 +392,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                 <connections>
+                                    <action selector="item_nameActionEditingDidEnd:" destination="gcc-tM-Dgv" eventType="editingDidEnd" id="PN7-ux-f34"/>
+                                    <action selector="item_nameActionEditiongChanged:" destination="gcc-tM-Dgv" eventType="editingChanged" id="OtT-sH-3G6"/>
                                     <outlet property="delegate" destination="gcc-tM-Dgv" id="pAg-36-bLX"/>
                                 </connections>
                             </textField>
@@ -416,6 +410,16 @@
                                     <outlet property="delegate" destination="gcc-tM-Dgv" id="2Uv-JQ-IcH"/>
                                 </connections>
                             </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g: Tomato" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1w-hU-Uut">
+                                <rect key="frame" x="30" y="52" width="541" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes"/>
+                                <connections>
+                                    <action selector="item_nameActionEditingDidEnd:" destination="gcc-tM-Dgv" eventType="editingDidEnd" id="zOu-Kb-WZw"/>
+                                    <action selector="item_nameActionEditiongChanged:" destination="gcc-tM-Dgv" eventType="editingChanged" id="DRu-rX-uDt"/>
+                                    <outlet property="delegate" destination="gcc-tM-Dgv" id="f0a-U2-7vk"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -468,10 +472,6 @@
                                 <exclude reference="Tmr-Z0-cci"/>
                                 <exclude reference="Ydc-SF-TvV"/>
                                 <exclude reference="wre-NV-0l8"/>
-                                <exclude reference="17d-wm-vSe"/>
-                                <exclude reference="mvP-gD-rGu"/>
-                                <exclude reference="f2y-P4-6Gv"/>
-                                <exclude reference="v4R-ad-uNb"/>
                                 <exclude reference="M91-xm-dKF"/>
                                 <exclude reference="OgE-Qa-sQA"/>
                                 <exclude reference="hUx-Sq-aTf"/>
@@ -479,9 +479,13 @@
                                 <exclude reference="6Nf-Hr-e2N"/>
                                 <exclude reference="UrD-au-FOe"/>
                                 <exclude reference="ywZ-WQ-nXY"/>
-                                <exclude reference="E5R-TG-Npr"/>
+                                <exclude reference="f2y-P4-6Gv"/>
+                                <exclude reference="v4R-ad-uNb"/>
+                                <exclude reference="17d-wm-vSe"/>
+                                <exclude reference="mvP-gD-rGu"/>
                                 <exclude reference="E0x-xZ-8cX"/>
                                 <exclude reference="w3o-vn-6xV"/>
+                                <exclude reference="E5R-TG-Npr"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -489,17 +493,17 @@
                                 <exclude reference="GNl-tf-Ulo"/>
                                 <exclude reference="SIz-Hx-xNk"/>
                                 <include reference="wre-NV-0l8"/>
-                                <include reference="17d-wm-vSe"/>
-                                <exclude reference="Yu0-SE-vcr"/>
-                                <exclude reference="cTb-TW-sLd"/>
-                                <include reference="mvP-gD-rGu"/>
-                                <include reference="f2y-P4-6Gv"/>
-                                <exclude reference="lMA-Vo-5Zm"/>
                                 <exclude reference="CyA-Pp-6TO"/>
                                 <include reference="OgE-Qa-sQA"/>
                                 <include reference="0b9-py-KKW"/>
                                 <exclude reference="kDc-dW-KNA"/>
                                 <include reference="ywZ-WQ-nXY"/>
+                                <include reference="f2y-P4-6Gv"/>
+                                <exclude reference="lMA-Vo-5Zm"/>
+                                <include reference="17d-wm-vSe"/>
+                                <exclude reference="Yu0-SE-vcr"/>
+                                <exclude reference="cTb-TW-sLd"/>
+                                <include reference="mvP-gD-rGu"/>
                                 <exclude reference="1m5-Bx-Yxg"/>
                                 <include reference="E0x-xZ-8cX"/>
                                 <exclude reference="MQN-S8-tzX"/>
