@@ -26,6 +26,17 @@ class NotesViewController: UIViewController, UITextViewDelegate
         addNoteTextField.text = notes
         addNoteTextField.becomeFirstResponder()
     }
+    
+    //nescesary to clean the array in the right navigation bar
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        self.tabBarController?.navigationItem.rightBarButtonItems = []//self.editButtonItem()]
+        
+        
+    }
 
     override func didReceiveMemoryWarning()
     {

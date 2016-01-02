@@ -54,16 +54,16 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.title = groceryList.get_name()
-        
-        //self.editButtonItem().image = UIImage(named: "bookmark.png")//  UIBarButtonSystemItem.Compose
-        
+                
         let editItemButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "editItemButtonAction:")
 
         let addItemButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addItemButtonAction:")
  
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-            self.tabBarController?.navigationItem.rightBarButtonItems = [addItemButton, editItemButton]//self.editButtonItem()]
+        self.tabBarController?.navigationItem.rightBarButtonItems = [addItemButton, editItemButton]//self.editButtonItem()]
+        
+        self.tabBarController?.navigationItem.rightBarButtonItems?.last?.enabled = false
        
     }
     
@@ -100,48 +100,46 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     //MARK: - Send Back the updated Item list
-//    override func viewDidDisappear(animated: Bool)
-//    {
-//        // This fetching is nescesary for avoid ani mutation in the array order 
-////                if undoHistory.count > 0
-////                {
-//                    var undoIDHistoryDict = [Int: NSDictionary]()
-//        
-//                    for item in undoHistory
-//                    {
-//                        let indexPath:NSIndexPath = item as! NSIndexPath
-//                        
-//                        //>>>>> Reform it!!
-//                        if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
-//                        {
-//                            undoIDHistoryDict[anItem.id] = anItem.getDictionary()
-//                        }
-//        
-//                    }
-//        
-//                    var grocery_list_items_copy: Array<NSDictionary> = []
-//        
-//                    for groceryItem in grocery_list_items
-//                    {
-//                        
-//                        //>>>>> Reform it!!
-//        
-//                        if let aDictionary: NSDictionary = undoIDHistoryDict[Int(groceryItem["id"] as! NSNumber)]
-//                        {
-//                            grocery_list_items_copy.append(aDictionary)
-//                        }
-//                        else
-//                        {
-//                            grocery_list_items_copy.append(groceryItem)
-//                        }
-//        
-//        
-//                    }
-//                    
-//                    delegator.didChangeItemsList(grocery_list_items_copy)
-////                }
-//        
-//    }
+    override func viewDidDisappear(animated: Bool)
+    {
+        // This fetching is nescesary for avoid any mutation in the array order
+//                if undoHistory.count > 0
+//                {
+                    var undoIDHistoryDict = [Int: NSDictionary]()
+        
+                    for item in undoHistory
+                    {
+                        let indexPath:NSIndexPath = item as! NSIndexPath
+                        
+                        if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
+                        {
+                            undoIDHistoryDict[anItem.id] = anItem.getDictionary()
+                        }
+        
+                    }
+        
+                    var grocery_list_items_copy: Array<NSDictionary> = []
+        
+                    for groceryItem in grocery_list_items
+                    {
+                        
+        
+                        if let aDictionary: NSDictionary = undoIDHistoryDict[Int(groceryItem["id"] as! NSNumber)]
+                        {
+                            grocery_list_items_copy.append(aDictionary)
+                        }
+                        else
+                        {
+                            grocery_list_items_copy.append(groceryItem)
+                        }
+        
+        
+                    }
+                    
+                    delegator.didChangeItemsList(grocery_list_items_copy)
+//                }
+        
+    }
     //===================================================================================================================
     
     // MARK: - Table view data source and functions
@@ -226,26 +224,36 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
      func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
-        if cell!.accessoryType == UITableViewCellAccessoryType.None
+        if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
         {
-            cell!.accessoryType = .Checkmark
-            undoHistory.addObject(indexPath)
-            anItem.shopped = true
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            
+            if cell!.accessoryType == UITableViewCellAccessoryType.None
+            {
+                cell!.accessoryType = .Checkmark
+//                undoHistory.addObject(indexPath)
+                anItem.shopped = true
+            }
+            else
+            {
+                cell!.accessoryType = .None
+//                undoHistory.removeObject(indexPath)
+                anItem.shopped = false
+            }
+            
+            if !undoHistory.containsObject(indexPath)
+            {
+                undoHistory.addObject(indexPath)
+            }
+            
+            
+            currentCellIndexPath = indexPath
+            
+            self.tabBarController?.navigationItem.rightBarButtonItems?.last?.enabled = true
+
+            //tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
-        else
-        {
-            cell!.accessoryType = .None
-            undoHistory.removeObject(indexPath)
-            anItem.shopped = false
-        }
-        
-        
-        currentCellIndexPath = indexPath
-        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
     }
     
@@ -268,6 +276,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             // Delete the row from the data source
             if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
             {
+                undoHistory.removeObject(indexPath)
+                self.tabBarController?.navigationItem.rightBarButtonItems?.last?.enabled = false
+
                 //if the element exist, erase it
                 groceryListItemsDictionary[category_order[indexPath.section]]?.removeAtIndex(indexPath.row)
                 //delete table cell
@@ -285,7 +296,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     //===================================================================================================================
-    
+
     //MARK: - Section titles
     
     //===================================================================================================================
@@ -300,6 +311,20 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         return ""
     }
     
+    
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    }
+    */
+    
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    // Return false if you do not want the item to be re-orderable.
+    return true
+    }
+    */
     
    
     //===================================================================================================================
@@ -318,7 +343,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             {
                 let indexPath:NSIndexPath = undoHistory.lastObject as! NSIndexPath
                 let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
-                anItem.shopped = false
+                anItem.shopped = !anItem.shopped //change the state for the last one
+                self.tabBarController?.navigationItem.rightBarButtonItems?.last?.enabled = false
+
                 undoHistory.removeObject(indexPath)
                // print("removed: \(indexPath)")
                 
@@ -330,20 +357,6 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
 
     
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
     
     //===================================================================================================================
     //MARK: - Action Handlers
@@ -361,6 +374,11 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         addItemVC.category_order = category_order
         navigationController?.pushViewController(addItemVC, animated: true)
         
+        if currentCellIndexPath != nil
+        {
+            tableView.deselectRowAtIndexPath(currentCellIndexPath, animated: true)
+        }
+        
     }
     
     //MARK: Edit item attributes
@@ -375,6 +393,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             addItemVC.grocery_list_id = groceryList.id
             addItemVC.category_order = category_order
             navigationController?.pushViewController(addItemVC, animated: true)
+            tableView.deselectRowAtIndexPath(currentCellIndexPath, animated: true)
         }
     }
     //===================================================================================================================
@@ -401,7 +420,14 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             }
             else
             {
+                //if exists in the history shoped erase it
+                if undoHistory.containsObject(currentCellIndexPath)
+                {
+                    undoHistory.removeObject(currentCellIndexPath)
+
+                }
                 //remove the old item
+
                 groceryListItemsDictionary[category_order[currentCellIndexPath.section]]!.removeAtIndex(currentCellIndexPath.row)
                 //delete table cell
                 tableView.deleteRowsAtIndexPaths([currentCellIndexPath], withRowAnimation: .Fade)

@@ -63,18 +63,22 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         // Do any additional setup after loading the view.
     }
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     //MARK: - SendBack Info
     override func viewWillDisappear(animated: Bool)
     {
     }
     
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
+    
+    //===================================================================================================================
     //MARK: - Text Field functions
+    //===================================================================================================================
     
     @IBAction func item_nameActionEditingDidEnd(sender: UITextField)
     {
@@ -103,8 +107,10 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
         }
     }
     
-    
+    //===================================================================================================================
     //MARK: - Picker Functions
+    //===================================================================================================================
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
         return 1
@@ -131,8 +137,9 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
         return date
         
     }
-    
+    //===================================================================================================================
     //MARK: - Action Handlers 
+    //===================================================================================================================
     
     func saveItemButtonAction(sender:UIBarButtonItem)
     {
@@ -153,6 +160,9 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
                 created_at = now
             }
             
+            var tit:String = ""
+            var msj:String = ""
+            
             //check if is an new Item or edition
             if let mierda = newItem?.id
             {
@@ -170,6 +180,10 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
                         "updated_at": now
                     ]
                     ))
+                
+                tit = "\(item_nameTextField.text!) was updated!"
+                msj = "This item was updated at \(category) in your grocery list."
+                
             }
             else
             {
@@ -188,11 +202,19 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
                         "updated_at": now
                     ]
                     ))
+                
+                tit = "\(item_nameTextField.text!) was created!"
+                msj = "This item was added to \(category) in your grocery list."
+
             }
             
-            
-            
+
             delegator.itemWasCreated(newItem,isNew: isNew)
+            
+            let popUpAlertController = UIAlertController(title: tit , message: msj, preferredStyle: UIAlertControllerStyle.Alert)
+            popUpAlertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
+            self.presentViewController(popUpAlertController, animated: true, completion: nil)
+            
         }
 
     }

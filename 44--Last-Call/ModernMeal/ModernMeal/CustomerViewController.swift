@@ -35,6 +35,17 @@ class CustomerViewController: UIViewController
         
         //change title button and view
     }
+    
+    //nescesary to clean the array in the right navigation bar 
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        self.tabBarController?.navigationItem.rightBarButtonItems = []//self.editButtonItem()]
+        
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
