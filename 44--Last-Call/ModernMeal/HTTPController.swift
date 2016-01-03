@@ -31,6 +31,7 @@ class HTTPController
         self.delegator = delegate
     }
     
+    //MARK: - SignIn session
     func singIn(email:String, password:String)
     {
         if token == nil
@@ -56,7 +57,7 @@ class HTTPController
             }
             catch let error as NSError
             {
-                print("data couldn't be parsed: \(error)")
+                print("data couldn't be parsed in sign in post data: \(error)")
             }
             
             let session = NSURLSession.sharedSession()
@@ -81,7 +82,7 @@ class HTTPController
                         }
                         catch let error as NSError
                         {
-                            print("data couln't be parsed: \(error)")
+                            print("data couln't be parsed in sign in authentication task: \(error)")
                         }
                         
                     }
@@ -91,27 +92,78 @@ class HTTPController
         
     }
     
-    func update(groeryList:GroceryList)
+    //MARK: - Create item in grocery list at server
+    func create(groceryListItem:Item) -> Bool
     {
+        var result = false
         
         if signedIn
         {
-            let fullUrl = "\(baseUrl)/api/v1/grocery_lists/\(groeryList.id)?auth_token="+token
-            let request = NSMutableURLRequest(URL: NSURL(string: fullUrl)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
+            
+            let fullURL = "\(baseUrl)/api/v1/grocery_list_items/?auth_token="+token
+            let request = NSMutableURLRequest(URL: NSURL(string: fullURL)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.HTTPMethod = "POST"
-            let updateData = groeryList.getGroceryListJSONAsNSDictionary()
+            let createData = groceryListItem.getDictionary()
             
             do
             {
-                let postData = try NSJSONSerialization.dataWithJSONObject(updateData!, options: NSJSONWritingOptions.PrettyPrinted)
+                let postData = try NSJSONSerialization.dataWithJSONObject(createData, options: NSJSONWritingOptions.PrettyPrinted)
                 request.HTTPBody = postData
                 
             }
             catch let error as NSError
             {
-                print("data couldn't be parsed: \(error)")
+                print("data couldn't be parsed in create: \(error)")
+            }
+            
+            let session = NSURLSession.sharedSession()
+            let createTask: NSURLSessionDataTask = session.dataTaskWithRequest(request) // here I send the json file modified
+                {
+                    data, response, error -> Void in
+                    if error == nil
+                    {
+                        print("item was created, response: \(response)")
+                        result =  true
+                        
+                        
+                    }
+                    else
+                    {
+                        print("item error updating, error: \(error?.localizedDescription)")
+                        
+                    }
+            }
+            createTask.resume()
+        }
+        
+        return result
+    }
+    
+    //MARK: - Update item in grocery list at server
+    func update(groceryListItem:Item) -> Bool
+    {
+        var result = false
+        
+        if signedIn
+        {
+            let fullUrl = "\(baseUrl)/api/v1/grocery_list_items/\(groceryListItem.id)?auth_token="+token
+            let request = NSMutableURLRequest(URL: NSURL(string: fullUrl)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.HTTPMethod = "PUT"
+            let updateData = groceryListItem.getDictionary()
+            
+            do
+            {
+                let postData = try NSJSONSerialization.dataWithJSONObject(updateData, options: NSJSONWritingOptions.PrettyPrinted)
+                request.HTTPBody = postData
+                
+            }
+            catch let error as NSError
+            {
+                print("data couldn't be parsed in update: \(error)")
             }
             
             let session = NSURLSession.sharedSession()
@@ -120,31 +172,69 @@ class HTTPController
                     data, response, error -> Void in
                     if error == nil
                     {
-                        print("data was sent: \(response)")
-                        
-//                        do
-//                        {
-//                            let postData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-////                            if let postDataDict:NSDictionary = (postData as! NSDictionary)
-////                            {
-////                                //self.token = postDataDict["token"] as! NSString as String
-////                                
-//                                print("data was sent: \(postData)")
-////
-////                               // self.delegator.didReceiveHTTPResults(self.token)
-////                            }
-//                        }
-//                        catch let error as NSError
-//                        {
-//                            print("data couln't be sent: \(error)")
-//                        }
+                        print("item was updated, response: \(response)")
+                        result =  true
                         
                         
+                    }
+                    else
+                    {
+                        print("item error updating, error: \(error?.localizedDescription)")
                         
                     }
             }
             updateDataTask.resume()
         }
+        return result
         
     }
+    
+    //MARK: - Delete item in grocery list at server
+    func delete(groceryListItem:Item) -> Bool
+    {
+        var result = false
+        
+        if signedIn
+        {
+            let fullUrl = "\(baseUrl)/api/v1/grocery_list_items/\(groceryListItem.id)?auth_token="+token
+            let request = NSMutableURLRequest(URL: NSURL(string: fullUrl)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.HTTPMethod = "DELETE"
+            let deleteData = groceryListItem.getDictionary()
+            
+            do
+            {
+                let postData = try NSJSONSerialization.dataWithJSONObject(deleteData, options: NSJSONWritingOptions.PrettyPrinted)
+                request.HTTPBody = postData
+                
+            }
+            catch let error as NSError
+            {
+                print("data couldn't be parsed in delete: \(error)")
+            }
+            
+            let session = NSURLSession.sharedSession()
+            let deleteTask: NSURLSessionDataTask = session.dataTaskWithRequest(request) // here I send the json file modified
+                {
+                    data, response, error -> Void in
+                    if error == nil
+                    {
+                        print("item was deleted, response: \(response)")
+                        result =  true
+                        
+                    }
+                    else
+                    {
+                        print("item error deleting, error: \(error?.localizedDescription)")
+                        
+                    }
+            }
+            deleteTask.resume()
+        }
+        return result
+        
+        
+    }
+
 }

@@ -26,13 +26,14 @@ protocol sendBackTaskToServerProtocol
 }
 
 var api: APIController!
+var httpController: HTTPController!
 
 class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDelegate, HTTPControllerProtocol, APIControllerProtocol, sendBackTaskToServerProtocol
 {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var httpController: HTTPController!
+    
     var arrayResults = [Int:NSDictionary]()
     var arrayIDs: NSMutableArray!
     //var api: APIController!
@@ -125,7 +126,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, NSURLSessionDel
     {
         dispatch_async(dispatch_get_main_queue(),
             {
-                self.httpController.update(groceryList)
+//                httpController.update(groceryList)
         })
     }
 

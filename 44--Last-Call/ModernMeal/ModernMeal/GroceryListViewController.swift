@@ -29,7 +29,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     var current_categories:Array<String> = []
     
     
-    var undoHistory:NSMutableArray = []
+    var undoShoppedHistory:NSMutableArray = []
+    
     var currentCellIndexPath:NSIndexPath!
     
     
@@ -105,37 +106,80 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         // This fetching is nescesary for avoid any mutation in the array order
 //                if undoHistory.count > 0
 //                {
-                    var undoIDHistoryDict = [Int: NSDictionary]()
+//                    var undoIDHistoryDict = [Int: NSDictionary]()
         
-                    for item in undoHistory
+//                    for item in undoShoppedHistory
+//                    {
+//                        let indexPath:NSIndexPath = item as! NSIndexPath
+//                        
+//                        if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
+//                        {
+//                            undoIDHistoryDict[anItem.id] = anItem.getDictionary()
+//                        }
+//        
+//                    }
+//        
+//                    var grocery_list_items_copy: Array<NSDictionary> = []
+//        
+//                    for groceryItem in grocery_list_items
+//                    {
+//                        
+//        
+//                        if let aDictionary: NSDictionary = undoIDHistoryDict[Int(groceryItem["id"] as! NSNumber)]
+//                        {
+//                            grocery_list_items_copy.append(aDictionary)
+//                        }
+//                        else
+//                        {
+//                            grocery_list_items_copy.append(groceryItem)
+//                        }
+//        
+//        
+//                    }
+        
+        var groceryListItemsByID = [Int: NSDictionary]()
+        var new_grocery_list_item_ids: Array<Int> = []
+        var new_items: Array<NSDictionary> = []
+        
+        
+        for aCategory in category_order
+        {
+            if groceryListItemsDictionary[aCategory]?.count > 0
+            {
+                for anItem in groceryListItemsDictionary[aCategory]!
+                {
+                    if let id = anItem.id
                     {
-                        let indexPath:NSIndexPath = item as! NSIndexPath
-                        
-                        if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
-                        {
-                            undoIDHistoryDict[anItem.id] = anItem.getDictionary()
-                        }
-        
+                        groceryListItemsByID[id] = anItem.getDictionary()
+                        new_grocery_list_item_ids.append(id)
                     }
-        
-                    var grocery_list_items_copy: Array<NSDictionary> = []
-        
-                    for groceryItem in grocery_list_items
+                    else
                     {
-                        
-        
-                        if let aDictionary: NSDictionary = undoIDHistoryDict[Int(groceryItem["id"] as! NSNumber)]
-                        {
-                            grocery_list_items_copy.append(aDictionary)
-                        }
-                        else
-                        {
-                            grocery_list_items_copy.append(groceryItem)
-                        }
-        
-        
+                        new_items.append(anItem.getDictionary())
                     }
-                    
+                }
+            }
+        }
+        
+        new_grocery_list_item_ids = new_grocery_list_item_ids.sort()
+        
+        
+        var grocery_list_items_copy: Array<NSDictionary> = []
+
+        
+        //creating a new grocery list sorted to send back
+        for itemID in new_grocery_list_item_ids
+        {
+            
+            grocery_list_items_copy.append(groceryListItemsByID[itemID]!)
+            
+        }
+        for newItem in new_items
+        {
+            grocery_list_items_copy.append(newItem)
+        }
+
+        
                     delegator.didChangeItemsList(grocery_list_items_copy)
 //                }
         
@@ -242,9 +286,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
                 anItem.shopped = false
             }
             
-            if !undoHistory.containsObject(indexPath)
+            if !undoShoppedHistory.containsObject(indexPath)
             {
-                undoHistory.addObject(indexPath)
+                undoShoppedHistory.addObject(indexPath)
             }
             
             
@@ -276,13 +320,35 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             // Delete the row from the data source
             if let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
             {
-                undoHistory.removeObject(indexPath)
-                self.tabBarController?.navigationItem.rightBarButtonItems?.last?.enabled = false
-
-                //if the element exist, erase it
-                groceryListItemsDictionary[category_order[indexPath.section]]?.removeAtIndex(indexPath.row)
-                //delete table cell
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                anItem.method = "DELETE"
+                
+                //if item was deleted in the server, delete it in the app
+                if httpController.delete(anItem)
+                {
+                    
+                    undoShoppedHistory.removeObject(indexPath)
+                    self.tabBarController?.navigationItem.rightBarButtonItems?.last?.enabled = false
+                    
+                    //if the element exist, erase it
+                    groceryListItemsDictionary[category_order[indexPath.section]]?.removeAtIndex(indexPath.row)
+                    //delete table cell
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }
+                else
+                {
+                    //IN HERE IS NECESSARY ADD THIS ITEM AT THE HISTORY OF NOT CONNECTION ITEMS at httpController
+                    undoShoppedHistory.removeObject(indexPath)
+                    self.tabBarController?.navigationItem.rightBarButtonItems?.last?.enabled = false
+                    
+                    //if the element exist, erase it
+                    groceryListItemsDictionary[category_order[indexPath.section]]?.removeAtIndex(indexPath.row)
+                    //delete table cell
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    
+                    let popUpAlertController = UIAlertController(title: "Error deleting \(anItem.item_name)!" , message: "This item was deleted at \(anItem.category)  but can not be created in the ModernMeal server because there is a problem with the Internet connection. The grocery list will be updated once the Internet connection is restored", preferredStyle: UIAlertControllerStyle.Alert)
+                    popUpAlertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
+                    self.presentViewController(popUpAlertController, animated: true, completion: nil)
+                }
             }
             
             
@@ -339,14 +405,14 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     {
         if motion == .MotionShake
         {
-            if undoHistory.count > 0
+            if undoShoppedHistory.count > 0
             {
-                let indexPath:NSIndexPath = undoHistory.lastObject as! NSIndexPath
+                let indexPath:NSIndexPath = undoShoppedHistory.lastObject as! NSIndexPath
                 let anItem:Item = groceryListItemsDictionary[category_order[indexPath.section]]![indexPath.row]
                 anItem.shopped = !anItem.shopped //change the state for the last one
                 self.tabBarController?.navigationItem.rightBarButtonItems?.last?.enabled = false
 
-                undoHistory.removeObject(indexPath)
+                undoShoppedHistory.removeObject(indexPath)
                // print("removed: \(indexPath)")
                 
                 tableView.reloadData()
@@ -409,6 +475,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         {
             //add the new item at the right category
             groceryListItemsDictionary[item.category]!.append(item)
+            
         }
         else
         {
@@ -421,9 +488,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             else
             {
                 //if exists in the history shoped erase it
-                if undoHistory.containsObject(currentCellIndexPath)
+                if undoShoppedHistory.containsObject(currentCellIndexPath)
                 {
-                    undoHistory.removeObject(currentCellIndexPath)
+                    undoShoppedHistory.removeObject(currentCellIndexPath)
 
                 }
                 //remove the old item

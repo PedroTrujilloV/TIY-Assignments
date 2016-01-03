@@ -164,7 +164,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
             var msj:String = ""
             
             //check if is an new Item or edition
-            if let mierda = newItem?.id
+            if let id = newItem?.id
             {
                 newItem = Item(ItemDict: NSDictionary(dictionary:
                     [
@@ -181,8 +181,22 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
                     ]
                     ))
                 
-                tit = "\(item_nameTextField.text!) was updated!"
-                msj = "This item was updated at \(category) in your grocery list."
+                newItem.method = "PUT"
+                
+                if httpController.update(newItem)
+                {
+                    tit = "\(item_nameTextField.text!) was updated!"
+                    msj = "This item was updated at \(category) in your grocery list."
+                }
+                else
+                {
+                    //IN HERE IS NECESSARY ADD THIS ITEM AT THE HISTORY OF NOT CONNECTION ITEMS at httpController
+
+                    tit = "Error updating \(item_nameTextField.text!)!"
+                    msj = "This item was updated at \(category) but can not be updated in the ModernMeal server because there is a problem with the Internet connection. The grocery list will be updated once the Internet connection is restored"
+                }
+                
+                
                 
             }
             else
@@ -203,11 +217,24 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UIPickerView
                     ]
                     ))
                 
-                tit = "\(item_nameTextField.text!) was created!"
-                msj = "This item was added to \(category) in your grocery list."
+                newItem.method = "POST"
+                
+                if httpController.create(newItem)
+                {
+                    tit = "\(item_nameTextField.text!) was created!"
+                    msj = "This item was added to \(category) in your grocery list."
+                
+                }
+                else
+                {
+                    //IN HERE IS NECESSARY ADD THIS ITEM AT THE HISTORY OF NOT CONNECTION ITEMS at httpController
+
+                    tit = "Error adding \(item_nameTextField.text!)!"
+                    msj = "This item was added at \(category)  but can not be created in the ModernMeal server because there is a problem with the Internet connection. The grocery list will be updated once the Internet connection is restored"
+                }
 
             }
-            
+        
 
             delegator.itemWasCreated(newItem,isNew: isNew)
             

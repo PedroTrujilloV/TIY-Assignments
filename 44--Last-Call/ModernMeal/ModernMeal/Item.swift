@@ -23,6 +23,8 @@ class Item
     var created_at:String!
     var updated_at:String!
     
+    var method:String!
+    
     
     
     init()
