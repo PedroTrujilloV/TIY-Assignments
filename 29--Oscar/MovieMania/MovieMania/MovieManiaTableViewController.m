@@ -23,7 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"CineMania! 🎬";
+    self.title = @"MovieMania! 🎬";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor redColor]};
 
     self.view.backgroundColor = [UIColor blackColor];

@@ -39,7 +39,7 @@ class TimeCircuitsViewController: UIViewController {
     override func viewWillDisappear(animated: Bool)
     {
         super.viewWillDisappear(animated)
-        delegate?.dateWasPicked(datePickerString)
+        delegate?.dateWasPicked(datePicker.date)//datePickerString)
         
         
         print("TimeCircuits")

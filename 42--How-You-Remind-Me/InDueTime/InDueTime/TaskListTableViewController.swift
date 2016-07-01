@@ -21,7 +21,7 @@ import CoreData
 
 @objc protocol TimeCircuitsDelegate
 {
-    func dateWasPicked(datePickerDateString:String)
+    func dateWasPicked(aDate: NSDate)//datePickerDateString:String)
 }
 
 
@@ -313,11 +313,11 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
     
     //MARK: - Notifications
     
-    func sendNotifications(dateString:String, task:Task)
+    func sendNotifications(aDate:NSDate,dateString:String, task:Task)
     {
-        let dateFromater = NSDateFormatter()
-        dateFromater.dateFormat = "MMM dd, yyyy"
-        let date = dateFromater.dateFromString(dateString)
+//        let dateFromater = NSDateFormatter()
+//        dateFromater.dateFormat = "MMM dd, yyyy"
+        let date = aDate//dateFromater.dateFromString(dateString)
         
         print("timeinterval")
        // print(date?.timeIntervalSinceDate(NSDate()))
@@ -341,14 +341,20 @@ class TaskListTableViewController: UITableViewController, UITextFieldDelegate, T
 
     //MARK: - Delegate from table picker view
     
-    func dateWasPicked(datePickerDateString:String)
+    func dateWasPicked(aDate: NSDate)//datePickerDateString:String)
     {
         print("Outa..")
-        print(datePickerDateString)
+       // print(datePickerDateString)
+        print(aDate)
         
+        let dateFormater: NSDateFormatter = NSDateFormatter()
+        dateFormater.dateStyle = .MediumStyle
+        dateFormater.dateFormat = "MMM dd, yyyy"
+        dateFormater.timeStyle = .ShortStyle
+        let datePickerString = dateFormater.stringFromDate(aDate)
        
-        taskList[buttonSelectedIndexPath.row].dueDateTask = datePickerDateString
-        sendNotifications(datePickerDateString,task: taskList[buttonSelectedIndexPath.row])
+        taskList[buttonSelectedIndexPath.row].dueDateTask = datePickerString
+        sendNotifications(aDate,dateString: datePickerString,task: taskList[buttonSelectedIndexPath.row])
         saveContext()
         tableView.reloadData()
       

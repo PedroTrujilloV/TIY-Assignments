@@ -93,7 +93,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate
             mapView.addConstraint(widthConstrain)
             
             
-            heighConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice * 0.7)
+            heighConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice * 0.8)
             mapView.addConstraint(heighConstrain)
             
             
@@ -218,7 +218,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate
         mapView.addConstraint(widthConstrain)
         // view.addConstraint(widthConstraint) // also works
         
-        heighConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice * 0.7)
+        heighConstrain = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: widthDevice * 0.8)
          mapView.addConstraint(heighConstrain)
         
         updateConstraints()

@@ -7,23 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		682719F01BD75B5900E50F31 /* TimeCircuitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		685837601C0E2F76006DB8C0 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858375E1C0E2F76006DB8C0 /* Task+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		685837611C0E2F76006DB8C0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858375F1C0E2F76006DB8C0 /* Task.swift */; settings = {ASSET_TAGS = (); }; };
+		682719F01BD75B5900E50F31 /* TimeCircuitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */; };
+		685837601C0E2F76006DB8C0 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858375E1C0E2F76006DB8C0 /* Task+CoreDataProperties.swift */; };
+		685837611C0E2F76006DB8C0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858375F1C0E2F76006DB8C0 /* Task.swift */; };
 		6880BF0B1BD6B72700A97AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF0A1BD6B72700A97AC1 /* AppDelegate.swift */; };
 		6880BF101BD6B72700A97AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6880BF0E1BD6B72700A97AC1 /* Main.storyboard */; };
 		6880BF131BD6B72700A97AC1 /* InDueTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF111BD6B72700A97AC1 /* InDueTime.xcdatamodeld */; };
 		6880BF151BD6B72700A97AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6880BF141BD6B72700A97AC1 /* Assets.xcassets */; };
 		6880BF181BD6B72700A97AC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6880BF161BD6B72700A97AC1 /* LaunchScreen.storyboard */; };
-		6880BF2C1BD6CAED00A97AC1 /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF2B1BD6CAED00A97AC1 /* TaskListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		6880BF2E1BD6CBF700A97AC1 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF2D1BD6CBF700A97AC1 /* TaskCell.swift */; settings = {ASSET_TAGS = (); }; };
+		6880BF2C1BD6CAED00A97AC1 /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF2B1BD6CAED00A97AC1 /* TaskListTableViewController.swift */; };
+		6880BF2E1BD6CBF700A97AC1 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880BF2D1BD6CBF700A97AC1 /* TaskCell.swift */; };
+		EB095BCA1D26054C0061FA64 /* ToDo.png in Resources */ = {isa = PBXBuildFile; fileRef = EB095BC91D26054C0061FA64 /* ToDo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		682719EF1BD75B5900E50F31 /* TimeCircuitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCircuitsViewController.swift; sourceTree = "<group>"; };
 		6858375E1C0E2F76006DB8C0 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataProperties.swift"; path = "../Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6858375F1C0E2F76006DB8C0 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = ../Task.swift; sourceTree = "<group>"; };
-		6880BF071BD6B72700A97AC1 /* InDueTime2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InDueTime2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6880BF071BD6B72700A97AC1 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6880BF0A1BD6B72700A97AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6880BF0F1BD6B72700A97AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6880BF121BD6B72700A97AC1 /* InDueTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InDueTime.xcdatamodel; sourceTree = "<group>"; };
@@ -32,6 +33,7 @@
 		6880BF191BD6B72700A97AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6880BF2B1BD6CAED00A97AC1 /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		6880BF2D1BD6CBF700A97AC1 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		EB095BC91D26054C0061FA64 /* ToDo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,7 @@
 		6880BF081BD6B72700A97AC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6880BF071BD6B72700A97AC1 /* InDueTime2.app */,
+				6880BF071BD6B72700A97AC1 /* ToDo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +72,7 @@
 				6880BF2B1BD6CAED00A97AC1 /* TaskListTableViewController.swift */,
 				6880BF0E1BD6B72700A97AC1 /* Main.storyboard */,
 				6880BF2D1BD6CBF700A97AC1 /* TaskCell.swift */,
+				EB095BC91D26054C0061FA64 /* ToDo.png */,
 				6880BF141BD6B72700A97AC1 /* Assets.xcassets */,
 				6880BF161BD6B72700A97AC1 /* LaunchScreen.storyboard */,
 				6880BF191BD6B72700A97AC1 /* Info.plist */,
@@ -83,9 +86,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6880BF061BD6B72700A97AC1 /* InDueTime2 */ = {
+		6880BF061BD6B72700A97AC1 /* ToDo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6880BF1C1BD6B72700A97AC1 /* Build configuration list for PBXNativeTarget "InDueTime2" */;
+			buildConfigurationList = 6880BF1C1BD6B72700A97AC1 /* Build configuration list for PBXNativeTarget "ToDo" */;
 			buildPhases = (
 				6880BF031BD6B72700A97AC1 /* Sources */,
 				6880BF041BD6B72700A97AC1 /* Frameworks */,
@@ -95,9 +98,9 @@
 			);
 			dependencies = (
 			);
-			name = InDueTime2;
+			name = ToDo;
 			productName = InDueTime;
-			productReference = 6880BF071BD6B72700A97AC1 /* InDueTime2.app */;
+			productReference = 6880BF071BD6B72700A97AC1 /* ToDo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6880BF021BD6B72700A97AC1 /* Build configuration list for PBXProject "InDueTime2" */;
+			buildConfigurationList = 6880BF021BD6B72700A97AC1 /* Build configuration list for PBXProject "ToDo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -127,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6880BF061BD6B72700A97AC1 /* InDueTime2 */,
+				6880BF061BD6B72700A97AC1 /* ToDo */,
 			);
 		};
 /* End PBXProject section */
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6880BF181BD6B72700A97AC1 /* LaunchScreen.storyboard in Resources */,
+				EB095BCA1D26054C0061FA64 /* ToDo.png in Resources */,
 				6880BF151BD6B72700A97AC1 /* Assets.xcassets in Resources */,
 				6880BF101BD6B72700A97AC1 /* Main.storyboard in Resources */,
 			);
@@ -270,7 +274,7 @@
 				INFOPLIST_FILE = InDueTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.InDueTime2;
-				PRODUCT_NAME = InDueTime2;
+				PRODUCT_NAME = ToDo;
 			};
 			name = Debug;
 		};
@@ -281,14 +285,14 @@
 				INFOPLIST_FILE = InDueTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.InDueTime2;
-				PRODUCT_NAME = InDueTime2;
+				PRODUCT_NAME = ToDo;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6880BF021BD6B72700A97AC1 /* Build configuration list for PBXProject "InDueTime2" */ = {
+		6880BF021BD6B72700A97AC1 /* Build configuration list for PBXProject "ToDo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6880BF1A1BD6B72700A97AC1 /* Debug */,
@@ -297,7 +301,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6880BF1C1BD6B72700A97AC1 /* Build configuration list for PBXNativeTarget "InDueTime2" */ = {
+		6880BF1C1BD6B72700A97AC1 /* Build configuration list for PBXNativeTarget "ToDo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6880BF1D1BD6B72700A97AC1 /* Debug */,

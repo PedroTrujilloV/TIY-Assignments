@@ -96,6 +96,11 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
         
         print(venue)
         cell.textLabel?.text = venue["name"] as! NSString as String
+        //print("location \(venue["location"] as! NSDictionary as Dictionary)")
+        //cell.textLabel?.text = ""
+        
+        
+//        cell.imageView?.image = UIImage(
 
         return cell
     }
@@ -118,6 +123,7 @@ class VenueMenuTableViewController: UITableViewController, SearchTableViewProtoc
             
             let venue:NSDictionary = parseJSONStringToNSDictionary(aVenue.infoDict!)!
             let id:String = venue["id"] as! NSString as String
+            print("---- id: \(id)")
             let index:Int = Int(venuesIDsArray.indexOf(id)!)
             venuesIDsArray.removeAtIndex(index)
 
